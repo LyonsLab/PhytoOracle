@@ -1,0 +1,68 @@
+{
+  "define": {
+    # Import from Args file with --jx-args cmd option
+    #"NUM_SET"
+    #"IRODS_DIR_PATH_LIST"
+    #"UUID_LIST"
+
+
+    "IRODS_BASE_PATH": "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/",
+    "ARCHIVE_DIR": "data/",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "SOILMASK_DIR": "soil_mask_out/",
+    "FIELDMOSAIC_DIR": "fieldmosaic_out/",
+    "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
+    "BETYDB_KEY": "9999999999999999999999999999999999999999",
+
+    "METADATA_CLEANED_LIST": [ CLEANED_META_DIR + UUID + "_metadata_cleaned.json" for UUID in UUID_LIST ],
+    "LEFT_SOILMASK_LIST": [ SOILMASK_DIR + UUID + "_left_mask.tif" for UUID in UUID_LIST ],
+    "RIGHT_SOILMASK_LIST": [ SOILMASK_DIR + UUID + "_right_mask.tif" for UUID in UUID_LIST ],
+    "MOSAIC_LIST_FILE": FIELDMOSAIC_DIR + "filelist.txt"
+  },
+  "rules": [
+    {
+      # sub-workflow
+      # The sub-workflow will pull the data itself
+      # From cleanmetadata to soil_mask
+      "workflow": "sub_workflow.jx",
+      "args": {
+        "IRODS_DIR_PATH": IRODS_DIR_PATH_LIST[INDEX],
+        "UUID": UUID_LIST[INDEX],
+        "ARCHIVE_DIR": ARCHIVE_DIR,
+        "BETYDB_URL": BETYDB_URL,
+        "BETYDB_KEY": BETYDB_KEY
+      },
+      "outputs": [
+        CLEANED_META_DIR + UUID_LIST[INDEX] + "_metadata_cleaned.json",
+        SOILMASK_DIR + UUID_LIST[INDEX] + "_left_mask.tif",
+        SOILMASK_DIR + UUID_LIST[INDEX] + "_right_mask.tif",
+      ]
+    } for INDEX in range(NUM_SET),
+    {
+      # Make directory to store FIELDMOSAIC files
+      "command": "mkdir -p ${FIELDMOSAIC_DIR}",
+      "environment": {
+        "FIELDMOSAIC_DIR": FIELDMOSAIC_DIR
+      },
+      "inputs": [],
+      "outputs": [
+        FIELDMOSAIC_DIR
+      ]
+    },
+    {
+      # Create MOSAIC_LIST_FILE file from the soilmask files
+      "command": "ls ${SOILMASK_DIR}*.tif > ${MOSAIC_LIST_FILE}",
+      "environment": {
+        "SOILMASK_DIR": SOILMASK_DIR,
+        "MOSAIC_LIST_FILE": MOSAIC_LIST_FILE
+      },
+      "inputs": [
+        FIELDMOSAIC_DIR
+      ] + LEFT_SOILMASK_LIST + RIGHT_SOILMASK_LIST,
+      "outputs": [
+        MOSAIC_LIST_FILE
+      ]
+    }
+  ]
+}

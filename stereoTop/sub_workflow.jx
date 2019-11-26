@@ -1,0 +1,151 @@
+{
+  "define": {
+
+    # Pass down by the main_workflow
+    #"IRODS_DIR_PATH": "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/2018-05-15/2018-05-15__12-04-43-833",
+    #"ARCHIVE_DIR": "2018-05-15__12-04-43-833/",
+    #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "TIFS_DIR": "bin2tif_out/",
+    "SOILMASK_DIR": "soil_mask_out/",
+    "FIELDMOSAIC_DIR": "fieldmosaic_out/",
+    #"BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
+    #"BETYDB_KEY": "9999999999999999999999999999999999999999",
+
+    "METADATA": ARCHIVE_DIR + UUID + "_metadata.json",
+    "LEFT_BIN": ARCHIVE_DIR + UUID + "_left.bin",
+    "RIGHT_BIN": ARCHIVE_DIR + UUID + "_right.bin",
+    "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
+    "LEFT_TIF": TIFS_DIR + UUID + "_left.tif",
+    "RIGHT_TIF": TIFS_DIR + UUID + "_right.tif",
+    "LEFT_SOILMASK": SOILMASK_DIR + UUID + "_left_mask.tif",
+    "RIGHT_SOILMASK": SOILMASK_DIR + UUID + "_right_mask.tif",
+    "MOSAIC_LIST_FILE": FIELDMOSAIC_DIR + "filelist.txt"
+  },
+  "rules": [
+    {
+      # Make directory to download archive file into
+      "command": "iget -rKf ${IRODS_DIR_PATH} ${ARCHIVE_DIR}",
+      "environment": {
+        "IRODS_DIR_PATH": IRODS_DIR_PATH,
+        "ARCHIVE_DIR": ARCHIVE_DIR
+      },
+      "inputs": [],
+      "outputs": [
+        METADATA,
+        LEFT_BIN,
+        RIGHT_BIN,
+        ARCHIVE_DIR
+      ]
+    },
+    {
+      # Make a cleaned copy of the metadata
+      "command": "mkdir -p ${WORKING_SPACE} && sudo docker run -u root --rm -e BETYDB_URL=${BETYDB_URL} -e BETYDB_KEY=${BETYDB_KEY} -v $(pwd):/mnt -w /mnt agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
+      "environment": {
+        "BETYDB_URL": BETYDB_URL,
+        "BETYDB_KEY": BETYDB_KEY,
+        "SENSOR": "stereoTop",
+        "METADATA": METADATA,
+        "WORKING_SPACE": CLEANED_META_DIR,
+        "USERID": ""
+      },
+      "inputs": [METADATA],
+      "outputs": [
+        CLEANED_META_DIR,
+        METADATA_CLEANED
+      ],
+      "local_job": true
+    },
+    {
+      # Make directory to store TIFF files
+      "command": "mkdir -p ${TIFS_DIR}",
+      "environment": {
+        "TIFS_DIR": TIFS_DIR
+      },
+      "inputs": [],
+      "outputs": [
+        TIFS_DIR
+      ]
+    },
+    {
+      # Convert LEFT bin/RGB image to TIFF format
+      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_BIN}",
+      "environment": {
+        "LEFT_BIN": LEFT_BIN,
+        "METADATA": METADATA_CLEANED,
+        "WORKING_SPACE": TIFS_DIR
+    },
+      "inputs": [
+        TIFS_DIR,
+        LEFT_BIN,
+        METADATA_CLEANED
+      ],
+      "outputs": [
+        LEFT_TIF
+      ]
+    },
+    {
+      # Convert RIGHT bin/RGB image to TIFF format
+      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
+      "environment": {
+        "RIGHT_BIN": RIGHT_BIN,
+        "METADATA": METADATA_CLEANED,
+        "WORKING_SPACE": TIFS_DIR
+    },
+      "inputs": [
+        TIFS_DIR,
+        RIGHT_BIN,
+        METADATA_CLEANED
+      ],
+      "outputs": [
+        RIGHT_TIF
+      ]
+    },
+    {
+      # Make directory to store SOILMASK files
+      "command": "mkdir -p ${SOILMASK_DIR}",
+      "environment": {
+        "SOILMASK_DIR": SOILMASK_DIR
+      },
+      "inputs": [],
+      "outputs": [
+        SOILMASK_DIR
+      ]
+    },
+    {
+      # Generate soil mask from LEFT TIFF image
+      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
+      "environment": {
+        "LEFT_TIF": LEFT_TIF,
+        "METADATA": METADATA_CLEANED,
+        "WORKING_SPACE": SOILMASK_DIR
+    },
+      "inputs": [
+        SOILMASK_DIR,
+        LEFT_TIF,
+        METADATA_CLEANED
+      ],
+      "outputs": [
+        LEFT_SOILMASK
+      ]
+    },
+    {
+      # Generate soil mask from RIGHT TIFF image
+      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
+      "environment": {
+        "RIGHT_TIF": RIGHT_TIF,
+        "METADATA": METADATA_CLEANED,
+        "WORKING_SPACE": SOILMASK_DIR
+    },
+      "inputs": [
+        SOILMASK_DIR,
+        RIGHT_TIF,
+        METADATA_CLEANED
+      ],
+      "outputs": [
+        RIGHT_SOILMASK
+      ]
+    }
+  ]
+}
