@@ -29,10 +29,10 @@ starBlast-HPC
 starBlast-HPC is a solution to distribute large number of queries on a High Performance Computer.
 
 
-What is sequenceServer?
+What is Makeflow?
 -----------------------
 
-SequenceServer lets you rapidly set up a BLAST+ server for individual use or for sharing datasets with your colleagues and your community. Read about SequenceServer's user-centric design and sustainable software development philosophy `here <https://doi.org/10.1093/molbev/msz185>`_.
+
 
 What is Work_Queue?
 -------------------
