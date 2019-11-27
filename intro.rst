@@ -1,17 +1,12 @@
-|CyVerse logo|_
-
-|Home_Icon|_
-`Learning Center Home <http://learning.cyverse.org/>`_
-
-starBlast
+starTERRA
 =========
 
 .. contents::
 
-What is starBlast?
+What is starTERRA?
 ------------------
 
-starBlast is a distributed scaling of BLAST using sequence-server and cctools.
+starTERRA is a distributed scaling of BLAST using sequence-server and cctools.
 
 .. note::
    
