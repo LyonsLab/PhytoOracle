@@ -13,6 +13,7 @@
     #"BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
     #"BETYDB_KEY": "9999999999999999999999999999999999999999",
 
+    "ARCHIVE_DIR": UUID + "/",
     "METADATA": ARCHIVE_DIR + UUID + "_metadata.json",
     "LEFT_BIN": ARCHIVE_DIR + UUID + "_left.bin",
     "RIGHT_BIN": ARCHIVE_DIR + UUID + "_right.bin",

@@ -7,7 +7,7 @@
 
 
     "IRODS_BASE_PATH": "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/",
-    "ARCHIVE_DIR": "data/",
+    ##"ARCHIVE_DIR": "data/",
 
     "CLEANED_META_DIR": "cleanmetadata_out/",
     "SOILMASK_DIR": "soil_mask_out/",
@@ -29,7 +29,7 @@
       "args": {
         "IRODS_DIR_PATH": IRODS_DIR_PATH_LIST[INDEX],
         "UUID": UUID_LIST[INDEX],
-        "ARCHIVE_DIR": ARCHIVE_DIR,
+        #"ARCHIVE_DIR": ARCHIVE_DIR,
         "BETYDB_URL": BETYDB_URL,
         "BETYDB_KEY": BETYDB_KEY
       },
