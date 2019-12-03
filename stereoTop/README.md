@@ -22,16 +22,17 @@ make install
 ```
 * To generate the list of input raw data files `raw_data_files.jx` from an iRODS path
 ```bash
-python gen_files_list.py "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/"
+python gen_files_list.py "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/2018-05-15" >  raw_data_files.jx
 ```
 
 if you only want 10 data sets (always +1, 11 for 10 data sets)
 ```bash
-ils "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/" | head -n 11 | python gen_files_list.py
+ils "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/2018-05-15" | head -n 11 | python gen_files_list.py > raw_data_files.jx
 ```
 
 * Run the workflow, `-r 0` for 0 retry attempts if failed
 ```bash
+iinit # Enter your iRODS credential
 cd starTerra/stereoTop
 chmod 755 entrypoint.sh
 ./entrypoint.sh -r 0
