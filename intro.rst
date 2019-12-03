@@ -12,12 +12,12 @@ starTERRA is a modular, scalable data pipeline for high throughput plant phenoty
    
    StarTERRA is a project undertaken by undergraduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" 2019 course at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
 
-starBlast-Dockers
+StarTERRA-Dockers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 starBlast-Docker containers can be deployed on any cloud such as Atmosphere for distributed scaling of BLAST searches.
 
-starBlast-HPC
+StarTERRA-HPC
 ~~~~~~~~~~~~~
 
 starBlast-HPC is a solution to distribute large number of queries on a High Performance Computer.
@@ -66,26 +66,7 @@ Platform(s)
       - `cctools <https://atmo.cyverse.org/de/>`_
       - `PBS on HPC  <https://public.confluence.arizona.edu/display/UAHPC>`_
       - `Workqueue <https://cctools.readthedocs.io/en/latest/work_queue/>`__
-
-----
-
-starBlast-VICE Setup
---------------------
-
-.. note::
-
-   Requires access to Cyverse `Discovery Environment <https://de.cyverse.org/de/>`_
-   
-1. Click on the following button to quick-launch sequence-server in CyVerse Discovery Environment with two blast databases (Human_GRCh38_p12 & Mouse_GRCm38_p4)
-
-	|sequenceServer|_
-	
-2. Click [Launch Analysis]
-3. Check the notifications Bell Icon for a link to your sequenceserver instance
-4. Start BLASTING
-
-To set up a custom database on the VICE platform, see the appendix section.
-
+      
 ----
 
 starBlast-Docker on Atmosphere Cloud
