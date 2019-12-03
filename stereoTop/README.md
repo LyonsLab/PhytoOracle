@@ -20,6 +20,15 @@ cd cctools-github-src
 make
 make install
 ```
+* To generate the list of input raw data files `raw_data_files.jx` from an iRODS path
+```bash
+python gen_files_list.py "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/"
+```
+
+if you only want 10 data sets (always +1, 11 for 10 data sets)
+```bash
+ils "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/" | head -n 11 | python gen_files_list.py
+```
 
 * Run the workflow, `-r 0` for 0 retry attempts if failed
 ```bash
