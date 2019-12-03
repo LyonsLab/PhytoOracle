@@ -6,17 +6,11 @@ starTERRA
 What is starTERRA?
 ------------------
 
-starTERRA is a distributed scaling of BLAST using sequence-server and cctools.
+starTERRA is a modular, scalable data pipeline for high throughput plant phenotyping (HTPP). It refines the TERRA-REF pipeline by integrating CCTools' Makefelow & Work Queue for distributed computing. Briefly, 'workers' can be spawned on either local, cloud, or HPC platforms, and can then execute tasks assigned by 'masters'. This master-worker framework allows for distributed task management, and thereby, increased data processing speeds. starTERRA enables researchers to easily swap between existing extractors or integrate new extractors into the pipeline.  
 
 .. note::
    
-   starBlast is a project undertaken by under-graduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" course, 2019 at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
-
-starBlast-VICE
-~~~~~~~~~~~~~~
-
-starBlast-VICE is a Visual and Interactive Computing Environment in CyVerse’s Discovery Environment (DE) for running interactive apps such as sequence-server. 
-
+   StarTERRA is a project undertaken by undergraduate and graduate students taking the "Applied Concepts in Cyberinfrastructure" 2019 course at University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
 
 starBlast-Dockers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
