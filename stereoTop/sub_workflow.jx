@@ -42,7 +42,7 @@
     },
     {
       # Make a cleaned copy of the metadata
-      "command": "mkdir -p ${WORKING_SPACE} && sudo docker run -u root --rm -e BETYDB_URL=${BETYDB_URL} -e BETYDB_KEY=${BETYDB_KEY} -v $(pwd):/mnt -w /mnt agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
+      "command": "mkdir -p ${WORKING_SPACE} && docker run -u root --rm -e BETYDB_URL=${BETYDB_URL} -e BETYDB_KEY=${BETYDB_KEY} -v $(pwd):/mnt -w /mnt agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
       "environment": {
         "BETYDB_URL": BETYDB_URL,
         "BETYDB_KEY": BETYDB_KEY,
@@ -71,7 +71,7 @@
     },
     {
       # Convert LEFT bin/RGB image to TIFF format
-      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_BIN}",
+      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_BIN}",
       "environment": {
         "LEFT_BIN": LEFT_BIN,
         "METADATA": METADATA_CLEANED,
@@ -88,7 +88,7 @@
     },
     {
       # Convert RIGHT bin/RGB image to TIFF format
-      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
+      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
       "environment": {
         "RIGHT_BIN": RIGHT_BIN,
         "METADATA": METADATA_CLEANED,
@@ -116,7 +116,7 @@
     },
     {
       # Generate soil mask from LEFT TIFF image
-      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
+      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
       "environment": {
         "LEFT_TIF": LEFT_TIF,
         "METADATA": METADATA_CLEANED,
@@ -133,7 +133,7 @@
     },
     {
       # Generate soil mask from RIGHT TIFF image
-      "command": "sudo docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
+      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
       "environment": {
         "RIGHT_TIF": RIGHT_TIF,
         "METADATA": METADATA_CLEANED,
