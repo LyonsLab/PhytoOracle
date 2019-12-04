@@ -2,8 +2,7 @@
   "define": {
 
     # Pass down by the main_workflow
-    #"IRODS_DIR_PATH": "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/2018-05-15/2018-05-15__12-04-43-833",
-    #"ARCHIVE_DIR": "2018-05-15__12-04-43-833/",
+    #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
     #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
 
     "CLEANED_META_DIR": "cleanmetadata_out/",
@@ -13,10 +12,9 @@
     #"BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
     #"BETYDB_KEY": "9999999999999999999999999999999999999999",
 
-    "ARCHIVE_DIR": UUID + "/",
-    "METADATA": ARCHIVE_DIR + UUID + "_metadata.json",
-    "LEFT_BIN": ARCHIVE_DIR + UUID + "_left.bin",
-    "RIGHT_BIN": ARCHIVE_DIR + UUID + "_right.bin",
+    "METADATA": RAW_DATA_PATH + UUID + "_metadata.json",
+    "LEFT_BIN": RAW_DATA_PATH + UUID + "_left.bin",
+    "RIGHT_BIN": RAW_DATA_PATH + UUID + "_right.bin",
     "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
     "LEFT_TIF": TIFS_DIR + UUID + "_left.tif",
     "RIGHT_TIF": TIFS_DIR + UUID + "_right.tif",
@@ -25,21 +23,6 @@
     "MOSAIC_LIST_FILE": FIELDMOSAIC_DIR + "filelist.txt"
   },
   "rules": [
-    {
-      # Make directory to download archive file into
-      "command": "iget -rKf ${IRODS_DIR_PATH} ${ARCHIVE_DIR}",
-      "environment": {
-        "IRODS_DIR_PATH": IRODS_DIR_PATH,
-        "ARCHIVE_DIR": ARCHIVE_DIR
-      },
-      "inputs": [],
-      "outputs": [
-        METADATA,
-        LEFT_BIN,
-        RIGHT_BIN,
-        ARCHIVE_DIR
-      ]
-    },
     {
       # Make a cleaned copy of the metadata
       "command": "mkdir -p ${WORKING_SPACE} && docker run -u root --rm -e BETYDB_URL=${BETYDB_URL} -e BETYDB_KEY=${BETYDB_KEY} -v $(pwd):/mnt -w /mnt agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
@@ -76,7 +59,7 @@
         "LEFT_BIN": LEFT_BIN,
         "METADATA": METADATA_CLEANED,
         "WORKING_SPACE": TIFS_DIR
-    },
+      },
       "inputs": [
         TIFS_DIR,
         LEFT_BIN,
@@ -93,7 +76,7 @@
         "RIGHT_BIN": RIGHT_BIN,
         "METADATA": METADATA_CLEANED,
         "WORKING_SPACE": TIFS_DIR
-    },
+      },
       "inputs": [
         TIFS_DIR,
         RIGHT_BIN,
@@ -121,7 +104,7 @@
         "LEFT_TIF": LEFT_TIF,
         "METADATA": METADATA_CLEANED,
         "WORKING_SPACE": SOILMASK_DIR
-    },
+      },
       "inputs": [
         SOILMASK_DIR,
         LEFT_TIF,
@@ -138,7 +121,7 @@
         "RIGHT_TIF": RIGHT_TIF,
         "METADATA": METADATA_CLEANED,
         "WORKING_SPACE": SOILMASK_DIR
-    },
+      },
       "inputs": [
         SOILMASK_DIR,
         RIGHT_TIF,

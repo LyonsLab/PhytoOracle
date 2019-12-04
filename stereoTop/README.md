@@ -20,20 +20,23 @@ cd cctools-github-src
 make
 make install
 ```
-* To generate the list of input raw data files `raw_data_files.jx` from an iRODS path
+* Download test data (tarball), and decompressed it
 ```bash
-python gen_files_list.py "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/2018-05-15" >  raw_data_files.jx
+iinit # Enter your iRODS credential
+cd starTerra/stereoTop
+iget -K /iplant/home/xuzy73/2018-05-15_5sets.tar
+tar -xvf 2018-5-15_5sets.tar
 ```
 
-if you only want 10 data sets (always +1, 11 for 10 data sets)
+> Note: you can also get the data via other methods, as along as the data is in this directory (`starTerra/stereoTop`), and follows the same folder structure.
+
+* To generate the list of input raw data files `raw_data_files.jx` from an iRODS path
 ```bash
-ils "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/2018-05-15" | head -n 11 | python gen_files_list.py > raw_data_files.jx
+python gen_files_list.py 2018-05-15 >  raw_data_files.jx
 ```
 
 * Run the workflow, `-r 0` for 0 retry attempts if failed
 ```bash
-iinit # Enter your iRODS credential
-cd starTerra/stereoTop
 chmod 755 entrypoint.sh
 ./entrypoint.sh -r 0
 ```
@@ -43,12 +46,4 @@ chmod 755 entrypoint.sh
 ./entrypoint.sh -c
 rm -f makeflow.jx.args.*
 ```
-* Modify `main_env.jx` to run on other data sets
 
-Just append/change the full iRODS path in the `IRODS_DIR_PATH_LIST` array (path needs to be in double quotes)
-
-And append/change the UUID (part of the filename, e.g `5716a146-8d3d-4d80-99b9-6cbf95cfedfb_left.bin` has a UUID of `5716a146-8d3d-4d80-99b9-6cbf95cfedfb`) in the `UUID_LIST` array
-
-`NUM_SET` is the number of data sets, basically the number of elements in the `IRODS_DIR_PATH_LIST` array
-
-> Note: the elements in the `IRODS_DIR_PATH_LIST` array and `UUID_LIST` array needs to be 1-to-1 corresponded, meaning data file with `UUID` of 0th elements in `UUID_LIST` are stored at the path represented by the 0th element in the `IRODS_DIR_PATH_LIST` array

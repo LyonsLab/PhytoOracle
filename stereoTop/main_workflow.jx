@@ -1,13 +1,11 @@
 {
   "define": {
     # Import from Args file with --jx-args cmd option
-    #"NUM_SET"
-    #"IRODS_DIR_PATH_LIST"
-    #"UUID_LIST"
+    # "DATA_FILE_LIST"
 
 
     "IRODS_BASE_PATH": "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/",
-    ##"ARCHIVE_DIR": "data/",
+    "TARBALL": "",
 
     "CLEANED_META_DIR": "cleanmetadata_out/",
     "SOILMASK_DIR": "soil_mask_out/",
@@ -15,30 +13,34 @@
     "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
     "BETYDB_KEY": "9999999999999999999999999999999999999999",
 
-    "METADATA_CLEANED_LIST": [ CLEANED_META_DIR + UUID + "_metadata_cleaned.json" for UUID in UUID_LIST ],
-    "LEFT_SOILMASK_LIST": [ SOILMASK_DIR + UUID + "_left_mask.tif" for UUID in UUID_LIST ],
-    "RIGHT_SOILMASK_LIST": [ SOILMASK_DIR + UUID + "_right_mask.tif" for UUID in UUID_LIST ],
+    "METADATA_CLEANED_LIST": [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in DATA_FILE_LIST ],
+    "LEFT_SOILMASK_LIST": [ SOILMASK_DIR + DATA_SET["UUID"] + "_left_mask.tif" for DATA_SET in DATA_FILE_LIST ],
+    "RIGHT_SOILMASK_LIST": [ SOILMASK_DIR + DATA_SET["UUID"] + "_right_mask.tif" for DATA_SET in DATA_FILE_LIST ],
     "MOSAIC_LIST_FILE": FIELDMOSAIC_DIR + "filelist.txt"
   },
   "rules": [
     {
-      # sub-workflow
-      # The sub-workflow will pull the data itself
+      # sub_workflow
+      # Data will be distributed to the sub_workflow as input files
       # From cleanmetadata to soil_mask
       "workflow": "sub_workflow.jx",
       "args": {
-        "IRODS_DIR_PATH": IRODS_DIR_PATH_LIST[INDEX],
-        "UUID": UUID_LIST[INDEX],
-        #"ARCHIVE_DIR": ARCHIVE_DIR,
+        "RAW_DATA_PATH": DATA_SET["PATH"],
+        "UUID": DATA_SET["UUID"],
         "BETYDB_URL": BETYDB_URL,
         "BETYDB_KEY": BETYDB_KEY
       },
+      "inputs": [
+        DATA_SET["PATH"] + DATA_SET["UUID"] + "_metadata.json",
+        DATA_SET["PATH"] + DATA_SET["UUID"] + "_left.bin",
+        DATA_SET["PATH"] + DATA_SET["UUID"] + "_right.bin"
+      ],
       "outputs": [
-        CLEANED_META_DIR + UUID_LIST[INDEX] + "_metadata_cleaned.json",
-        SOILMASK_DIR + UUID_LIST[INDEX] + "_left_mask.tif",
-        SOILMASK_DIR + UUID_LIST[INDEX] + "_right_mask.tif",
+        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",
+        SOILMASK_DIR + DATA_SET["UUID"] + "_left_mask.tif",
+        SOILMASK_DIR + DATA_SET["UUID"] + "_right_mask.tif",
       ]
-    } for INDEX in range(NUM_SET),
+    } for DATA_SET in DATA_FILE_LIST,
     {
       # Make directory to store FIELDMOSAIC files
       "command": "mkdir -p ${FIELDMOSAIC_DIR}",
