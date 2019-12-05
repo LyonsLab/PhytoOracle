@@ -22,9 +22,9 @@ make install
 ```
 * Download test data (tarball), and decompressed it
 ```bash
-iinit # Enter your iRODS credential
+iinit # Enter your iRODS credentials
 cd starTerra/stereoTop
-iget -K /iplant/home/xuzy73/2018-05-15_5sets.tar
+iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
 tar -xvf 2018-5-15_5sets.tar
 ```
 
