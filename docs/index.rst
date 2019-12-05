@@ -1,16 +1,11 @@
-
-Tutorials:
-
-.. toctree::
-   :maxdepth: 2
-
-   tutorials/getting_started
-   tutorials/custom_types
-   tutorials/yaml_syntax
-
-Articles:
+=============
+**StarTERRA**
+=============
 
 .. toctree::
    :maxdepth: 2
 
-   articles/spec_differences
+   Introduction
+   User Manuals
+   
+
