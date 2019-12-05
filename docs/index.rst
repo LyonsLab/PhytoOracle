@@ -2,6 +2,8 @@
 **StarTERRA**
 =============
 
+Contents:
+
 .. toctree::
    :maxdepth: 2
 
