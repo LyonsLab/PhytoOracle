@@ -3,7 +3,14 @@
   },
   "rules": [
     {
-      "command": "",
+      "command": "sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/plotclip:2.0 --working_space /mnt --result print --metadata /mnt/b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json --epsg 32612 scanner3DTop b5246694-65d8-44b9-a99c-3d010c92ec64__Top-heading-west_0.las",
+      "environment": {
+      },
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "command": "sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/plotclip:2.0 --working_space /mnt --result print --metadata /mnt/b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json --epsg 32612 scanner3DTop b5246694-65d8-44b9-a99c-3d010c92ec64__Top-heading-west_0.las",
       "environment": {
       },
       "inputs": [],
