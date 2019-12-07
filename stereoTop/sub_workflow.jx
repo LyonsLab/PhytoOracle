@@ -25,7 +25,7 @@
   "rules": [
     {
       # Make a cleaned copy of the metadata
-      "command": "mkdir -p ${WORKING_SPACE} && BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
+      "command": "mkdir -p ${WORKING_SPACE} && BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
       "environment": {
         "BETYDB_URL": BETYDB_URL,
         "BETYDB_KEY": BETYDB_KEY,
@@ -54,7 +54,7 @@
     },
     {
       # Convert LEFT bin/RGB image to TIFF format
-      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_BIN}",
+      "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_BIN}",
       "environment": {
         "LEFT_BIN": LEFT_BIN,
         "METADATA": METADATA_CLEANED,
@@ -71,7 +71,7 @@
     },
     {
       # Convert RIGHT bin/RGB image to TIFF format
-      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
+      "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
       "environment": {
         "RIGHT_BIN": RIGHT_BIN,
         "METADATA": METADATA_CLEANED,
@@ -99,7 +99,7 @@
     },
     {
       # Generate soil mask from LEFT TIFF image
-      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
+      "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
       "environment": {
         "LEFT_TIF": LEFT_TIF,
         "METADATA": METADATA_CLEANED,
@@ -116,7 +116,7 @@
     },
     {
       # Generate soil mask from RIGHT TIFF image
-      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
+      "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
       "environment": {
         "RIGHT_TIF": RIGHT_TIF,
         "METADATA": METADATA_CLEANED,
