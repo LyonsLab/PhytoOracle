@@ -2,7 +2,14 @@
   "define": {
   },
   "rules": [
-  
+  {
+  "command":"sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/cleanmetadata --result print --metadata small_test_set_metadata/2017-06-21__00-00-26-364/b5246694-65d8-44b9-a99c-3d010c92ec64_metadata.json --working_space /mnt/output_folder "scanner3DTop" ""
+  "environment": {
+      },
+      "inputs": [],
+      "outputs": []
+    }
+      
       {
       "command": "sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/ply2las --result print --metadata b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json --working_space /mnt",
       "environment": {
