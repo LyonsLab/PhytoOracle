@@ -27,6 +27,12 @@
       "outputs": []
     }
     
-    
-  ]
+    {
+    "command": "sudo docker run --rm -u root -v "$(pwd)":/mnt -w /mnt agpipeline/canopy_height:2.0 --working_space "/mnt" --result print --metadata "/mnt/b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json" /mnt/b5246694-65d8-44b9-a99c-3d010c92ec64__Top-heading-west_0_merged.las    }
+  "environment": {
+      },
+      "inputs": [],
+      "outputs": []
+    }
+  
 }
