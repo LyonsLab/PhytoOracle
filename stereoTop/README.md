@@ -25,14 +25,14 @@ make install
 iinit # Enter your iRODS credentials
 cd starTerra/stereoTop
 iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
-tar -xvf 2018-5-15_5sets.tar
+tar -xvf 2018-05-15_5sets.tar
 ```
 
 > Note: you can also get the data via other methods, as along as the data is in this directory (`starTerra/stereoTop`), and follows the same folder structure.
 
 * To generate the list of input raw data files `raw_data_files.jx` from an iRODS path
 ```bash
-python gen_files_list.py 2018-05-15_5 >  raw_data_files.jx
+python gen_files_list.py 2018-05-15 >  raw_data_files.jx
 ```
 
 * Run the workflow, `-r 0` for 0 retry attempts if failed
