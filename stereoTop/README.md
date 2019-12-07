@@ -47,3 +47,9 @@ chmod 755 entrypoint.sh
 rm -f makeflow.jx.args.*
 ```
 
+* Makeflow Monitor 
+```bash
+makeflow_monitor main_workflow.jx.makeflowlog 
+makeflow_monitor sub_workflow.jx.makeflowlog 
+```
+
