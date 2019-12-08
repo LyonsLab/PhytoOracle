@@ -1,32 +1,97 @@
 {
   "define": {
+
+  "CLEANED_META_DIR": "output_folder/",
+  "PLY2LAS_DIR": "ply2las_out/",
+  #"BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
+  #"BETYDB_KEY": "9999999999999999999999999999999999999999",
+
+  "METADATA": RAW_DATA_PATH + UUID + "_metadata.json",
+  "EAST_PLY": RAW_DATA_PATH + UUID + "__Top-heading-east_0.ply",
+  "WEST_PLY": RAW_DATA_PATH + UUID + "__Top-heading-west_0.ply",
+  "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
+  "EAST_LAS": RAW_DATA_PATH + UUID + "__Top-heading-east_0.las",
+  "WEST_LAS": RAW_DATA_PATH + UUID + "__Top-heading-west_0.las",
   },
   "rules": [
   {
+  #Make a cleaned copy of the metadata as an input for the ply2las extractor.
   "command":"sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/cleanmetadata --result print --metadata small_test_set_metadata/2017-06-21__00-00-26-364/b5246694-65d8-44b9-a99c-3d010c92ec64_metadata.json --working_space /mnt/output_folder "scanner3DTop" ""
   "environment": {
+        "BETYDB_URL": BETYDB_URL,
+        "BETYDB_KEY": BETYDB_KEY,
+        "SENSOR": "scanner3DTop",
+        "METADATA": METADATA,
+        "WORKING_SPACE": CLEANED_META_DIR,
+        "USERID": ""
+      },
+      "inputs": [METADATA],
+      "outputs": [
+        CLEANED_META_DIR,
+        METADATA_CLEANED
+      ],
+    }
+    {
+      # Make directory to store PLY files
+      "command": "mkdir -p ${PLY2LAS_DIR}",
+      "environment": {
+        "PLY2LAS_DIR": PLY2LAS_DIR
       },
       "inputs": [],
-      "outputs": []
-    }
+      "outputs": [
+        PLY2LAS_DIR
+      ]
+    },
       
-      {
+    {
+      #Transforms EAST .ply files into .las files using the cleaned metadata .json files and .ply files as input.
       "command": "sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/ply2las --result print --metadata b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json --working_space /mnt",
       "environment": {
+        "WEST_PLY": WEST_PLY,
+        "METADATA": METADATA_CLEANED,
+        "WORKING_SPACE": PLY2LAS_DIR
       },
-      "inputs": [],
-      "outputs": []
+      "inputs": [
+        PLY2LAS_DIR,
+        EAST_PLY,
+        METADATA_CLEANED],
+      "outputs": [
+        EAST_LAS
+      ]
+    }
+    {
+      #Transforms WEST .ply files into .las files using the cleaned metadata .json files and .ply files as input.
+      "command": "sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/ply2las --result print --metadata b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json --working_space /mnt",
+      "environment": {
+        "WEST_PLY": WEST_PLY,
+        "METADATA": METADATA_CLEANED,
+        "WORKING_SPACE": PLY2LAS_DIR
+      },
+      "inputs": [
+        PLY2LAS_DIR,
+        WEST_PLY,
+        METADATA_CLEANED],
+      "outputs": [
+        WEST_LAS
+      ]
     }
     
-    
     {
+      #Divides the EAST .las file into separate, smaller .las files.
       "command": "sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/plotclip:2.0 --working_space /mnt --result print --metadata /mnt/b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json --epsg 32612 scanner3DTop b5246694-65d8-44b9-a99c-3d010c92ec64__Top-heading-west_0.las",
       "environment": {
+        "EAST_LAS": EAST_LAS,
+        "METADATA": METADATA_CLEANED,
+        "WORKING_SPACE": PLY2LAS_DIR
       },
-      "inputs": [],
+      "inputs": [
+        PLY2LAS_DIR,
+        EASY_LAS,
+        METADATA_CLEANED],
       "outputs": []
     },
     {
+      #Divides the WEST .las file into separate, smaller .las files.
       "command": "sudo docker run --rm -u root -e 'BETYDB_URL=https://terraref.ncsa.illinois.edu/bety/' -e 'BETYDB_KEY=9999999999999999999999999999999999999999' -v $(pwd):/mnt -w /mnt agpipeline/plotclip:2.0 --working_space /mnt --result print --metadata /mnt/b5246694-65d8-44b9-a99c-3d010c92ec64_metadata_cleaned.json --epsg 32612 scanner3DTop b5246694-65d8-44b9-a99c-3d010c92ec64__Top-heading-west_0.las",
       "environment": {
       },
