@@ -20,20 +20,31 @@
   },
   "rules": [
     {
+      "command": "bash gen_args.sh > ${UUID}_args.jx",
+      "environment": {
+        "RAW_DATA_PATH": DATA_SET["PATH"],
+        "UUID": DATA_SET["UUID"]
+      },
+      "inputs": [ "gen_args.sh" ],
+      "outputs": [ DATA_SET["UUID"] + "_args.jx" ]
+    } for DATA_SET in DATA_FILE_LIST,
+
+    {
       # sub_workflow
       # Data will be distributed to the sub_workflow as input files
       # From cleanmetadata to soil_mask
-      "workflow": "sub_workflow.jx",
-      "args": {
-        "RAW_DATA_PATH": DATA_SET["PATH"],
-        "UUID": DATA_SET["UUID"],
-        "BETYDB_URL": BETYDB_URL,
-        "BETYDB_KEY": BETYDB_KEY
+      "command": "tree -sh && cat sub_workflow.jx && makeflow -T local --jx sub_workflow.jx --jx-args ${WF_ARGS_FILE}",
+      "environment": {
+        "WF_ARGS_FILE": DATA_SET["UUID"] + "_args.jx",
+        "LOG_FILE": DATA_SET["UUID"] + "_error.log"
       },
       "inputs": [
+        "sub_workflow.jx",
+        "cached_betydb/bety_experiments.json",
+        DATA_SET["UUID"] + "_args.jx",
         DATA_SET["PATH"] + DATA_SET["UUID"] + "_metadata.json",
         DATA_SET["PATH"] + DATA_SET["UUID"] + "_left.bin",
-        DATA_SET["PATH"] + DATA_SET["UUID"] + "_right.bin"
+        DATA_SET["PATH"] + DATA_SET["UUID"] + "_right.bin",
       ],
       "outputs": [
         CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",

@@ -27,8 +27,6 @@
       # Make a cleaned copy of the metadata
       "command": "mkdir -p ${WORKING_SPACE} && BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
       "environment": {
-        "BETYDB_URL": BETYDB_URL,
-        "BETYDB_KEY": BETYDB_KEY,
         "SENSOR": "stereoTop",
         "METADATA": METADATA,
         "WORKING_SPACE": CLEANED_META_DIR,
