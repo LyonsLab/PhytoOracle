@@ -8,6 +8,7 @@
     "TARBALL": "",
 
     "CLEANED_META_DIR": "cleanmetadata_out/",
+    "TIFS_DIR": "bin2tif_out/",
     "SOILMASK_DIR": "soil_mask_out/",
     "FIELDMOSAIC_DIR": "fieldmosaic_out/",
     "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
@@ -29,29 +30,91 @@
       "outputs": [ DATA_SET["UUID"] + "_args.jx" ]
     } for DATA_SET in DATA_FILE_LIST,
 
-    {
-      # sub_workflow
-      # Data will be distributed to the sub_workflow as input files
-      # From cleanmetadata to soil_mask
-      "command": "tree -sh && cat sub_workflow.jx && makeflow -T local --jx sub_workflow.jx --jx-args ${WF_ARGS_FILE}",
+   {
+      # Make a cleaned copy of the metadata
+      "command": "mkdir -p ${WORKING_SPACE} && BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
       "environment": {
-        "WF_ARGS_FILE": DATA_SET["UUID"] + "_args.jx",
-        "LOG_FILE": DATA_SET["UUID"] + "_error.log"
+        "SENSOR": "stereoTop",
+        "METADATA": DATA_SET["PATH"] + DATA_SET["UUID"] + "_metadata.json",
+        "WORKING_SPACE": CLEANED_META_DIR,
+        "USERID": ""
       },
-      "inputs": [
-        "sub_workflow.jx",
-        "cached_betydb/bety_experiments.json",
-        DATA_SET["UUID"] + "_args.jx",
-        DATA_SET["PATH"] + DATA_SET["UUID"] + "_metadata.json",
-        DATA_SET["PATH"] + DATA_SET["UUID"] + "_left.bin",
-        DATA_SET["PATH"] + DATA_SET["UUID"] + "_right.bin",
-      ],
+      "inputs": [ DATA_SET["PATH"] + DATA_SET["UUID"] + "_metadata.json", "cached_betydb/bety_experiments.json" ],
       "outputs": [
-        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",
-        SOILMASK_DIR + DATA_SET["UUID"] + "_left_mask.tif",
-        SOILMASK_DIR + DATA_SET["UUID"] + "_right_mask.tif",
+        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json"
       ]
     } for DATA_SET in DATA_FILE_LIST,
+
+    {
+      # Convert LEFT bin/RGB image to TIFF format
+      "command": "mkdir -p ${WORKING_SPACE} && singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_BIN}",
+      "environment": {
+        "LEFT_BIN": DATA_SET["PATH"] + DATA_SET["UUID"] + "_left.bin",
+        "METADATA": CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",
+        "WORKING_SPACE": TIFS_DIR
+      },
+      "inputs": [
+        DATA_SET["PATH"] + DATA_SET["UUID"] + "_left.bin",
+        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json"
+      ],
+      "outputs": [
+        TIFS_DIR + DATA_SET["UUID"] + "_left.tif"
+      ]
+    } for DATA_SET in DATA_FILE_LIST,
+    {
+      # Convert RIGHT bin/RGB image to TIFF format
+      "command": "mkdir -p ${WORKING_SPACE} && singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
+      "environment": {
+        "RIGHT_BIN": DATA_SET["PATH"] + DATA_SET["UUID"] + "_right.bin",
+        "METADATA": CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",
+        "WORKING_SPACE": TIFS_DIR
+      },
+      "inputs": [
+        DATA_SET["PATH"] + DATA_SET["UUID"] + "_right.bin",
+        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json"
+      ],
+      "outputs": [
+        TIFS_DIR + DATA_SET["UUID"] + "_right.tif"
+      ]
+    } for DATA_SET in DATA_FILE_LIST,
+
+    {
+      # Generate soil mask from LEFT TIFF image
+      "command": "mkdir -p ${WORKING_SPACE} && singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
+      "environment": {
+        "LEFT_TIF": TIFS_DIR + DATA_SET["UUID"] + "_left.tif",
+        "METADATA": CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",
+        "WORKING_SPACE": SOILMASK_DIR
+      },
+      "inputs": [
+        TIFS_DIR + DATA_SET["UUID"] + "_left.tif",
+        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json"
+      ],
+      "outputs": [
+        SOILMASK_DIR + DATA_SET["UUID"] + "_left_mask.tif"
+      ]
+    } for DATA_SET in DATA_FILE_LIST,
+    {
+      # Generate soil mask from RIGHT TIFF image
+      "command": "mkdir -p ${WORKING_SPACE} && singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
+      "environment": {
+        "RIGHT_TIF": TIFS_DIR + DATA_SET["UUID"] + "_right.tif",
+        "METADATA": CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",
+        "WORKING_SPACE": SOILMASK_DIR
+      },
+      "inputs": [
+        TIFS_DIR + DATA_SET["UUID"] + "_right.tif",
+        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json"
+      ],
+      "outputs": [
+        SOILMASK_DIR + DATA_SET["UUID"] + "_right_mask.tif"
+      ]
+    } for DATA_SET in DATA_FILE_LIST,
+
+
+
+
+
     {
       # Make directory to store FIELDMOSAIC files
       "command": "mkdir -p ${FIELDMOSAIC_DIR}",
