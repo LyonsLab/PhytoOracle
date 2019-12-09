@@ -23,9 +23,10 @@ make install
 * Download test data (tarball), and decompressed it
 ```bash
 iinit # Enter your iRODS credentials
+mkdir -p starTerra/stereoTop
 cd starTerra/stereoTop
 iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
-tar -xvf 2018-5-15_5sets.tar
+tar -xvf 2018-05-15_5sets.tar
 ```
 
 > Note: you can also get the data via other methods, as along as the data is in this directory (`starTerra/stereoTop`), and follows the same folder structure.
