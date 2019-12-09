@@ -33,7 +33,7 @@ tar -xvf 2018-05-15_5sets.tar
 
 * To generate the list of input raw data files `raw_data_files.jx` from an iRODS path
 ```bash
-python gen_files_list.py 2018-05-15_5 >  raw_data_files.jx
+python gen_files_list.py 2018-05-15 >  raw_data_files.jx
 ```
 
 * Run the workflow, `-r 0` for 0 retry attempts if failed
