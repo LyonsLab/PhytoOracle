@@ -30,9 +30,16 @@ tar -xvf 2018-5-15_5sets.tar
 
 > Note: you can also get the data via other methods, as along as the data is in this directory (`starTerra/stereoTop`), and follows the same folder structure.
 
-* To generate the list of input raw data files `raw_data_files.jx` from an iRODS path
+* To generate the list of input raw data files `raw_data_files.jx` from an local path
 ```bash
 python gen_files_list.py 2018-05-15_5 >  raw_data_files.jx
+```
+
+* To generate json workflow
+```bash
+sudo apt-get install php-cli
+php main_wf.php > main_wf.jx
+jx2json main_wf.jx > main_workflow.json
 ```
 
 * Run the workflow, `-r 0` for 0 retry attempts if failed
