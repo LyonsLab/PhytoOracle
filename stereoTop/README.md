@@ -40,7 +40,7 @@ sudo apt-get update && sudo apt-get install -y \
     cryptsetup
 wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.13.5.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" | sudo tee -a /etc/profile
+echo "export PATH=\$PATH:/usr/local/go/bin" | sudo tee -a /etc/profile
 export PATH=$PATH:/usr/local/go/bin
 ```
 Build singularity
