@@ -28,12 +28,12 @@ def find_UUID_for_all_path(base_dir, path_list):
 
 def main():
     if len(sys.argv) == 1:
-        raise("Error! base path for the archive directory is not specified")
+        raise Exception("Error! base path for the archive directory is not specified")
     elif len(sys.argv) != 2:
-        raise("Error! wrong number of args")
+        raise Exception("Error! wrong number of args")
 
     if len(sys.argv[1]) == 0:
-        raise("Error! path empty")
+        raise Exception("Error! path empty")
 
     # get the base path from cmd line arg
     base_dir = sys.argv[1]
@@ -43,7 +43,7 @@ def main():
     data_sets = find_UUID_for_all_path(base_dir, path_list)
 
     if len(path_list) != len(data_sets):
-        raise ("Error! number of directory is not matching with the number of data sets")
+        raise Exception("Error! number of directory is not matching with the number of data sets")
 
     # Generate & print the jx file to stdout
     print("{")
