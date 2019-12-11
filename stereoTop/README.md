@@ -64,12 +64,7 @@ git checkout php-template
 * Download test data (tarball), and decompressed it
 ```bash
 iinit # Enter your iRODS credentials
-<<<<<<< HEAD
-mkdir -p starTerra/stereoTop
-cd starTerra/stereoTop
-=======
 cd stereoTop
->>>>>>> php-template
 iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
 tar -xvf 2018-05-15_5sets.tar
 ```
@@ -78,11 +73,7 @@ tar -xvf 2018-05-15_5sets.tar
 
 * To generate the list of input raw data files `raw_data_files.jx` from an local path
 ```bash
-<<<<<<< HEAD
-python gen_files_list.py 2018-05-15 >  raw_data_files.jx
-=======
-python gen_files_list.py 2018-05-15_5 >  raw_data_files.json
->>>>>>> php-template
+python3 gen_files_list.py 2018-05-15/ >  raw_data_files.json
 ```
 
 * To generate json workflow, (`main_wf.php` will read `raw_data_files.json`)
