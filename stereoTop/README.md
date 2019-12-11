@@ -32,10 +32,10 @@ tar -xvf 2018-5-15_5sets.tar
 
 * To generate the list of input raw data files `raw_data_files.jx` from an local path
 ```bash
-python gen_files_list.py 2018-05-15_5 >  raw_data_files.jx
+python gen_files_list.py 2018-05-15_5 >  raw_data_files.json
 ```
 
-* To generate json workflow
+* To generate json workflow, (`main_wf.php` will read `raw_data_files.json`)
 ```bash
 sudo apt-get install php-cli
 php main_wf.php > main_wf.jx

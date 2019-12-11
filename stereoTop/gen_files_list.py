@@ -49,12 +49,16 @@ def main():
     print("{")
     print("\"DATA_FILE_LIST\": [")
     for data in data_sets:
+    for index, data in enumerate(data_sets):
         print("{")
         # PATH
         print("\"PATH\": \"%s/\"," % data[0])
         # UUID
         print("\"UUID\": \"%s\"" % data[1])
-        print("},")
+        if index == len(data_sets) - 1:
+            print("}")
+        else:
+            print("},")
     print("]")
     print("}")
 
