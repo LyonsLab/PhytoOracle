@@ -48,7 +48,6 @@ def main():
     # Generate & print the jx file to stdout
     print("{")
     print("\"DATA_FILE_LIST\": [")
-    for data in data_sets:
     for index, data in enumerate(data_sets):
         print("{")
         # PATH
