@@ -123,7 +123,7 @@
       # Make directory to store FIELDMOSAIC files
       "command": "mkdir -p ${FIELDMOSAIC_DIR}",
       "environment": {
-        "<?=$FIELDMOSAIC_DIR?>": "<?=$FIELDMOSAIC_DIR?>"
+        "FIELDMOSAIC_DIR": "<?=$FIELDMOSAIC_DIR?>"
       },
       "inputs": [],
       "outputs": [
@@ -134,8 +134,8 @@
       # Create MOSAIC_LIST_FILE file from the soilmask files
       "command": "ls ${SOILMASK_DIR}*.tif > ${MOSAIC_LIST_FILE}",
       "environment": {
-        "<?=$SOILMASK_DIR?>": "<?=$SOILMASK_DIR?>",
-        "<?=$MOSAIC_LIST_FILE?>": "<?=$MOSAIC_LIST_FILE?>"
+        "SOILMASK_DIR": "<?=$SOILMASK_DIR?>",
+        "MOSAIC_LIST_FILE": "<?=$MOSAIC_LIST_FILE?>"
       },
       "inputs": [
         "<?=$FIELDMOSAIC_DIR?>"
