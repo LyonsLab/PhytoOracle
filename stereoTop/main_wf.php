@@ -1,5 +1,5 @@
 <?php
-  $filename = "raw_9000.json";
+  $filename = "raw_data_files.json";
   $handle = fopen($filename, "r");
   $contents = fread($handle, filesize($filename));
 
