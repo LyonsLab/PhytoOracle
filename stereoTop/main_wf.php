@@ -176,7 +176,7 @@
     },
     {
       # Generate canopy cover from field mosaic
-      "comand": "mkdir -p ${WORKING_SPACE} && singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/canopycover:latest --debug --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${CANOPY_COVER_INPUT_FILE}",
+      "command": "mkdir -p ${WORKING_SPACE} && singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/canopycover:latest --debug --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${CANOPY_COVER_INPUT_FILE}",
       "environment": {
         "METADATA": "<?=$CLEANED_META_DIR?>" + "<?=$data_file_list[0]["UUID"]?>" + "_metadata_cleaned.json",
         "WORKING_SPACE": "<?=$CANOPYCOVER_DIR?>",
