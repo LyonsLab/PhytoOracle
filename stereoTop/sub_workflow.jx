@@ -1,135 +1,220 @@
 {
-  "define": {
+    "define": {
 
-    # Pass down by the main_workflow
-    #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
-    #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
+        # Pass down by the main_workflow
+        #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
+        #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
 
-    "CLEANED_META_DIR": "cleanmetadata_out/",
-    "TIFS_DIR": "bin2tif_out/",
-    "SOILMASK_DIR": "soil_mask_out/",
-    "FIELDMOSAIC_DIR": "fieldmosaic_out/",
-    #"BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
-    #"BETYDB_KEY": "9999999999999999999999999999999999999999",
+            "CLEANED_META_DIR": "cleanmetadata_out/",
+                "TIFS_DIR": "bin2tif_out/",
+                    "SOILMASK_DIR": "soil_mask_out/",
+                        "FIELDMOSAIC_DIR": "fieldmosaic_out/",
+        #"BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
+        #"BETYDB_KEY": "9999999999999999999999999999999999999999",
 
-    "METADATA": RAW_DATA_PATH + UUID + "_metadata.json",
-    "LEFT_BIN": RAW_DATA_PATH + UUID + "_left.bin",
-    "RIGHT_BIN": RAW_DATA_PATH + UUID + "_right.bin",
-    "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
-    "LEFT_TIF": TIFS_DIR + UUID + "_left.tif",
-    "RIGHT_TIF": TIFS_DIR + UUID + "_right.tif",
-    "LEFT_SOILMASK": SOILMASK_DIR + UUID + "_left_mask.tif",
-    "RIGHT_SOILMASK": SOILMASK_DIR + UUID + "_right_mask.tif",
-    "MOSAIC_LIST_FILE": FIELDMOSAIC_DIR + "filelist.txt"
-  },
-  "rules": [
-    {
-      # Make a cleaned copy of the metadata
+            "METADATA": RAW_DATA_PATH + UUID + "_metadata.json",
+                "LEFT_BIN": RAW_DATA_PATH + UUID + "_left.bin",
+                    "RIGHT_BIN": RAW_DATA_PATH + UUID + "_right.bin",
+                        "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
+                            "LEFT_TIF": TIFS_DIR + UUID + "_left.tif",
+                                "RIGHT_TIF": TIFS_DIR + UUID + "_right.tif",
+                                    "LEFT_SOILMASK": SOILMASK_DIR + UUID + "_left_mask.tif",
+                                        "RIGHT_SOILMASK": SOILMASK_DIR + UUID + "_right_mask.tif",
+                                            "MOSAIC_LIST_FILE": FIELDMOSAIC_DIR + "filelist.txt",
+						"MOSAIC_BOUND": "-111.9750963 33.0764953 -111.9747967 33.074485715",
+							"CANOPYCOVER_DIR": "canopy_cover_out/",
+    },
+    "rules": [
+        {
+            # Make a cleaned copy of the metadata
       "command": "mkdir -p ${WORKING_SPACE} && BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:latest --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}",
-      "environment": {
-        "BETYDB_URL": BETYDB_URL,
-        "BETYDB_KEY": BETYDB_KEY,
-        "SENSOR": "stereoTop",
-        "METADATA": METADATA,
-        "WORKING_SPACE": CLEANED_META_DIR,
-        "USERID": ""
-      },
-      "inputs": [METADATA, "cached_betydb/bety_experiments.json"],
-      "outputs": [
-        CLEANED_META_DIR,
-        METADATA_CLEANED
-      ],
-      "local_job": true
-    },
-    {
-      # Make directory to store TIFF files
+            "environment": {
+                "BETYDB_URL": BETYDB_URL,
+                "BETYDB_KEY": BETYDB_KEY,
+                "SENSOR": "stereoTop",
+                "METADATA": METADATA,
+                "WORKING_SPACE": CLEANED_META_DIR,
+                "USERID": ""
+            },
+            "inputs": [METADATA, "cached_betydb/bety_experiments.json"],
+            "outputs": [
+                CLEANED_META_DIR,
+                METADATA_CLEANED
+            ],
+            "local_job": true
+        },
+        {
+            # Make directory to store TIFF files
       "command": "mkdir -p ${TIFS_DIR}",
-      "environment": {
-        "TIFS_DIR": TIFS_DIR
-      },
-      "inputs": [],
-      "outputs": [
-        TIFS_DIR
-      ]
-    },
-    {
-      # Convert LEFT bin/RGB image to TIFF format
+            "environment": {
+                "TIFS_DIR": TIFS_DIR
+            },
+            "inputs": [],
+            "outputs": [
+                TIFS_DIR
+            ]
+        },
+        {
+            # Convert LEFT bin/ RGB image to TIFF format
       "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_BIN}",
-      "environment": {
-        "LEFT_BIN": LEFT_BIN,
-        "METADATA": METADATA_CLEANED,
-        "WORKING_SPACE": TIFS_DIR
-      },
-      "inputs": [
-        TIFS_DIR,
-        LEFT_BIN,
-        METADATA_CLEANED
-      ],
-      "outputs": [
-        LEFT_TIF
-      ]
+        "environment": {
+            "LEFT_BIN": LEFT_BIN,
+            "METADATA": METADATA_CLEANED,
+            "WORKING_SPACE": TIFS_DIR
+        },
+        "inputs": [
+            TIFS_DIR,
+            LEFT_BIN,
+            METADATA_CLEANED
+        ],
+        "outputs": [
+            LEFT_TIF
+        ]
     },
-    {
-      # Convert RIGHT bin/RGB image to TIFF format
-      "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
-      "environment": {
+{
+    # Convert RIGHT bin / RGB image to TIFF format
+    "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/bin2tif:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_BIN}",
+        "environment": {
         "RIGHT_BIN": RIGHT_BIN,
-        "METADATA": METADATA_CLEANED,
-        "WORKING_SPACE": TIFS_DIR
-      },
-      "inputs": [
+            "METADATA": METADATA_CLEANED,
+                "WORKING_SPACE": TIFS_DIR
+    },
+    "inputs": [
         TIFS_DIR,
         RIGHT_BIN,
         METADATA_CLEANED
-      ],
-      "outputs": [
-        RIGHT_TIF
-      ]
-    },
-    {
-      # Make directory to store SOILMASK files
-      "command": "mkdir -p ${SOILMASK_DIR}",
-      "environment": {
+    ],
+        "outputs": [
+            RIGHT_TIF
+        ]
+},
+{
+    # Make directory to store SOILMASK files
+    "command": "mkdir -p ${SOILMASK_DIR}",
+        "environment": {
         "SOILMASK_DIR": SOILMASK_DIR
-      },
-      "inputs": [],
-      "outputs": [
-        SOILMASK_DIR
-      ]
     },
-    {
-      # Generate soil mask from LEFT TIFF image
-      "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
-      "environment": {
+    "inputs": [],
+        "outputs": [
+            SOILMASK_DIR
+        ]
+},
+{
+    # Generate soil mask from LEFT TIFF image
+    "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}",
+        "environment": {
         "LEFT_TIF": LEFT_TIF,
-        "METADATA": METADATA_CLEANED,
-        "WORKING_SPACE": SOILMASK_DIR
-      },
-      "inputs": [
+            "METADATA": METADATA_CLEANED,
+                "WORKING_SPACE": SOILMASK_DIR
+    },
+    "inputs": [
         SOILMASK_DIR,
         LEFT_TIF,
         METADATA_CLEANED
-      ],
-      "outputs": [
-        LEFT_SOILMASK
-      ]
-    },
-    {
-      # Generate soil mask from RIGHT TIFF image
-      "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
-      "environment": {
+    ],
+        "outputs": [
+            LEFT_SOILMASK
+        ]
+},
+{
+    # Generate soil mask from RIGHT TIFF image
+    "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}",
+        "environment": {
         "RIGHT_TIF": RIGHT_TIF,
-        "METADATA": METADATA_CLEANED,
-        "WORKING_SPACE": SOILMASK_DIR
-      },
-      "inputs": [
+            "METADATA": METADATA_CLEANED,
+                "WORKING_SPACE": SOILMASK_DIR
+    },
+    "inputs": [
         SOILMASK_DIR,
         RIGHT_TIF,
         METADATA_CLEANED
-      ],
-      "outputs": [
+    ],
+        "outputs": [
+            RIGHT_SOILMASK
+        ]
+},
+{
+    # Make directory to store FIELDMOSAIC files
+    "command": "mkdir -p ${FIELDMOSAIC_DIR}",
+        "environment": {
+        "FIELDMOSAIC_DIR": FIELDMOSAIC_DIR
+    },
+    "inputs": [],
+        "outputs": [
+            FIELDMOSAIC_DIR
+        ]
+},
+{
+    # Create MOSAIC_LIST_FILE file from the soilmask files
+    "command": "ls ${SOILMASK_DIR}*.tif > ${MOSAIC_LIST_FILE}",
+        "environment": {
+        "SOILMASK_DIR": SOILMASK_DIR,
+            "MOSAIC_LIST_FILE": MOSAIC_LIST_FILE
+    },
+    "inputs": [
+        SOILMASK_DIR,
+        FIELDMOSAIC_DIR,
+        LEFT_SOILMASK,
         RIGHT_SOILMASK
-      ]
-    }
+    ],
+        "outputs": [
+            MOSAIC_LIST_FILE
+        ]
+},
+{
+    # Generate field mosaic from soil mask TIFFs
+    "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/fieldmosaic:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${MOSAIC_LIST_FILE} ${SENSOR} \"${MOSAIC_BOUNDS}\"",
+        "environment": {
+        "MOSAIC_LIST_FILE": MOSAIC_LIST_FILE,
+            "METADATA": METADATA_CLEANED,
+                "WORKING_SPACE": FIELDMOSAIC_DIR,
+                    "SENSOR": "stereoTop",
+                        "MOSAIC_BOUNDS": "-111.9750963 33.0764953 -111.9747967 33.074485715"
+    },
+    "inputs": [
+        FIELDMOSAIC_DIR,
+        MOSAIC_LIST_FILE,
+        METADATA_CLEANED
+    ],
+        "outputs": [
+            FIELDMOSAIC_DIR + "fullfield_mosaic.png",
+            FIELDMOSAIC_DIR + "fullfield_mosaic.png.aux.xml",
+            FIELDMOSAIC_DIR + "fullfield_mosaic.tif",
+            FIELDMOSAIC_DIR + "fullfield_mosaic.vrt",
+            FIELDMOSAIC_DIR + "fullfield_mosaic_10pct.tif",
+            FIELDMOSAIC_DIR + "fullfield_mosaic_thumb.tif"
+        ]
+},
+{
+    # Make directory to store CANOPYCOVER result files
+    "command": "mkdir -p ${CANOPYCOVER_DIR}",
+        "environment": {
+        "CANOPYCOVER_DIR": CANOPYCOVER_DIR
+    },
+    "inputs": [],
+        "outputs": [
+            CANOPYCOVER_DIR
+        ]
+},
+{
+    # Generate canopy cover from field mosaic
+    "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/canopycover:latest --debug --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${CANOPY_COVER_INPUT_FILE}",
+        "environment": {
+        "METADATA": METADATA_CLEANED,
+            "WORKING_SPACE": CANOPYCOVER_DIR,
+                "BETYDB_URL": BETYDB_URL,
+                    "BETYDB_KEY": BETYDB_KEY,
+                        "CANOPY_COVER_INPUT_FILE": FIELDMOSAIC_DIR + "fullfield_mosaic.tif"
+    },
+    "inputs": [
+        CANOPYCOVER_DIR,
+        METADATA_CLEANED,
+        FIELDMOSAIC_DIR + "fullfield_mosaic.tif"
+    ],
+        "outputs": [
+            CANOPYCOVER_DIR + "canopycover.csv",
+            CANOPYCOVER_DIR + "canopycover_geostreams.csv"
+        ]
+}
   ]
 }
