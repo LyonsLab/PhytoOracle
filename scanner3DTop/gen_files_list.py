@@ -43,21 +43,18 @@ def main():
     data_sets = find_UUID_for_all_path(base_dir, path_list)
 
     if len(path_list) != len(data_sets):
-        raise Exception("Error! number of directory is not matching with the number of data sets")
+        raise ("Error! number of directory is not matching with the number of data sets")
 
     # Generate & print the jx file to stdout
     print("{")
     print("\"DATA_FILE_LIST\": [")
-    for index, data in enumerate(data_sets):
+    for data in data_sets:
         print("{")
         # PATH
         print("\"PATH\": \"%s/\"," % data[0])
         # UUID
         print("\"UUID\": \"%s\"" % data[1])
-        if index == len(data_sets) - 1:
-            print("}")
-        else:
-            print("},")
+        print("},")
     print("]")
     print("}")
 
