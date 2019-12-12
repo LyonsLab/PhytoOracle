@@ -27,6 +27,7 @@
   "LEFT_SOILMASK_LIST": [<?php foreach ($data_file_list as &$data_set) :?> "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_left_mask.tif", <?php endforeach?>],
   "RIGHT_SOILMASK_LIST": [<?php foreach ($data_file_list as &$data_set) :?> "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_right_mask.tif", <?php endforeach?>],
   */
+  $DATA_BASE_URL = "http://vm142-80.cyverse.org/";
 
 ?>
 {
@@ -39,14 +40,13 @@
       # processing for a single set of data (from cleanmetadata to soilmask)
       "command": "./process_one_set.sh",
       "environment": {
+        "DATA_BASE_URL": "<?=$DATA_BASE_URL?>",
         "RAW_DATA_PATH": "<?=$data_set["PATH"]?>",
         "UUID": "<?=$data_set["UUID"]?>"
       },
       "inputs": [
         "process_one_set.sh",
-        "<?=$data_set["PATH"]?>" + "<?=$data_set["UUID"]?>" + "_metadata.json", "cached_betydb/bety_experiments.json",
-        "<?=$data_set["PATH"]?>" + "<?=$data_set["UUID"]?>" + "_left.bin",
-        "<?=$data_set["PATH"]?>" + "<?=$data_set["UUID"]?>" + "_right.bin"
+        "cached_betydb/bety_experiments.json"
       ],
       "outputs": [
         "<?=$CLEANED_META_DIR?>" + "<?=$data_set["UUID"]?>" + "_metadata_cleaned.json",

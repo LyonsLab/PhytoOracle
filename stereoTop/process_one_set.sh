@@ -3,7 +3,7 @@
 
 
 # Variable needed to be pass in by external
-# $RAW_DATA_PATH, $UUID
+# $RAW_DATA_PATH, $UUID, $DATA_BASE_URL
 #
 # e.g.
 #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
@@ -25,6 +25,12 @@ RIGHT_SOILMASK=${SOILMASK_DIR}${UUID}"_right_mask.tif"
 MOSAIC_LIST_FILE=${FIELDMOSAIC_DIR}"filelist.txt"
 
 set -e
+
+# Stage the data from HTTP server
+wget ${DATA_BASE_URL}${METADATA}
+wget ${DATA_BASE_URL}${LEFT_BIN}
+wget ${DATA_BASE_URL}${RIGHT_BIN}
+
 
 # Make a cleaned copy of the metadata
 SENSOR="stereoTop"
