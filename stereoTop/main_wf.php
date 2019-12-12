@@ -36,7 +36,7 @@
 
     <?php foreach ($data_file_list as &$data_set) :?>
     {
-      # Make a cleaned copy of the metadata
+      # processing for a single set of data (from cleanmetadata to soilmask)
       "command": "./process_one_set.sh",
       "environment": {
         "RAW_DATA_PATH": "<?=$data_set["PATH"]?>",
