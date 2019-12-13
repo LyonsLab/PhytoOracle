@@ -122,8 +122,8 @@ sudo apt-get install php-cli
 ```
 Generate workflow
 ```bash
-php main_wf.php > main_wf.jx
-jx2json main_wf.jx > main_workflow.json
+php main_wf_phase1.php > main_wf_phase1.jx
+jx2json main_wf_phase1.jx > main_workflow_phase1.json
 ```
 
 * Run the workflow

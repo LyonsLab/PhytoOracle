@@ -8,11 +8,8 @@
     "TARBALL": "",
 
     "CLEANED_META_DIR": "cleanmetadata_out/",
-    "TIFS_DIR": "bin2tif_out/",
     "SOILMASK_DIR": "soil_mask_out/",
     "FIELDMOSAIC_DIR": "fieldmosaic_out/",
-    "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
-    "BETYDB_KEY": "9999999999999999999999999999999999999999",
 
     "METADATA_CLEANED_LIST": [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in DATA_FILE_LIST ],
     "LEFT_SOILMASK_LIST": [ SOILMASK_DIR + DATA_SET["UUID"] + "_left_mask.tif" for DATA_SET in DATA_FILE_LIST ],
@@ -23,27 +20,6 @@
     "CANOPYCOVER_DIR": "canopy_cover_out/"
   },
   "rules": [
-    {
-      # processing for a single set of data (from cleanmetadata to soilmask)
-      "command": "./process_one_set.sh",
-      "environment": {
-        "RAW_DATA_PATH": DATA_SET["PATH"],
-        "UUID": DATA_SET["UUID"]
-      },
-      "inputs": [
-        "process_one_set.sh",
-        DATA_SET["PATH"] + DATA_SET["UUID"] + "_metadata.json",
-        "cached_betydb/bety_experiments.json",
-        DATA_SET["PATH"] + DATA_SET["UUID"] + "_left.bin",
-        DATA_SET["PATH"] + DATA_SET["UUID"] + "_right.bin"
-      ],
-      "outputs": [
-        CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json",
-        SOILMASK_DIR + DATA_SET["UUID"] + "_left_mask.tif",
-        SOILMASK_DIR + DATA_SET["UUID"] + "_right_mask.tif"
-      ]
-    } for DATA_SET in DATA_FILE_LIST,
-
 
     {
       # Make directory to store FIELDMOSAIC files
