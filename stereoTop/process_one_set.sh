@@ -27,9 +27,10 @@ MOSAIC_LIST_FILE=${FIELDMOSAIC_DIR}"filelist.txt"
 set -e
 
 # Stage the data from HTTP server
-wget ${DATA_BASE_URL}${METADATA}
-wget ${DATA_BASE_URL}${LEFT_BIN}
-wget ${DATA_BASE_URL}${RIGHT_BIN}
+mkdir -p ${RAW_DATA_PATH}
+wget ${DATA_BASE_URL}${METADATA} -O ${METADATA}
+wget ${DATA_BASE_URL}${LEFT_BIN} -O ${LEFT_BIN}
+wget ${DATA_BASE_URL}${RIGHT_BIN} -O ${RIGHT_BIN}
 
 
 # Make a cleaned copy of the metadata
