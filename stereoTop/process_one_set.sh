@@ -24,13 +24,15 @@ LEFT_SOILMASK=${SOILMASK_DIR}${UUID}"_left_mask.tif"
 RIGHT_SOILMASK=${SOILMASK_DIR}${UUID}"_right_mask.tif"
 MOSAIC_LIST_FILE=${FIELDMOSAIC_DIR}"filelist.txt"
 
+HTTP_USER="YOUR_USERNAME"
+HTTP_PASSWORD="PhytoOracle"
 set -e
 
 # Stage the data from HTTP server
 mkdir -p ${RAW_DATA_PATH}
-wget ${DATA_BASE_URL}${METADATA} -O ${METADATA}
-wget ${DATA_BASE_URL}${LEFT_BIN} -O ${LEFT_BIN}
-wget ${DATA_BASE_URL}${RIGHT_BIN} -O ${RIGHT_BIN}
+wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${METADATA} -O ${METADATA}
+wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${LEFT_BIN} -O ${LEFT_BIN}
+wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${RIGHT_BIN} -O ${RIGHT_BIN}
 
 
 # Make a cleaned copy of the metadata
