@@ -69,7 +69,45 @@ iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-1
 tar -xvf 2018-05-15_5sets.tar
 ```
 
-> Note: you can also get the data via other methods, as along as the data is in this directory (`starTerra/stereoTop`), and follows the same folder structure.
+> Note: you can also get the data via other methods, as along as the data is in this directory (`PhytoOracle/stereoTop`), and follows the same folder structure.
+
+* Hosting data in a HTTP Server (Nginx)
+```bash
+sudo apt-get install nginx apache2-utils
+wget https://raw.githubusercontent.com/uacic/PhytoOracle/dev/phyto_oracle.conf
+sudo mv phyto_oracle.conf /etc/nginx/sites-available/phyto_oracle.conf
+sudo ln -s /etc/nginx/sites-available/phyto_oracle.conf /etc/nginx/sites-enabled/phyto_oracle.conf
+sudo rm /etc/nginx/sites-enabled/default
+sudo nginx -s reload
+```
+
+Set username and password for the HTTP file server
+```bash
+sudo htpasswd -c /etc/apache2/.htpasswd YOUR_USERNAME # Set password
+```
+
+In file `/etc/nginx/sites-available/phyto_oracle.conf`, change the line (~line 21) below to where the data is decompressed, e.g. `/home/uacic/PhytoOracle/stereoTop`
+```
+	root /scratch/www;
+```
+
+Change permission of the data to allow serving by the HTTP server
+```bash
+sudo chmod -R +r 2018-05-15/
+sudo chmod +x 2018-05-15/*
+```
+
+Change URL inside `main_wf.php` (~line 30) to the IP address or URL of the VM instance with HTTP server
+> URL needs to have slash at the end
+```bash
+  $DATA_BASE_URL = "http://vm142-80.cyverse.org/";
+```
+
+Change username and password inside `process_one_set.sh` (~line 27) to the ones that you set above
+```bash
+HTTP_USER="YOUR_USERNAME"
+HTTP_PASSWORD="PhytoOracle"
+```
 
 * To generate the list of input raw data files `raw_data_files.jx` from an local path
 ```bash
@@ -84,8 +122,8 @@ sudo apt-get install php-cli
 ```
 Generate workflow
 ```bash
-php main_wf.php > main_wf.jx
-jx2json main_wf.jx > main_workflow.json
+php main_wf_phase1.php > main_wf_phase1.jx
+jx2json main_wf_phase1.jx > main_workflow_phase1.json
 ```
 
 * Run the workflow
