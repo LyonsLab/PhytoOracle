@@ -46,6 +46,7 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
 2. Define elements of your workflow:
 
 .. code-block:: RST
+
    {
        "define": {
            # symbol definitions go here
