@@ -56,29 +56,45 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
        ]
    }
    
-  + Continuing from the example in Step 1:
++ Continuing from the example in Step 1:
 
-  .. code-block:: RST 
+.. code-block:: RST 
 
-      { 
-      "define":{
-                  "message" : "hello world!"
-               },
-      "rules": [
-                  {
-                      "command": "/bin/echo " +message+ " > output-from-define.txt",
-                      "outputs": [ "output-from-define.txt" ],
-                      "inputs":  [ ],
-                  }
-               ]
-      }
+    { 
+    "define":{
+                "message" : "hello world!"
+             },
+    "rules": [
+                {
+                    "command": "/bin/echo " +message+ " > output-from-define.txt",
+                    "outputs": [ "output-from-define.txt" ],
+                    "inputs":  [ ],
+                }
+             ]
+    }
 
 3. Now you can run it locally!
 
 .. code-block:: RST
     
-    makeflow --jx define-hello.jx
+    $ makeflow --jx define-hello.jx
     
+    parsing define-hello.jx...
+    local resources: 4 cores, 7764 MB memory, 2097151 MB disk
+    max running local jobs: 4
+    checking define-hello.jx for consistency...
+    define-hello.jx has 1 rules.
+    starting workflow....
+    submitting job: /bin/echo hello world! > output-from-define.txt
+    submitted job 1376
+    job 1376 completed
+    
++ Then run the following: 
+
+.. code-block::
+    
+    $ cat output-from-define.txt 
+    hello world!
     
 Understand Jx language
 Rule > command > inputs/outputs explicitly stated 
