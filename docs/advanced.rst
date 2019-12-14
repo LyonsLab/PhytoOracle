@@ -29,6 +29,8 @@ Swapping extractors
 -------------------
 PhytoOracle makes it easy to swap between extractors. To being swapping, edit the Makeflow file as follows:
 
+Editing our workflow 
+~~~~~~~~~~~~~~~~~~~~
 1. Begin by stating the rules, including the command and the inputs/outputs of your extractor. 
 
 .. code-block:: RST
@@ -43,6 +45,9 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
               ]
     }
 |
+
+Defining your values
+~~~~~~~~~~~~~~~~~~~~
 2. Define elements of your workflow:
 
 .. code-block:: RST
@@ -73,6 +78,8 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
              ]
     }
 
+Running your workflow 
+~~~~~~~~~~~~~~~~~~~~~
 3. Now you can run it locally!
 
 .. code-block:: RST
