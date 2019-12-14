@@ -29,7 +29,7 @@ Swapping extractors
 -------------------
 PhytoOracle makes it easy to swap between extractors. To being swapping, edit the Makeflow file as follows:
 
-1. Begin by stating the command and the inputs/outputs of your extractor. 
+1. Begin by stating the rules, including the command and the inputs/outputs of your extractor. 
 
 .. code-block:: RST
    
@@ -52,9 +52,16 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
            # symbol definitions go here
        },
        "rules": [
-           # rules go here
+           # Rules you created above go here
        ]
    }
+
+3. Now you can run it locally!
+
+.. code-block:: RST
+    
+    makeflow --jx define-hello.jx
+    
     
 Understand Jx language
 Rule > command > inputs/outputs explicitly stated 
