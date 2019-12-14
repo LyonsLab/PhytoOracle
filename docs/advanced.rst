@@ -96,7 +96,7 @@ Running your workflow
     
 + Then run the following: 
 
-.. code-block::
+.. code-block:: RST 
     
     $ cat output-from-define.txt 
     hello world!
@@ -104,6 +104,7 @@ Creating Multiple Jobs
 ~~~~~~~~~~~~~~~~~~~~~~
 Workflows enable you to run analysis codes. Below is an example of how to string multiple jobs together:
 1. Write your job and generate multiple instance of the job: 
+
 .. code-block:: RST
 
     {
@@ -117,6 +118,7 @@ Workflows enable you to run analysis codes. Below is an example of how to string
     }
 
 2. Stitch Results
+
 .. code-block:: RST
 
     {
@@ -127,7 +129,7 @@ Workflows enable you to run analysis codes. Below is an example of how to string
     
 + Or you could factor out the definition of the list and the range to the define section of the workflow as follows: 
 
-.. code-block::
+.. code-block:: RST
     {
         "define" : {
             "RANGE"    : range(1,4),
