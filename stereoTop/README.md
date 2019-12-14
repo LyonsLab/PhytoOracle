@@ -67,11 +67,11 @@ cd singularity
 
 ### Staging Data on Master Instance
 
-+ Clone the PhytoOracle workflow from github repository, `php-template` branch
++ Git Clone the PhytoOracle github repository.
 ```bash
-git clone https://github.com/uacic/starTerra.git
-cd starTerra
-git checkout php-template
+git clone https://github.com/uacic/PhytoOracle
+cd PhytoOracle
+git checkout dev
 ```
 
 + Download test data (tarball), and decompress it
