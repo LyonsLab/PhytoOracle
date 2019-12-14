@@ -179,12 +179,31 @@ makeflow_monitor main_wf_phase1.jx.makeflowlog
 work_queue_status
 ```
 
-
 + Makeflow Clean up output and logs
 ```bash
 ./entrypoint.sh -c
 rm -f makeflow.jx.args.*
 ```
 
+## Connect Workers from HPC
+
++ Here is a pbs script to connect worker factories from UArizona HPC. Modify the following to add the IP_ADDRESS of your Master VM.
+
+```bash
+#!/bin/bash
+#PBS -W group_list=ericlyons
+#PBS -q windfall
+#PBS -l select=2:ncpus=6:mem=24gb
+#PBS -l place=pack:shared
+#PBS -l walltime=02:00:00
+#PBS -l cput=02:00:00
+module load unsupported
+module load ferng/glibc
+module load singularity
+export CCTOOLS_HOME=/home/u15/sateeshp/cctools
+export PATH=${CCTOOLS_HOME}/bin:$PATH
+cd /home/u15/sateeshp/
+/home/u15/sateeshp/cctools/bin/work_queue_factory -T local IP_ADDRESS 9123 -w 80 -W 200 --workers-per-cycle 10  -E "-b 20 --wall-time=3600" --cores=1 -t 900
+```
 
 
