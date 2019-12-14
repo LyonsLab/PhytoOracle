@@ -11,8 +11,9 @@ Setting up Makeflow using CyVerse Atmosphere
 
 |
 
-.. topic::   As of cctools 7.0.21 the support for the sub-workflow feature in JX is unclear, you need to pull the current master 
-    branch from cctools GitHub repo and compile from source.
+.. topic::   
+
+    As of cctools 7.0.21 the support for the sub-workflow feature in JX is unclear, you need to pull the current master branch from cctools GitHub repo and compile from source.
 
 .. note::   dependency to compile cctools is included if using the following Atmosphere instructions.
 
