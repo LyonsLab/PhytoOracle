@@ -6,6 +6,10 @@ PhytoOracle is a scalable, modular data pipeline that aims to improve data proce
 
 ## System Requirements
 
++ [CCTools 7.0.21](http://ccl.cse.nd.edu/software/downloadfiles.php)
++ [Singularity 3.5.1]()
++ [iRODS Client]()
+
 ## Getting Started
 
 ## Distributed Scaling
