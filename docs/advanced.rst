@@ -102,6 +102,20 @@ Running your workflow
     hello world!
 Creating Multiple Jobs
 ~~~~~~~~~~~~~~~~~~~~~~
+Workflows enable you to run analysis codes. Below is an example of how to string multiple jobs together:
+1. Write your job and generate multiple instance of the job: 
+.. code-block::
+    {
+        "rules": [
+                    {
+                        "command" : "python ./example.py --parameter + N + " > output." + N + ".txt",
+                        "inputs"  : [ "example.py" ],
+                        "outputs" : [ "output." + N + ".txt" ]
+                    } for N in [1, 2, 3]
+                 ]
+    }
+
+
 Understand Jx language
 Rule > command > inputs/outputs explicitly stated 
 Swap with your Docker container
