@@ -130,3 +130,13 @@ Stereotop:
 Scanner3DTop:
 **TODO decide if and how we are attempting to benchmark this one. 
 
+Amazon Web Service Cost Estimate:
+
+Size:
+     Steretop Raw Data input: 110 G / Day
+     Steretop Raw Data output: 20 G / Day
+     
+     Steretop Raw Data input: 140 G / Day
+     
+     
+
