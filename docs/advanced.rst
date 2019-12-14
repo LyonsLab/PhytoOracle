@@ -58,6 +58,7 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
 + Continuing from the example in Step 1:
 
 .. code-block:: RST 
+
     { 
     "define":{
                 "message" : "hello world!"
