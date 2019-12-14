@@ -11,9 +11,12 @@ Setting up Makeflow using CyVerse Atmosphere
 
 |
 
-.. topic::   As of cctools 7.0.21 the support for the sub-workflow feature in JX is unclear, you need to pull the current master branch from cctools GitHub repo and compile from source.
+.. topic:: As of cctools 7.0.21
 
-.. note::   Dependency to compile cctools is included if using the following Atmosphere instructions.
+    the support for the sub-workflow feature in JX is unclear, you need to pull the current master 
+    branch from cctools GitHub repo and compile from source.
+
+    .. note::   dependency to compile cctools is included if using the following Atmosphere instructions.
 
 |
 
@@ -25,11 +28,13 @@ Create a CyVerse Atmosphere account: if not done so already.
 * This may be done here: https://user.cyverse.org/register
 
 
-.. topic:: If not using CyVerse  Atmosphere: the dependency (Ubuntu 18.04 LTS) can be installed from https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html
+.. topic:: If not using CyVerse  Atmosphere:
 
-.. note:: You will also need Docker Runtime to run this workflow.
+     the dependency (Ubuntu 18.04 LTS) can be installed from https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html
 
-* Installations instructions may be found here: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
+    .. note::   You will also need Docker Runtime to run this workflow.
+
+                * Installations instructions may be found here: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
 
 ===============================
 **Step One: Launch an Image**
@@ -68,15 +73,13 @@ When finished:
 
 .. code-block:: RST
 
-   ssh "Your Atmopshere username"@"IP Address" #do not include quotation marks
+  ssh "Your Atmopshere username"@"IP Address" #do not include quotation marks
+.. note::   the IP Address is found on your "ubuntu_cctools_docker" instance page - on this page, click copy and paste it as your IP Address.
+.. note::   If using a Mac computer with a touch bar and prompted
 
-.. note:: The IP Address is found on your "ubuntu_cctools_docker" instance page - on this page, click copy and paste it as your IP Address.
+     .. code-block:: RST
 
-.. note:: If using a Mac computer with a touch bar and prompted
-
-.. code-block:: RST
-
-   Are you sure you want to continue connecting (yes/no)?
+           Are you sure you want to continue connecting (yes/no)?
 
      type “yes” press return
 
@@ -88,6 +91,7 @@ When asked for your password, use your Atmosphere password. Your password will n
 The command terminal should appear as the following.
 
 .. image:: img3.png
+
 
 =========================================================
 **Step Three: Installing cctools to your Home Directory**
@@ -148,20 +152,22 @@ Enter the credentials: After the password prompt, if anonymous is not being used
     iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
     tar -xvf 2018-5-15_5sets.tar
 
-.. note:: If an Error message presents itself. Type the following:
+.. note::   If an Error message presents itself. Type the following:
 
-.. code-block:: RST
-   
-   ils
-   pwd
-   ls #if 2018-05-15_5sets.tar is red, keep going
-   chmod 755 *
-   pwd
-   tar - xvf /"the output that is given from the previous pwd command. It should be similar to home/username"/2018-05-15_5sets.tar #do not include quotation marks
-   git clone https://github.com/uacic/starTerra.git
-    mv 2018-05-15 starTerra/stereoTop
+     .. code-block:: RST
 
-.. note:: Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information. If the output of this solution automatically displays multiple "2018-05-15...."  lines in the terminal, you may proceed. 
+             ils
+             pwd
+             ls #if 2018-05-15_5sets.tar is red, keep going
+             chmod 755 *
+             pwd
+             tar - xvf /"the output that is given from the previous pwd command. It should be similar to home/username"/2018-05-15_5sets.tar #do not include quotation marks
+             git clone https://github.com/uacic/starTerra.git
+             mv 2018-05-15 starTerra/stereoTop
+
+..note:: Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information.
+
+     If the output of this solution automatically displays multiple "2018-05-15...."  lines in the terminal, you may proceed. 
 
 
 
@@ -176,12 +182,12 @@ To generate the list of input raw data files raw_data_files.jx from an iRODS pat
 
      python gen_files_list.py 2018-05-15 >  raw_data_files.jx
 
-.. note:: Run the workflow, -r 0 for 0 retry attempts if failed by:
+.. note::  Run the workflow, -r 0 for 0 retry attempts if failed by:
 
-.. code-block:: RST
+    .. code-block:: RST
          
-   chmod 755 entrypoint.sh
-   ./entrypoint.sh -r 0 
+         chmod 755 entrypoint.sh
+         ./entrypoint.sh -r 0 
 
 ============================================================
 **Step Five: Clean the Data Output and Logs**
@@ -189,6 +195,6 @@ To generate the list of input raw data files raw_data_files.jx from an iRODS pat
 
 .. code-block:: RST
 
-   ./entrypoint.sh -c
-   rm -f makeflow.jx.args.*
+    ./entrypoint.sh -c
+    rm -f makeflow.jx.args.*
 
