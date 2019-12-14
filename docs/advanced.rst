@@ -20,9 +20,7 @@ PhytoOracle is a scalable, modular data pipeline that reduces processing times. 
 
 Getting started
 ---------------
-If you need help running the pipeline, please check out our Plug-Play.
-
-.. _Plug-Play: https://github.com/emmanuelgonz/PhytoOracle/blob/master/docs/plug-play.rst tutorial.
+If you need help running the pipeline, please check out our `Plug-Play <https://github.com/emmanuelgonz/PhytoOracle/blob/master/docs/plug-play.rst>`_ tutorial.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Swapping extractors
@@ -102,7 +100,8 @@ Running your workflow
     
     $ cat output-from-define.txt 
     hello world!
-    
+Creating Multiple Jobs
+~~~~~~~~~~~~~~~~~~~~~~
 Understand Jx language
 Rule > command > inputs/outputs explicitly stated 
 Swap with your Docker container
