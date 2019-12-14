@@ -46,14 +46,14 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
 2. Define elements of your workflow:
 
 .. code-block:: RST
-    {
-        "define": {
-            # symbol definitions go here
-        },
-        "rules": [
-            # rules go here
-        ]
-    }
+   {
+       "define": {
+           # symbol definitions go here
+       },
+       "rules": [
+           # rules go here
+       ]
+   }
     
 Understand Jx language
 Rule > command > inputs/outputs explicitly stated 
