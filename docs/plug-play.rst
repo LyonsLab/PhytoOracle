@@ -58,10 +58,11 @@ Launching times may vary.
 
 Start-up should appear as: 
 
-.. image:: 
+.. image:: img1.png
 
 When finished: 
 
+.. image:: img2.png
 
 
 ========================================
@@ -90,7 +91,7 @@ When asked for your password, use your Atmosphere password. Your password will n
 
 The command terminal should appear as the following.
 
-
+.. image:: img3.png
 
 =========================================================
 **Step Three: Installing cctools to your Home Directory**
