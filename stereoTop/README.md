@@ -15,7 +15,7 @@
 
 #### CyVerse Atmosphere Image
 
-+ Click [here](https://atmo.cyverse.org/application/images/1762) for Atmosphere image that comes with recommended CCTools (7.0.21) and Singularity (7.0.21) version installed.
++ Click [here](https://atmo.cyverse.org/application/images/1764) for Atmosphere image that comes with recommended CCTools (7.0.21) and Singularity (7.0.21) version installed.
 
 #### Manual Installation 
 
