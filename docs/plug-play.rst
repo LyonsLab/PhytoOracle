@@ -11,9 +11,9 @@ Setting up Makeflow using CyVerse Atmosphere
 
 |
 
-.. topic::   
+.. topic:: As of cctools 7.0.21 
 
-    As of cctools 7.0.21 the support for the sub-workflow feature in JX is unclear, you need to pull the current master branch from cctools GitHub repo and compile from source.
+   the support for the sub-workflow feature in JX is unclear, you need to pull the current master branch from cctools GitHub repo and compile from source.
 
 .. note::   dependency to compile cctools is included if using the following Atmosphere instructions.
 
@@ -31,7 +31,7 @@ Create a CyVerse Atmosphere account: if not done so already.
 
      the dependency (Ubuntu 18.04 LTS) can be installed from https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html
 
-    .. note::   You will also need Docker Runtime to run this workflow.
+.. note::   You will also need Docker Runtime to run this workflow.
 
                 * Installations instructions may be found here: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
 
