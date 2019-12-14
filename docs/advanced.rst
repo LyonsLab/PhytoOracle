@@ -7,8 +7,9 @@ Who is this tutorial for?
 This tutorial is meant for users who will be swapping between available extractors or integrating new ones. It will provide in-depth instructions into changing the workflow files and ....
 
 You should be comfortable using:
-  - cctools.
-  - Docker Containers.
+  - Jx language
+  - CCTools.
+  - Docker containers.
   - iRods.
   - HPC.
   - More.
@@ -26,4 +27,24 @@ https://github.com/emmanuelgonz/PhytoOracle/blob/master/docs/plug-play.rst
 
 Swapping extractors
 -------------------
-Fancy lingo here to discuss what types of extractors can be used? 
+PhytoOracle makes it easy to swap between extractors. To being swapping, follow the steps below:
+
+1. Begin by stating the command and the inputs/outputs of your extractor. 
+
+.. code-block::
+   
+   {
+    "rules": [
+                {
+                    "command" : "/bin/echo hello world > output.txt",
+                    "outputs" : [ "output.txt" ],
+                    "inputs"  : [ ]
+                }
+            ]
+}
+
+
+Understand Jx language
+Rule > command > inputs/outputs explicitly stated 
+Swap with your Docker container
+Variables in Makeflow file..
