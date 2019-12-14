@@ -123,6 +123,20 @@ python gen_files_list.py 2018-05-15/ 2 > raw_data_files.json
 
 Benchmarking Results
 
+.. |CPU_Usage_VS_Time| image:: pic/CPU_Usage_VS_Time(4).png
+  :width: 400
+  :alt: CPU_Usage_VS_Time
+  
+
+.. |CPU_CORE_VS TIME| image:: pic/CPU_CORE_VS TIME(4).png
+  :width: 400
+  :alt: CPU_CORE_VS TIME
+  
+
+.. |Memory_Usage_VS_Time| image:: pic/Memory_Usage_VS_Time(4).png
+  :width: 400
+  :alt: Memory_Usage_VS_Time
+
 Stereotop:
 
 
