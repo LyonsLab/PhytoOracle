@@ -33,15 +33,15 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, follow 
 
 .. code-block::
    
-   {
-    "rules": [
-                {
-                    "command" : "/bin/echo hello world > output.txt",
-                    "outputs" : [ "output.txt" ],
-                    "inputs"  : [ ]
-                }
-            ]
-}
+     {
+      "rules": [
+                  {
+                      "command" : "/bin/echo hello world > output.txt",
+                      "outputs" : [ "output.txt" ],
+                      "inputs"  : [ ]
+                  }
+              ]
+    }
 
 
 Understand Jx language
