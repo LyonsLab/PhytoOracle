@@ -78,9 +78,9 @@ When finished:
 .. note::   the IP Address is found on your "ubuntu_cctools_docker" instance page - on this page, click copy and paste it as your IP Address.
 .. note::   If using a Mac computer with a touch bar and prompted
 
-     .. code-block:: RST
+.. code-block:: RST
 
-           Are you sure you want to continue connecting (yes/no)?
+   Are you sure you want to continue connecting (yes/no)?
 
      type “yes” press return
 
