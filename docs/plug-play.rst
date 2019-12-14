@@ -11,12 +11,11 @@ Setting up Makeflow using CyVerse Atmosphere
 
 |
 
-.. topic:: As of cctools 7.0.21
-
-    the support for the sub-workflow feature in JX is unclear, you need to pull the current master 
-    branch from cctools GitHub repo and compile from source.
+.. topic:: 
+   As of cctools 7.0.21 the support for the sub-workflow feature in JX is unclear, you need to pull the current master branch from cctools GitHub repo and compile from source.
 
 .. note::   
+   
    dependency to compile cctools is included if using the following Atmosphere instructions.
 
 |
@@ -29,9 +28,9 @@ Create a CyVerse Atmosphere account: if not done so already.
 * This may be done here: https://user.cyverse.org/register
 
 
-.. topic:: If not using CyVerse  Atmosphere:
+.. topic:: 
 
-     the dependency (Ubuntu 18.04 LTS) can be installed from https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html
+   If not using CyVerse  Atmosphere: the dependency (Ubuntu 18.04 LTS) can be installed from https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html
 
 .. note::
 
@@ -156,7 +155,9 @@ Enter the credentials: After the password prompt, if anonymous is not being used
     iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
     tar -xvf 2018-5-15_5sets.tar
 
-.. note::   If an Error message presents itself. Type the following:
+.. note::   
+   
+   If an Error message presents itself. Type the following:
 
 .. code-block:: RST
    
@@ -169,14 +170,14 @@ Enter the credentials: After the password prompt, if anonymous is not being used
    git clone https://github.com/uacic/starTerra.git
     mv 2018-05-15 starTerra/stereoTop
 
-..note:: 
-    Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information.
-
-     If the output of this solution automatically displays multiple "2018-05-15...."  lines in the terminal, you may proceed. 
+.. note:: 
+   Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information. If the output of this solution automatically displays multiple "2018-05-15...."  lines in the terminal, you may proceed. 
 
 
 
-.. note:: You may also get the data via other methods, as long as the data is in this directory (starTerra/stereoTop), and follows the same folder structure.
+.. note:: 
+
+    You may also get the data via other methods, as long as the data is in this directory (starTerra/stereoTop), and follows the same folder structure.
 
 ============================================================
 **Step Four: Generate the list of files from an iRODS path**
@@ -187,7 +188,8 @@ To generate the list of input raw data files raw_data_files.jx from an iRODS pat
 
      python gen_files_list.py 2018-05-15 >  raw_data_files.jx
 
-.. note::  Run the workflow, -r 0 for 0 retry attempts if failed by:
+.. note::  
+   Run the workflow, -r 0 for 0 retry attempts if failed by:
 
 .. code-block:: RST
          
