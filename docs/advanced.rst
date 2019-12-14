@@ -27,11 +27,11 @@ https://github.com/emmanuelgonz/PhytoOracle/blob/master/docs/plug-play.rst
 
 Swapping extractors
 -------------------
-PhytoOracle makes it easy to swap between extractors. To being swapping, follow the steps below:
+PhytoOracle makes it easy to swap between extractors. To being swapping, edit the Makeflow file as follows:
 
 1. Begin by stating the command and the inputs/outputs of your extractor. 
 
-.. code-block::
+.. code-block:: RST
    
      {
       "rules": [
@@ -42,8 +42,19 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, follow 
                   }
               ]
     }
+|
+2. Define elements of your workflow:
 
-
+.. code-block:: RST
+    {
+        "define": {
+            # symbol definitions go here
+        },
+        "rules": [
+            # rules go here
+        ]
+    }
+    
 Understand Jx language
 Rule > command > inputs/outputs explicitly stated 
 Swap with your Docker container
