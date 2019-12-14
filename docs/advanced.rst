@@ -55,6 +55,21 @@ PhytoOracle makes it easy to swap between extractors. To being swapping, edit th
            # Rules you created above go here
        ]
    }
++ Continuing from the example in Step 1:
+
+.. code-block:: RST 
+    { 
+    "define":{
+                "message" : "hello world!"
+             },
+    "rules": [
+                {
+                    "command": "/bin/echo " +message+ " > output-from-define.txt",
+                    "outputs": [ "output-from-define.txt" ],
+                    "inputs":  [ ],
+                }
+             ]
+    }
 
 3. Now you can run it locally!
 
