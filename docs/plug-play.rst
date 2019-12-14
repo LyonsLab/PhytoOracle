@@ -33,9 +33,9 @@ Create a CyVerse Atmosphere account: if not done so already.
 
      the dependency (Ubuntu 18.04 LTS) can be installed from https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html
 
-    .. note::   You will also need Docker Runtime to run this workflow.
+.. note::   You will also need Docker Runtime to run this workflow.
 
-                * Installations instructions may be found here: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
+* Installations instructions may be found here: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
 
 ===============================
 **Step One: Launch an Image**
@@ -74,8 +74,10 @@ When finished:
 
 .. code-block:: RST
 
-  ssh "Your Atmopshere username"@"IP Address" #do not include quotation marks
-.. note::   the IP Address is found on your "ubuntu_cctools_docker" instance page - on this page, click copy and paste it as your IP Address.
+   ssh "Your Atmopshere username"@"IP Address" #do not include quotation marks
+
+.. note::   
+   The IP Address is found on your "ubuntu_cctools_docker" instance page - on this page, click copy and paste it as your IP Address.
 .. note::   If using a Mac computer with a touch bar and prompted
 
 .. code-block:: RST
