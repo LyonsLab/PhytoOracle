@@ -104,7 +104,8 @@ Creating Multiple Jobs
 ~~~~~~~~~~~~~~~~~~~~~~
 Workflows enable you to run analysis codes. Below is an example of how to string multiple jobs together:
 1. Write your job and generate multiple instance of the job: 
-.. code-block::
+.. code-block:: RST
+
     {
         "rules": [
                     {
@@ -113,6 +114,38 @@ Workflows enable you to run analysis codes. Below is an example of how to string
                         "outputs" : [ "output." + N + ".txt" ]
                     } for N in [1, 2, 3]
                  ]
+    }
+
+2. Stitch Results
+.. code-block:: RST
+
+    {
+        "command" : "/bin/cat + join(["output.1.txt","output.2.txt","output.3.txt"], " ") + " > output.all.txt",
+        "inputs"  : [ "output." + N + ".txt" ] for N in [1,2,3] ],
+        "outputs" : [ "output.all.txt" ]
+    }
+    
++ Or you could factor out the definition of the list and the range to the define section of the workflow as follows: 
+
+.. code-block::
+    {
+        "define" : {
+            "RANGE"    : range(1,4),
+            "FILELIST" : [ "output." + N + ".txt" for N in RANGE ],
+        },
+
+        "rules" : [
+                    {
+                        "command" : "python ./simulate.py --parameter " + N + " > output."+N+".txt",
+                        "inputs"  : [ "simulate.py" ],
+                        "outputs" : [ "output." + N + ".txt" ]
+                    } for N in RANGE,
+                    {
+                        "command" : "/bin/cat " + join(FILELIST," ") + " > output.all.txt",
+                        "inputs"  : FILELIST,
+                        "outputs" : [ "output.all.txt" ]
+                    }
+                  ]
     }
 
 
