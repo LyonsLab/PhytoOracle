@@ -180,7 +180,7 @@ To generate the list of input raw data files raw_data_files.jx from an iRODS pat
 
      python gen_files_list.py 2018-05-15 >  raw_data_files.jx
 
-.. note::  Run the workflow, -r 0 for 0 retry attempts if failed by:
+.. note:: Run the workflow, -r 0 for 0 retry attempts if failed by:
 
     .. code-block:: RST
          
