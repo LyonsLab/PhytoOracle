@@ -16,6 +16,25 @@ Preliminary Benchmark Results:
 + # Worker Factories connected: 4 xxlarge Jetstream VMs (CPU: 44, MEM: 128GB, Disk: 480GB)
 + Results deposition: Results transferred to CyVerse Data Store using iRODS
 
+Test: 9,355 datasets (pair of left and right images)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ *Phase 1*
+
+  * Clean_metadata: left bin and right bin for each set (38 Mb) 
+  * bin2tif: takes both left and right bins and converts them to tif (x2) 
+  * soil_mask takes tif images (20 GB)
+  
+     - Average 50 workers : 3 hours 8 minutes (without bundling)
+     - Average 100 workers : 1 hr 4 min (bundling, 10 datasets/bundle)
+|
++ *Phase 2*
+
+  * Field_mosaic: takes in all tif images 
+  * Canopy cover: takes in resulting field mosaic
+  
+     - Local run, 1 core on 16 core machine
+     - Processing time: 3 hour 41 minutes
+|
 Stereotop Benchmarking Workflow Process
 -------------------------------
 * Get Jetstream account 

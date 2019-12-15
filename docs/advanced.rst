@@ -103,7 +103,8 @@ Running your workflow
 Creating Multiple Jobs
 ~~~~~~~~~~~~~~~~~~~~~~
 Workflows enable you to run analysis codes. Below is an example of how to string multiple jobs together:
-1. Write your job and generate multiple instance of the job: 
+
+1. Write your job and generate multiple instance of the job
 
 .. code-block:: RST
 

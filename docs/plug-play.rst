@@ -63,9 +63,9 @@ When finished:
 .. image:: img2.png
 
 
-========================================
-**Step Two: Starting your Command Line**
-========================================
+=========================================
+**Step Two: Connecting to your instance**
+=========================================
 1. Open your computers terminal/PowerShell or to skip these steps click the "ubuntu_cctools_docker" hyperlink you just created, scroll to the bottom of the web page and click ">_Open Web Shell".
 
 2. Login into Atmosphere using the following commands in the terminal. Press "return" after each line.
@@ -76,11 +76,10 @@ When finished:
 .. note::   the IP Address is found on your "ubuntu_cctools_docker" instance page - on this page, click copy and paste it as your IP Address.
 .. note::   If using a Mac computer with a touch bar and prompted
 
-     .. code-block:: RST
+     * .. code-block:: RST
 
            Are you sure you want to continue connecting (yes/no)?
-
-     type “yes” press return
+           #type “yes” and press enter/return
 
 
 When asked for your password, use your Atmosphere password. Your password will not show when inputting. You have a limited amount of attempts to put in the password, so prior to this command be sure of what the password is. 
@@ -127,7 +126,7 @@ In order to complete this next step you must have your iRODs credentials or use 
 |Default Resource    | leave blank           |it will default automatically|
 +--------------------+-----------------------+-----------------------------+
 
-.. note::   If you are not using a CyVerse account or only accessing public data sets.
+.. note:: If you are not using a CyVerse account or only accessing public data sets.
             
             Set user to **anonymous** -- no password is required
 
@@ -164,7 +163,7 @@ Enter the credentials: After the password prompt, if anonymous is not being used
              git clone https://github.com/uacic/starTerra.git
              mv 2018-05-15 starTerra/stereoTop
 
-..note:: Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information.
+.. note:: Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information.
 
      If the output of this solution automatically displays multiple "2018-05-15...."  lines in the terminal, you may proceed. 
 
@@ -181,7 +180,7 @@ To generate the list of input raw data files raw_data_files.jx from an iRODS pat
 
      python gen_files_list.py 2018-05-15 >  raw_data_files.jx
 
-.. note::  Run the workflow, -r 0 for 0 retry attempts if failed by:
+.. note:: Run the workflow, -r 0 for 0 retry attempts if failed by:
 
     .. code-block:: RST
          
