@@ -163,7 +163,7 @@ Enter the credentials: After the password prompt, if anonymous is not being used
              git clone https://github.com/uacic/starTerra.git
              mv 2018-05-15 starTerra/stereoTop
 
-..note:: Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information.
+.. note:: Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information.
 
      If the output of this solution automatically displays multiple "2018-05-15...."  lines in the terminal, you may proceed. 
 
