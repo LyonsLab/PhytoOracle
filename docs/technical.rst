@@ -18,13 +18,13 @@ Preliminary Benchmark Results:
 
 Test: 9355 datasets (pair of left and right images)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+ Phase 1
++ *Phase 1*
 
   * Clean_metadata, bin2tif, and soil_mask for 9355 datasets (each set is a pair of left and right images)
-      - 50 workers : 3 hours 8 minutes (without bundling)
-      - 100 workers : 1 hr 4 min (bundling, 10 datasets/bundle)
-
-+ Phase 2
+      - Average 50 workers : 3 hours 8 minutes (without bundling)
+      - Average 100 workers : 1 hr 4 min (bundling, 10 datasets/bundle)
+|
++ *Phase 2*
 
   * Field_mosaic and canopy cover
      - Local run, 1 core on 16 core machine
