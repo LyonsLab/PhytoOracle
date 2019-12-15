@@ -16,6 +16,20 @@ Preliminary Benchmark Results:
 + # Worker Factories connected: 4 xxlarge Jetstream VMs (CPU: 44, MEM: 128GB, Disk: 480GB)
 + Results deposition: Results transferred to CyVerse Data Store using iRODS
 
+Phase 1
+~~~~~~~
+
++ Clean_metadata, bin2tif, and soil_mask for 9355 datasets (each set is a pair of left and right images)
+   * Average workers: 50 
+   * Processing time: 3 hours 8 minutes
+|
+Phase 2
+~~~~~~~
+
++ Field_mosaic and canopy cover
+   * Local run, 1 core on 16 core machine
+   * Processing time: 1 hour 25 minutes
+|
 Stereotop Benchmarking Workflow Process
 -------------------------------
 * Get Jetstream account 
