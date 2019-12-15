@@ -126,7 +126,7 @@ In order to complete this next step you must have your iRODs credentials or use 
 |Default Resource    | leave blank           |it will default automatically|
 +--------------------+-----------------------+-----------------------------+
 
-.. note::   If you are not using a CyVerse account or only accessing public data sets.
+.. note:: If you are not using a CyVerse account or only accessing public data sets.
             
             Set user to **anonymous** -- no password is required
 
