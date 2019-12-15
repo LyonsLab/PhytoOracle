@@ -124,7 +124,7 @@ python gen_files_list.py 2018-05-15/ 2 > raw_data_files.json
 Benchmarking Results
 
 .. image:: CPU_Usage_VS_Time(4).png
-   :width: 50
+   :width: 100
    :alt: CPU_Usage_VS_Time
   
 
