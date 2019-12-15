@@ -10,9 +10,15 @@ PhytoOracle is a scalable, modular data pipeline that aims to improve data proce
 + [Singularity 3.5.1]()
 + [iRODS Client]()
 
-## Getting Started
+## Sensor Modules available
+
++ stereoTop-RGB
++ scanner3D
++ PS2 Flourescence
 
 ## Distributed Scaling
+
+- Read mroe about CCtools here
 
 ## License 
 
