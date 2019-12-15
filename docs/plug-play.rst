@@ -79,8 +79,7 @@ When finished:
      * .. code-block:: RST
 
            Are you sure you want to continue connecting (yes/no)?
-
-           type “yes” press return
+           #type “yes” and press enter/return
 
 
 When asked for your password, use your Atmosphere password. Your password will not show when inputting. You have a limited amount of attempts to put in the password, so prior to this command be sure of what the password is. 
