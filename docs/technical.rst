@@ -123,10 +123,34 @@ python gen_files_list.py 2018-05-15/ 2 > raw_data_files.json
 
 Benchmarking Results
 
+.. |CPU_Usage_VS_Time| image:: pic/CPU_Usage_VS_Time(4).png
+  :width: 400
+  :alt: CPU_Usage_VS_Time
+  
+
+.. |CPU_CORE_VS TIME| image:: pic/CPU_CORE_VS TIME(4).png
+  :width: 400
+  :alt: CPU_CORE_VS TIME
+  
+
+.. |Memory_Usage_VS_Time| image:: pic/Memory_Usage_VS_Time(4).png
+  :width: 400
+  :alt: Memory_Usage_VS_Time
+
 Stereotop:
 
 
 
 Scanner3DTop:
 **TODO decide if and how we are attempting to benchmark this one. 
+
+Amazon Web Service Cost Estimate:
+
+Size:
+     Steretop Raw Data input: 110 G / Day
+     Steretop Raw Data output: 20 G / Day
+     
+     Steretop Raw Data input: 140 G / Day
+     
+     
 
