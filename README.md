@@ -16,6 +16,8 @@ PhytoOracle is a scalable, modular data pipeline that aims to improve data proce
 
 ## License 
 
+Licensed under the **GNU General Public License v3.0**
+
 ## Author Description
 
 ## Where to get additional help
@@ -24,4 +26,4 @@ PhytoOracle is a scalable, modular data pipeline that aims to improve data proce
 
 ## Acknowledgements
 
-> grant #
+This material based upon work supported by Cyverse & CCTools. Cyverse is based upon work supported by the National Science Foundation under Grant Numbers: DBI-0735191, DBI-1265383, DBI-1743442. CCTools is based upon work supported by the National Science Foundation under Grant Numbers: CCF-0621434 and CNS-0643229.
