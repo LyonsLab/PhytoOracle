@@ -63,9 +63,9 @@ When finished:
 .. image:: img2.png
 
 
-========================================
-**Step Two: Starting your Command Line**
-========================================
+=========================================
+**Step Two: Connecting to your instance**
+=========================================
 1. Open your computers terminal/PowerShell or to skip these steps click the "ubuntu_cctools_docker" hyperlink you just created, scroll to the bottom of the web page and click ">_Open Web Shell".
 
 2. Login into Atmosphere using the following commands in the terminal. Press "return" after each line.
