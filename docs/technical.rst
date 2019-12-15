@@ -128,7 +128,7 @@ Benchmarking Results
    :alt: CPU_Usage_VS_Time
   
 
-.. image:: CPU_CORE_VS TIME(4).png
+.. image:: CPU_CORE_VS_TIME(4).png
     :width: 100
     :alt: CPU_CORE_VS TIME
   
@@ -150,6 +150,9 @@ Size:
      Steretop Raw Data input: 110 G / Day
      Steretop Raw Data output: 20 G / Day
      
+.. image:: stereTop_AWS_Est.png
+  :width: 100
+  :alt: Memory_Usage_VS_Time
      Steretop Raw Data input: 140 G / Day
      
      
