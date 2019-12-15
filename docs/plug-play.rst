@@ -76,11 +76,11 @@ When finished:
 .. note::   the IP Address is found on your "ubuntu_cctools_docker" instance page - on this page, click copy and paste it as your IP Address.
 .. note::   If using a Mac computer with a touch bar and prompted
 
-     .. code-block:: RST
+     *.. code-block:: RST
 
            Are you sure you want to continue connecting (yes/no)?
 
-     type “yes” press return
+           type “yes” press return
 
 
 When asked for your password, use your Atmosphere password. Your password will not show when inputting. You have a limited amount of attempts to put in the password, so prior to this command be sure of what the password is. 
