@@ -24,7 +24,7 @@ LEFT_SOILMASK=${SOILMASK_DIR}${UUID}"_left_mask.tif"
 RIGHT_SOILMASK=${SOILMASK_DIR}${UUID}"_right_mask.tif"
 MOSAIC_LIST_FILE=${FIELDMOSAIC_DIR}"filelist.txt"
 
-HTTP_USER="YOUR_USERNAME"
+HTTP_USER="uacic"
 HTTP_PASSWORD="PhytoOracle"
 set -e
 
