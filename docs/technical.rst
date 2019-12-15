@@ -23,6 +23,7 @@ Test: 9,355 datasets (pair of left and right images)
   * Clean_metadata: left bin and right bin for each set (38 Mb) 
   * bin2tif: takes both left and right bins and converts them to tif (x2) 
   * soil_mask takes tif images (20 GB)
+  
      - Average 50 workers : 3 hours 8 minutes (without bundling)
      - Average 100 workers : 1 hr 4 min (bundling, 10 datasets/bundle)
 |
