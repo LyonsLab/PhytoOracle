@@ -29,7 +29,9 @@ Test: 9,355 datasets (pair of left and right images)
 |
 + *Phase 2*
 
-  * Field_mosaic and canopy cover
+  * Field_mosaic: takes in all tif images 
+  * Canopy cover: takes in resulting field mosaic
+  
      - Local run, 1 core on 16 core machine
      - Processing time: 3 hour 41 minutes
 |
