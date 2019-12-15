@@ -148,6 +148,7 @@ Amazon Web Service Cost Estimate:
 
 Size:
      Steretop Raw Data input: 110 G / Day
+     
      Steretop Raw Data output: 20 G / Day
      
 .. image:: stereTop_AWS_Est.png
