@@ -19,11 +19,13 @@ Preliminary Benchmark Results:
 Test: 9355 datasets (pair of left and right images)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 + Phase 1
+
   * Clean_metadata, bin2tif, and soil_mask for 9355 datasets (each set is a pair of left and right images)
       - Average workers: 50 
       - Processing time: 3 hours 8 minutes
 
 + Phase 2
+
   * Field_mosaic and canopy cover
      - Local run, 1 core on 16 core machine
      - Processing time: 3 hour 41 minutes
