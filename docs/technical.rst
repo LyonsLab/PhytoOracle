@@ -36,6 +36,7 @@ Stereotop Benchmarking Workflow Process
    sudo apt-get install -y sysstat git ruby ruby-dev wget python-dev swig zlib1g-dev build-essential perl libperl-dev singularity-  container #Install all required dependencies for cctool and what we need
 
 * Download data
+
 .. code::
 
    iinit    # initialize irods with your account 
@@ -167,6 +168,7 @@ CyVerse Atmosphere Image
 
 
 CCTools (7.0.21)
+
 * You can install the dependency for compile from source (Ubuntu 18.04 LTS) here:
 
 * These commands will compile and install cctools (version 7.0.21) to /usr/bin, so that they are in the $PATH.
@@ -206,17 +208,17 @@ Singularity 3.5.1 (recommended)
 
 .. code::
 
-   wget https://github.com/sylabs/singularity/releases/download/v3.5.1/singularity-3.5.1.tar.gz
-   
-tar -xvf singularity-3.5.1.tar.gz
-cd singularity
-./mconfig && \
-    make -C builddir && \
-    sudo make -C builddir install
+	wget https://github.com/sylabs/singularity/releases/download/v3.5.1/singularity-3.5.1.tar.gz
+	tar -xvf singularity-3.5.1.tar.gz
+	cd singularity
+	./mconfig && \
+	make -C builddir && \
+	sudo make -C builddir install
     
 Staging Data on Master Instance
 -------------------------------
 * Git Clone the PhytoOracle github repository.
+
 .. code::
 
 	git clone https://github.com/uacic/PhytoOracle
@@ -224,11 +226,15 @@ Staging Data on Master Instance
 	git checkout dev
 
 * Download test data (tarball), and decompress it
+
 Enter your iRODS credentials
+
 .. code::
 
 	iinit
+	
 * Then
+
 .. code::
 
 	cd stereoTop
