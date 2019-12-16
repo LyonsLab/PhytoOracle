@@ -201,7 +201,7 @@ Singularity 3.5.1 (recommended)
 
 * Build singularity
 .. code::
-wget https://github.com/sylabs/singularity/releases/download/v3.5.1/singularity-3.5.1.tar.gz
+   wget https://github.com/sylabs/singularity/releases/download/v3.5.1/singularity-3.5.1.tar.gz
 tar -xvf singularity-3.5.1.tar.gz
 cd singularity
 ./mconfig && \
