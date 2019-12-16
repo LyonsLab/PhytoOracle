@@ -5,24 +5,24 @@
 #LEVEL_1_PATH="small_test_set/PLY/2017-06-21__00-00-26-364/",
 #UUID="b5246694-65d8-44b9-a99c-3d010c92ec64",
 
-BETYDB_URL="https://terraref.ncsa.illinois.edu/bety/",
-BETYDB_KEY="9999999999999999999999999999999999999999",
+BETYDB_URL="https://terraref.ncsa.illinois.edu/bety/"
+BETYDB_KEY="9999999999999999999999999999999999999999"
 
-CLEANED_META_DIR="cleanmetadata_out/",
-LAS_DIR="las_out/",
-PLOTCLIP_DIR="plotclip_out/",
-CANOPY_HEIGHT_DIR="canopy_height_out/",
+CLEANED_META_DIR="cleanmetadata_out/"
+LAS_DIR="las_out/"
+PLOTCLIP_DIR="plotclip_out/"
+CANOPY_HEIGHT_DIR="canopy_height_out/"
 
-METADATA=${LEVEL_0_PATH}${UUID}"_metadata.json",
-METADATA_CLEANED=${CLEANED_META_DIR}${UUID}"_metadata_cleaned.json",
-EAST_PLY=${LEVEL_1_PATH}${UUID}"__Top-heading-east_0.ply",
-WEST_PLY=${LEVEL_1_PATH}${UUID}"__Top-heading-west_0.ply",
-EAST_LAS=${LAS_DIR}${UUID}"__Top-heading-east_0.las",
+METADATA=${LEVEL_0_PATH}${UUID}"_metadata.json"
+METADATA_CLEANED=${CLEANED_META_DIR}${UUID}"_metadata_cleaned.json"
+EAST_PLY=${LEVEL_1_PATH}${UUID}"__Top-heading-east_0.ply"
+WEST_PLY=${LEVEL_1_PATH}${UUID}"__Top-heading-west_0.ply"
+EAST_LAS=${LAS_DIR}${UUID}"__Top-heading-east_0.las"
 WEST_LAS=${LAS_DIR}${UUID}"__Top-heading-west_0.las"
 
 # cleanmetadata
 WORKING_SPACE=${CLEANED_META_DIR}
-SENSOR="scanner3DTop",
+SENSOR="scanner3DTop"
 USERID=""
 
 ls ${METADATA}

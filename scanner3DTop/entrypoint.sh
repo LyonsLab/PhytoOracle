@@ -13,4 +13,5 @@ python3 split_bundle_list.py  bundle_list.json bundle/
 #php main_wf_phase1.php > main_wf_phase1.jx
 #jx2json main_wf_phase1.jx > main_workflow_phase1.json
 
-makeflow --jx main_workflow_phase1.jx $@
+makeflow --jx main_workflow_phase1.jx --jx-args bundle_list.json $@
+

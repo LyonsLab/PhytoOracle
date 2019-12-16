@@ -1,0 +1,85 @@
+{
+  "define": {
+    "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
+    "BETYDB_KEY": "9999999999999999999999999999999999999999",
+
+    # Pass down by the main_workflow
+    "LEVEL_0_PATH": "small_test_set/PNG/2017-06-21__00-00-26-364/",
+    "LEVEL_1_PATH": "small_test_set/PLY/2017-06-21__00-00-26-364/",
+    "UUID": "b5246694-65d8-44b9-a99c-3d010c92ec64",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "LAS_DIR": "las_out/",
+    "PLOTCLIP_DIR": "plotclip_out/",
+    "CANOPY_HEIGHT_DIR": "canopy_height_out/",
+
+    "METADATA": LEVEL_0_PATH + UUID + "_metadata.json",
+    "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
+    "EAST_PLY": LEVEL_1_PATH + UUID + "__Top-heading-east_0.ply",
+    "WEST_PLY": LEVEL_1_PATH + UUID + "__Top-heading-west_0.ply",
+    "EAST_LAS": LAS_DIR + UUID + "__Top-heading-east_0.las",
+    "WEST_LAS": LAS_DIR + UUID + "__Top-heading-west_0.las",
+
+    "DATA_BASE_URL": ""
+  },
+  "rules": [
+
+    {
+      # plotclip
+      # east
+      "command": "mkdir -p ${WORKING_SPACE} && BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip --working_space ${WORKING_SPACE} --metadata ${METADATA} --epsg ${EPSG} ${SENSOR} ${LAS_FILE} > ${WORKING_SPACE}${UUID}_cliped_metadata.json",
+      "environment": {
+        "BETYDB_URL": BETYDB_URL,
+        "BETYDB_KEY": BETYDB_KEY,
+        "WORKING_SPACE": PLOTCLIP_DIR,
+        "METADATA": METADATA_CLEANED,
+        "EPSG": "32612",
+        "SENSOR": "scanner3DTop",
+        "LAS_FILE": WEST_LAS,
+        "UUID": UUID
+      },
+      "inputs": [ EAST_LAS, METADATA_CLEANED ],
+      "outputs": [
+        PLOT_DIR,
+        PLOT_DIR +  EAST_MERGED_LAS,
+        PLOT_DIR + EAST_MERGED_CONTENT_TXT,
+        PLOTCLIP_DIR + UUID + "_cliped_metadata.json"
+      ],
+      # due to complex dependency, currently it is marked as local job
+      "local_job": true
+    },
+    {
+      # plotclip
+      # west
+      "command": "mkdir -p ${WORKING_SPACE} && BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip --working_space ${WORKING_SPACE} --metadata ${METADATA} --epsg ${EPSG} ${SENSOR} ${LAS_FILE} > ${WORKING_SPACE}${UUID}_cliped_metadata.json",
+      "environment": {
+        "BETYDB_URL": BETYDB_URL,
+        "BETYDB_KEY": BETYDB_KEY,
+        "WORKING_SPACE": PLOTCLIP_DIR,
+        "METADATA": METADATA_CLEANED,
+        "EPSG": "32612",
+        "SENSOR": "scanner3DTop",
+        "LAS_FILE": WEST_LAS,
+        "UUID": UUID
+      },
+      "inputs": [ WEST_LAS, METADATA_CLEANED ],
+      "outputs": [
+        PLOT_DIR,
+        PLOT_DIR +  WEST_MERGED_LAS,
+        PLOT_DIR + WEST_MERGED_CONTENT_TXT,
+        PLOTCLIP_DIR + UUID + "_cliped_metadata.json"
+      ],
+      # due to complex dependency, currently it is marked as local job
+      "local_job": true
+    },
+    {
+      "command": "ls ${PLOTCLIP_DIR} > plot_list.txt",
+      "environment": {
+        "PLOTCLIP_DIR": PLOTCLIP_DIR
+      },
+      "inputs": [ PLOTCLIP_DIR ],
+      "outputs": [ "plot_list.txt" ]
+    }
+
+  ]
+}

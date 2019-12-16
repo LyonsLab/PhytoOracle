@@ -19,6 +19,8 @@
     "WEST_PLY": LEVEL_1_PATH + UUID + "__Top-heading-west_0.ply",
     "EAST_LAS": LAS_DIR + UUID + "__Top-heading-east_0.las",
     "WEST_LAS": LAS_DIR + UUID + "__Top-heading-west_0.las",
+
+    "DATA_BASE_URL": ""
   },
   "rules": [
 
@@ -26,7 +28,7 @@
       "command": "python3 process_bundle.py ${BUNDLE_JSON}",
       "environment": {
         "DATA_BASE_URL": DATA_BASE_URL,
-        "BUNDLE_JSON": "bundle/bundle" + BUNDLE["ID"] + ".json"
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
       },
       "inputs": [
         "process_bundle.py",
@@ -40,63 +42,5 @@
       + [ LAS_DIR + DATA_SET["UUID"] + "__Top-heading-west_0.las" for DATA_SET in BUNDLE["DATA_SETS"] ]
 
     } for BUNDLE in BUNDLE_LIST,
-
-    {
-      # plotclip
-      # east
-      "command": "mkdir -p ${WORKING_SPACE} && BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip --working_space ${WORKING_SPACE} --metadata ${METADATA} --epsg ${EPSG} ${SENSOR} ${LAS_FILE} > ${WORKING_SPACE}${UUID}_cliped_metadata.json",
-      "environment": {
-        "BETYDB_URL": BETYDB_URL,
-        "BETYDB_KEY": BETYDB_KEY,
-        "WORKING_SPACE": PLOTCLIP_DIR,
-        "METADATA": METADATA_CLEANED,
-        "EPSG": "32612",
-        "SENSOR": "scanner3DTop",
-        "LAS_FILE": WEST_LAS,
-        "UUID": UUID
-      },
-      "inputs": [ EAST_LAS, METADATA_CLEANED ],
-      "outputs": [
-        PLOT_DIR,
-        PLOT_DIR +  EAST_MERGED_LAS,
-        PLOT_DIR + EAST_MERGED_CONTENT_TXT,
-        PLOTCLIP_DIR + UUID + "_cliped_metadata.json"
-      ],
-      # due to complex dependency, currently it is marked as local job
-      "local_job": true
-    },
-    {
-      # plotclip
-      # west
-      "command": "mkdir -p ${WORKING_SPACE} && BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip --working_space ${WORKING_SPACE} --metadata ${METADATA} --epsg ${EPSG} ${SENSOR} ${LAS_FILE} > ${WORKING_SPACE}${UUID}_cliped_metadata.json",
-      "environment": {
-        "BETYDB_URL": BETYDB_URL,
-        "BETYDB_KEY": BETYDB_KEY,
-        "WORKING_SPACE": PLOTCLIP_DIR,
-        "METADATA": METADATA_CLEANED,
-        "EPSG": "32612",
-        "SENSOR": "scanner3DTop",
-        "LAS_FILE": WEST_LAS,
-        "UUID": UUID
-      },
-      "inputs": [ WEST_LAS, METADATA_CLEANED ],
-      "outputs": [
-        PLOT_DIR,
-        PLOT_DIR +  WEST_MERGED_LAS,
-        PLOT_DIR + WEST_MERGED_CONTENT_TXT,
-        PLOTCLIP_DIR + UUID + "_cliped_metadata.json"
-      ],
-      # due to complex dependency, currently it is marked as local job
-      "local_job": true
-    },
-    {
-      "command": "ls ${PLOTCLIP_DIR} > plot_list.txt",
-      "environment": {
-        "PLOTCLIP_DIR": PLOTCLIP_DIR
-      },
-      "inputs": [ PLOTCLIP_DIR ],
-      "outputs": [ "plot_list.txt" ]
-    }
-
   ]
 }
