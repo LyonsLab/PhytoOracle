@@ -181,6 +181,7 @@ CCTools (7.0.21)
 	sudo make install
 
 Singularity 3.5.1 (recommended)
+
 * Install dependencies for singularity
 
 .. code::
