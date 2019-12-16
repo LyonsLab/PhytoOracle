@@ -287,6 +287,7 @@ Set password
 	HTTP_PASSWORD="PhytoOracle"
 
 Generating workflow json on Master
+
 * Generate a list of the input raw-data files raw_data_files.jx from a local path as below
 
 .. code::
@@ -312,7 +313,9 @@ Generating workflow json on Master
 * At this point, the Master will broadcast jobs on a catalog server and wait for Workers to connect. Note the IP ADDRESS of the VM and the PORT number on which makeflow is listening, mostly 9123. We will need it to tell the workers where to find our Master.
 
 Connecting Worker Factories to Master
+
 * Launch one or more large instances with CCTools and Singularity installed as instructed above.
+
 * Connect a Worker Factory using the command as below
 
 .. code::
