@@ -6,6 +6,8 @@ Integrating new extractors
 The Makeflow file allows for easy integration of new extractors.
 
 
+
+
 Preliminary Benchmark Results:
 ------------------------------
 
@@ -18,8 +20,13 @@ Preliminary Benchmark Results:
 
 Stereotop Benchmarking Workflow Process
 -------------------------------
-* Get Jetstream account 
-* Launch Base Ubuntu image on jetstream
+* Launch the cctool docker image, like this one.
+
+.. image:: docker.png
+   :width: 100
+   :alt: docker
+
+
 * Setup
 
 .. code::
