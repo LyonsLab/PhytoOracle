@@ -248,6 +248,7 @@ Note: you can also get the data via other methods, as along as the data is in th
 
 * Set username and password for the HTTP file server
 Set password
+
 .. code::
 
 	sudo htpasswd -c /etc/apache2/.htpasswd YOUR_USERNAME
@@ -260,15 +261,19 @@ Set password
 * Change permissions of the data to allow serving by the HTTP server
 
 .. code::
+
 	sudo chmod -R +r 2018-05-15/
 	sudo chmod +x 2018-05-15/*
 	
 * Change URL inside main_wf.php (~line 30) to the IP address or URL of the Master VM instance with HTTP server
 * URL needs to have slash at the end
+
 .. code::
 
 	$DATA_BASE_URL = "http://vm142-80.cyverse.org/";
+	
 * Change username and password inside process_one_set.sh (~line 27) to the ones that you set above
+
 .. code::
 
 	HTTP_USER="YOUR_USERNAME"
@@ -277,24 +282,32 @@ Set password
 Generating workflow json on Master
 * Generate a list of the input raw-data files raw_data_files.jx from a local path as below
 
+.. code::
+
 	python3 gen_files_list.py 2018-05-15/ >  raw_data_files.json
+	
 * Generate a json workflow using the main_wf.php script. The main_wf.php scripts parses the raw_data_files.json file created above.
+
 .. code::
 
 	sudo apt-get install php-cli
 	php main_wf_phase1.php > main_wf_phase1.jx
 	jx2json main_wf_phase1.jx > main_workflow_phase1.json
+	
 * Run the workflow on Master
+
 .. code::
 
 	-r 0 for 0 retry attempts if failed (it is for testing purposes only).
 	chmod 755 entrypoint.sh
 	./entrypoint.sh -r 0
+	
 * At this point, the Master will broadcast jobs on a catalog server and wait for Workers to connect. Note the IP ADDRESS of the VM and the PORT number on which makeflow is listening, mostly 9123. We will need it to tell the workers where to find our Master.
 
 Connecting Worker Factories to Master
 * Launch one or more large instances with CCTools and Singularity installed as instructed above.
 * Connect a Worker Factory using the command as below
+
 .. code::
 
 	work_queue_factory -T local IP_ADDRESS 9123 -w 40 -W 44 --workers-per-cycle 10  -E "-b 20 --wall-time=3600" --cores=1 --memory=2000 --disk 10000 -dall -t 900
@@ -304,18 +317,24 @@ argument	description
 -w	min number of workers
 -W	max number of workers
 Once the workers are spawned from the factories,you will see message as below
+
 .. code::
 
 	connected to master
 * Makeflow Monitor on your Master VM
+
 .. code::
 
 	makeflow_monitor main_wf_phase1.jx.makeflowlog
+	
 * Work_Queue Status to see how many workers are currently connected to the Master
+
 .. code::
 
 	work_queue_status
+	
 * Makeflow Clean up output and logs
+
 .. code::
 
 	./entrypoint.sh -c
@@ -324,6 +343,7 @@ Once the workers are spawned from the factories,you will see message as below
 Connect Workers from HPC
 -------------------------------
 * Here is a pbs script to connect worker factories from UArizona HPC. Modify the following to add the IP_ADDRESS of your Master VM.
+
 .. code::
 
 	#!/bin/bash
