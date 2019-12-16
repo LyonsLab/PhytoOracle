@@ -256,10 +256,13 @@ Set password
 .. code::
 
 	root /scratch/www;
+	
 * Change permissions of the data to allow serving by the HTTP server
 
+.. code::
 	sudo chmod -R +r 2018-05-15/
 	sudo chmod +x 2018-05-15/*
+	
 * Change URL inside main_wf.php (~line 30) to the IP address or URL of the Master VM instance with HTTP server
 * URL needs to have slash at the end
 .. code::
