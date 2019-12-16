@@ -172,6 +172,7 @@ CCTools (7.0.21)
 * These commands will compile and install cctools (version 7.0.21) to /usr/bin, so that they are in the $PATH.
 
 .. code::
+
    wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz
    tar -xvf cctools-7.0.21-source.tar.gz
    cd cctools-release-7.0.21
@@ -200,8 +201,10 @@ Singularity 3.5.1 (recommended)
 	export PATH=$PATH:/usr/local/go/bin
 
 * Build singularity
+
 .. code::
    wget https://github.com/sylabs/singularity/releases/download/v3.5.1/singularity-3.5.1.tar.gz
+   
 tar -xvf singularity-3.5.1.tar.gz
 cd singularity
 ./mconfig && \
