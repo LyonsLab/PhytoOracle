@@ -234,7 +234,7 @@ Enter your iRODS credentials
 	iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
 	tar -xvf 2018-05-15_5sets.tar
 
-# Note: you can also get the data via other methods, as along as the data is in this directory (PhytoOracle/stereoTop), and follows the same folder structure.
+Note: you can also get the data via other methods, as along as the data is in this directory (PhytoOracle/stereoTop), and follows the same folder structure.
 
 * Hosting data on a HTTP Server (Nginx)
 .. code::
@@ -257,12 +257,11 @@ Set password
 
 	root /scratch/www;
 * Change permissions of the data to allow serving by the HTTP server
-.. code::
 
 	sudo chmod -R +r 2018-05-15/
 	sudo chmod +x 2018-05-15/*
 * Change URL inside main_wf.php (~line 30) to the IP address or URL of the Master VM instance with HTTP server
-# URL needs to have slash at the end
+* URL needs to have slash at the end
 .. code::
 
 	$DATA_BASE_URL = "http://vm142-80.cyverse.org/";
@@ -274,7 +273,6 @@ Set password
 
 Generating workflow json on Master
 * Generate a list of the input raw-data files raw_data_files.jx from a local path as below
-.. code::
 
 	python3 gen_files_list.py 2018-05-15/ >  raw_data_files.json
 * Generate a json workflow using the main_wf.php script. The main_wf.php scripts parses the raw_data_files.json file created above.
@@ -346,10 +344,10 @@ Scanner3DTop:
 **TODO decide if and how we are attempting to benchmark this one. 
 
 Amazon Web Service Cost Estimate:
-
+-------------------------------
 Size:
-*Steretop Raw Data input: 110 G / Day
-*Steretop Raw Data output: 20 G / Day
+* Steretop Raw Data input: 110 G / Day
+* Steretop Raw Data output: 20 G / Day
      
 .. image:: stereTop_AWS_Est.png
   :width: 100
