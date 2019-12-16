@@ -172,12 +172,12 @@ CCTools (7.0.21)
 * These commands will compile and install cctools (version 7.0.21) to /usr/bin, so that they are in the $PATH.
 
 .. code::
-wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz
-tar -xvf cctools-7.0.21-source.tar.gz
-cd cctools-release-7.0.21
-./configure --prefix /usr
-make -j$(nproc)
-sudo make install
+   wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz
+   tar -xvf cctools-7.0.21-source.tar.gz
+   cd cctools-release-7.0.21
+   ./configure --prefix /usr
+   make -j$(nproc)
+	sudo make install
 
 Singularity 3.5.1 (recommended)
 * Install dependencies for singularity
