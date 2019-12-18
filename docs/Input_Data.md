@@ -3,9 +3,13 @@ Data Types & Descriptions
 
 | Gantry Sensor | Input Data Type | Input Data Size / Day |
 | ------------- | --------------- | --------------------- |
-| stereoRGB | - Left Binary Image   | 143GB (9355 Datasets) |
+| stereoRGB | - Left Binary Image   | 143 GB (9355 Datasets) |
 | | - Right Binary Image  |           |
 | | - Metadata json       |           |   
+| Scanner3D | - Left Binary Image   | 110 GB (208 Datasets) |
+| | - Right Binary Image  |           |
+| | - Metadata json       |           |  
+| PSII | Binary Images   | 110 GB (208 Datasets) |
 
 Data Availability 
 -----------------
