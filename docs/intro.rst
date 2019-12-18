@@ -120,3 +120,4 @@ CCTool's `ReadtheDocs
 **Concept Maps**
 ----------------
 
+.. image:: RGB_Laser_Pipeline_2.0.png
