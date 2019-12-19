@@ -1,6 +1,6 @@
 
-**PhytoOracle Workflows**
--------------------------
+PhytoOracle Workflows
+=====================
 
 PhytoOracle is designed for distributed scaling on cloud platforms and High-Performance Computers. The minimum requirements being:
 
