@@ -177,7 +177,7 @@ Instruction manual for StereoTopRGB workflow
 
 --------
 
-.. |rgb_concept_map| image:: ./pics/rgb_concept_map.png
+.. |rgb_concept_map| image:: ../pics/rgb_concept_map.png
     :width: 500
     :height: 100
 .. _rgb_concept_map: 
