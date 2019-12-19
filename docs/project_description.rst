@@ -5,7 +5,11 @@ Modern agriculture has made great progress in reducing hunger and poverty and im
 
 |gantry|_
 
+
 **Gantry Sensors**
+
+|gantry_sensors|_
+
 
 The Lemnatec Scanalyzer Field System is a high-throughput phenotyping field-scanning robot that autonomously moves and continuously collects images of the crops it hovers. Attached to the 30-ton steel gantry of the field-scanning robot are sensors and cameras that collect different sets of data. The diverse array of sensors allow researchers to collect significant sets of data that can be used to leverage biological insight into how environments affect phenotypes and the overall relationship between genotypes (gene) and phenotypes (characteristic). Below are three field scanning imaging sensors:
  
@@ -58,8 +62,11 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
     :width: 650
     :height: 450
 .. _general_concept_map: 
-
 .. |gantry| image:: ./pics/gantry.png
     :width: 650
     :height: 450
 .. _gantry: 
+.. |gantry_sensors| image:: ./pics/gantry-sensors.png
+    :width: 650
+    :height: 450
+.. _gantry_sensors: 
