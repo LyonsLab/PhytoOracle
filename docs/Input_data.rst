@@ -30,12 +30,14 @@ Data Types & Descriptions
 **Data Availability**
 
 Raw Input data is avaialable via CyVerse Data Store under the following folder and can be accessed using iRODS:
-```
-/iplant/home/elyons/ACIC/2019-final-gantry-data:
-  C- /iplant/home/elyons/ACIC/2019-final-gantry-data/ps2Top
-  C- /iplant/home/elyons/ACIC/2019-final-gantry-data/scanner3DTop
-  C- /iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop
-  ```
+
+.. code::
+
+   /iplant/home/elyons/ACIC/2019-final-gantry-data:
+   C- /iplant/home/elyons/ACIC/2019-final-gantry-data/ps2Top
+   C- /iplant/home/elyons/ACIC/2019-final-gantry-data/scanner3DTop
+   C- /iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop
+
   
 **Compressed tar files for Data Staging**
   
