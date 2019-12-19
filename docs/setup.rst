@@ -10,8 +10,8 @@ System Setup
 **Required Software**
 
 + `CCTools 7.0.21 <http://ccl.cse.nd.edu/software/downloadfiles.php>`_
-+ `Singularity <>`_
-+ `iRODS Client <>`_
++ `Singularity 3.5.1 <https://github.com/sylabs/singularity/releases/tag/v3.5.1>`_
++ `iRODS Client <https://github.com/cyverse/irods-icommands-installers>`_
 
 **CyVerse Atmosphere Image**
 
@@ -28,6 +28,7 @@ Below are the instructions for installation of CCTools and Singularity on Jetsre
 - These commands will compile and install cctools (version 7.0.21) to `/usr/bin`, so that they are in the `$PATH`.
 
 .. code:: 
+
     wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz
     tar -xvf cctools-7.0.21-source.tar.gz
     cd cctools-release-7.0.21
@@ -41,6 +42,7 @@ Below are the instructions for installation of CCTools and Singularity on Jetsre
 - Install dependencies for singularity
 
 .. code::
+
     sudo apt-get update && sudo apt-get install -y \
     build-essential \
     libssl-dev \
@@ -61,9 +63,21 @@ Below are the instructions for installation of CCTools and Singularity on Jetsre
 - Build singularity
 
 .. code::
+
     wget https://github.com/sylabs/singularity/releases/download/v3.5.1/singularity-3.5.1.tar.gz
     tar -xvf singularity-3.5.1.tar.gz
     cd singularity
     ./mconfig && \
     make -C builddir && \
     sudo make -C builddir install
+
+**Connecting to CyVerse Data Store**
+
+.. code::
+
+  iinit
+  data.cyverse.org
+  1247
+  cyverse_username
+  iplant
+  cyverse_password
