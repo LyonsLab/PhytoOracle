@@ -10,7 +10,7 @@ PhytoOracle is designed for distributed scaling on cloud platforms and High-Perf
 .. image:: ../pics/general_concept_map.png
    :width: 600
 
-Workflows for the following sensors are available via Github. Click on the links below for step-by-step instructions
+Workflows for the following sensors are available via `PhytoOracle Github <https://github.com/uacic/PhytoOracle>`_. Click on the links below for step-by-step instructions
 
 .. list-table::
    :widths: 25 25
