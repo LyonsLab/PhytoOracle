@@ -1,7 +1,7 @@
 Instruction manual for StereoTopRGB workflow
 --------------------------------------------
 
-	|rgb_concept_map|_
+|rgb_concept_map|_
 
 
 **System Requirements**
@@ -217,9 +217,9 @@ Here are instructions for installation on Jetsream and other cloud platforms.
 
 .. code::
     #!/bin/bash
-    #PBS -W group_list=ericlyons
+    #PBS -W group_list=
     #PBS -q windfall
-    #PBS -l select=2:ncpus=6:mem=24gb
+    #PBS -l select=1:ncpus=16:mem=24gb
     #PBS -l place=pack:shared
     #PBS -l walltime=02:00:00
     #PBS -l cput=02:00:00
@@ -229,12 +229,11 @@ Here are instructions for installation on Jetsream and other cloud platforms.
     export CCTOOLS_HOME=/home/u15/sateeshp/cctools
     export PATH=${CCTOOLS_HOME}/bin:$PATH
     cd /home/u15/sateeshp/
-    /home/u15/sateeshp/cctools/bin/work_queue_factory -T local IP_ADDRESS 9123 -w 80 -W 200 --workers-per-cycle 10  -E "-b 20 --wall-time=3600" --cores=1 -t 900
+    /home/u15/sateeshp/cctools/bin/work_queue_factory -T local IP_ADDRESS 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
 
 
 --------
-
 .. |rgb_concept_map| image:: ./pics/rgb_concept_map.png
-    :width: 650
-    :height: 450
+    :width: 500
+    :height: 100
 .. _rgb_concept_map: 
