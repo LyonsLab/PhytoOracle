@@ -19,10 +19,10 @@
 Concept Maps
 ------------
 
-- General: 
+- General: https://drive.google.com/file/d/12IGUlo_Wwqx8ZPHRhAK_V2btcczmE7vE/view?usp=sharing
 
-- RGB:
+- RGB:https://drive.google.com/file/d/1yGQAId__1zRSqPYey4P3M66Rn3Pi-q_d/view?usp=sharing
 
-- 3D:
+- 3D:https://drive.google.com/file/d/1xKv3eOkWeM3qNKFJemL5AOPUO3nq7px-/view?usp=sharing
 
-- PSII:
+- PSII: https://drive.google.com/file/d/16VV_1AE4goNzGZD1fXkSh0XnrpcrMOQR/view?usp=sharing
