@@ -17,7 +17,7 @@ The Lemnatec Scanalyzer Field System is a high-throughput phenotyping field-scan
   
   	A 3D scanner that captures the architecture of plants, such as leaf angles and shapes.
 	
- **PSII Fluorescence**
+**PSII Fluorescence**
   
   	A fluorescence camera that allows researchers to measure plant's photosynthetic efficiency.
 	
