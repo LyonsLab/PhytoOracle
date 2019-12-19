@@ -5,14 +5,12 @@ Instruction manual for StereoTopRGB workflow
 
 
 **System Requirements**
------------------------
 
 - PhytoOracle is designed for distributed scaling on Cloud platforms and High-Performance Computers. The minimum requirements being:
   - One Master instance with the required data staged that will broadcast jobs
 	- One or more instances that will launch Worker_Factories that will connect to the Master
 
 **Required Software**
----------------------
 
 + `CCTools 7.0.21 <http://ccl.cse.nd.edu/software/downloadfiles.php>`_
 + `Singularity <>`_
@@ -138,7 +136,6 @@ Here are instructions for installation on Jetsream and other cloud platforms.
    HTTP_PASSWORD="PhytoOracle"
 
 **Generating workflow `json` on Master instance**
--------------------------------------------------
 
 - Generate a list of the input raw-data files `raw_data_files.jx` from a local path as below
 
@@ -153,7 +150,6 @@ Here are instructions for installation on Jetsream and other cloud platforms.
    jx2json main_wf_phase1.jx > main_workflow_phase1.json
 
 **Run the workflow on Master**
-------------------------------
 
 + Run the workflow using the following entrypoint bash script
 
@@ -165,7 +161,6 @@ Here are instructions for installation on Jetsream and other cloud platforms.
 
 
 **Connecting Worker Factories to Master**
------------------------------------------
 
 - Launch one or more large instances with CCTools and Singularity installed as instructed above.
 
@@ -211,7 +206,6 @@ Here are instructions for installation on Jetsream and other cloud platforms.
 
 
 **Connect Workers from HPC**
-----------------------------
 
 - Here is a pbs script to connect worker factories from UArizona HPC. Modify the following to add the IP_ADDRESS of your Master VM.
 
@@ -233,6 +227,7 @@ Here are instructions for installation on Jetsream and other cloud platforms.
 
 
 --------
+
 .. |rgb_concept_map| image:: ./pics/rgb_concept_map.png
     :width: 500
     :height: 100
