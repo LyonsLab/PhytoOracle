@@ -49,3 +49,6 @@ Amazon Web Service Cost Estimate
 
 Integrating New Algorithms
 --------------------------
+
+Read `this <https://github.com/AgPipeline/template-rgb-plot/blob/master/HOW_TO.md>`_ document on how to use transformer templates for your custom algorithm. 
+
