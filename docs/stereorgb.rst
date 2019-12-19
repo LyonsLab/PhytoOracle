@@ -1,7 +1,8 @@
 Instruction manual for StereoTopRGB workflow
 --------------------------------------------
 
-|rgb_concept_map|_
+.. image:: ../pics/rgb_concept_map.png
+    :width: 400
 
 **Staging Data on Master Instance**
 
@@ -176,8 +177,3 @@ Instruction manual for StereoTopRGB workflow
 
 
 --------
-
-.. |rgb_concept_map| image:: ../pics/rgb_concept_map.png
-    :width: 500
-    :height: 100
-.. _rgb_concept_map: 
