@@ -87,3 +87,28 @@ Read more about `Using icommands <https://wiki.cyverse.org/wiki/display/DS/Using
 
 **Known Issues & Caveats**
 
+.. list-table:: Known Issues
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Issue
+     - Description
+     - Fix
+   * - Corrupted Singularity image
+     - Happens when multiple worker try to pull into the same default location
+     - Pull Singularity containers manually onto each worker before execution
+   * - Kernel too old  
+     - happens due to incompatibility to run singularity containers
+     - Rebuild container using an older base image
+   * - Disk space
+     - VM need to have space stage the whole data sets
+     - 
+   * - Workers not connecting to Masters
+     - too frequent network IO
+     - HTTP server move away the transfer of input files from Makeflow
+   * - 
+     - 
+     - Bundling jobs reduces the number/frequency of network IO for returning result
+   * - Makeflow -T local as a job/rule does not work
+     - "could" be missing implict dependency
+     - 
