@@ -26,13 +26,16 @@ PhytoOracle is a scalable, modular data pipeline that aims to improve data proce
 
 ## License 
 
-Licensed under the **GNU General Public License v3.0**
+Licensed under the **MIT License**
 
 ## Author Description
 
+PhytoOracle is a class project undertaken by under-graduate and graduate students taking the “Applied Concepts in Cyberinfrastructure” course, 2019 at the University of Arizona taught by Dr. Nirav Merchant and Dr. Eric Lyons.
+
 ## Where to get additional help
 
-+ [Project Resources/Links](resources.md)
++ Need help? Found a bug? Raise an issue on our github page [here](https://github.com/uacic/PhytoOracle/issues)
++ E-mail [Maintainer@PhytoOracle](sateeshp@email.arizona.edu)
 
 ## Acknowledgements
 
