@@ -25,7 +25,7 @@ The Lemnatec Scanalyzer Field System is a high-throughput phenotyping field-scan
 **TERRA-REF Data Volume**
 --------------------------
 
-- The gantry system outputs 1 TB of data per day from various sensors. For individual sensor data types and sizes for a day see |Input_Data|_
+- The gantry system outputs 1 TB of data per day from various sensors. For individual sensor data types and sizes for a day see Data Types & Descriptions `here <https://phytooracle.readthedocs.io/en/latest/Input_data.html>`_
 
 	
 **Need for data analysis workflows**
@@ -47,7 +47,7 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
 	- Fault tolerant - Makeflow is highly fault tolerant: it can crash or be killed, and upon resuming, will reconnect to running jobs and continue where it left off.
 	- Leverages open-source solutions.
 
-	|general_concept_map|_
+|general_concept_map|_
 
 
 
@@ -55,7 +55,7 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
 
 ----
 
-.. |general_concept_map| image:: ./pics/gen_concept_map.png
+.. |general_concept_map| image:: ./pics/general_concept_map.png
     :width: 650
     :height: 450
 .. _general_concept_map: 
