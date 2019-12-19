@@ -5,8 +5,9 @@
 PhytoOracle is designed for distributed scaling on cloud platforms and High-Performance Computers. The minimum requirements being:
 
         - One MASTER instance with the required data staged that will broadcast  and distribute jobs
-        - One or more WORKER instances that will connect to the Master and execute jobs
+        - One or more WORKER instances (Cloud/HPC) that will connect to the Master and execute jobs
 
+        |general_concept_map|_
 
 Workflows for the following sensors are available via Github. Click on the links below for step-by-step instructions
 
@@ -19,9 +20,9 @@ Workflows for the following sensors are available via Github. Click on the links
    * - StereotopRGB
      - `Click here <https://github.com/uacic/PhytoOracle/blob/master/stereoTop/README.md>`_
    * - Scanner3D
-     - `Click here <https://github.com/uacic/PhytoOracle/blob/master/scanner3DTop/README.md>`_
+     - Under construction
    * - PSII Flourescence
-     - `Click here <https://github.com/uacic/PhytoOracle/blob/master/ps2/README.md>`_
+     - Under construction
 
 
 
@@ -39,3 +40,11 @@ Workflow modification
 ---------------------
 
 See our `Advanced Secion <>`_ for more details on workflow modifications and container swapping. 
+
+
+-----
+
+.. |general_concept_map| image:: ./pics/general_concept_map.png
+    :width: 650
+    :height: 450
+.. _general_concept_map: 
