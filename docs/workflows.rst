@@ -26,18 +26,19 @@ Workflows for the following sensors are available via Github. Click on the links
 
 
 
-Description of datasets
------------------------
+**Description of datasets**
 
-See |Input_Data| section for more details on input data types and descriptions.
+See `Data types & description <https://phytooracle.readthedocs.io/en/latest/Input_data.html>`_ section for more details on input data types and descriptions.
 
-Describe scaling methods
-------------------------
+**Workflow Scaling**
 
-PhytoOracle workflows can technically be run on any cloud platform (public & private) and also WORKERS can be connected from a High-Performance Computer. See Advanced documentation `here <>`_ for sample PBS scripts.  
+- PhytoOracle workflows can be run on any cloud platform (public & private) and also WORKERS can be connected from a High-Performance Computer. 
+- It is adviced that the worker instances have the recommended software dependencies installed 
 
-Workflow modification
----------------------
+
+See Advanced documentation `here <>`_ for sample PBS scripts.  
+
+**Workflow modification**
 
 See our `Advanced Secion <>`_ for more details on workflow modifications and container swapping. 
 
@@ -48,6 +49,7 @@ See our `Advanced Secion <>`_ for more details on workflow modifications and con
     :width: 650
     :height: 450
 .. _general_concept_map: 
+
 
 .. |general_concept_map| image:: ./pics/general_concept_map.jpeg
     :width: 500
