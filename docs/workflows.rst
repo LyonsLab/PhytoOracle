@@ -36,7 +36,7 @@ See `Data types & description <https://phytooracle.readthedocs.io/en/latest/Inpu
 - It is adviced that the worker instances have the recommended software dependencies installed 
 
 
-See Advanced documentation `here <>`_ for sample PBS scripts.  
+See Advanced documentation `here <https://phytooracle.readthedocs.io/en/latest/advanced.html>`_ for sample PBS scripts.  
 
 **Workflow modification**
 
