@@ -41,7 +41,7 @@ See Advanced documentation `here <https://phytooracle.readthedocs.io/en/latest/a
 
 **Workflow modification**
 
-See our `Advanced Secion <>`_ for more details on workflow modifications and container swapping. 
+See our `Advanced Secion <https://phytooracle.readthedocs.io/en/latest/advanced.html>`_ for more details on workflow modifications and container swapping. 
 
 
 -----
