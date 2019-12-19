@@ -13,6 +13,7 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
 
    abstract
    project_description
+   Input_data
    workflows
    stereorgb
    advanced
