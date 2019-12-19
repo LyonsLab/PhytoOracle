@@ -47,3 +47,9 @@ Raw Input data is avaialable via CyVerse Data Store under the following folder a
   - Scanner3D: `/iplant/home/elyons/ACIC/2019-final-gantry-data/scanner3DTop/scanner3DTop-raw.tar.gz`
   
   - PSII: `/iplant/home/elyons/ACIC/2019-final-gantry-data/ps2Top/PS2-2018-02-12.tar.gz`
+  
+  
+**Extractor Containers**
+------------------------
+
+Click `here <https://github.com/uacic/PhytoOracle/blob/master/docs/containers.md>`_ for a list of available extractor containers.
