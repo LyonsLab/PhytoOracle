@@ -83,3 +83,7 @@ Below are the instructions for installation of CCTools and Singularity on Jetsre
    "irods_zone_name": "iplant"
    
 Read more about `Using icommands <https://wiki.cyverse.org/wiki/display/DS/Using+iCommands>`_ here.   
+
+
+**Known Issues & Caveats**
+
