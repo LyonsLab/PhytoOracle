@@ -1,15 +1,31 @@
 Data Types & Descriptions
 -------------------------
 
-| Gantry Sensor | Input Data Type | Input Data Size / Day |
-| ------------- | --------------- | --------------------- |
-| stereoRGB | - Left Binary Image   | 143 GB (9355 Datasets) |
-| | - Right Binary Image  |           |
-| | - Metadata json       |           |   
-| Scanner3D | - Left Binary Image   | 110 GB (208 Datasets) |
-| | - Right Binary Image  |           |
-| | - Metadata json       |           |  
-| PSII | Binary Images   | 110 GB (208 Datasets) |
+.. list-table::
+   :widths: 25 25 25 25 25
+   :header-rows: 1
+
+   * - Gantry Sensor
+     - Input Data Type
+     - Input Data Size / Day
+     - Output Data Type
+     - Output Data Size / Day
+   * - StereoTopRGB
+     - L,R-Binary images & metadata json 
+     - 143 GB (9355 datasets)
+     - Soil-mask Tifs & canopy-cover.csv
+     - 23 GB 
+   * - Scanner3D
+     - Ply files & metadata json
+     - Input Data Size / Day
+     - Output Data Type
+     - Output Data Size / Day
+   * - PSII 
+     - Binary images & metadata json
+     - Input Data Size / Day
+     - Fluorescence-aggregates.csv 
+     - Output Data Size / Day
+
 
 Data Availability 
 -----------------
