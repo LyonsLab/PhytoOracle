@@ -17,7 +17,7 @@ Data Types & Descriptions
      - 23 GB 
    * - Scanner3D
      - Ply files & metadata json
-     - Input Data Size / Day
+     - 108 GB (238 datasets)
      - Output Data Type
      - Output Data Size / Day
    * - PSII 
