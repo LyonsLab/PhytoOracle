@@ -1,175 +1,51 @@
 Technical User Manual
 =====================
 
-Integrating new extractors
---------------------------
-The Makeflow file allows for easy integration of new extractors.
+Benchmark Results
+-----------------
 
+.. list-table:: StereoRGB Benchmark Results
+   :widths: 25 25 50
+   :header-rows: 1
 
-Preliminary Benchmark Results:
-------------------------------
-
-+ How long it took to run the full dataset: 15:40:11
-+ Software installation: CCTools, Singularity
-+ Time to Stage Data: < 1hr for 9360 folders
-+ Average Tasks/minute: 10.25 
-+ # Worker Factories connected: 4 xxlarge Jetstream VMs (CPU: 44, MEM: 128GB, Disk: 480GB)
-+ Results deposition: Results transferred to CyVerse Data Store using iRODS
-
-Test: 9,355 datasets (pair of left and right images)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+ *Phase 1*
-
-  * Clean_metadata: left bin and right bin for each set (38 Mb) 
-  * bin2tif: takes both left and right bins and converts them to tif (x2) 
-  * soil_mask takes tif images (20 GB)
-  
-     - Average 50 workers : 3 hours 8 minutes (without bundling)
-     - Average 100 workers : 1 hr 4 min (bundling, 10 datasets/bundle)
-|
-+ *Phase 2*
-
-  * Field_mosaic: takes in all tif images 
-  * Canopy cover: takes in resulting field mosaic
-  
+   * - Task
+     - Description
+     - Info
+   * - Time to stage data
+     - 30 minutes
+     - 110 GB compressed file
+   * - Running time
+     - 4 hours 44 minutes
+     - 9355 datasets
+   * - Phase-I
+     - 1 hours 4 minutes
+     - 10 datasets/bundle
+   * - Phase-II
+     - 3 hours 41 minutes
      - Local run, 1 core on 16 core machine
-     - Processing time: 3 hour 41 minutes
-|
-Stereotop Benchmarking Workflow Process
--------------------------------
-* Get Jetstream account 
-* Launch Base Ubuntu image on jetstream
-* Setup
-
-.. code::
-   
-   sudo apt-get update #update references to packages to install latest
-   sudo apt-get upgrade -y #update all currently installed packages
-   sudo apt-get install -y sysstat git ruby ruby-dev wget python-dev swig zlib1g-dev build-essential perl libperl-dev singularity-  container #Install all required dependencies for cctool and what we need
-
-* Download data
-.. code::
-
-   iinit    # initialize irods with your account 
-   
-   "irods_host": "data.cyverse.org",
-   "irods_port": 1247,
-   "irods_user_name": "username",
-   "irods_zone_name": "iplant"
-
-* Stage data
-
-.. code::
-
-   sudo mkdir /Data #make dir for the data
-   sudo chown username /Data #Makes your user own directory 
-   irsync -vs i:/iplant/home/raptorslab/stereoTop.tar.gz /Data/stereoTop.tar.gz ##sync data from cyverse to local machine 
-   cd /Data
-   tar xvzf stereoTop.tar.gz  #extract directory should have stereotop.tar.gz and dir 2018-05-18
-   chown -R username 2018-05-15 # Makes your user own directory 
-   chmod -R 775 /Data # Change permissions
-   (rm -f stereoTop.tar.gz)   # maybe if you want #optional remove tarball to save time don’t need to run this
-
-
-* Install cctools
-
-.. code::
-
-   git clone git://github.com/cooperative-computing-lab/cctools.git cctools-github-src
-   cd cctools-github-src #get latest cctools from github
-   ./configure --prefix /opt/cctools #if no errors, you're good
-   make 
-   sudo make install (copies binaries to desired location)
-   sudo cp /opt/cctools/bin/* /usr/local/bin/ (copy binaries to desired location, make sure this works)
-
-* Run Workqueue
-.. code::
-   
-   nohup bash checkFinal.bsh & #will run workqueue (can now close your laptop)
-   old? (nohup work_queue_factory 129.114.104.40 9123 -t 9999999 --cores=1 -w 45 &)
-
-* Killing workqueue processes (after it’s run) ##
-
-.. code::
-
-   pkill work_queue_factory
-   ps ax | grep work
-   kill -9 (pids from previous command)
-
-
-* Benchmark Script
-
-https://ua-acic.slack.com/files/UMS6Z7FEC/FR4U0FVNX/checkfinal.bsh
-
-This creates 3 output files that we can aggregate and use GNUplot to display in the final presentation.
-
-* MVP
-
-Benchmark each extractor individually
-
-
-* Launch cctools image (as large as possible 44core last one) on jetstream (or atmosphere?)
-https://github.com/uacic/starTerra/tree/master/stereoTop
-https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html
+   * - Average tasks/minute
+     - 10.25
+     - 
+   * - # Workers
+     - 108
+     - Atmosphere (3x16CPU)
+   * - 
+     - 
+     - Jetstream (1x44CPU)
+   * - 
+     - 
+     - UA-HPC (1x16CPU)
+   * - Time to upload data
+     - 3 minutes
+     - 24 GB compressed file
 
 
 
-Running Benchmarks:
-* Run this in /opt/src/starTerra-php-template/stereoTop
-* Assume you have the setup Tanner lead up through dec 11th.
-* Makes the raw data files with number given for example here (2)
-python gen_files_list.py 2018-05-15/ 2 > raw_data_files.json
-
-* remove the , at the end of the raw_data_files.json file
-.. code::
-   php main_wf.php > main_wf.jx
-   jx2json main_wf.jx > main_workflow.json
-   nohup bash entrypoint.bsh -r 0 &
-
-* Save the following output files: 
-
-+ sysUsage.txt
-+ cpuUsage.txt
-+ memUsage.txt
-+ nohup.out
-
-* clears the old stuff
-.. code::
-   bash entrypoint.bsh -c
-   rm nohup.out
-
-* Run these tests upto 40
-
-Benchmarking Results
-
-.. |CPU_Usage_VS_Time| image:: pic/CPU_Usage_VS_Time(4).png
-  :width: 400
-  :alt: CPU_Usage_VS_Time
-  
-
-.. |CPU_CORE_VS TIME| image:: pic/CPU_CORE_VS TIME(4).png
-  :width: 400
-  :alt: CPU_CORE_VS TIME
-  
-
-.. |Memory_Usage_VS_Time| image:: pic/Memory_Usage_VS_Time(4).png
-  :width: 400
-  :alt: Memory_Usage_VS_Time
-
-Stereotop:
 
 
-
-Scanner3DTop:
-**TODO decide if and how we are attempting to benchmark this one. 
-
-Amazon Web Service Cost Estimate:
-
-Size:
-     Steretop Raw Data input: 110 G / Day
-     Steretop Raw Data output: 20 G / Day
-     
-     Steretop Raw Data input: 140 G / Day
-     
+Amazon Web Service Cost Estimate
+--------------------------------
      
 
+Integrating New Algorithms
+--------------------------
