@@ -75,9 +75,11 @@ Below are the instructions for installation of CCTools and Singularity on Jetsre
 
 .. code::
 
-  iinit
-  data.cyverse.org
-  1247
-  cyverse_username
-  iplant
-  cyverse_password
+   iinit    # initialize irods with your account 
+   
+   "irods_host": "data.cyverse.org",
+   "irods_port": 1247,
+   "irods_user_name": "username",
+   "irods_zone_name": "iplant"
+   
+Read more about `Using icommands <https://wiki.cyverse.org/wiki/display/DS/Using+iCommands>`_ here.   
