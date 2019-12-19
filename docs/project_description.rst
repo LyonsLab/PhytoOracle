@@ -59,14 +59,11 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
 ----
 
 .. |general_concept_map| image:: ../pics/general_concept_map.png
-    :width: 650
-    :height: 450
+    :width: 600
 .. _general_concept_map: 
 .. |gantry| image:: ../pics/gantry.png
-    :width: 650
-    :height: 450
+    :width: 600
 .. _gantry: 
 .. |gantry_sensors| image:: ../pics/gantry-sensors.png
-    :width: 650
-    :height: 450
+    :width: 600
 .. _gantry_sensors: 
