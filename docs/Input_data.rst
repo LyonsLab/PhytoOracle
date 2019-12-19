@@ -27,8 +27,7 @@ Data Types & Descriptions
      - Output Data Size / Day
 
 
-Data Availability 
------------------
+**Data Availability**
 
 Raw Input data is avaialable via CyVerse Data Store under the following folder and can be accessed using iRODS:
 ```
@@ -38,8 +37,7 @@ Raw Input data is avaialable via CyVerse Data Store under the following folder a
   C- /iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop
   ```
   
-Data Staging
-------------
+**Compressed tar files for Data Staging**
   
 - Raw data needed for the workflow can be downloaded onto a virtual machine using iRODS. 
 - A compressed tar file for each of the sensors is available from the links below: 
