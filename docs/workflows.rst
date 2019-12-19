@@ -7,7 +7,7 @@ PhytoOracle is designed for distributed scaling on cloud platforms and High-Perf
         - One MASTER instance with the required data staged that will broadcast  and distribute jobs
         - One or more WORKER instances (Cloud/HPC) that will connect to the Master and execute jobs
 
-        |general_concept_map|_
+|general_concept_map|_
 
 Workflows for the following sensors are available via Github. Click on the links below for step-by-step instructions
 
