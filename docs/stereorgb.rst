@@ -8,6 +8,7 @@ Instruction manual for StereoTopRGB workflow
 - Git Clone the PhytoOracle github repository.
 
 .. code::
+
     git clone https://github.com/uacic/PhytoOracle
     cd PhytoOracle
     git checkout dev
@@ -16,17 +17,20 @@ Instruction manual for StereoTopRGB workflow
 - Download test data (tarball), and decompress it
 
 .. code::
+
    iinit # Enter your iRODS credentials
    cd stereoTop
    iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
    tar -xvf 2018-05-15_5sets.tar
 
 .. note::
+
    you can also get the data via other methods, as along as the data is in this directory (`PhytoOracle/stereoTop`), and follows the same folder structure.
 
 - Hosting data on a HTTP Server (Nginx)
 
 .. code::
+
    sudo apt-get install nginx apache2-utils
    wget https://raw.githubusercontent.com/uacic/PhytoOracle/dev/phyto_oracle.conf
    sudo mv phyto_oracle.conf /etc/nginx/sites-available/phyto_oracle.conf
@@ -37,30 +41,37 @@ Instruction manual for StereoTopRGB workflow
 - Set username and password for the HTTP file server
 
 .. code::
+
    sudo htpasswd -c /etc/apache2/.htpasswd YOUR_USERNAME # Set password
 
 - In the file `/etc/nginx/sites-available/phyto_oracle.conf`, change the line (~line 21) to the destination path to where the data is to be decompressed, e.g. `/home/uacic/PhytoOracle/stereoTop`
 
 .. code::
+
    root /scratch/www;
 
 
 - Change permissions of the data to allow serving by the HTTP server
 
 .. code::
+
    sudo chmod -R +r 2018-05-15/
    sudo chmod +x 2018-05-15/*
 
 - Change URL inside `main_wf.php` (~line 30) to the IP address or URL of the Master VM instance with HTTP server
+
 .. note::
+
     **URL needs to have slash at the end**
 
 .. code::
+
    $DATA_BASE_URL = "http://vm142-80.cyverse.org/";
 
 - Change username and password inside `process_one_set.sh` (~line 27) to the ones that you set above
 
 .. code::
+
    HTTP_USER="YOUR_USERNAME"
    HTTP_PASSWORD="PhytoOracle"
 
@@ -69,11 +80,13 @@ Instruction manual for StereoTopRGB workflow
 - Generate a list of the input raw-data files `raw_data_files.jx` from a local path as below
 
 .. code::
+
    python3 gen_files_list.py 2018-05-15/ >  raw_data_files.json
 
 - Generate a `json` workflow using the `main_wf.php` script. The `main_wf.php` scripts parses the `raw_data_files.json` file created above.
 
 .. code::
+
    sudo apt-get install php-cli
    php main_wf_phase1.php > main_wf_phase1.jx
    jx2json main_wf_phase1.jx > main_workflow_phase1.json
@@ -83,6 +96,7 @@ Instruction manual for StereoTopRGB workflow
 + Run the workflow using the following entrypoint bash script
 
 .. code::
+
    chmod 755 entrypoint.sh
    ./entrypoint.sh
 
@@ -96,6 +110,7 @@ Instruction manual for StereoTopRGB workflow
 - Connect a Worker Factory using the command as below
 
 .. code::
+
    work_queue_factory -T local IP_ADDRESS 9123 -w 40 -W 44 --workers-per-cycle 10  -E "-b 20 --wall-time=3600" --cores=1      --memory=2000 --disk 10000 -dall -t 900
 
 .. list-table::
@@ -114,22 +129,26 @@ Instruction manual for StereoTopRGB workflow
 - Once the workers are spawned from the factories,you will see message as below
 
 .. code::
+
    connected to master
 
 - Makeflow Monitor on your Master VM
 
 .. code::
+
    makeflow_monitor main_wf_phase1.jx.makeflowlog 
 
 
 - Work_Queue Status to see how many workers are currently connected to the Master
 
 .. code::
+
    work_queue_status
 
 - Makeflow Clean up output and logs
 
 .. code::
+
    ./entrypoint.sh -c
    rm -f makeflow.jx.args.*
 
@@ -139,6 +158,7 @@ Instruction manual for StereoTopRGB workflow
 - Here is a pbs script to connect worker factories from UArizona HPC. Modify the following to add the IP_ADDRESS of your Master VM.
 
 .. code::
+
     #!/bin/bash
     #PBS -W group_list=
     #PBS -q windfall
