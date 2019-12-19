@@ -1,7 +1,7 @@
 Instruction manual for StereoTopRGB workflow
 --------------------------------------------
 
-|rgb_concept_map|
+	|rgb_concept_map|_
 
 
 **System Requirements**
