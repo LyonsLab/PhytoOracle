@@ -48,3 +48,8 @@ See our `Advanced Secion <>`_ for more details on workflow modifications and con
     :width: 650
     :height: 450
 .. _general_concept_map: 
+
+.. |general_concept_map| image:: ./pics/general_concept_map.jpeg
+    :width: 500
+    :height: 100
+.. _general_concept_map:   
