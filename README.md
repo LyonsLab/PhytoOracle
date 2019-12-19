@@ -22,7 +22,7 @@ PhytoOracle is a scalable, modular data pipeline that aims to improve data proce
 
 ## Distributed Scaling
 
-- PhytoOracle employs distributed-scaling capabilities from `CCTools <http://ccl.cse.nd.edu/software/>`_ suite. 
+- PhytoOracle employs distributed-scaling capabilities from [CCTools](https://cctools.readthedocs.io/en/latest/) suite. 
 
 - Read more about how to scale in the workflow scaling section [here](https://phytooracle.readthedocs.io/en/latest/workflows.html)
 
