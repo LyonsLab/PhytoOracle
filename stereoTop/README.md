@@ -2,7 +2,7 @@
 
 ## System Setup
 
-See `this <https://github.com/uacic/PhytoOracle/blob/master/docs/setup.rst>`_ page for links to Atmosphere images and manual installation instructions.
+See [this](https://github.com/uacic/PhytoOracle/blob/master/docs/setup.rst) page for links to Atmosphere images and manual installation instructions.
 
 ## Staging Data on Master Instance
 
