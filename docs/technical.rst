@@ -218,7 +218,7 @@ python gen_files_list.py 2018-05-15/ 2 > raw_data_files.json
 Benchmarking Results
 -------------------------------
 
-* We use 44 cores VM on Jetstream with different batch sizes (2,5,10,15,20,25,30,40)
+* We use 44 cores VM on Jetstream with different batch sizes (2,5,10,15,20,25,30,40 images)
 * This is the final result of Benchmarking
 
 .. image:: benchmarking.png
@@ -226,7 +226,7 @@ Benchmarking Results
    :alt: final result
   
 
-.. image:: CPU_CORE_VS_TIME(4).png
+.. image:: IM02/aCPU.png
     :width: 100
     :alt: CPU_CORE_VS TIME
   
