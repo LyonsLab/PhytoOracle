@@ -220,7 +220,7 @@ Benchmarking Results
 
 * This is the final result of Benchmarking
 
-.. image:: image.png
+.. image:: benchmarking.png
    :width: 100
    :alt: final result
   
