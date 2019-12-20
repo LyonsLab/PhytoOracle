@@ -246,7 +246,8 @@ Benchmarking Results
     :alt: MemBuff
 
 
-* This is the result of 5 images benchmarking
+This is the result of 5 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
