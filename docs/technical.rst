@@ -225,7 +225,8 @@ Benchmarking Results
    :width: 100
    :alt: final result
 
-* This is the result of 2 images benchmarking
+This is the result of 2 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
@@ -268,7 +269,8 @@ This is the result of 5 images benchmarking
     :alt: MemBuff
     
 
-* This is the result of 10 images benchmarking
+This is the result of 10 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
@@ -288,7 +290,8 @@ This is the result of 5 images benchmarking
     :width: 100
     :alt: MemBuff
     
-* This is the result of 15 images benchmarking
+This is the result of 15 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
@@ -308,7 +311,8 @@ This is the result of 5 images benchmarking
     :width: 100
     :alt: MemBuff
     
-* This is the result of 20 images benchmarking
+This is the result of 20 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
@@ -329,7 +333,8 @@ This is the result of 5 images benchmarking
     :alt: MemBuff
     
     
-* This is the result of 25 images benchmarking
+This is the result of 25 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
@@ -349,7 +354,8 @@ This is the result of 5 images benchmarking
     :width: 100
     :alt: MemBuff
     
-* This is the result of 30 images benchmarking
+This is the result of 30 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
@@ -369,7 +375,8 @@ This is the result of 5 images benchmarking
     :width: 100
     :alt: MemBuff
     
-* This is the result of 40 images benchmarking
+This is the result of 40 images benchmarking
+-----------------
 
 * This graph shows the usage of one CPU during the benchmarking, the unit of time is second.
 
