@@ -218,6 +218,7 @@ python gen_files_list.py 2018-05-15/ 2 > raw_data_files.json
 Benchmarking Results
 -------------------------------
 
+* We use 44 cores VM on Jetstream with different batch sizes (2,5,10,15,20,25,30,40)
 * This is the final result of Benchmarking
 
 .. image:: benchmarking.png
