@@ -27,7 +27,7 @@ USERID=""
 
 ls ${METADATA}
 mkdir -p ${WORKING_SPACE}
-BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
+BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
 ls ${METADATA_CLEANED}
 
 # ply2las
@@ -42,7 +42,7 @@ ls ${EAST_PLY}
 ls ${METADATA_CLEANED}
 mkdir -p ${WORKING_SPACE}
 cp ${PLY_FILE} ${WORKING_SPACE}$(basename ${PLY_FILE})
-singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
+singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las:2.1 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
 cp ${WORKING_SPACE}*.las ${LAS_DIR}
 ls ${EAST_LAS}
 
@@ -58,7 +58,7 @@ ls ${WEST_PLY}
 ls ${METADATA_CLEANED}
 mkdir -p ${WORKING_SPACE}
 cp ${PLY_FILE} ${WORKING_SPACE}$(basename ${PLY_FILE})
-singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
+singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las:2.1 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
 cp ${WORKING_SPACE}*.las ${LAS_DIR}
 ls ${WEST_LAS}
 
