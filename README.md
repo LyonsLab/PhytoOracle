@@ -17,8 +17,10 @@ PhytoOracle is a scalable, modular data pipeline that aims to improve data proce
 ## Sensor Modules available
 
 + stereoTop-RGB
+
+### Sensor Modules available
 + scanner3D
-+ PS2 Flourescence
++ PSII Flourescence
 
 ## Distributed Scaling
 
