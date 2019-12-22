@@ -27,7 +27,7 @@ USERID=""
 
 ls ${METADATA}
 mkdir -p ${WORKING_SPACE}
-BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
 ls ${METADATA_CLEANED}
 
 # ply2las
