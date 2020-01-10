@@ -35,7 +35,7 @@ ls ${METADATA_CLEANED}
 # working space is input directory, created for temp use
 PLY_FILE=${EAST_PLY}
 METADATA=${METADATA_CLEANED}
-WORKING_SPACE=${LAS_DIR}${UUID}"_WEST/"
+WORKING_SPACE=${LAS_DIR}${UUID}"_EAST/"
 LAS_DIR=${LAS_DIR}
 
 ls ${EAST_PLY}
@@ -62,5 +62,29 @@ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las:2.1 --resu
 cp ${WORKING_SPACE}*.las ${LAS_DIR}
 ls ${WEST_LAS}
 
+# plotclip
+# east
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/
+METADATA=${METADATA_CLEANED}
+WORKING_SPACE=${PLOTCLIP_DIR}
+EPSG="32612"
+SENSOR="scanner3DTop"
+LAS_FILE=${EAST_LAS}
 
+mkdir -p ${WORKING_SPACE}
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip:3.0 --working_space /mnt/${WORKING_SPACE} --metadata /mnt/${METADATA} --epsg ${EPSG} ${SENSOR} /mnt/${LAS_FILE}
+mv plotclip_out/result.json plotclip_out/${UUID}.json
+
+# plotclip
+# west
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/
+METADATA=${METADATA_CLEANED}
+WORKING_SPACE=${PLOTCLIP_DIR}
+EPSG="32612"
+SENSOR="scanner3DTop"
+LAS_FILE=${WEST_LAS}
+
+mkdir -p ${WORKING_SPACE}
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip:3.0 --working_space /mnt/${WORKING_SPACE} --metadata /mnt/${METADATA} --epsg ${EPSG} ${SENSOR} /mnt/${LAS_FILE}
+mv plotclip_out/result.json plotclip_out/${UUID}.json
 
