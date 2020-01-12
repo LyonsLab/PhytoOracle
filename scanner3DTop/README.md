@@ -1,73 +1,75 @@
 
 # PythoOracle-Scanner3DTop-Laser
 
-## System Requirements
+## System Setup
 
-+ PhytoOracle is designed for distributed scaling on Cloud platforms and High-Performance Computers. The minimum requirements being:
-	+ One Master instance with the required data staged that will broadcast jobs
-	+ One or more instances that will launch Worker_Factories that will connect to the Master
+See [this](https://github.com/uacic/PhytoOracle/blob/master/docs/setup.rst) page for links to Atmosphere images and manual installation instructions.
 
-+ **Required Software**
+### Staging Data on Master Instance
 
-+ [CCTools 7.0.21](http://ccl.cse.nd.edu/software/downloadfiles.php)
-+ [Singularity]()
-+ [iRODS Client]()
-
-#### CyVerse Atmosphere Image
-
-+ Click [here](https://atmo.cyverse.org/application/images/1764) for Atmosphere image that comes with recommended CCTools (7.0.21) and Singularity (7.0.21) version installed.
-
-#### Manual Installation 
-
-Here are instructions for installation on Jetsream and other clouds.
-
-##### CCTools (7.0.21)
-
-+ You can install the dependency for compile from source (Ubuntu 18.04 LTS) [here](https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html):
-
-+ These commands will compile and install cctools (version 7.0.21) to `/usr/bin`, so that they are in the `$PATH`.
++ Git Clone the PhytoOracle github repository.
 ```bash
-wget http://ccl.cse.nd.edu/software/files/cctools-7.0.21-source.tar.gz
-tar -xvf cctools-7.0.21-source.tar.gz
-cd cctools-release-7.0.21
-./configure --prefix /usr
-make -j$(nproc)
-sudo make install
+git clone https://github.com/uacic/PhytoOracle
+cd PhytoOracle
+git checkout dev
 ```
 
-##### Singularity 3.5.1 (recommended)
-
-+ Install dependencies for singularity
++ Download test data (tarball), and decompress it
 ```bash
-sudo apt-get update && sudo apt-get install -y \
-    build-essential \
-    libssl-dev \
-    uuid-dev \
-    libgpgme11-dev \
-    squashfs-tools \
-    libseccomp-dev \
-    wget \
-    pkg-config \
-    git \
-    cryptsetup
-wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.13.5.linux-amd64.tar.gz
-echo "export PATH=\$PATH:/usr/local/go/bin" | sudo tee -a /etc/profile
-export PATH=$PATH:/usr/local/go/bin
-```
-+ Build singularity
-```bash
-wget https://github.com/sylabs/singularity/releases/download/v3.5.1/singularity-3.5.1.tar.gz
-tar -xvf singularity-3.5.1.tar.gz
-cd singularity
-./mconfig && \
-    make -C builddir && \
-    sudo make -C builddir install
-```
-### Data staging
-```bash
+iinit # Enter your iRODS credentials
+cd scanner3DTop
 iget -rK /iplant/home/elyons/ACIC/2019-final-gantry-data/scanner3DTop/small_test_set
 iget -rK /iplant/home/elyons/ACIC/2019-final-gantry-data/scanner3DTop/small_test_set_metadata small_test_set/PNG
+```
+
+> **Note: you can also get the data via other methods, as along as the data is in this directory (`PhytoOracle/scanner3DTop`), and follows the same folder structure.**
+
++ Hosting data on a HTTP Server (Nginx)
+
+> Why host this server?
+> Hosting data on an HTTP server is to bypass the connection limit of iRODs, and reduce network load on makeflow
+> You can get the data to worker instance via other method as well.
+```bash
+sudo apt-get install nginx apache2-utils
+wget https://raw.githubusercontent.com/uacic/PhytoOracle/dev/phyto_oracle.conf
+sudo mv phyto_oracle.conf /etc/nginx/sites-available/phyto_oracle.conf
+sudo ln -s /etc/nginx/sites-available/phyto_oracle.conf /etc/nginx/sites-enabled/phyto_oracle.conf
+sudo rm /etc/nginx/sites-enabled/default
+sudo nginx -s reload
+```
+
++ Set username and password for the HTTP file server
+> Setting up password is to merely prevent random trespasser, not as a security measure,
+> if security is a concern, additional actions need to be taken
+```bash
+sudo htpasswd -c /etc/nginx/.htpasswd YOUR_USERNAME # Set password
+```
+
++ In the file `/etc/nginx/sites-available/phyto_oracle.conf`, change the line (~line 21) to the destination path to where the data is to be decompressed, e.g. `/home/uacic/PhytoOracle/scanner3DTop`
+```
+	root /scratch/www;
+```
+
++ Change permissions of the data to allow serving by the HTTP server
+```bash
+sudo chmod -R +r small_test_set
+sudo chmod +x small_test_set
+sudo chmod +x small_test_set/*
+sudo chmod +x small_test_set/PNG/*
+sudo chmod +x small_test_set/PLY/*
+```
+
++ Change URL inside `main_wf.php` (~line 30) to the IP address or URL of the Master VM instance with HTTP server
+> **URL needs to have slash at the end**
+
+```bash
+  $DATA_BASE_URL = "http://vm142-80.cyverse.org/";
+```
+
++ Change username and password inside `process_one_set.sh` (~line 27) to the ones that you set above
+```bash
+HTTP_USER="YOUR_USERNAME"
+HTTP_PASSWORD="PhytoOracle"
 ```
 
 ### Run workflow for phase 1 (`cleanmetadata`, `ply2las`, `plotclip`)

@@ -22,7 +22,7 @@ WEST_LAS=${LAS_DIR}${UUID}"__Top-heading-west_0.las"
 
 HTTP_USER="uacic"
 HTTP_PASSWORD="PhytoOracle"
-DATA_BASE_URL="vm142-48.cyverse.org/"
+DATA_BASE_URL="vm142-80.cyverse.org/"
 set -e
 
 # Stage the data from HTTP server
