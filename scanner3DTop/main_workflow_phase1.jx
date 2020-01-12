@@ -38,8 +38,7 @@
       ],
       "outputs":
       [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ LAS_DIR + DATA_SET["UUID"] + "__Top-heading-east_0.las" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ LAS_DIR + DATA_SET["UUID"] + "__Top-heading-west_0.las" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
 
     } for BUNDLE in BUNDLE_LIST,
   ]
