@@ -47,7 +47,7 @@ def process_one_set(data_set):
     my_env.update(data_set) # add data_set into the environment
     try:
         proc = subprocess.check_output(["/bin/bash", "process_one_set.sh"], env=my_env)
-    except SubprocessError:
+    except subprocess.SubprocessError:
         print("Error when running for data_set: ", data_set)
         sys.exit(proc.returncode)
 

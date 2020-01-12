@@ -20,6 +20,18 @@ WEST_PLY=${LEVEL_1_PATH}${UUID}"__Top-heading-west_0.ply"
 EAST_LAS=${LAS_DIR}${UUID}"__Top-heading-east_0.las"
 WEST_LAS=${LAS_DIR}${UUID}"__Top-heading-west_0.las"
 
+HTTP_USER="uacic"
+HTTP_PASSWORD="PhytoOracle"
+DATA_BASE_URL="vm142-80.cyverse.org/"
+set -e
+
+# Stage the data from HTTP server
+mkdir -p ${LEVEL_0_PATH}
+mkdir -p ${LEVEL_1_PATH}
+wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${METADATA} -O ${METADATA}
+wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${EAST_PLY} -O ${EAST_PLY}
+wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${WEST_PLY} -O ${WEST_PLY}
+
 # cleanmetadata
 WORKING_SPACE=${CLEANED_META_DIR}
 SENSOR="scanner3DTop"
@@ -27,7 +39,7 @@ USERID=""
 
 ls ${METADATA}
 mkdir -p ${WORKING_SPACE}
-BETYDB_URL=${BETYDB_URL} BETYDB_KEY=${BETYDB_KEY} singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
 ls ${METADATA_CLEANED}
 
 # ply2las
@@ -35,14 +47,14 @@ ls ${METADATA_CLEANED}
 # working space is input directory, created for temp use
 PLY_FILE=${EAST_PLY}
 METADATA=${METADATA_CLEANED}
-WORKING_SPACE=${LAS_DIR}${UUID}"_WEST/"
+WORKING_SPACE=${LAS_DIR}${UUID}"_EAST/"
 LAS_DIR=${LAS_DIR}
 
 ls ${EAST_PLY}
 ls ${METADATA_CLEANED}
 mkdir -p ${WORKING_SPACE}
 cp ${PLY_FILE} ${WORKING_SPACE}$(basename ${PLY_FILE})
-singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
+singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las:2.1 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
 cp ${WORKING_SPACE}*.las ${LAS_DIR}
 ls ${EAST_LAS}
 
@@ -58,9 +70,37 @@ ls ${WEST_PLY}
 ls ${METADATA_CLEANED}
 mkdir -p ${WORKING_SPACE}
 cp ${PLY_FILE} ${WORKING_SPACE}$(basename ${PLY_FILE})
-singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
+singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las:2.1 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE}
 cp ${WORKING_SPACE}*.las ${LAS_DIR}
 ls ${WEST_LAS}
 
+# plotclip
+# east
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/
+METADATA=${METADATA_CLEANED}
+WORKING_SPACE=${PLOTCLIP_DIR}
+EPSG="32612"
+SENSOR="scanner3DTop"
+LAS_FILE=${EAST_LAS}
 
+mkdir -p ${WORKING_SPACE}
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip:3.0 --working_space /mnt/${WORKING_SPACE} --metadata /mnt/${METADATA} --epsg ${EPSG} ${SENSOR} /mnt/${LAS_FILE}
+mv plotclip_out/result.json plotclip_out/${UUID}.json
+
+# plotclip
+# west
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/
+METADATA=${METADATA_CLEANED}
+WORKING_SPACE=${PLOTCLIP_DIR}
+EPSG="32612"
+SENSOR="scanner3DTop"
+LAS_FILE=${WEST_LAS}
+
+mkdir -p ${WORKING_SPACE}
+BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/plotclip:3.0 --working_space /mnt/${WORKING_SPACE} --metadata /mnt/${METADATA} --epsg ${EPSG} ${SENSOR} /mnt/${LAS_FILE}
+mv plotclip_out/result.json plotclip_out/${UUID}.json
+
+# create tarball of plotclip result
+#
+tar -cvf ${UUID}_plotclip.tar ${PLOTCLIP_DIR}
 
