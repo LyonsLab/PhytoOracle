@@ -123,14 +123,12 @@ def generate_aggregate(filepath, final_output, plot_boundaries_filepath, multith
     # boundaries and labeling them with that plot's id
     concat_df['x'] = scanalyzer_to_latlon(concat_df['x'])
     concat_df['y'] = scanalyzer_to_latlon(concat_df['y'])
+    
     for index, row in plot_boundaries_df.iterrows():
-        concat_df.loc[
-            ((concat_df['x'] >= row['X Start']) & (concat_df['x'] < row['X End'])) &
-            ((concat_df['y'] >= row['Y Start']) & (concat_df['y'] < row['Y End'])),
-            'Plot'
-        ] = int(row['Plot'])
-
-
+    # Translate gantry X,Y to lat-lon
+    # Create an ogr POINT type
+    concat_df.loc[plot_bounds.contains(new_point), 'Plot'] = int(row['Plot'])
+    
     # Calculating things
     # Area x Mean x Multithresh
     concat_df['AreaXMeanXMultiThr'] = concat_df['Area'] * concat_df['Mean'] * concat_df['MultiThr']
