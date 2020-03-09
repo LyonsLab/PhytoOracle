@@ -1,0 +1,54 @@
+{
+  "define": {
+    "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
+    "BETYDB_KEY": "9999999999999999999999999999999999999999",
+
+    # Pass down by the main_workflow
+    "LEVEL_0_DATA_PATH": "small_test_set/PNG/2017-06-21__00-00-26-364/",
+    "LEVEL_1_DATA_PATH": "small_test_set/PLY/2017-06-21__00-00-26-364/",
+    "UUID": "b5246694-65d8-44b9-a99c-3d010c92ec64",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "LAS_DIR": "las_out/",
+    "PLOTCLIP_DIR": "plotclip_out/",
+    "CANOPY_HEIGHT_DIR": "canopy_height_out/",
+
+    "METADATA": LEVEL_0_DATA_PATH + UUID + "_metadata.json",
+    "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
+    "EAST_PLY": LEVEL_1_DATA_PATH + UUID + "__Top-heading-east_0.ply",
+    "WEST_PLY": LEVEL_1_DATA_PATH + UUID + "__Top-heading-west_0.ply",
+    "EAST_LAS": LAS_DIR + UUID + "__Top-heading-east_0.las",
+    "WEST_LAS": LAS_DIR + UUID + "__Top-heading-west_0.las",
+    "EAST_MERGED_LAS": UUID + "__Top-heading-east_0_merged.las",
+    "WEST_MERGED_LAS": UUID + "__Top-heading-west_0_merged.las",
+    "EAST_MERGED_CONTENT_TXT": UUID + "__Top-heading-east_0_merged_contents.txt",
+    "WEST_MERGED_CONTENT_TXT": UUID + "__Top-heading-west_0_merged_contents.txt",
+
+    # per Plot variable
+    "PLOT_DIR": PLOTCLIP_DIR + "MAC Field Scanner Season 4 Range 21 Column 1/",
+    "PLOT_NAME": "MAC Field Scanner Season 4 Range 21 Column 1"
+  },
+  "rules": [
+
+    {
+      "command": "./process_one_plot.sh",
+      "environment": {
+        "BETYDB_LOCAL_CACHE_FOLDER": "cached_betydb/",
+        "PLOT_DIR": PLOT["PLOT_PATH"],
+        "METADATA": PLOT["METADATA"],
+        "PLOT_NAME": PLOT["PLOT_NAME"],
+        "CANOPY_HEIGHT_DIR": CANOPY_HEIGHT_DIR
+      },
+      "inputs": [
+        PLOT["PLOT_PATH"],
+        PLOT["METADATA"]
+      ]
+      + [ PLOT["PLOT_PATH"] + LAS_FILE for LAS_FILE in PLOT["LAS_FILES"] ]
+      ,
+      "outputs": [
+        CANOPY_HEIGHT_DIR + PLOT["PLOT_NAME"] + "/" + PLOT["PLOT_NAME"] + "_merged_canopyheight_bety.csv",
+        CANOPY_HEIGHT_DIR + PLOT["PLOT_NAME"] + "/" + PLOT["PLOT_NAME"] + "_merged_histogram.csv"
+      ]
+    } for PLOT in PLOT_LIST
+  ]
+}

@@ -1,0 +1,24 @@
+{
+"DATA_FILE_LIST": [
+{
+"PATH": "small_test_set/PNG/2017-06-21__00-00-26-364/",
+"UUID": "b5246694-65d8-44b9-a99c-3d010c92ec64"
+},
+{
+"PATH": "small_test_set/PNG/2017-06-21__00-02-13-815/",
+"UUID": "233895ec-7b93-4523-829c-c59d2da9778a"
+},
+{
+"PATH": "small_test_set/PNG/2017-06-21__00-04-01-058/",
+"UUID": "bc88f744-e0f3-4b27-9f15-00440711b7dc"
+},
+{
+"PATH": "small_test_set/PNG/2017-06-21__00-05-48-281/",
+"UUID": "82731e2f-a4a9-4f73-8c0a-638618a8f8a4"
+},
+{
+"PATH": "small_test_set/PNG/2017-06-21__00-07-35-510/",
+"UUID": "929fa93e-1822-4d60-9ab0-77d77225076e"
+},
+]
+}
