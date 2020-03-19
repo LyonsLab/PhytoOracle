@@ -1,0 +1,93 @@
+{
+  "define": {
+    # Import from Args file with --jx-args cmd option
+    # "DATA_FILE_LIST"
+
+
+    "IRODS_BASE_PATH": "/iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop/",
+    "TARBALL": "",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "SOILMASK_DIR": "soil_mask_out/",
+    "FIELDMOSAIC_DIR": "fieldmosaic_out/",
+
+    "METADATA_CLEANED_LIST": [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in DATA_FILE_LIST ],
+    "LEFT_SOILMASK_LIST": [ SOILMASK_DIR + DATA_SET["UUID"] + "_left_mask.tif" for DATA_SET in DATA_FILE_LIST ],
+    "RIGHT_SOILMASK_LIST": [ SOILMASK_DIR + DATA_SET["UUID"] + "_right_mask.tif" for DATA_SET in DATA_FILE_LIST ],
+    "MOSAIC_LIST_FILE": FIELDMOSAIC_DIR + "filelist.txt",
+    "SENSOR": "stereoTop",
+    "MOSAIC_BOUNDS": "-111.9750963 33.0764953 -111.9747967 33.074485715",
+    "CANOPYCOVER_DIR": "canopy_cover_out/"
+  },
+  "rules": [
+
+    {
+      # Make directory to store FIELDMOSAIC files
+      "command": "mkdir -p ${FIELDMOSAIC_DIR}",
+      "environment": {
+        "FIELDMOSAIC_DIR": FIELDMOSAIC_DIR
+      },
+      "inputs": [],
+      "outputs": [
+        FIELDMOSAIC_DIR
+      ]
+    },
+    {
+      # Create MOSAIC_LIST_FILE file from the soilmask files
+      "command": "ls ${SOILMASK_DIR}*.tif > ${MOSAIC_LIST_FILE}",
+      "environment": {
+        "SOILMASK_DIR": SOILMASK_DIR,
+        "MOSAIC_LIST_FILE": MOSAIC_LIST_FILE
+      },
+      "inputs": [
+        FIELDMOSAIC_DIR
+      ] + LEFT_SOILMASK_LIST + RIGHT_SOILMASK_LIST,
+      "outputs": [
+        MOSAIC_LIST_FILE
+      ]
+    },
+    {
+      # Generate field mosaic from soil mask TIFFs
+      "command": "docker run -u root --rm -v $(pwd):/mnt -w /mnt agpipeline/fieldmosaic:latest --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${MOSAIC_LIST_FILE} ${SENSOR} \"${MOSAIC_BOUNDS}\"",
+      "environment": {
+        "MOSAIC_LIST_FILE": MOSAIC_LIST_FILE,
+        "METADATA": METADATA_CLEANED_LIST[0],
+        "WORKING_SPACE": FIELDMOSAIC_DIR,
+        "SENSOR": SENSOR,
+        "MOSAIC_BOUNDS": MOSAIC_BOUNDS
+      },
+      "inputs": [
+        FIELDMOSAIC_DIR,
+        MOSAIC_LIST_FILE,
+        METADATA_CLEANED_LIST[0]
+      ],
+      "outputs": [
+        FIELDMOSAIC_DIR + "fullfield_mosaic.png",
+        FIELDMOSAIC_DIR + "fullfield_mosaic.png.aux.xml",
+        FIELDMOSAIC_DIR + "fullfield_mosaic.tif",
+        FIELDMOSAIC_DIR + "fullfield_mosaic.vrt",
+        FIELDMOSAIC_DIR + "fullfield_mosaic_10pct.tif",
+        FIELDMOSAIC_DIR + "fullfield_mosaic_thumb.tif"
+      ]
+    },
+    {
+      # Generate canopy cover from field mosaic
+      "command": "mkdir ${WORKING_SPACE} && docker run -u root --rm -v $(pwd):/mnt -w /mnt -e \"BETYDB_URL=${BETYDB_URL}\" -e \"BETYDB_KEY=${BETYDB_KEY}\" agpipeline/canopycover:latest --debug --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${CANOPY_COVER_INPUT_FILE}",
+      "environment": {
+        "METADATA": METADATA_CLEANED_LIST[0],
+        "WORKING_SPACE": CANOPYCOVER_DIR,
+        "BETYDB_URL": BETYDB_URL,
+        "BETYDB_KEY": BETYDB_KEY,
+        "CANOPY_COVER_INPUT_FILE": FIELDMOSAIC_DIR + "fullfield_mosaic.tif"
+    },
+      "inputs": [
+        METADATA_CLEANED_LIST[0],
+        FIELDMOSAIC_DIR + "fullfield_mosaic.tif"
+      ],
+      "outputs": [
+        CANOPYCOVER_DIR + "canopycover.csv",
+        CANOPYCOVER_DIR + "canopycover_geostreams.csv"
+      ]
+    }
+  ]
+}

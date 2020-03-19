@@ -1,0 +1,78 @@
+{
+  "define": {
+  },
+  "rules": [
+
+        {
+      # processing for one bundle of data sets (from cleanmetadata to soilmask)
+      "command": "echo ${BUNDLE_JSON} && python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        "DATA_BASE_URL": "128.196.142.38/",
+        "BUNDLE_JSON": "bundle/bundle_" + "0" + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + "0" + ".json",
+        "cached_betydb/bety_experiments.json"
+      ],
+      "outputs":
+      [
+              "cleanmetadata_out/" + "945f6f10-56a3-4154-9fbc-dc8f9676f746" + "_metadata_cleaned.json",
+	"bin2tif_out/" + "945f6f10-56a3-4154-9fbc-dc8f9676f746" + "_left.tif",
+	"bin2tif_out/" + "945f6f10-56a3-4154-9fbc-dc8f9676f746" + "_right.tif",
+	"945f6f10-56a3-4154-9fbc-dc8f9676f746" + "_plotclip.tar",
+              "cleanmetadata_out/" + "b3c2f898-c269-4dc8-9c07-223ae51ffd95" + "_metadata_cleaned.json",
+	"bin2tif_out/" + "b3c2f898-c269-4dc8-9c07-223ae51ffd95" + "_left.tif",
+	"bin2tif_out/" + "b3c2f898-c269-4dc8-9c07-223ae51ffd95" + "_right.tif",
+	"b3c2f898-c269-4dc8-9c07-223ae51ffd95" + "_plotclip.tar",
+            ]
+    },
+        {
+      # processing for one bundle of data sets (from cleanmetadata to soilmask)
+      "command": "echo ${BUNDLE_JSON} && python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        "DATA_BASE_URL": "128.196.142.38/",
+        "BUNDLE_JSON": "bundle/bundle_" + "1" + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + "1" + ".json",
+        "cached_betydb/bety_experiments.json"
+      ],
+      "outputs":
+      [
+              "cleanmetadata_out/" + "0370b204-7e2d-4981-b1fa-6dfe821415db" + "_metadata_cleaned.json",
+	"bin2tif_out/" + "0370b204-7e2d-4981-b1fa-6dfe821415db" + "_left.tif",
+	"bin2tif_out/" + "0370b204-7e2d-4981-b1fa-6dfe821415db" + "_right.tif",
+	"0370b204-7e2d-4981-b1fa-6dfe821415db" + "_plotclip.tar",
+              "cleanmetadata_out/" + "01c5c6c3-7253-4829-8da8-ba69b88e209f" + "_metadata_cleaned.json",
+	"bin2tif_out/" + "01c5c6c3-7253-4829-8da8-ba69b88e209f" + "_left.tif",
+	"bin2tif_out/" + "01c5c6c3-7253-4829-8da8-ba69b88e209f" + "_right.tif",
+	"01c5c6c3-7253-4829-8da8-ba69b88e209f" + "_plotclip.tar",
+            ]
+    },
+        {
+      # processing for one bundle of data sets (from cleanmetadata to soilmask)
+      "command": "echo ${BUNDLE_JSON} && python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        "DATA_BASE_URL": "128.196.142.38/",
+        "BUNDLE_JSON": "bundle/bundle_" + "2" + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + "2" + ".json",
+        "cached_betydb/bety_experiments.json"
+      ],
+      "outputs":
+      [
+              "cleanmetadata_out/" + "1d5400ce-a3da-4a71-b414-e37ae54679a3" + "_metadata_cleaned.json",
+	"bin2tif_out/" + "1d5400ce-a3da-4a71-b414-e37ae54679a3" + "_left.tif",
+	"bin2tif_out/" + "1d5400ce-a3da-4a71-b414-e37ae54679a3" + "_right.tif",
+	"1d5400ce-a3da-4a71-b414-e37ae54679a3" + "_plotclip.tar",
+            ]
+    },
+      ]
+}

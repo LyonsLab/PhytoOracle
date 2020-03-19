@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -q windfall
+#PBS -l select=2:ncpus=16:mem=62gb:pcmem=4gb
+#PBS -W group_list=ericlyons
+#PBS -l place=pack:shared
+#PBS -l walltime=04:00:00
+#PBS -l cput=64:00:00
+module load unsupported
+module load ferng/glibc
+module load singularity
+export CCTOOLS_HOME=/home/u31/emmanuelgonzalez/cctools-7.0.21-x86_64-centos7   export PATH=${CCTOOLS_HOME}/bin:$PATH
+cd /home/u31/emmanuelgonzalez/
+rm -rf .singularity/
+singularity pull docker://agpipeline/cleanmetadata:2.0
+singularity pull docker://agpipeline/bin2tif:2.0
+singularity pull docker://agpipeline/soilmask:2.0
+/home/u31/emmanuelgonzalez/cctools-7.0.21-x86_64-centos7/bin/work_queue_factory -T local 128.196.142.66 9123 -w 20 -W 200 --workers-per-cycle 10 --cores=1 -t 900
