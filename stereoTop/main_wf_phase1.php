@@ -1,5 +1,7 @@
 <?php
-  $filename = "raw_data_files.json";
+  error_reporting(E_ALL);
+
+  $filename = "bundle_list.json";
   $handle = fopen($filename, "r");
   $contents = fread($handle, filesize($filename));
 
@@ -11,7 +13,7 @@
     exit();
   }
   $json = json_decode($contents, true);
-  $data_file_list = $json["DATA_FILE_LIST"];
+  $bundle_list = $json["BUNDLE_LIST"];
 
   $CLEANED_META_DIR = "cleanmetadata_out/";
   $TIFS_DIR = "bin2tif_out/";
@@ -21,13 +23,9 @@
 
   $MOSAIC_LIST_FILE = $FIELDMOSAIC_DIR . "filelist.txt";
   $SENSOR = "stereoTop";
-  $MOSAIC_BOUNDS = "-111.9750963 33.0764953 -111.9747967 33.074485715";
-  /*
-  "METADATA_CLEANED_LIST": [<?php foreach ($data_file_list as &$data_set) :?> "<?=$CLEANED_META_DIR?>" + "<?=$data_set["UUID"]?>" + "_metadata_cleaned.json", <?php endforeach?>],
-  "LEFT_SOILMASK_LIST": [<?php foreach ($data_file_list as &$data_set) :?> "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_left_mask.tif", <?php endforeach?>],
-  "RIGHT_SOILMASK_LIST": [<?php foreach ($data_file_list as &$data_set) :?> "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_right_mask.tif", <?php endforeach?>],
-  */
-  $DATA_BASE_URL = "http://vm142-80.cyverse.org/";
+  $MOSAIC_BOUNDS = "-111.9747932 33.0764785 -111.9750545 33.0745238";
+
+  $DATA_BASE_URL = "128.196.142.89/";
 
 ?>
 {
@@ -35,23 +33,27 @@
   },
   "rules": [
 
-    <?php foreach ($data_file_list as &$data_set) :?>
+    <?php foreach ($bundle_list as &$bundle) :?>
     {
-      # processing for a single set of data (from cleanmetadata to soilmask)
-      "command": "./process_one_set.sh",
+      # processing for one bundle of data sets (from cleanmetadata to soilmask)
+      "command": "echo ${BUNDLE_JSON} && python3 process_bundle.py ${BUNDLE_JSON}",
       "environment": {
         "DATA_BASE_URL": "<?=$DATA_BASE_URL?>",
-        "RAW_DATA_PATH": "<?=$data_set["PATH"]?>",
-        "UUID": "<?=$data_set["UUID"]?>"
+        "BUNDLE_JSON": "bundle/bundle_" + "<?=$bundle["ID"]?>" + ".json"
       },
       "inputs": [
+        "process_bundle.py",
         "process_one_set.sh",
+        "bundle/bundle_" + "<?=$bundle["ID"]?>" + ".json",
         "cached_betydb/bety_experiments.json"
       ],
-      "outputs": [
+      "outputs":
+      [
+      <?php foreach ($bundle["DATA_SETS"] as &$data_set): ?>
         "<?=$CLEANED_META_DIR?>" + "<?=$data_set["UUID"]?>" + "_metadata_cleaned.json",
-        "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_left_mask.tif",
-        "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_right_mask.tif"
+	"<?=$TIFS_DIR?>" + "<?=$data_set["UUID"]?>" + "_left.tif",
+	"<?=$TIFS_DIR?>" + "<?=$data_set["UUID"]?>" + "_right.tif",
+      <?php endforeach; ?>
       ]
     },
     <?php endforeach; ?>

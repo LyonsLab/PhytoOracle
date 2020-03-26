@@ -14,13 +14,13 @@
   $data_file_list = $json["DATA_FILE_LIST"];
 
   $CLEANED_META_DIR = "cleanmetadata_out/";
-  $SOILMASK_DIR = "soil_mask_out/";
+  $TIFS_DIR = "bin2tif_out/";
   $FIELDMOSAIC_DIR = "fieldmosaic_out/";
   $CANOPYCOVER_DIR = "canopy_cover_out/";
 
   $MOSAIC_LIST_FILE = $FIELDMOSAIC_DIR . "filelist.txt";
   $SENSOR = "stereoTop";
-  $MOSAIC_BOUNDS = "-111.9750963 33.0764953 -111.9747967 33.074485715";
+  $MOSAIC_BOUNDS = "-111.9750748 33.0764882 -111.9747749 33.0745187";
 
 ?>
 {
@@ -41,16 +41,15 @@
     },
     {
       # Create MOSAIC_LIST_FILE file from the soilmask files
-      "command": "ls ${SOILMASK_DIR}*.tif > ${MOSAIC_LIST_FILE}",
+      "command": "ls ${TIFS_DIR}*_right.tif > ${MOSAIC_LIST_FILE}",
       "environment": {
-        "SOILMASK_DIR": "<?=$SOILMASK_DIR?>",
+        "TIFS_DIR": "<?=$TIFS_DIR?>",
         "MOSAIC_LIST_FILE": "<?=$MOSAIC_LIST_FILE?>"
       },
       "inputs": [
         "<?=$FIELDMOSAIC_DIR?>"
       ]
-      + [<?php foreach ($data_file_list as &$data_set) :?> "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_left_mask.tif", <?php endforeach?>]
-      + [<?php foreach ($data_file_list as &$data_set) :?> "<?=$SOILMASK_DIR?>" + "<?=$data_set["UUID"]?>" + "_right_mask.tif", <?php endforeach?>],
+      + [<?php foreach ($data_file_list as &$data_set) :?> "<?=$TIFS_DIR?>" + "<?=$data_set["UUID"]?>" + "_right.tif", <?php endforeach?>],
       "outputs": [
         "<?=$MOSAIC_LIST_FILE?>"
       ]
