@@ -1,49 +1,44 @@
 {
   "define": {
-    "IRODS_BASE_PATH": "/iplant/home/shared/terraref/ua-mac/raw_tars/season_10/ps2Top/ps2Top-2020-02-28.tar",
-    "TARBALL": "",
-    "INPUT_DIR": "ps2Top/2020-02-28/",
-    "OUTPUT_DIR": "ps2Top/2020-02-28_output/"
   },
   "rules": [
    {
       # Download tarball
-      "command": "iget -K ${IRODS_BASE_PATH} && tar -xvf $(basename ${IRODS_BASE_PATH}) && rm $(basename ${IRODS_BASE_PATH})",
+      "command": "iget -K ${IRODS_PATH} && tar -xvf $(basename ${IRODS_PATH}) && rm $(basename ${IRODS_PATH})",
       "environment": {
-        "IRODS_BASE_PATH": IRODS_BASE_PATH
+        "IRODS_PATH": SET["IRODS_PATH"]
       },
-      "outputs": [ INPUT_DIR ]
-    },
+      "outputs": [ SET["INPUT_DIR"] ]
+    } for SET in DATA_SETS,
    {
       # Binary to PNG Conversion
       "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://acicarizona/ps2top-bin2png:1.0 -d /mnt/${INPUT_DIR} && mv ${INPUT_DIR} ${OUTPUT_DIR}",
       "environment": {
-        "INPUT_DIR": INPUT_DIR,
-        "OUTPUT_DIR": "ps2top_bin2png_out"
+        "INPUT_DIR": SET["INPUT_DIR"],
+        "OUTPUT_DIR": SET["PNG_DIR"]
       },
-      "inputs": [ INPUT_DIR ],
-      "outputs": [ "ps2top_bin2png_out" ]
-    },
+      "inputs": [ SET["INPUT_DIR"] ],
+      "outputs": [ SET["PNG_DIR"] ]
+    } for SET in DATA_SETS,
     {
       # Image Segmentation
       "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://acicarizona/ps2top-img_segmentation:1.0 -d /mnt/${INPUT_DIR} && mv ${INPUT_DIR} ${OUTPUT_DIR}",
       "environment": {
-        "INPUT_DIR": "ps2top_bin2png_out",
-        "OUTPUT_DIR": "ps2top_img_seg_out"
+        "INPUT_DIR": SET["PNG_DIR"],
+        "OUTPUT_DIR": SET["IMG_SEG_DIR"]
       },
-      "inputs": [ "ps2top_bin2png_out" ],
-      "outputs": [ "ps2top_img_seg_out" ]
-    },
+      "inputs": [ SET["PNG_DIR"] ],
+      "outputs": [ SET["IMG_SEG_DIR"] ]
+    } for SET in DATA_SETS,
     {
       # Fluorescence aggregation
       "command": "singularity run -B $(pwd):/mnt --pwd /mnt docker://acicarizona/ps2top-fluorescence_aggregation:1.0 -d /mnt/${INPUT_DIR} -o /mnt/${OUTPUT_DIR}",
       "environment": {
-        "INPUT_DIR": "ps2top_img_seg_out",
-        "OUTPUT_DIR": OUTPUT_DIR
+        "INPUT_DIR": SET["IMG_SEG_DIR"],
+        "OUTPUT_DIR": SET["OUTPUT_DIR"]
       },
-      "inputs": [ "ps2top_img_seg_out" ],
-      "outputs": [ OUTPUT_DIR ]
-    },
+      "inputs": [ SET["IMG_SEG_DIR"] ],
+      "outputs": [ SET["OUTPUT_DIR"] ]
+    } for SET in DATA_SETS,
   ]
 }
-

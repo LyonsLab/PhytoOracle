@@ -2,19 +2,15 @@
 
 ## Getting Started
 
-User **must** provide `"IRODS_BASE_PATH"`, `"INPUT_DIR"` value in the `main_workflow.jx`
-
-`"IRODS_BASE_PATH"` is the iRODS path to fetch the tarball from
-
-`"INPUT_DIR"` is the directory structure after the untar the tarball and the path that contain all the subdir
+User **must** provide a argument json file like the `arg_example.json`
 
 ## Run the workflow
 
 ```
-makeflow -T wq --jx main_workflow.jx
+makeflow -T wq --jx main_workflow.jx --jx-args arg_exmaple.json
 ```
 Or
 ```
-makeflow -T local --jx main_workflow.jx
+makeflow -T local --jx main_workflow.jx --jx-args arg_exmaple.json
 ```
 
