@@ -24,4 +24,6 @@ PSII Fluorescence
 
 | Extractor | Description | Link to Container |
 | --------- | ----------- | ----------------- |
-| Flip:1.0 | Converts binary images to PNG; Segments Images and Calculates Fluorescence aggregates | https://github.com/cyverse/docker-builds/tree/master/flip/1.0 |
+| ps2top-bin2png | Converts binary images to PNG | https://hub.docker.com/r/acicarizona/ps2top-bin2png |
+| ps2top-img_segmentation | Segments Images | https://hub.docker.com/r/acicarizona/ps2top-img_segmentation |
+| ps2top-fluorescence_aggregation | Calculates Fluorescence aggregates | https://hub.docker.com/r/acicarizona/ps2top-fluorescence_aggregation |
