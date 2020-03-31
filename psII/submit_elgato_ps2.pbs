@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -q windfall
+#PBS -l select=1:ncpus=16:mem=62gb:pcmem=4gb
+#PBS -W group_list=lyons-lab
+#PBS -l place=pack:shared
+#PBS -l walltime=24:00:00
+#PBS -l cput=384:00:00
+module load singularity
+module load unsupported
+module load ferng/glibc
+export CCTOOLS_HOME=/xdisk/sateeshp/cctools-release-7.0.21
+export PATH=${CCTOOLS_HOME}/bin:$PATH
+cd /xdisk/sateeshp/psII/
+singularity pull docker://acicarizona/ps2top-bin2png:1.0
+singularity pull docker://acicarizona/ps2top-img_segmentation:1.0
+singularity pull docker://acicarizona/ps2top-fluorescence_aggregation:1.0
+/xdisk/sateeshp/cctools-release-7.0.21/bin/makeflow --jx main_workflow.jx --jx-args arg_exmaple.json
