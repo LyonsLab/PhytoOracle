@@ -22,9 +22,9 @@ Data Types & Descriptions
      - Output Data Size / Day
    * - PSII 
      - Binary images & metadata json
-     - Input Data Size / Day
+     - 70-90GB / Night
      - Fluorescence-aggregates.csv 
-     - Output Data Size / Day
+     - 30-35MB / Night
 
 
 **Data Availability**
@@ -38,7 +38,21 @@ Raw Input data is avaialable via CyVerse Data Store under the following folder a
    C- /iplant/home/elyons/ACIC/2019-final-gantry-data/scanner3DTop
    C- /iplant/home/elyons/ACIC/2019-final-gantry-data/stereoTop
 
-  
+.. code::
+
+   /iplant/home/shared/terraref/ua-mac/raw_tars/season_10:
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/EnvironmentLogger
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/SWIR
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/co2Sensor
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/cropCircle
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/flirIrCamera
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/ndviSensor
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/priSensor
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/ps2Top
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/scanner3DTop
+   C- /iplant/home/shared/terraref/ua-mac/raw_tars/season_10/stereoTop
+
+   
 **Compressed tar files for Data Staging**
   
 - Raw data needed for the workflow can be downloaded onto a virtual machine using iRODS. 
