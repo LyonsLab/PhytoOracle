@@ -99,3 +99,9 @@ Instruction manual for PSII Fluorescence HPC workflow
      - seconds from start when a maximum occured (JSON object)
    * - snapshots
      -  List of intermediate measurements, identified by snapshot_name (JSON object)
+
+
+Season-10 PSII workflow benchmarking
+------------------------------------
+
+- Click `here <https://docs.google.com/spreadsheets/d/1aoz9bixQsi4DKEDw8TkUyXmd6FJ5BdynTXdzsHuvAXw/edit?usp=sharing>`_ for ps2 workflow benchmarking on UA HPC. 
