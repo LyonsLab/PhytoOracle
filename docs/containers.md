@@ -27,3 +27,4 @@ PSII Fluorescence
 | ps2top-bin2png | Converts binary images to PNG | https://hub.docker.com/r/acicarizona/ps2top-bin2png |
 | ps2top-img_segmentation | Segments Images | https://hub.docker.com/r/acicarizona/ps2top-img_segmentation |
 | ps2top-fluorescence_aggregation | Calculates Fluorescence aggregates | https://hub.docker.com/r/acicarizona/ps2top-fluorescence_aggregation |
+| ps2top-fluorescence_aggregation | Converts ps2 binary images to geo-referenced TIFF | https://hub.docker.com/r/zhxu73/ps2top-bin2tif |
