@@ -23,7 +23,7 @@ Workflows for the following sensors are available via `PhytoOracle Github <https
    * - Scanner3D
      - Under construction
    * - PSII Flourescence
-     - Under construction
+     - `Click here <https://github.com/uacic/PhytoOracle/blob/master/docs/ps2.rst>`_
 
 
 
