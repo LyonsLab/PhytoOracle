@@ -3,6 +3,8 @@ Instruction manual for PSII Fluorescence HPC workflow
 
 **Staging Data on HPC xdisks**
 
+- Read more about using xdisks `here <https://public.confluence.arizona.edu/display/UAHPC/Using+xdisk>`_
+
 - Login to UA-HPC OCELOTE and create expendable storage disk as below, 
 
 .. code::
