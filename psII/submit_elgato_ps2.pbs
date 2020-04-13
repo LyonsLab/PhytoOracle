@@ -8,10 +8,10 @@
 module load singularity
 module load unsupported
 module load ferng/glibc
-export CCTOOLS_HOME=/xdisk/sateeshp/cctools-release-7.0.21
+export CCTOOLS_HOME=/rsgrps/ericlyons/phytooracle/cctools-release-7.1.2
 export PATH=${CCTOOLS_HOME}/bin:$PATH
-cd /xdisk/user_name/psII/
+cd /rsgrps/ericlyons/phytooracle/PSII/
 singularity pull docker://acicarizona/ps2top-bin2png:1.0
 singularity pull docker://acicarizona/ps2top-img_segmentation:1.0
 singularity pull docker://acicarizona/ps2top-fluorescence_aggregation:1.0
-/xdisk/user_name/cctools-release-7.0.21/bin/resource_monitor -O log-ps2-makeflow -i 2 -- makeflow --jx main_workflow.jx --jx-args arg_exmaple.json
+/rsgrps/ericlyons/phytooracle/cctools-release-7.1.2/bin/resource_monitor -O log-ps2-makeflow -i 2 -- makeflow --jx main_workflow.jx --jx-args arg_exmaple.json
