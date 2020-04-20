@@ -1,0 +1,45 @@
+{
+  "define": {
+    "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
+    "BETYDB_KEY": "9999999999999999999999999999999999999999",
+
+    # Pass down by the main_workflow
+    "LEVEL_0_PATH": "small_test_set/PNG/2017-06-21__00-00-26-364/",
+    "LEVEL_1_PATH": "small_test_set/PLY/2017-06-21__00-00-26-364/",
+    "UUID": "b5246694-65d8-44b9-a99c-3d010c92ec64",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "LAS_DIR": "las_out/",
+    "PLOTCLIP_DIR": "plotclip_out/",
+    "CANOPY_HEIGHT_DIR": "canopy_height_out/",
+
+    "METADATA": LEVEL_0_PATH + UUID + "_metadata.json",
+    "METADATA_CLEANED": CLEANED_META_DIR + UUID + "_metadata_cleaned.json",
+    "EAST_PLY": LEVEL_1_PATH + UUID + "__Top-heading-east_0.ply",
+    "WEST_PLY": LEVEL_1_PATH + UUID + "__Top-heading-west_0.ply",
+    "EAST_LAS": LAS_DIR + UUID + "__Top-heading-east_0.las",
+    "WEST_LAS": LAS_DIR + UUID + "__Top-heading-west_0.las",
+
+    "DATA_BASE_URL": ""
+  },
+  "rules": [
+
+    {
+      "command": "python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        "DATA_BASE_URL": DATA_BASE_URL,
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + BUNDLE["ID"] + ".json",
+        "cached_betydb/bety_experiments.json"
+      ],
+      "outputs":
+      [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+
+    } for BUNDLE in BUNDLE_LIST,
+  ]
+}
