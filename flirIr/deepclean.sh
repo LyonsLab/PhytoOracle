@@ -7,6 +7,7 @@ rm -R cleanmetadata_out
 rm -R soil_mask_out
 rm -R canopy_cover_out
 rm -rf .singularity/
+rm -r meantemp_out
 rm dall.log
 rm bundle_list.json
 rm main_wf_phase1.jx
@@ -17,5 +18,3 @@ rm raw_data_files.jx
 rm raw_data_files.json
 rm -R flir2tif_out
 rm main_wf_phase1.json
-rm meantemp.*
-rm meantemp_geo*

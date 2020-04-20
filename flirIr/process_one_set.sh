@@ -15,6 +15,8 @@ MEANTEMP_DIR="meantemp_out/"
 #PLOTCLIP_DIR="plotclip_out/"
 #FIELDMOSAIC_DIR="fieldmosaic_out/"
 
+MEANTEMP_WK=${MEANTEMP_DIR}${UUID}"/"
+
 METADATA=${RAW_DATA_PATH}${UUID}"_metadata.json"
 IR_BIN=${RAW_DATA_PATH}${UUID}"_ir.bin"
 METADATA_CLEANED=${CLEANED_META_DIR}${UUID}"_metadata_cleaned.json"
@@ -56,13 +58,18 @@ mkdir -p ${WORKING_SPACE}
 singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/flir2tif:2.2 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA} ${IR_BIN}
 ls ${IN_TIF}
 
-# Extract meantemp data from TIFF
-TIFS_DIR=${TIFS_DIR}
+# Extract meantemp data
+IN_TIF=${IN_TIF} 
 METADATA=${METADATA_CLEANED}
-WORKING_SPACE=${MEANTEMP_DIR}
-AUTHOR="author"
+WORKING_SPACE=${MEANTEMP_WK}
 TITLE="title"
-YEAR="2020"
+YEAR="year"
+AUTHOR="author"
 
+ls ${IN_TIF}
+ls ${METADATA_CLEANED}
 mkdir -p ${WORKING_SPACE}
-BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/meantemp:3.0 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA} --citation_author $AUTHOR --citation_title $TITLE --citation_year ${YEAR}  ${IN_TIF}
+
+BETYDB_URL=http://128.196.65.186:8000/bety/ BETYDB_KEY=YUKPF38ZxMB0UOkP6etB9bNOjTjIeWFj0RbNGIg5 singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/meantemp:3.0 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA} --citation_author $AUTHOR --citation_title $TITLE --citation_year ${YEAR} ${IN_TIF}
+
+#docker run --rm --mount "src=`pwd`,target=/mnt,type=bind" -e "BETYDB_URL=http://128.196.65.186:8000/bety/" -e "BETYDB_KEY=YUKPF38ZxMB0UOkP6etB9bNOjTjIeWFj0RbNGIg5" agpipeline/meantemp:3.0 --working_space "/mnt" --metadata "/mnt/cleanmetadata_out/46bbef81-0858-4195-b921-05cd8700af47_metadata_cleaned.json" --citation_author "Me Myself" --citation_title "Something that's warm" --citation_year "2020" "/mnt/flir2tif_out/46bbef81-0858-4195-b921-05cd8700af47_ir.tif"
