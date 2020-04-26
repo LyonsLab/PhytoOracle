@@ -17,7 +17,7 @@
   $TIFS_DIR = "bin2tif_out/";
   $FIELDMOSAIC_DIR = "fieldmosaic_out/";
   $CANOPYCOVER_DIR = "canopy_cover_out/";
-
+  $PLOTCLIP_DIR = "plotclip_out/"
   $MOSAIC_LIST_FILE = $FIELDMOSAIC_DIR . "filelist.txt";
   $SENSOR = "stereoTop";
   $MOSAIC_BOUNDS = "-111.9750748 33.0764882 -111.9747749 33.0745187";
