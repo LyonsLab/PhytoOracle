@@ -11,6 +11,7 @@
 
 BETYDB_URL="http://128.196.65.186:8000/bety/"
 BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
+HPC_PATH="/xdisk/ericlyons/mig2020/xdisk/emmanuelgonzalez/PhytoOracle/stereoTopRGB/"
 
 CLEANED_META_DIR="cleanmetadata_out/"
 TIFS_DIR="bin2tif_out/"
@@ -19,9 +20,9 @@ FIELDMOSAIC_DIR="fieldmosaic_out/"
 PLOTCLIP_DIR="plotclip_out/"
 GPSCORRECT_DIR="gpscorrect_out/"
 
-METADATA=${RAW_DATA_PATH}${UUID}"_metadata.json"
-LEFT_BIN=${RAW_DATA_PATH}${UUID}"_left.bin"
-RIGHT_BIN=${RAW_DATA_PATH}${UUID}"_right.bin"
+METADATA=${HPC_PATH}${RAW_DATA_PATH}${UUID}"_metadata.json"
+LEFT_BIN=${HPC_PATH}${RAW_DATA_PATH}${UUID}"_left.bin"
+RIGHT_BIN=${HPC_PATH}${RAW_DATA_PATH}${UUID}"_right.bin"
 METADATA_CLEANED=${CLEANED_META_DIR}${UUID}"_metadata_cleaned.json"
 LEFT_TIF=${TIFS_DIR}${UUID}"_left.tif"
 RIGHT_TIF=${TIFS_DIR}${UUID}"_right.tif"
@@ -31,7 +32,7 @@ MOSAIC_LIST_FILE=${FIELDMOSAIC_DIR}"filelist.txt"
 LEFT_CLIP=${PLOTCLIP_DIR}${UUID}"_left.tif"
 RIGHT_CLIP=${PLOTCLIP_DIR}${UUID}"_right.tif"
 LEFT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_left_corrected.tif"
-GPS_CSV="2020-01-08_coordinates_CORRECTED_4-16-2020.csv"
+GPS_CSV=${HPC_PATH}"2020-01-08_coordinates_CORRECTED_4-16-2020.csv"
 
 HTTP_USER="YOUR_USERNAME"
 HTTP_PASSWORD="PhytoOracle"
@@ -39,11 +40,11 @@ DATA_BASE_URL="128.196.142.19/"
 set -e
 
 # Stage the data from HTTP server
-mkdir -p ${RAW_DATA_PATH}
-wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${METADATA} -O ${METADATA}
-wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${LEFT_BIN} -O ${LEFT_BIN}
-wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${RIGHT_BIN} -O ${RIGHT_BIN}
-wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${GPS_CSV} -O ${GPS_CSV}
+#mkdir -p ${RAW_DATA_PATH}
+#wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${METADATA} -O ${METADATA}
+#wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${LEFT_BIN} -O ${LEFT_BIN}
+#wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${RIGHT_BIN} -O ${RIGHT_BIN}
+#wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${GPS_CSV} -O ${GPS_CSV}
 
 # Make a cleaned copy of the metadata
 SENSOR="stereoTop"
@@ -51,7 +52,7 @@ METADATA=${METADATA}
 WORKING_SPACE=${CLEANED_META_DIR}
 USERID=""
 
-ls ${RAW_DATA_PATH}
+#ls ${RAW_DATA_PATH}
 ls ${METADATA}
 ls "cached_betydb/bety_experiments.json"
 mkdir -p ${WORKING_SPACE}
@@ -82,7 +83,7 @@ ls ${TIFS_DIR}
 ls ${GPS_CSV}
 mkdir -p ${WORKING_SPACE}
 #singularity run -B $(pwd):/mnt --pwd /mnt docker://acicarizona/gistools --csv ${GPS_CSV} -o ${WORKING_SPACE} ${TIFS_DIR}
-singularity run -B $(pwd):/mnt --pwd /mnt/ docker://zhxu73/gistools:latest --csv "/mnt/${GPS_CSV}" -o "/mnt/${WORKING_SPACE}" "/mnt/${TIFS_DIR}"
+singularity run -B $(pwd):/mnt --pwd /mnt/ docker://zhxu73/gistools:latest --csv ${GPS_CSV} -o ${WORKING_SPACE} ${TIFS_DIR}
 ls ${LEFT_TIF_CORRECT}
 
 # Convert RIGHT bin/RGB image to TIFF format
@@ -133,24 +134,3 @@ mv plotclip_out/result.json plotclip_out/${UUID}.json
 #
 tar -cvf ${UUID}_plotclip.tar ${PLOTCLIP_DIR}
 
-# Generate soil mask from LEFT TIFF image
-#LEFT_TIF=${LEFT_TIF}
-#METADATA=${METADATA_CLEANED}
-#WORKING_SPACE=${SOILMASK_DIR}
-
-#ls ${LEFT_TIF}
-#ls ${METADATA_CLEANED}
-#mkdir -p ${WORKING_SPACE}
-#singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:2.0 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${LEFT_TIF}
-#ls ${LEFT_SOILMASK}
-
-# Generate soil mask from RIGHT TIFF image
-#RIGHT_TIF=${RIGHT_TIF}
-#METADATA=${METADATA_CLEANED}
-#WORKING_SPACE=${SOILMASK_DIR}
-
-#ls ${RIGHT_TIF}
-#ls ${METADATA_CLEANED}
-#mkdir -p ${WORKING_SPACE}
-#singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/soilmask:2.0 --result print --metadata ${METADATA} --working_space ${WORKING_SPACE} ${RIGHT_TIF}
-#ls ${RIGHT_SOILMASK}
