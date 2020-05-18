@@ -6,29 +6,16 @@ PhytoOracle is a collection of scalable and modular data pipelines that aim to i
 
 ## Pipelines and Data
 
-+ Canopy cover data through the StereoTopRGB pipeline
-+ Infrared data through the FlirIr pipeline
-+ Photosyntetic activity through the PSII pipeline (beta)
-+ Field and plant structure data through the 3D pipeline (alpha)
++ Canopy cover data through the [StereoTopRGB](https://github.com/uacic/PhytoOracle/tree/alpha/stereoTopRGB) pipeline
++ Infrared data through the [FlirIr](https://github.com/uacic/PhytoOracle/tree/alpha/FlirIr) pipeline
++ Photosyntetic activity through the [PSII](https://github.com/uacic/PhytoOracle/tree/alpha/psII) pipeline (beta)
++ Field and plant structure data through the [Scanner3DTop](https://github.com/uacic/PhytoOracle/tree/alpha/scanner3DTop) pipeline (alpha)
 + Hyperspectral data (TBA)
-
-## System Requirements
-
-+ [CCTools 7.0.21](http://ccl.cse.nd.edu/software/downloadfiles.php)
-+ [Singularity 3.5.1]()
-+ [iRODS Client]()
 
 ## Getting Started
 
-+ See detailed documentation [here](https://phytooracle.readthedocs.io/en/latest/contents.html) for instruction manuals.
-
-## Sensor Modules available
-
-+ stereoTop-RGB
-
-### Sensor Modules under-construction
-+ scanner3D
-+ PSII Flourescence
++ Read on [HPC deployment here](https://github.com/uacic/PhytoOracle/blob/alpha/HPC_Install.md) or [Cloud with HPC support deployment here](https://github.com/uacic/PhytoOracle/blob/alpha/CloudHPC_installation.md). 
++ See detailed documentation [here](https://phytooracle.readthedocs.io/en/latest/contents.html) for instruction manuals (to be updated).
 
 ## Distributed Scaling
 
