@@ -2,7 +2,15 @@
 
 ## Overview
 
-PhytoOracle is a scalable, modular data pipeline that aims to improve data processing for phenomics research. It refines the TERRA-REF AgPipeline by using CCTools’ Makeflow and WorkQueue frameworks for distributed task management. The program is available as Docker/Singularity containers that can run on either local, cloud, or high-performance computing (HPC) platforms
+PhytoOracle is a collection of scalable and modular data pipelines that aim to improve data processing for phenomics research. PhytoOracle is based on the Master-Worker Framework enabled by the CCTools’ Makeflow and WorkQueue. This framework allows for job distribution on High Performance Computers (HPC) or Cloud systems. PhytoOracle's Master is designed to deploy on HPC Interactive Nodes but is also possible to deploy on Cloud Virtual Machines (VMs). 
+
+## Pipelines and Data
+
++ Canopy cover data through the StereoTopRGB pipeline
++ Infrared data through the FlirIr pipeline
++ Photosyntetic activity through the PSII pipeline (beta)
++ Field and plant structure data through the 3D pipeline (alpha)
++ Hyperspectral data (TBA)
 
 ## System Requirements
 
