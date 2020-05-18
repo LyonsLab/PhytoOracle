@@ -22,7 +22,7 @@ PhytoOracle's FlirIr requires a metadata file (`<metadata>.json`) for every comp
 
 Go [here](https://github.com/uacic/PhytoOracle/blob/alpha/HPC_Install.md) to launch on an HPC system (tested on the University of Arizona's HPC system).
 
-Go [here]() instead if using a cloud system with HPC support (tested on CyVerse Atmosphere, soon to be tested on NSF's JetStream).
+Go [here](https://github.com/uacic/PhytoOracle/blob/alpha/CloudHPC_installation.md) instead if using a cloud system with HPC support (tested on CyVerse Atmosphere, soon to be tested on NSF's JetStream).
 
 #### Running on the HPC's interactive node
 
