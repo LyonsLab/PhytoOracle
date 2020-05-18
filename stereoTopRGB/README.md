@@ -12,7 +12,7 @@ FlirIr currently uses 3 different transformers for data conversion:
 | :---: | :----------------------------------------------------------: | :------------------------------------------: |
 |   1   | [cleanmetadata](https://github.com/AgPipeline/moving-transformer-cleanmetadata) |       Cleans gantry generated metadata       |
 |   2   | [bin2tif](https://github.com/AgPipeline/moving-transformer-bin2tif) |     Converts bin compressed files to tif     |
-|   3   |                           gistools                           |           Correct GPS coordinates            |
+|   3   |                           [gistools](https://github.com/uacic/docker-builds/tree/master/gistools)                           |           Correct GPS coordinates            |
 |   4   | [plotclip](https://github.com/AgPipeline/transformer-plotclip) | Clip GeoTIFF or LAS files according to plots |
 
 #### Data overview
