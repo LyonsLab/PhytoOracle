@@ -11,22 +11,29 @@ Modern agriculture has made great progress in reducing hunger and poverty and im
 |gantry_sensors|_
 
 
-The Lemnatec Scanalyzer Field System is a high-throughput phenotyping field-scanning robot that autonomously moves and continuously collects images of the crops it hovers. Attached to the 30-ton steel gantry of the field-scanning robot are sensors and cameras that collect different sets of data. The diverse array of sensors allow researchers to collect significant sets of data that can be used to leverage biological insight into how environments affect phenotypes and the overall relationship between genotypes (gene) and phenotypes (characteristic). Below are three field scanning imaging sensors:
+The Lemnatec Scanalyzer Field System is a high-throughput phenotyping field-scanning robot that autonomously moves and continuously collects images of the crops it hovers. Attached to the 30-ton steel gantry of the field-scanning robot are sensors and cameras that collect different sets of data. The diverse array of sensors allow researchers to collect significant sets of data that can be used to leverage biological insight into how environments affect phenotypes and the overall relationship between genotypes (genes) and phenotypes (characteristic). Below are three field scanning imaging sensors:
  
   
-**StereoRGB**
+**StereoTopRGB**
   
-  	The Stereo RGB camera captures images from above which enables researchers to determine canopy cover (spread of plants), the  amount of crops, etc.
+  	The Stereo RGB camera captures images from above which enables researchers to determine the canopy cover (spread of plants)of each plant, the  amount of crops, etc.
 	
-**Scanner3D**
+**Scanner3DTop**
   
   	A 3D scanner that captures the architecture of plants, such as leaf angles and shapes.
 	
-**PSII Fluorescence**
+**PSII**
   
-  	A fluorescence camera that allows researchers to measure plant's photosynthetic efficiency.
+  	A camera that measures the plant's photosynthetic activity.
 	
+**FlirIr**
+  
+  	A camera that captures the thermal difference beteween plants.
 
+**Hyperspectral**
+  
+  	A camera that collects and processes information from across the electromagnetic spectrum.
+	
 **TERRA-REF Data Volume**
 
 - The gantry system outputs 1 TB of data per day from various sensors. For individual sensor data types and sizes for a day see Data Types & Descriptions `here <https://phytooracle.readthedocs.io/en/latest/Input_data.html>`_
