@@ -1,5 +1,5 @@
-stereoRGB
----------
+stereoTopRGB
+-------------
 
 | Extractor | Description | Link to Container |
 | --------- | ----------- | ----------------- |
@@ -9,7 +9,7 @@ stereoRGB
 | Field Mosaic | Combines multiple geo-referenced images into a single geo-referenced mosaic image. Produces images with varying resolution | https://hub.docker.com/r/agpipeline/fieldmosaic  |
 | Canopy Cover | Calculates plot-level canopy cover from geo referenced images and writes the results into CSV files compatible with BETYdb and Geostreams | https://hub.docker.com/r/agpipeline/canopycover  |
 
-Scanner3D
+Scanner3DTop
 ---------
 
 | Extractor | Description | Link to Container |
@@ -28,3 +28,12 @@ PSII Fluorescence
 | ps2top-img_segmentation | Segments Images | https://hub.docker.com/r/acicarizona/ps2top-img_segmentation |
 | ps2top-fluorescence_aggregation | Calculates Fluorescence aggregates | https://hub.docker.com/r/acicarizona/ps2top-fluorescence_aggregation |
 | ps2top-bin2tif | Converts ps2 binary images to geo-referenced TIFF | https://hub.docker.com/r/zhxu73/ps2top-bin2tif |
+
+FlirIr
+-----------------
+
+| Extractor | Description | Link to Container |
+| --------- | ----------- | ----------------- |
+| Clean Metadata | Cleans, adjusts, and otherwise prepares metadata from the gantry for further downstream use by other transformers | https://hub.docker.com/r/agpipeline/cleanmetadata  |
+| Flir to Tif | Converts a Flir binary file from the gantry, along with with cleaned metadata, and into a geo referenced TIFF image file | https://hub.docker.com/r/agpipeline/flir2tif  |
+| Meantemp extractor | Calculates the mean temperature between plants | https://hub.docker.com/r/agpipeline/meantemp  |
