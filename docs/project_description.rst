@@ -1,9 +1,14 @@
-About TERRA-REF
----------------
 
-Modern agriculture has made great progress in reducing hunger and poverty and improving food security and nutrition but still faces tremendous challenges in the coming decades. In order to accelerate plant breeding, we need novel high-throughput phenotyping (HTP) approaches to advance the understanding of genotype-to-phenotype. The Transportation Energy Resources from Renewable Agriculture Phenotyping Reference Platform (TERRA-REF) is one such program that aims to transform plant breeding by using remote sensing to quantify plant traits. The TERRA-REF project provides a data and computation pipeline responsible for collecting, transferring, processing and distributing large volumes of crop sensing and genomic data. Visit official website `here <https://terraref.org/>`_.
+**Overview**
 
-|gantry|_
+PhytoOracle is a scalable, distributed workflow manager for analyze highthroughput phenotyping data.  It is designed to process data from the UA Gantry (link), but can be adapted to work on data coming from other platforms.  PhytoOracle uses a master-worker framework for distributed computing and can run jobs on nearly all unix-like environment. 
+
+**Supported Sensors**
++ Sensor 1
++ Sensor 2
+
+**Workflows**
+
 
 
 **Gantry Sensors**
@@ -60,6 +65,10 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
 |general_concept_map|_
 
 
+About TERRA-REF
+---------------
+
+The original code for PhytoOracle is based on work from the TERRA-REF `project <https://terraref.org/>`_.
 
 
 
