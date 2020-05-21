@@ -109,4 +109,4 @@ A working example on the University of Arizona's HPC runinng the FliIr pipeline 
    /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/resource_monitor -O log-flirIr-makeflow -i 2 -- work_queue_factory -T local 128.196.142.26 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 9000
 
 
-Your setup on the Cloud with HPC support is now complete! Please go to the pipeline of your choice to continue with running and processing.
+**Your setup on the Cloud with HPC support is now complete! Please go to the pipeline of your choice to continue with running and processing.**

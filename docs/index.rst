@@ -8,11 +8,11 @@ Welcome to PhytoOracle's documentation!
 
 .. toctree::
    :titlesonly:
-   
+
    1_PhytoOracle
    2_HPC_install
    3_CloudHPC_install
-   4_StereTopRPG_run
+   4_StereoTopRGB_run
    5_FlirIr_run
    6_Installing_software
 
