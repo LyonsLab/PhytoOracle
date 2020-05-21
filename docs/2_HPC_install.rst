@@ -44,7 +44,7 @@ Before proceeding, notice that your interactive node has an address: is the numb
 
 To launch workers, you use a :code:`.pbs` script. Using your preferred editor, create a `.pbs` script and paste the following lines:
 
-... code::
+.. code::
 
    #!/bin/bash
    #PBS -W group_list=<your_group_list>

@@ -20,7 +20,7 @@ Software wise, on your Master VM you should have installed:
 
 - Python 3 (tested with python v 3.8)
 - Singularity (tested with singularity v 3.5.3)
-- `CCTools (https://ccl.cse.nd.edu/software/downloadfiles.php)`_ (tested with CCTools v 7.0.19)
+- `CCTools <https://ccl.cse.nd.edu/software/downloadfiles.php>`_ (tested with CCTools v 7.0.19)
 - iRODS (tested with iRODS v 4.2.7)
 - Git (tested with Git v 1.7.1)
 - Apache2 (tested with Apache2 v 2.4.29)
@@ -44,7 +44,7 @@ Look at documentation from your HPC provider, ensure that the HPC is running Cen
 
 - Python 3 (tested with python v 3.8)
 - Singularity (tested with singularity v 3.5.3)
-- `CCTools (https://ccl.cse.nd.edu/software/downloadfiles.php)`_ (tested with CCTools v 7.0.19)
+- `CCTools <https://ccl.cse.nd.edu/software/downloadfiles.php>`_ (tested with CCTools v 7.0.19)
 - iRODS (tested with iRODS v 4.2.7)
 - Git (tested with Git v 1.7.1)
 
@@ -54,7 +54,7 @@ CCTools is avaialbe to install and run without root permissions. Dowload and sto
 
 To launch workers, go to your HPC and use a `.pbs` script to request for resources for your jobs. Using your preferred editor, create a `.pbs` script and paste the following lines:
 
-.. code:
+.. code::
 
    #!/bin/bash
    #PBS -W group_list=<your_group_list>
@@ -77,7 +77,7 @@ To launch workers, go to your HPC and use a `.pbs` script to request for resourc
 
 Change the highlighted :code:`<fields>` to preferred settings. Save your changes and submit with 
 
-.. code:
+.. code::
 
    qsub <name>.pbs
 
@@ -85,7 +85,7 @@ Depending on the traffic on the HPC and on the set priorities, wait for workers 
 
 A working example on the University of Arizona's HPC runinng the FliIr pipeline is
 
-.. code:
+.. code::
 
    #!/bin/bash
    #PBS -W group_list=<group_list>

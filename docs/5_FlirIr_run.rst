@@ -25,7 +25,7 @@ FlirIr currently uses 3 different transformers for data conversion:
 
 PhytoOracle's FlirIr requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). These should already be in the same folder when obtaining data from the `CyVerse DataStore <https://cyverse.org/data-store>`_.
 
-#### Setup Guide
+**Setup Guide**
 
 Go `here <link>`_ to launch on an HPC system (tested on the University of Arizona's HPC system).
 
