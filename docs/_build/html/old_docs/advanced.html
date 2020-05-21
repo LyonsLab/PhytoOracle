@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Advanced User Manual &#8212; PhytoOracle 1.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="advanced-user-manual">
+<h1><a class="toc-backref" href="#id1">Advanced User Manual</a><a class="headerlink" href="#advanced-user-manual" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#advanced-user-manual" id="id1">Advanced User Manual</a></p>
+<ul>
+<li><p><a class="reference internal" href="#who-is-this-tutorial-for" id="id2">Who is this tutorial for?</a></p></li>
+<li><p><a class="reference internal" href="#why-use-phytooracle" id="id3">Why use PhytoOracle?</a></p></li>
+<li><p><a class="reference internal" href="#getting-started" id="id4">Getting started</a></p>
+<ul>
+<li><p><a class="reference internal" href="#if-you-need-help-running-the-pipeline-please-check-out-our-plug-play-tutorial" id="id5">If you need help running the pipeline, please check out our Plug-Play tutorial.</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#swapping-extractors" id="id6">Swapping extractors</a></p>
+<ul>
+<li><p><a class="reference internal" href="#editing-our-workflow" id="id7">Editing our workflow</a></p></li>
+<li><p><a class="reference internal" href="#defining-your-values" id="id8">Defining your values</a></p></li>
+<li><p><a class="reference internal" href="#running-your-workflow" id="id9">Running your workflow</a></p></li>
+<li><p><a class="reference internal" href="#creating-multiple-jobs" id="id10">Creating Multiple Jobs</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="who-is-this-tutorial-for">
+<h2><a class="toc-backref" href="#id2">Who is this tutorial for?</a><a class="headerlink" href="#who-is-this-tutorial-for" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial is meant for users who will be swapping between available extractors or integrating new ones. It will provide in-depth instructions into changing the workflow files and ….</p>
+<dl class="simple">
+<dt>You should be comfortable using:</dt><dd><ul class="simple">
+<li><p>Jx language</p></li>
+<li><p>CCTools.</p></li>
+<li><p>Docker containers.</p></li>
+<li><p>iRods.</p></li>
+<li><p>HPC.</p></li>
+<li><p>More.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="why-use-phytooracle">
+<h2><a class="toc-backref" href="#id3">Why use PhytoOracle?</a><a class="headerlink" href="#why-use-phytooracle" title="Permalink to this headline">¶</a></h2>
+<p>PhytoOracle is a scalable, modular data pipeline that reduces processing times. If you are looking for a pipeline that provides the flexibility to add new extractors or develop some, this pipeline is for you..</p>
+</div>
+<div class="section" id="getting-started">
+<h2><a class="toc-backref" href="#id4">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="if-you-need-help-running-the-pipeline-please-check-out-our-plug-play-tutorial">
+<h3>If you need help running the pipeline, please check out our <a class="reference external" href="https://github.com/emmanuelgonz/PhytoOracle/blob/master/docs/plug-play.rst">Plug-Play</a> tutorial.<a class="headerlink" href="#if-you-need-help-running-the-pipeline-please-check-out-our-plug-play-tutorial" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="swapping-extractors">
+<h2><a class="toc-backref" href="#id6">Swapping extractors</a><a class="headerlink" href="#swapping-extractors" title="Permalink to this headline">¶</a></h2>
+<p>PhytoOracle makes it easy to swap between extractors. To being swapping, edit the Makeflow file as follows:</p>
+<div class="section" id="editing-our-workflow">
+<h3><a class="toc-backref" href="#id7">Editing our workflow</a><a class="headerlink" href="#editing-our-workflow" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>The makeflow jx needs rules, including the command and the inputs/outputs of your extractor under the “rules” section.</p></li>
+</ol>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span> {
+  &quot;rules&quot;: [
+              {
+                  &quot;command&quot; : &quot;/bin/echo hello world &gt; output.txt&quot;,
+                  &quot;outputs&quot; : [ &quot;output.txt&quot; ],
+                  &quot;inputs&quot;  : [ ]
+              }
+          ]
+}
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The first part of phytoOracle uses a makeflow file to run a shell script to access singularity containers.</p>
+<p>Looking at the stereoTop makeflow jx file main_workflow_phase1.jx for example:</p>
+<p>The command section contains an execution of the process_one_set.sh script.</p>
+<p>Lets take a look at execution within the process_one_set.sh:</p>
+<p>This is where the extractors are run as singularity containers. Makeflow will run the script as many times as you tell it to. If you run multiple containers per script, then they should all run every time the command within the “rules” is set to run. Either once per “command” or once for every variable in a certain range in a loop</p>
+<p>Remember to include any input files the extractor will need</p>
+<p>Makeflow also lets you create, move or delete files or directories as you run the extractors and generate data.</p>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>  <span class="s2">&quot;rules&quot;</span>: <span class="o">[</span>
+<span class="o">{</span>
+  <span class="c1"># Make directory to store FIELDMOSAIC files</span>
+  <span class="s2">&quot;command&quot;</span>: <span class="s2">&quot;mkdir -p </span><span class="si">${</span><span class="nv">FIELDMOSAIC_DIR</span><span class="si">}</span><span class="s2">&quot;</span>,
+</pre></div>
+</div>
+</div>
+<div class="section" id="defining-your-values">
+<h3><a class="toc-backref" href="#id8">Defining your values</a><a class="headerlink" href="#defining-your-values" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="2">
+<li><p>Define elements of your workflow:</p></li>
+</ol>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>{
+    &quot;define&quot;: {
+        # symbol definitions go here
+    },
+    &quot;rules&quot;: [
+        # Rules you created above go here
+    ]
+}
+</pre></div>
+</div>
+<p>Defining rules rules allows you to specify directory names or an RANGEs in loops</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;define&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;CLEANED_META_DIR&quot;</span><span class="p">:</span> <span class="s2">&quot;cleanmetadata_out/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;SOILMASK_DIR&quot;</span><span class="p">:</span> <span class="s2">&quot;soil_mask_out/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;FIELDMOSAIC_DIR&quot;</span><span class="p">:</span> <span class="s2">&quot;fieldmosaic_out/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;MOSAIC_BOUNDS&quot;</span><span class="p">:</span> <span class="s2">&quot;-111.9750963 33.0764953 -111.9747967 33.074485715&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;CANOPYCOVER_DIR&quot;</span><span class="p">:</span> <span class="s2">&quot;canopy_cover_out/&quot;</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>This is usefull for specifying ranges such as the DATA_FILE_LIST used above.</p>
+</div>
+<div class="section" id="running-your-workflow">
+<h3><a class="toc-backref" href="#id9">Running your workflow</a><a class="headerlink" href="#running-your-workflow" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="3">
+<li><p>Normally, to run a makeflow file locally you will need to include –jx when running makeflow to specify that the file is in JX format.</p></li>
+</ol>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>$ makeflow --jx hello-makeflow.jx
+
+parsing define-hello.jx...
+local resources: 4 cores, 7764 MB memory, 2097151 MB disk
+max running local jobs: 4
+checking define-hello.jx for consistency...
+define-hello.jx has 1 rules.
+starting workflow....
+submitting job: /bin/echo hello world! &gt; output-from-define.txt
+submitted job 1376
+job 1376 completed
+</pre></div>
+</div>
+<p>Lets see what happend when we ran the entrypoint.sh script:</p>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>makeflow -T wq --json main_workflow_phase1.json -a -N phyto_oracle-atmo -p <span class="m">9123</span> -dall -o dall.log <span class="nv">$@</span>
+</pre></div>
+</div>
+<p>In this case we used –json to run the main_workflow_phase1.json, -T wq to broadcast the job to workqueue, -a to include it in the catalog server under the name phyto_oracle-atmo</p>
+<p>The “command” section was received by any machine that was conneced using:</p>
+<div class="highlight-BASH notranslate"><div class="highlight"><pre><span></span>work_queue_factory -T <span class="nb">local</span> IP_ADDRESS <span class="m">9123</span> -w <span class="m">40</span> -W <span class="m">44</span> --workers-per-cycle <span class="m">10</span>  -E <span class="s2">&quot;-b 20 --wall-time=3600&quot;</span> --cores<span class="o">=</span><span class="m">1</span> --memory<span class="o">=</span><span class="m">2000</span> --disk <span class="m">10000</span> -dall -t <span class="m">900</span>
+</pre></div>
+</div>
+<p>That command was the process_one_set.sh script which ran those singularity containers containing the extractors.</p>
+</div>
+<div class="section" id="creating-multiple-jobs">
+<h3><a class="toc-backref" href="#id10">Creating Multiple Jobs</a><a class="headerlink" href="#creating-multiple-jobs" title="Permalink to this headline">¶</a></h3>
+<p>Workflows enable you to run analysis codes. Below is an example of how to string multiple jobs together:</p>
+<ol class="arabic simple">
+<li><p>Write your job and generate multiple instance of the job</p></li>
+</ol>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>{
+    &quot;rules&quot;: [
+                {
+                    &quot;command&quot; : &quot;python ./example.py --parameter + N + &quot; &gt; output.&quot; + N + &quot;.txt&quot;,
+                    &quot;inputs&quot;  : [ &quot;example.py&quot; ],
+                    &quot;outputs&quot; : [ &quot;output.&quot; + N + &quot;.txt&quot; ]
+                } for N in [1, 2, 3]
+             ]
+}
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Stitch Results</p></li>
+</ol>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>{
+    &quot;command&quot; : &quot;/bin/cat + join([&quot;output.1.txt&quot;,&quot;output.2.txt&quot;,&quot;output.3.txt&quot;], &quot; &quot;) + &quot; &gt; output.all.txt&quot;,
+    &quot;inputs&quot;  : [ &quot;output.&quot; + N + &quot;.txt&quot; ] for N in [1,2,3] ],
+    &quot;outputs&quot; : [ &quot;output.all.txt&quot; ]
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Or you could factor out the definition of the list and the range to the define section of the workflow as follows:</p></li>
+</ul>
+<p>Understand Jx language
+Rule &gt; command &gt; inputs/outputs explicitly stated
+Swap with your Docker container
+Variables in Makeflow file..</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PhytoOracle</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Michele Cosi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/old_docs/advanced.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

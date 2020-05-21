@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Plug-Play User Manual and Step-by-Step Instructions &#8212; PhytoOracle 1.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="plug-play-user-manual-and-step-by-step-instructions">
+<h1>Plug-Play User Manual and Step-by-Step Instructions<a class="headerlink" href="#plug-play-user-manual-and-step-by-step-instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="this-downloading-manual-is-for-users-who-intend-to-use-the-pipeline-as-is-with-the-supporting-extractors">
+<h2><em>This downloading manual is for users who intend to use the pipeline as-is, with the supporting extractors.</em><a class="headerlink" href="#this-downloading-manual-is-for-users-who-intend-to-use-the-pipeline-as-is-with-the-supporting-extractors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-makeflow-using-cyverse-atmosphere">
+<h3>Setting up Makeflow using CyVerse Atmosphere<a class="headerlink" href="#setting-up-makeflow-using-cyverse-atmosphere" title="Permalink to this headline">¶</a></h3>
+<p><em>Suggested setup instructions for users with little or limited command line experience.</em></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="topic">
+<p class="topic-title">As of cctools 7.0.21</p>
+<p>the support for the sub-workflow feature in JX is unclear, you need to pull the current master branch from cctools GitHub repo and compile from source.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>dependency to compile cctools is included if using the following Atmosphere instructions.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="requirments-prior-to-installation">
+<h4><strong>Requirments Prior to Installation:</strong><a class="headerlink" href="#requirments-prior-to-installation" title="Permalink to this headline">¶</a></h4>
+<p>Create a CyVerse Atmosphere account: if not done so already.</p>
+<ul class="simple">
+<li><p>This may be done here: <a class="reference external" href="https://user.cyverse.org/register">https://user.cyverse.org/register</a></p></li>
+</ul>
+<div class="topic">
+<p class="topic-title">If not using CyVerse  Atmosphere:</p>
+<p>the dependency (Ubuntu 18.04 LTS) can be installed from <a class="reference external" href="https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html">https://jxuzy.blogspot.com/2019/11/install-cctools-ubuntu-1804lts.html</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will also need Docker Runtime to run this workflow.</p>
+<ul class="simple">
+<li><p>Installations instructions may be found here: <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04</a></p></li>
+</ul>
+</div>
+<div class="section" id="step-one-launch-an-image">
+<h5><strong>Step One: Launch an Image</strong><a class="headerlink" href="#step-one-launch-an-image" title="Permalink to this headline">¶</a></h5>
+<ol class="arabic simple">
+<li><p>Log in to your online CyVerse Atmosphere account.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Click the “Projects” tab on the header of the webpage. If the project folder is not created already. Click “Create a New Project”. Fill in the required fields and click “Create”.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Relocate to this link <a class="reference external" href="https://atmo.cyverse.org/application/images/1762">https://atmo.cyverse.org/application/images/1762</a> and press the blue “Launch” button to the right of the page. Under the “Project” list, set to your desired project name that you set in the previous step 2. Under the “Instance Size” list, set to “xlarge3(CPU: 16, MEM: 128GB, DISK: 1200GB)”. Click “Launch Instance”.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Launching times may vary.</p>
+<p>Start-up should appear as:</p>
+<img alt="../_images/img1.png" src="../_images/img1.png" />
+<p>When finished:</p>
+<img alt="../_images/img2.png" src="../_images/img2.png" />
+</div>
+<div class="section" id="step-two-connecting-to-your-instance">
+<h5><strong>Step Two: Connecting to your instance</strong><a class="headerlink" href="#step-two-connecting-to-your-instance" title="Permalink to this headline">¶</a></h5>
+<ol class="arabic simple">
+<li><p>Open your computers terminal/PowerShell or to skip these steps click the “ubuntu_cctools_docker” hyperlink you just created, scroll to the bottom of the web page and click “&gt;_Open Web Shell”.</p></li>
+<li><p>Login into Atmosphere using the following commands in the terminal. Press “return” after each line.</p></li>
+</ol>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>ssh &quot;Your Atmopshere username&quot;@&quot;IP Address&quot; #do not include quotation marks
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the IP Address is found on your “ubuntu_cctools_docker” instance page - on this page, click copy and paste it as your IP Address.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using a Mac computer with a touch bar and prompted</p>
+<ul>
+<li><div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>Are you sure you want to continue connecting (yes/no)?
+#type “yes” and press enter/return
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<p>When asked for your password, use your Atmosphere password. Your password will not show when inputting. You have a limited amount of attempts to put in the password, so prior to this command be sure of what the password is.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The command terminal should appear as the following.</p>
+<img alt="../_images/img3.png" src="../_images/img3.png" />
+</div>
+<div class="section" id="step-three-installing-cctools-to-your-home-directory">
+<h5><strong>Step Three: Installing cctools to your Home Directory</strong><a class="headerlink" href="#step-three-installing-cctools-to-your-home-directory" title="Permalink to this headline">¶</a></h5>
+<ol class="arabic simple">
+<li><p>The follwoing commands will compile and install cctools to your home directory, makeflow will be at $HOME/cctools/bin/makeflow, which is the path that entrypoint.sh uses.</p></li>
+</ol>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/cooperative-computing-lab/cctools.git cctools-github-src
+cd cctools-github-src
+./configure --prefix $HOME/cctools
+make
+make install
+</pre></div>
+</div>
+<p>The terminal should automatically begin listing files.</p>
+<ol class="arabic simple" start="2">
+<li><p>Download test data (tarball), and decompressed it.</p></li>
+</ol>
+<p>In order to complete this next step you must have your iRODs credentials or use the following.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 32%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>For the Prompt</p></th>
+<th class="head"><p>Enter:</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Host</p></td>
+<td><p>data.cyverse.org</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Port</p></td>
+<td><p>1247</p></td>
+<td><p>if required</p></td>
+</tr>
+<tr class="row-even"><td><p>User</p></td>
+<td><p>your CyVerse username</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Zone</p></td>
+<td><p>iplant</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Default Resource</p></td>
+<td><p>leave blank</p></td>
+<td><p>it will default automatically</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are not using a CyVerse account or only accessing public data sets.</p>
+<p>Set user to <strong>anonymous</strong> – no password is required</p>
+</div>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>iinit
+</pre></div>
+</div>
+<p>This should return, if not similar to:</p>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>One or more fields in your iRODS environment file (irods_environment.json) are
+
+missing; please enter them.
+</pre></div>
+</div>
+<p>Enter the credentials: After the password prompt, if anonymous is not being used, it should move to a new line. Type the following:</p>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>cd starTerra/stereoTop
+iget -K /iplant/home/shared/iplantcollaborative/example_data/starTerra/2018-05-15_5sets.tar
+tar -xvf 2018-5-15_5sets.tar
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If an Error message presents itself. Type the following:</p>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>ils
+pwd
+ls #if 2018-05-15_5sets.tar is red, keep going
+chmod 755 *
+pwd
+tar - xvf /&quot;the output that is given from the previous pwd command. It should be similar to home/username&quot;/2018-05-15_5sets.tar #do not include quotation marks
+git clone https://github.com/uacic/starTerra.git
+mv 2018-05-15 starTerra/stereoTop
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Assuming this step was successful, you should now have the proper files on the machine you are using. You can check to see these files by typing ls starTerra/stereoTop - from there you will be able to see all downloaded information.</p>
+<p>If the output of this solution automatically displays multiple “2018-05-15….”  lines in the terminal, you may proceed.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may also get the data via other methods, as long as the data is in this directory (starTerra/stereoTop), and follows the same folder structure.</p>
+</div>
+</div>
+<div class="section" id="step-four-generate-the-list-of-files-from-an-irods-path">
+<h5><strong>Step Four: Generate the list of files from an iRODS path</strong><a class="headerlink" href="#step-four-generate-the-list-of-files-from-an-irods-path" title="Permalink to this headline">¶</a></h5>
+<p>To generate the list of input raw data files raw_data_files.jx from an iRODS path. Type the following:</p>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>python gen_files_list.py 2018-05-15 &gt;  raw_data_files.jx
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Run the workflow, -r 0 for 0 retry attempts if failed by:</p>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>chmod 755 entrypoint.sh
+./entrypoint.sh -r 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-five-clean-the-data-output-and-logs">
+<h5><strong>Step Five: Clean the Data Output and Logs</strong><a class="headerlink" href="#step-five-clean-the-data-output-and-logs" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span>./entrypoint.sh -c
+rm -f makeflow.jx.args.*
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PhytoOracle</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Michele Cosi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/old_docs/plug-play.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Types &amp; Descriptions &#8212; PhytoOracle 1.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="data-types-descriptions">
+<h1>Data Types &amp; Descriptions<a class="headerlink" href="#data-types-descriptions" title="Permalink to this headline">¶</a></h1>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gantry Sensor</p></th>
+<th class="head"><p>Input Data Type</p></th>
+<th class="head"><p>Input Data Size / Day</p></th>
+<th class="head"><p>Output Data Type</p></th>
+<th class="head"><p>Output Data Size / Day</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StereoTopRGB</p></td>
+<td><p>L,R-Binary images &amp; metadata json</p></td>
+<td><p>143 GB (9355 datasets)</p></td>
+<td><p>Soil-mask Tifs &amp; canopy-cover.csv</p></td>
+<td><p>23 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Scanner3D</p></td>
+<td><p>Ply files &amp; metadata json</p></td>
+<td><p>108 GB (238 datasets)</p></td>
+<td><p>Output Data Type</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>PSII</p></td>
+<td><p>Binary images &amp; metadata json</p></td>
+<td><p>70-90GB / Night</p></td>
+<td><p>Fluorescence-aggregates.csv</p></td>
+<td><p>30-35MB / Night</p></td>
+</tr>
+<tr class="row-odd"><td><p>FlirIr</p></td>
+<td><p>Binary image &amp; metadata json</p></td>
+<td><p>5-6GB (9270 datasets)</p></td>
+<td><p>meantemp.csv</p></td>
+<td><p>~7MB csv / scan</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data Availability</strong></p>
+<p>Raw Input data is avaialable via CyVerse Data Store under the following folder and can be accessed using iRODS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">iplant</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">terraref</span><span class="o">/</span><span class="n">ua</span><span class="o">-</span><span class="n">mac</span><span class="o">/</span><span class="n">raw_tars</span><span class="o">/</span><span class="n">season_10_yr_2020</span><span class="p">:</span>
+<span class="n">C</span><span class="o">-</span> <span class="o">/</span><span class="n">iplant</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">terraref</span><span class="o">/</span><span class="n">ua</span><span class="o">-</span><span class="n">mac</span><span class="o">/</span><span class="n">raw_tars</span><span class="o">/</span><span class="n">season_10_yr_2020</span><span class="o">/</span><span class="n">flirIrCamera</span>
+<span class="n">C</span><span class="o">-</span> <span class="o">/</span><span class="n">iplant</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">terraref</span><span class="o">/</span><span class="n">ua</span><span class="o">-</span><span class="n">mac</span><span class="o">/</span><span class="n">raw_tars</span><span class="o">/</span><span class="n">season_10_yr_2020</span><span class="o">/</span><span class="n">ps2Top</span>
+<span class="n">C</span><span class="o">-</span> <span class="o">/</span><span class="n">iplant</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">terraref</span><span class="o">/</span><span class="n">ua</span><span class="o">-</span><span class="n">mac</span><span class="o">/</span><span class="n">raw_tars</span><span class="o">/</span><span class="n">season_10_yr_2020</span><span class="o">/</span><span class="n">scanner3DTop</span>
+<span class="n">C</span><span class="o">-</span> <span class="o">/</span><span class="n">iplant</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">terraref</span><span class="o">/</span><span class="n">ua</span><span class="o">-</span><span class="n">mac</span><span class="o">/</span><span class="n">raw_tars</span><span class="o">/</span><span class="n">season_10_yr_2020</span><span class="o">/</span><span class="n">stereoTop</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transformer-containers">
+<h1>Transformer Containers<a class="headerlink" href="#transformer-containers" title="Permalink to this headline">¶</a></h1>
+<p>Click <a class="reference external" href="https://github.com/uacic/PhytoOracle/blob/master/docs/containers.md">here</a> for a list of available extractor containers.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PhytoOracle</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Michele Cosi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/old_docs/Input_data.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -7,14 +7,14 @@ Welcome to PhytoOracle's documentation!
 =======================================
 
 .. toctree::
-   :titlesonly:
-   
-   1_PhytoOracle
-   2_HPC_install
-   3_CloudHPC_install
-   4_StereTopRPG_run
-   5_FlirIr_run
-   6_Installing_software
+   :maxdepth: 2
+   :caption: Contents:
+   PhytoOracle
+   Using PhytoOracle on the HPC
+   Using PhytoOracle on the Cloud with HPC Support
+   Running the StereoTopRGB Pipeline for Canopy Cover Data
+   Running the FlirIr Pipeline for Infrared Data
+   Installing Required Software
 
 
 Indices and tables
