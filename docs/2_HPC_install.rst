@@ -29,7 +29,7 @@ To launch an interactive node, do:
 
 replace :code:`<your_group_list>, <priority>, <CPU_#>, <RAM_#>, <max_hour_#>` with your preferred settings.
 
-When the interactive node is done loading, clone the PhytoOracle repository with
+When the interactive node is done loading, clone the PhytoOracle repository with:
 
 .. code::
 

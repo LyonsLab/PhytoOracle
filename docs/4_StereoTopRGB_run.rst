@@ -1,13 +1,13 @@
-Running the FlirIr Pipeline for Infrared Data
-----------------------------------------------
+Running the StereoTopRGB Pipeline for Canopy Cover Data
+-------------------------------------------------------
 
 **Outline**
 
-Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses the data transformers from the [AgPipeline group](https://github.com/AgPipeline/) to extract thermal data from image files. 
+Welcome to PhytoOracle's StereoTop RGB pipeline! This pipeline uses the data transformers from the `AgPipeline group <https://github.com/AgPipeline/>`_ and the PhytoOracle group to extract canopy cover data from image files. 
 
 **Transformers used**
 
-FlirIr currently uses 3 different transformers for data conversion:
+StereoTopRGB currently uses 3 different transformers for data conversion:
 
 .. list-table::
    :header-rows: 1
@@ -16,14 +16,16 @@ FlirIr currently uses 3 different transformers for data conversion:
      - Process
    * - `cleanmetadata <https://github.com/AgPipeline/moving-transformer-cleanmetadata>`_
      - Cleans gantry generated metadata
-   * - `flir2tif <https://github.com/AgPipeline/moving-transformer-flir2tif>`_
+   * - `bin2tif <https://github.com/AgPipeline/moving-transformer-bin2tif>`_
      - Converts bin compressed files to tif 
-   * - `meantemp <https://github.com/AgPipeline/moving-transformer-meantemp>`_ 
-     - Extracts temperature from detected biomass
+   * - `plotclip <https://github.com/AgPipeline/transformer-plotclip>`_ 
+     - Clip GeoTIFF or LAS files according to plots
+
 
 **Data overview**
 
-PhytoOracle's FlirIr requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). These should already be in the same folder when obtaining data from the `CyVerse DataStore <https://cyverse.org/data-store>`_.
+PhytoOracle's StereoTop RGB requires a metadata file (:code:`<metadata>.json`) for every compressed image file (:code:`<image>.bin`). 
+Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. These should already be in the same folder when obtaining data from the `CyVerse DataStore <https://cyverse.org/data-store>`_.
 
 **Setup Guide**
 
@@ -37,15 +39,15 @@ At this point your worker nodes should already be running and you should be in y
 
 .. code::
 
-   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/flirIrCamera/<day>.tar
+   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<day>.tar
 
 
-Replace :code:`<day>` with any day you want to process. Un-tar and move the folder to the FlirIr directory.
+Replace :code:`<day>` with any day you want to process. Un-tar and move the folder to the stereoTopRGB directory.
 
 .. code::
 
    tar -xvf <day>.tar
-   mv ./flirIrCamera/<day> ./
+   mv ./stereoTopRGB/<day> ./
 
 Then edit your :code:`entrypoint.sh` on line 4 to reflect the :code:`<day>` folder you want to process.
 
@@ -53,7 +55,7 @@ Once everything is edited, run the pipeline with :code:`./entrypoint.sh`.
 
 **Running on the Cloud with HPC support**
 
-Although very similar to the steps above,  to run PhytoOracle on the Cloud with HPC support, there are a few extra steps  you have to carry out for data staging before starting the pipeline with :code:`./entrypoint.sh`.
+Although very similar to the steps above, to run PhytoOracle on the Cloud with HPC support, there are a few extra steps  you have to carry out for data staging before starting the pipeline with :code:`./entrypoint.sh`.
 
 Using your favouring editing tool do
 
@@ -107,5 +109,5 @@ then from within your Transformer directory do :code:`./nginx_reload.sh`. Input 
 
 Open and edit :code:`process_one_set.sh` : 
 
-- delete the :code:`#` on lines 37 and 38
-- remove :code:`${HPC_PATH}` on lines 24, 25, 28
+- delete the :code:`#` on lines 44, 45, 46, 47
+- remove :code:`${HPC_PATH}` on lines 23, 24, 25
