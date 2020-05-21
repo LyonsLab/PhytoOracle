@@ -2,25 +2,20 @@
 
 ## Overview
 
-PhytoOracle is a scalable, modular data pipeline that aims to improve data processing for phenomics research. It refines the TERRA-REF AgPipeline by using CCTools’ Makeflow and WorkQueue frameworks for distributed task management. The program is available as Docker/Singularity containers that can run on either local, cloud, or high-performance computing (HPC) platforms
+PhytoOracle is a collection of scalable and modular data pipelines that aim to improve data processing for phenomics research. PhytoOracle is based on the Master-Worker Framework enabled by the CCTools’ Makeflow and WorkQueue. This framework allows for job distribution on High Performance Computers (HPC) or Cloud systems. PhytoOracle's Master is designed to deploy on HPC Interactive Nodes but is also possible to deploy on Cloud Virtual Machines (VMs). 
 
-## System Requirements
+## Pipelines and Data
 
-+ [CCTools 7.0.21](http://ccl.cse.nd.edu/software/downloadfiles.php)
-+ [Singularity 3.5.1]()
-+ [iRODS Client]()
++ Canopy cover data through the [StereoTopRGB](https://github.com/uacic/PhytoOracle/tree/alpha/stereoTopRGB) pipeline
++ Infrared data through the [FlirIr](https://github.com/uacic/PhytoOracle/tree/alpha/FlirIr) pipeline
++ Photosyntetic activity through the [PSII](https://github.com/uacic/PhytoOracle/tree/alpha/psII) pipeline (beta)
++ Field and plant structure data through the [Scanner3DTop](https://github.com/uacic/PhytoOracle/tree/alpha/scanner3DTop) pipeline (alpha)
++ Hyperspectral data (TBA)
 
 ## Getting Started
 
-+ See detailed documentation [here](https://phytooracle.readthedocs.io/en/latest/contents.html) for instruction manuals.
-
-## Sensor Modules available
-
-+ stereoTop-RGB
-
-### Sensor Modules under-construction
-+ scanner3D
-+ PSII Flourescence
++ Read on [HPC deployment here](https://github.com/uacic/PhytoOracle/blob/alpha/HPC_Install.md) or [Cloud with HPC support deployment here](https://github.com/uacic/PhytoOracle/blob/alpha/CloudHPC_installation.md). 
++ See detailed documentation [here](https://phytooracle.readthedocs.io/en/latest/contents.html) for instruction manuals (to be updated).
 
 ## Distributed Scaling
 
