@@ -68,7 +68,7 @@ paste the next snipped and save (changing the highlighted :code:`<fields>`)
 
 .. code::
 
-server {
+   server {
         listen 80 default_server;
         listen [::]:80 default_server;
 
@@ -102,7 +102,7 @@ server {
                 try_files $uri $uri/ =404;
                 autoindex on;
         }
-}
+    }
 
 
 then from within your Transformer directory do :code:`./nginx_reload.sh`. Input your password if asked.
