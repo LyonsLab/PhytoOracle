@@ -1,7 +1,9 @@
+***********************************************
 Using PhytoOracle on the Cloud with HPC Support
------------------------------------------------
+***********************************************
 
-**Overview**
+Overview
+========
 
 This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a Clould system with HPC support. 
 With this setup, the Cloud based Virtual Machine (VM) will act like the Master, whilst the HPC will act like the Worker, in a master-worker distributive framework.
@@ -10,7 +12,9 @@ This setup was successfully tested on CyVerse's Atmosphere and is now being test
 In principle, this setup should be working on all commercial Cloud services. 
 PhytoOracle's repositories will be downloaded on the Master VM, and jobs will be distributed to the Worker HPC nodes using pbs scripts initialized from within the HPC login node (tested with University of Arizona's HPC system).
 
-**Master VM Hardware and Software Requirements**
+********************************************
+Master VM Hardware and Software Requirements
+********************************************
 
 Before installing software, make sure that your VM has at least 500 GB of Hard Disk space. 
 This is because the raw data can meansure upward of 120 GB depending on what pipeline you use (e.g. FlirIr raw data is only 5.8 GB whilst RGB raw data is approximately 128 GB). 
@@ -38,7 +42,8 @@ Upon installing all required software onto the Master VM, clone the PhytoOracle 
 
 Before proceeding, note your Master VM :code:`IP` address, which will be required when launching worker nodes on the HPC.
 
-**HPC Software Requirements**
+HPC Software Requirements
+=========================
 
 Look at documentation from your HPC provider, ensure that the HPC is running CentOS 7 and has these software installed:
 
@@ -50,8 +55,8 @@ Look at documentation from your HPC provider, ensure that the HPC is running Cen
 
 CCTools is avaialbe to install and run without root permissions. Dowload and store CCTools in your :code:`home` directory; if Python3, Singularity, iRODS, Git are not installed, please contact your HPC provider.
 
-**Launching Workers**
-
+Launching Workers
+=================
 To launch workers, go to your HPC and use a `.pbs` script to request for resources for your jobs. Using your preferred editor, create a `.pbs` script and paste the following lines:
 
 .. code::

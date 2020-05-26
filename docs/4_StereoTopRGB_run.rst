@@ -1,11 +1,14 @@
+*******************************************************
 Running the StereoTopRGB Pipeline for Canopy Cover Data
--------------------------------------------------------
+*******************************************************
 
-**Outline**
+Outline
+=======
 
 Welcome to PhytoOracle's StereoTop RGB pipeline! This pipeline uses the data transformers from the `AgPipeline group <https://github.com/AgPipeline/>`_ and the PhytoOracle group to extract canopy cover data from image files. 
 
-**Transformers used**
+Transformers Used
+=================
 
 StereoTopRGB currently uses 3 different transformers for data conversion:
 
@@ -22,18 +25,21 @@ StereoTopRGB currently uses 3 different transformers for data conversion:
      - Clip GeoTIFF or LAS files according to plots
 
 
-**Data overview**
+Data Overview
+=============
 
 PhytoOracle's StereoTop RGB requires a metadata file (:code:`<metadata>.json`) for every compressed image file (:code:`<image>.bin`). 
 Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. These should already be in the same folder when obtaining data from the `CyVerse DataStore <https://cyverse.org/data-store>`_.
 
-**Setup Guide**
+Setup Guide
+===========
 
-Go `here <link>`_ to launch on an HPC system (tested on the University of Arizona's HPC system).
++ Go `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_ to launch on an HPC system (tested on the University of Arizona's HPC system).
 
-Go `here <link>`_ instead if using a cloud system with HPC support (tested on CyVerse Atmosphere, soon to be tested on NSF's JetStream).
++ Go `here <https://phytooracle.readthedocs.io/en/latest/3_CloudHPC_install.html>`_ instead if using a cloud system with HPC support (tested on CyVerse Atmosphere, soon to be tested on NSF's JetStream).
 
-**Running on the HPC's interactive node**
+Running on the HPC's Interactive Node
+=====================================
 
 At this point your worker nodes should already be running and you should be in your FlirIr directory within your interactive node. Download the data that you need using:
 
@@ -53,7 +59,8 @@ Then edit your :code:`entrypoint.sh` on line 4 to reflect the :code:`<day>` fold
 
 Once everything is edited, run the pipeline with :code:`./entrypoint.sh`.
 
-**Running on the Cloud with HPC support**
+Running on the Cloud with HPC support
+=====================================
 
 Although very similar to the steps above, to run PhytoOracle on the Cloud with HPC support, there are a few extra steps  you have to carry out for data staging before starting the pipeline with :code:`./entrypoint.sh`.
 

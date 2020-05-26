@@ -1,13 +1,16 @@
+****************************
 Using PhytoOracle on the HPC
-----------------------------
+****************************
 
-**Overview**
+Overview
+========
 
 This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a High Performance Computer system using interactive nodes (as tested on the University of Arizona's HPC).
 
 PhytoOracle's repositories will be downloaded on the interactive node which will act as the Master, and jobs will be distributed to the Workers nodes using :code:`pbs` scripts.
 
-**Software Requirements**
+Software Requirements
+=====================
 
 Look at documentation from your HPC provider, ensure that the HPC is running CentOS 7 and has these software installed:
 
@@ -19,7 +22,8 @@ Look at documentation from your HPC provider, ensure that the HPC is running Cen
 
 CCTools is avaialbe to install and run without root permissions. Dowload and store CCTools in your :code:`home` directory; if Python3, Singularity, iRODS, Git are not installed, please contact your HPC provider.
 
-**Launching an interactive node and accessing PhytoOracle**
+Launching an interactive node and accessing PhytoOracle
+=======================================================
 
 To launch an interactive node, do:
 
@@ -40,7 +44,8 @@ When the interactive node is done loading, clone the PhytoOracle repository with
 
 Before proceeding, notice that your interactive node has an address: is the number before the :code:`$`; it will be required when launching workers. 
 
-**Launching Workers**
+Launching Workers
+=================
 
 To launch workers, you use a :code:`.pbs` script. Using your preferred editor, create a `.pbs` script and paste the following lines:
 
