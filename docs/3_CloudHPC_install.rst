@@ -12,9 +12,9 @@ This setup was successfully tested on CyVerse's Atmosphere and is now being test
 In principle, this setup should be working on all commercial Cloud services. 
 PhytoOracle's repositories will be downloaded on the Master VM, and jobs will be distributed to the Worker HPC nodes using pbs scripts initialized from within the HPC login node (tested with University of Arizona's HPC system).
 
-********************************************
+
 Master VM Hardware and Software Requirements
-********************************************
+============================================
 
 Before installing software, make sure that your VM has at least 500 GB of Hard Disk space. 
 This is because the raw data can meansure upward of 120 GB depending on what pipeline you use (e.g. FlirIr raw data is only 5.8 GB whilst RGB raw data is approximately 128 GB). 

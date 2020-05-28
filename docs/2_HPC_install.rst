@@ -102,4 +102,10 @@ A working example on the University of Arizona's HPC runinng the FliIr pipeline 
    /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/resource_monitor -O log-flirIr-makeflow -i 2 -- work_queue_factory -T local i18n9.ocelote.hpc.arizona.edu 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
 
 
-**Your setup on the HPC is now complete! Please go to the pipeline of your choice to continue with running and processing.**
+**Your setup on the HPC is now complete. Please go to the pipeline of your choice to continue with running and processing.**
+
++ `StereoTopRGB <https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html>`_
++ `flirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
++ PSII
++ Stereo3DTop
++ Hyperspectral

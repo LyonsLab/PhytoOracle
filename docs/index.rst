@@ -10,6 +10,7 @@ Welcome to PhytoOracle!
 PhytoOracle is a scalable, distributed workflow manager for analyzing highthroughput phenotyping data.  
 It is designed to process data from the `UA Gantry <https://uanews.arizona.edu/story/world-s-largest-robotic-field-scanner-now-place,>`_, but can be adapted to work on data coming from other platforms.  
 PhytoOracle uses a master-worker framework for distributed computing and can run jobs on nearly all unix-like environment. 
+Access our Github `here <https://github.com/uacic/PhytoOracle/>`_.
 
 Supported Sensors & Pipelines
 =============================
@@ -28,5 +29,20 @@ Supported Sensors & Pipelines
    * - Stereotop3D
      - Used to measure the plant's physical structure
    * - Hyperspectral
-     - Collects and processes information from across the electromagnetic spectrum
+     - Collects and processes information from across the electromagnetic spectrum for a wide variety of data (e.g. vegetation indices)
 
+Pipeline Structure
+==================
+
+All of the pipelines follow the same structure that allows for accessiblility and modularity.
+
+1. Setting up the Master interactive node and Worker nodes on the HPC;
+2. Cloning the pipeline of choice;
+3. Staging the data;
+4. Editing the scripts;
+5. Launching the pipeline.
+
+Acknowledgements
+================
+
+This project partially built on code initially developed by the `TERRA-REF project <https://www.terraref.org/>`_ and `Ag-Pipeline <https://github.com/AgPipeline/>`_ team. We thank the University of Arizona Advanced Cyberinfrastrcture Concept class of 2019 for additional work.

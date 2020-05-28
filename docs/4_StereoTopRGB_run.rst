@@ -1,11 +1,8 @@
-*******************************************************
-Running the StereoTopRGB Pipeline for Canopy Cover Data
-*******************************************************
+*****************************************************
+Running the StereoTopRGB Pipeline for Plant Area Data
+*****************************************************
 
-Outline
-=======
-
-Welcome to PhytoOracle's StereoTop RGB pipeline! This pipeline uses the data transformers from the `AgPipeline group <https://github.com/AgPipeline/>`_ and the PhytoOracle group to extract canopy cover data from image files. 
+StereoTopRGB: This pipeline extracts plant area data from image files using data transformers.
 
 Transformers Used
 =================
@@ -20,101 +17,57 @@ StereoTopRGB currently uses 3 different transformers for data conversion:
    * - `cleanmetadata <https://github.com/AgPipeline/moving-transformer-cleanmetadata>`_
      - Cleans gantry generated metadata
    * - `bin2tif <https://github.com/AgPipeline/moving-transformer-bin2tif>`_
-     - Converts bin compressed files to tif 
+     - Converts bin compressed files to tif
+   * - `gistools <https://github.com/uacic/docker-builds/tree/master/gistools>`_
+     - Corrects GPS coordinates
    * - `plotclip <https://github.com/AgPipeline/transformer-plotclip>`_ 
-     - Clip GeoTIFF or LAS files according to plots
+     - Clips GeoTIFF or LAS files according to plots
 
 
 Data Overview
 =============
 
-PhytoOracle's StereoTop RGB requires a metadata file (:code:`<metadata>.json`) for every compressed image file (:code:`<image>.bin`). 
-Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. These should already be in the same folder when obtaining data from the `CyVerse DataStore <https://cyverse.org/data-store>`_.
+Each scan folder should contain 3 files: 2 compressed images(:code:`.bin`) for the left and right cameras, and their corresponding metadata(:code:`.json`). Data pulled from the `CyVerse DataStore <https://cyverse.org/data-store>`_ should be organized in this manner.
 
-Setup Guide
-===========
+Running the Pipeline 
+====================
 
-+ Go `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_ to launch on an HPC system (tested on the University of Arizona's HPC system).
+The pipeline runs in the following manner:
 
-+ Go `here <https://phytooracle.readthedocs.io/en/latest/3_CloudHPC_install.html>`_ instead if using a cloud system with HPC support (tested on CyVerse Atmosphere, soon to be tested on NSF's JetStream).
+1. Request an interactive node on the HPC
+2. Request worker nodes
+3. Clone the Git within the HPC
+4. Retrieve data from desired scandate
+5. Edit scripts and run the pipeline 
 
-Running on the HPC's Interactive Node
-=====================================
+.. note::
+   To launch on the HPC (steps 1-3) follow the guide `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_. This page will continue from step 4 beyond.
 
-At this point your worker nodes should already be running and you should be in your FlirIr directory within your interactive node. Download the data that you need using:
+**4. Retrieve data from desired scandate**
 
-.. code::
-
-   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<day>.tar
-
-
-Replace :code:`<day>` with any day you want to process. Un-tar and move the folder to the stereoTopRGB directory.
+At this point your worker nodes should already be running and you should be in your StereoTopRGB directory within your interactive node. Download the data that you need using:
 
 .. code::
 
-   tar -xvf <day>.tar
-   mv ./stereoTopRGB/<day> ./
+   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar
 
-Then edit your :code:`entrypoint.sh` on line 4 to reflect the :code:`<day>` folder you want to process.
 
-Once everything is edited, run the pipeline with :code:`./entrypoint.sh`.
-
-Running on the Cloud with HPC support
-=====================================
-
-Although very similar to the steps above, to run PhytoOracle on the Cloud with HPC support, there are a few extra steps  you have to carry out for data staging before starting the pipeline with :code:`./entrypoint.sh`.
-
-Using your favouring editing tool do
+Replace :code:`<scan_date>` with any day you want to process. Un-tar and move the folder to the stereoTopRGB directory.
 
 .. code::
 
-   /etc/nginx/sites-available/phyto_oracle.conf
+   tar -xvf <scan_date>.tar
+   mv ./stereoTopRGB/<scan_date> ./
 
-
-paste the next snipped and save (changing the highlighted :code:`<fields>`)
+Dowload the coordiate correction :code:`.csv` file.
 
 .. code::
 
-   server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+   iget -rKVP /iplant/home/emmanuelgonzalez/Ariyan_ortho_attempt_4/2020-01-08_coordinates_CORRECTED_4-16-2020.csv
 
-        # SSL configuration
-        #
-        # listen 443 ssl default_server;
-        # listen [::]:443 ssl default_server;
-        #
-        # Note: You should disable gzip for SSL traffic.
-        # See: https://bugs.debian.org/773332
-        #
-        # Read up on ssl_ciphers to ensure a secure configuration.
-        # See: https://bugs.debian.org/765782
-        #
-        # Self signed certs generated by the ssl-cert package
-        # Don't use them in a production server!
-        #
-        # include snippets/snakeoil.conf;
+**5. Edit scripts and run the pipeline**
 
-        root <PATH/TO/YOUR/PHYTOORACLE/PIPELINE>;
-
-        index index.html index.htm index.nginx-debian.html;
-
-        server_name _;
-
-        location / {
-                auth_basic "PhytoOracle Data";
-        auth_basic_user_file /etc/apache2/.htpasswd;
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
-                autoindex on;
-        }
-    }
-
-
-then from within your Transformer directory do :code:`./nginx_reload.sh`. Input your password if asked.
-
-Open and edit :code:`process_one_set.sh` : 
-
-- delete the :code:`#` on lines 44, 45, 46, 47
-- remove :code:`${HPC_PATH}` on lines 23, 24, 25
+1. Copy your current working directory (:code:`pwd`) and edit the :code:`HPC_PATH="<pwd>"` on line 14 in the :code:`process_one_set.sh` file.
+2. Edit your :code:`entrypoint.sh` on line 4 to reflect the :code:`<scan_date>` folder you want to process.
+3. Also in :code:`entrypoint.sh` ensure that on lines 7 and 11 the :code:`path` to CCTools is correct.
+4. Once everything is edited, run the pipeline with :code:`./entrypoint.sh`.
