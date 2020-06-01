@@ -24,8 +24,8 @@ Supported Sensors & Pipelines
    * - `StereoTopRGB <https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html>`_
      - Prosilica GT3300C
      - Stereo RGB images.  Identifies plants; measuring plant area
-     - FLIR A615, 45°
    * - `FlirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
+     - FLIR A615, 45°
      - Infrared images. Measures temperature of plants
    * - PSII
      - LemnaTec custom based of an Allied Vision Manta camera
@@ -40,7 +40,7 @@ Supported Sensors & Pipelines
 Pipeline Structure
 ==================
 
-All of the pipelines follow the same structure that allows for accessiblility, scalability, and modularity.  The steps are:
+All of the pipelines follow the same structure that allows for accessiblility, scalability, and modularity. The steps are:
 
 1. Setting up the Master interactive node and Worker nodes on the HPC
 2. Cloning the pipeline of choice
