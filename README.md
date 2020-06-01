@@ -20,11 +20,11 @@ See detailed documentation [here](https://phytooracle.readthedocs.io) for instru
 
 ## License 
 
-Licensed under the **MIT License**.
+PhytoOracle is licensed under the **MIT License**.
 
 ## Issues and Questions
 
-Need help? Found a bug? Raise an issue on our github page [here](https://github.com/uacic/PhytoOracle/issues)
+Need help? Found a bug? Raise an issue on our github page [here](https://github.com/uacic/PhytoOracle/issues).
 
 ## Acknowledgements
 
