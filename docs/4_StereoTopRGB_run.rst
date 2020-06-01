@@ -2,7 +2,7 @@
 Running the StereoTopRGB Pipeline for Plant Area Data
 *****************************************************
 
-StereoTopRGB: This pipeline extracts plant area data from image files using data transformers.
+StereoTopRGB: This pipeline extracts plant area data from image files.
 
 Pipeline Overview
 =================
@@ -46,7 +46,7 @@ The pipeline runs in the following manner:
 
 .. note::
    
-   At this point we assume that the interactive and worker nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
+   At this point we assume that the interactive Master and Worker nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
    Otherwise follow the guide `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_.
 
 **4. Retrieve data from desired scandate**
@@ -56,7 +56,6 @@ Download the data from the CyVerse DataStore with iRODS commands using:
 .. code::
 
    iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar
-
 
 Replace :code:`<scan_date>` with any day you want to process. Un-tar and move the folder to the stereoTopRGB directory.
 
@@ -69,7 +68,7 @@ Dowload the coordiate correction :code:`.csv` file.
 
 .. note::
    
-   This file will be changing to the shared directory
+   This file will be changing to a shared directory; Path to the updated.
 
 .. code::
 

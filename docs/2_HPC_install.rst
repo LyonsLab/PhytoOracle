@@ -5,26 +5,27 @@ Using PhytoOracle on the HPC
 Overview
 ========
 
-This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a High Performance Computer system using interactive nodes (as tested on the University of Arizona's HPC).
+This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a High Performance Computer system using interactive nodes (as tested on the University of Arizona's HPC running the PBS Pro RJMS - Resource and Job Management System).
 
-PhytoOracle's repositories will be downloaded on the interactive node which will act as the Master, and jobs will be distributed to the Workers nodes using :code:`pbs` scripts.
+An interactive node is an requestable node to which is given an IP address, required in order to distributre jobs with the Master-Worker framework.
+
+PhytoOracle's repositories will be downloaded on the interactive node which will act as the Master, and jobs will be distributed to the Workers nodes using job management scripts.
 
 Software Requirements
 =====================
 
 Look at documentation from your HPC provider, ensure that the HPC is running CentOS 7 and has these software installed:
 
-+ Python 3 (tested with python v 3.8)
-+ Singularity (tested with singularity v 3.5.3)
++ `Python 3 <https://www.python.org/downloads/>`_ (tested with python v 3.8)
++ `Singularity <https://sylabs.io/docs/>`_ (tested with singularity v 3.5.3)
 + `CCTools <https://ccl.cse.nd.edu/software/downloadfiles.php>`_ (tested with CCTools v 7.0.19)
-+ iRODS (tested with iRODS v 4.2.7)
-+ Git (tested with Git v 1.7.1)
++ `iRODS <https://docs.irods.org/4.2.8/>`_ (tested with iRODS v 4.2.7)
++ `Git <https://git-scm.com/>`_ (tested with Git v 1.7.1)
 
-
-Launching an interactive node and accessing PhytoOracle
+Launching an Interactive Node and Accessing PhytoOracle
 =======================================================
 
-To launch an interactive node,:
+To launch an interactive node:
 
 .. code::
    
@@ -41,14 +42,14 @@ When the interactive node is done loading, clone the PhytoOracle repository with
 
 :code:`cd` (change directory) to your required pipeline, and you're done!
 
-Before proceeding, note the IP address of the interactive node. You can find the IP address with :config:`ifconfig`.
+Before proceeding, note the IP address of the interactive node. You can find the IP address with :code:`ifconfig`.
 
-The IP address will be needed for configuring workers.
+The IP address will be needed for configuring Workers.
 
 Launching Workers
 =================
 
-To launch workers, in a PBS Pro environment 
+This guide is setup to help you launch workers in a PBS Pro environment; modify it to suit your RJMS system.
 
 Using your preferred editor, create a :code:`.pbs` script and paste the following lines:
 
@@ -74,7 +75,7 @@ Using your preferred editor, create a :code:`.pbs` script and paste the followin
 
    /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/resource_monitor -O log-flirIr-makeflow -i 2 -- work_queue_factory -T local <INTERACTIVE_NODE_ADDRESS>.<HPC_SYSTEM> 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
 
-As before, change the highlighted :code:`<fields>` to preferred settings. Save your changes and submit with 
+As before, change the highlighted :code:`<fields>` to preferred settings. Save your changes and submit with: 
 
 .. code::
 
@@ -108,7 +109,7 @@ A working example on the University of Arizona's HPC running the FliIr pipeline 
    /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/resource_monitor -O log-flirIr-makeflow -i 2 -- work_queue_factory -T local i18n9.ocelote.hpc.arizona.edu 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
 
 
-**Your setup on the HPC is now complete. You have the Master and Worker running, you can now run the pipeline of your choice:**
+**Your setup on the HPC is now complete. You have the Master and Worker nodes running, you can now run the pipeline of your choice:**
 
 + `StereoTopRGB <https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html>`_
 + `flirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
