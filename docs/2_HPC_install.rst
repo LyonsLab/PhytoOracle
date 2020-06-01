@@ -20,18 +20,17 @@ Look at documentation from your HPC provider, ensure that the HPC is running Cen
 + iRODS (tested with iRODS v 4.2.7)
 + Git (tested with Git v 1.7.1)
 
-CCTools is avaialbe to install and run without root permissions. Dowload and store CCTools in your :code:`home` directory; if Python3, Singularity, iRODS, Git are not installed, please contact your HPC provider.
 
 Launching an interactive node and accessing PhytoOracle
 =======================================================
 
-To launch an interactive node, do:
+To launch an interactive node,:
 
 .. code::
    
-   qsub -I -N phytooracle -W group_list=<your_group_list> -q <priority> -l select=1:ncpus=<CPU_#>:mem=<RAM_#>gb:np100s=1:os7=True -l walltime=<max_hour_#>:0:0
+   qsub -I -N phytooracle -W group_list=<your_group_list> -q <priority> -l select=1:ncpus=<CPU_N>:mem=<RAM_N>gb:np100s=1:os7=True -l walltime=<max_hour_N>:0:0
 
-replace :code:`<your_group_list>, <priority>, <CPU_#>, <RAM_#>, <max_hour_#>` with your preferred settings.
+replace :code:`<your_group_list>, <priority>, <CPU_N>, <RAM_N>, <max_hour_N>` with your preferred settings.
 
 When the interactive node is done loading, clone the PhytoOracle repository with:
 
@@ -42,28 +41,33 @@ When the interactive node is done loading, clone the PhytoOracle repository with
 
 :code:`cd` (change directory) to your required pipeline, and you're done!
 
-Before proceeding, notice that your interactive node has an address: is the number before the :code:`$`; it will be required when launching workers. 
+Before proceeding, note the IP address of the interactive node. You can find the IP address with :config:`ifconfig`.
+
+The IP address will be needed for configuring workers.
 
 Launching Workers
 =================
 
-To launch workers, you use a :code:`.pbs` script. Using your preferred editor, create a `.pbs` script and paste the following lines:
+To launch workers, in a PBS Pro environment 
+
+Using your preferred editor, create a :code:`.pbs` script and paste the following lines:
 
 .. code::
 
    #!/bin/bash
    #PBS -W group_list=<your_group_list>
    #PBS -q <priority>
-   #PBS -l select=<#_nodes>:ncpus=<CPU_#>:mem=<RAM_#>gb
+   #PBS -l select=<N_nodes>:ncpus=<CPU_N>:mem=<RAM_N>gb
    #PBS -l place=pack:shared
-   #PBS -l walltime=<max_hour_#>:00:00  
-   #PBS -l cput=<max_compute_#>:00:00
+   #PBS -l walltime=<max_hour_N>:00:00  
+   #PBS -l cput=<max_compute_N>:00:00
    module load singularity 
 
-   export CCTOOLS_HOME=/home/<u_#>/<username>/cctools-<version>
+   export CCTOOLS_HOME=/home/<u_N>/<username>/cctools-<version>
    export PATH=${CCTOOLS_HOME}/bin:$PATH
 
-   cd /home/<u_#>/<username>
+   # This might change according with your RJMS system
+   cd /home/<u_N>/<username>
 
    # Repeat the following line with as many transformers requried
    singularity pull docker://agpipeline/<transformer>
@@ -73,13 +77,15 @@ To launch workers, you use a :code:`.pbs` script. Using your preferred editor, c
 As before, change the highlighted :code:`<fields>` to preferred settings. Save your changes and submit with 
 
 .. code::
+
    qsub <name>.pbs
 
-Depending on the traffic on the HPC and on the set priorities, wait for workers to become avaialbe before launch.
+Depending on the utilization of the HPC system it might take some time before the workers launch.
 
-A working example on the University of Arizona's HPC runinng the FliIr pipeline is
+A working example on the University of Arizona's HPC running the FliIr pipeline is
 
 .. code::
+
    #!/bin/bash
    #PBS -W group_list=<group_list>
    #PBS -q standard
@@ -102,7 +108,7 @@ A working example on the University of Arizona's HPC runinng the FliIr pipeline 
    /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/resource_monitor -O log-flirIr-makeflow -i 2 -- work_queue_factory -T local i18n9.ocelote.hpc.arizona.edu 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
 
 
-**Your setup on the HPC is now complete. Please go to the pipeline of your choice to continue with running and processing.**
+**Your setup on the HPC is now complete. You have the Master and Worker running, you can now run the pipeline of your choice:**
 
 + `StereoTopRGB <https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html>`_
 + `flirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_

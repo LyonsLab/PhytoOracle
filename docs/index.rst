@@ -46,3 +46,8 @@ Acknowledgements
 ================
 
 This project partially built on code initially developed by the `TERRA-REF project <https://www.terraref.org/>`_ and `Ag-Pipeline <https://github.com/AgPipeline/>`_ team. We thank the University of Arizona Advanced Cyberinfrastrcture Concept class of 2019 for additional work.
+
+Issues and questions
+====================
+
+If you have questions, raise an issue on the `GitHub <https://github.com/uacic/PhytoOracle/>`_ page.
