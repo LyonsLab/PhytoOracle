@@ -19,16 +19,22 @@ Supported Sensors & Pipelines
    :header-rows: 1
 
    * - Sensor
+     - Sensor Name
      - Data Description
    * - `StereoTopRGB <https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html>`_
-     -  Stereo RGB images.  Identifies plants; measuring plant area
+     - Prosilica GT3300C
+     - Stereo RGB images.  Identifies plants; measuring plant area
+     - FLIR A615, 45°
    * - `FlirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
      - Infrared images. Measures temperature of plants
    * - PSII
+     - LemnaTec custom based of an Allied Vision Manta camera
      - Fluorescence images. Measures chlorophyll fluorescence for calculating plant photosynthetic potential.
    * - StereoTop3D
+     - Custom 3D Fraunhofer
      - Laser scanning images.  Generates a point cloud for measuring physical structure of plants.
-   * - Hyperspectral
+   * - Hyperspectral (VNIR/SWIR)
+     - Custom Headwall Photonics
      - Hyperspectral images.  Collects and processes information from across the electromagnetic spectrum for a wide variety of phenotypes (e.g., vegetation indices)
 
 Pipeline Structure
