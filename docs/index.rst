@@ -9,7 +9,7 @@ Welcome to PhytoOracle!
 
 PhytoOracle is a scalable, distributed workflow manager for analyzing highthroughput phenotyping data.  
 It is designed to process data from the `UA Gantry <https://uanews.arizona.edu/story/world-s-largest-robotic-field-scanner-now-place,>`_, but can be adapted to work on data coming from other platforms.  
-PhytoOracle uses a master-worker framework for distributed computing and can run jobs on nearly all unix-like environment. 
+PhytoOracle uses a master-worker framework for distributed computing (HPC, Cloud, etc.) and can run jobs on nearly all unix-like environments. 
 Access our Github `here <https://github.com/uacic/PhytoOracle/>`_.
 
 Supported Sensors & Pipelines
