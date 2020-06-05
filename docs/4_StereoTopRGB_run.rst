@@ -2,7 +2,7 @@
 Running the StereoTopRGB Pipeline for Plant Area Data
 *****************************************************
 
-StereoTopRGB: This pipeline extracts plant area data from image files.
+This pipeline extracts plant area data from image files. This guide provides demo data you can use follow along with and ensure the pipeline is functional.
 
 Pipeline Overview
 =================
@@ -13,7 +13,7 @@ StereoTopRGB currently uses 4 different programs for the analytical pipeline:
    :header-rows: 1
    
    * - Program
-     - Purpose
+     - Function
      - Input
      - Output
    * - `cleanmetadata <https://github.com/AgPipeline/moving-transformer-cleanmetadata>`_
@@ -36,57 +36,68 @@ StereoTopRGB currently uses 4 different programs for the analytical pipeline:
 Running the Pipeline 
 ====================
 
-The pipeline runs in the following manner:
-
-1. Request an interactive node on the HPC
-2. Request worker nodes
-3. Clone the Git within the HPC
-4. Retrieve data from desired scandate
-5. Edit scripts and run the pipeline 
-
 .. note::
    
    At this point we assume that the interactive Master and Worker nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
-   Otherwise follow the guide `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_.
+   If this is not the case, start `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_.
 
-**4. Retrieve data from desired scandate**
+**Retrieve data**
 
-Download the data from the CyVerse DataStore with iRODS commands using:
-
-.. code::
-
-   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar
-
-Replace :code:`<scan_date>` with any day you want to process. Un-tar and move the folder to the stereoTopRGB directory.
+Navigate to your RGB directory, download the data from the CyVerse DataStore with iRODS commands and untar:
 
 .. code::
 
-   tar -xvf <scan_date>.tar
-   mv ./stereoTopRGB/<scan_date> ./
+   cd /<personal_folder>/PhytoOracle/StereoTopRGB
+   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/demo_data/Lettuce/StereoTopRGB_demo.tar
+   tar -xvf StereoTopRGB_demo.tar
+
+Data from the Gantry can be found within :code:'/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar'
+
+**Retrieve correction file**
 
 Dowload the coordiate correction :code:`.csv` file.
-
-.. note::
-   
-   This file will be changing to a shared directory; Path to the updated.
 
 .. code::
 
    iget -rKVP /iplant/home/emmanuelgonzalez/Ariyan_ortho_attempt_4/2020-01-08_coordinates_CORRECTED_4-16-2020.csv
 
+.. note::
    
-**5. Edit scripts and run the pipeline**
+   This file will be changing to a shared directory; Path to the updated.
+   
+**Edit scripts**
 
-1. Copy your current working directory (:code:`pwd`) and edit the :code:`HPC_PATH="<pwd>"` on line 14 in the :code:`process_one_set.sh` file.
-2. Edit your :code:`entrypoint.sh` on line 4 to reflect the :code:`<scan_date>` folder you want to process.
-3. Also in :code:`entrypoint.sh` ensure that on lines 7 and 11 the :code:`path` to CCTools is correct.
-4. Once everything is edited, run the pipeline with :code:`./entrypoint.sh`.
++ :code:'process_one_set.sh'
+  Find your current working directory using the command :code:'pwd'
+  Open :code:'process_one_set.sh' and copy the output from :code:'pwd' into line 14. It should look something like this:
 
-Demo Data
-=========
+  .. code:: 
+    HPC_PATH="xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
 
-Demo data for the StereoTopRGB pipeline can be downloaded through iRODS from the CyVerse DataStore with:
++ :code:`entrypoint.sh`
+  + In line 1, specify the :code:`<scan_date>` folder you want to process. For our purposes this will look like:
+
+    .. code:: 
+      phython3 gen_files_list.py StereoTopRGB_demo > raw_data_files.json
+
+  + In lines 7 and 11, specify the location of CCTools:
+
+    .. code:: 
+      /home/<u_num>/<username>/cctools-<version>-x86_64-centos7/bin/jx2json
+
+    and
+
+    .. code:: 
+      /home/<u_num>/<username>/cctools-<version>-x86_64-centos7/bin/makeflow
+
+**Run pipeline**
+
+Begin computations using:
 
 .. code::
+  ./entrypoint.sh
 
-   /iplant/home/shared/terraref/ua-mac/raw_tars/demo_data/Lettuce/StereoTopRGB_demo.tar
+.. note::
+   
+   It will return a notice with a "FATAL" error. This happens as the pipeline waits for a connection to Docker. It should take some time and will fail quickly if there is an issue.
+   If the pipeline fails, ENSURE THEIR THE LAST SLASH IN HPC_PATH VARIABLE IN :code:'process_one_set.sh'. This is the most common error.
