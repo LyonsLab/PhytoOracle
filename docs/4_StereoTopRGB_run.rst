@@ -38,7 +38,7 @@ Running the Pipeline
 
 .. note::
    
-   At this point we assume that the interactive Master and Worker nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
+   At this point, we assume that the interactive "manager" and "worker" nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
    If this is not the case, start `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_.
 
 **Retrieve data**
@@ -51,11 +51,11 @@ Navigate to your RGB directory, download the data from the CyVerse DataStore wit
    iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/demo_data/Lettuce/StereoTopRGB_demo.tar
    tar -xvf StereoTopRGB_demo.tar
 
-Data from the Gantry can be found within :code:'/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar'
+Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar`
 
 **Retrieve correction file**
 
-Dowload the coordiate correction :code:`.csv` file.
+Dowload the coordiate correction :code:`.csv` file:
 
 .. code::
 
@@ -63,41 +63,49 @@ Dowload the coordiate correction :code:`.csv` file.
 
 .. note::
    
-   This file will be changing to a shared directory; Path to the updated.
+   The :code:`.csv` file will soon be moved to a shared directory; this will change accordingly.
    
 **Edit scripts**
 
-+ :code:'process_one_set.sh'
-  Find your current working directory using the command :code:'pwd'
-  Open :code:'process_one_set.sh' and copy the output from :code:'pwd' into line 14. It should look something like this:
++ :code:`process_one_set.sh`
+
+  Find your current working directory using the command :code:`pwd`
+  Open :code:`process_one_set.sh` and paste the output from :code:`pwd` into line 14. It should look something like this:
 
   .. code:: 
+
     HPC_PATH="xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
 
 + :code:`entrypoint.sh`
+
   + In line 1, specify the :code:`<scan_date>` folder you want to process. For our purposes this will look like:
 
     .. code:: 
+
       phython3 gen_files_list.py StereoTopRGB_demo > raw_data_files.json
 
   + In lines 7 and 11, specify the location of CCTools:
 
     .. code:: 
+
       /home/<u_num>/<username>/cctools-<version>-x86_64-centos7/bin/jx2json
 
     and
 
     .. code:: 
+
       /home/<u_num>/<username>/cctools-<version>-x86_64-centos7/bin/makeflow
 
 **Run pipeline**
 
-Begin computations using:
+Begin processing using:
 
 .. code::
+
   ./entrypoint.sh
 
 .. note::
    
-   It will return a notice with a "FATAL" error. This happens as the pipeline waits for a connection to Docker. It should take some time and will fail quickly if there is an issue.
-   If the pipeline fails, ENSURE THEIR THE LAST SLASH IN HPC_PATH VARIABLE IN :code:'process_one_set.sh'. This is the most common error.
+   This may return a notice with a "FATAL" error. This happens as the pipeline waits for a connection to DockerHub, which takes some time. Usually, the system will fail quickly if there is an issue.
+
+   If the pipeline fails, check to make sure you have a "/" concluding line 14 of :code:`process_one_set.sh`. This is one of the most common errors and is necessary to connect the program scripts to the HPC.
