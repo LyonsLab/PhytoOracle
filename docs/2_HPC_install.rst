@@ -7,7 +7,7 @@ Overview
 
 This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a High Performance Computer system using interactive nodes (as tested on the University of Arizona's HPC running the PBS Pro RJMS - Resource and Job Management System).
 
-The interactive node functions as the "commander" within the time-saving "Commander-worker" framework. The interactive node is distributes the computational load, connecting to the "workers" through its IP address and job management scripts from the PhytoOracle repository. 
+The interactive node functions as the "manager" within the time-saving "manager-worker" framework. The interactive node distributes the computational load, connecting to the "workers" through its IP address and job management scripts from the PhytoOracle repository. 
 
 Software Requirements
 =====================
@@ -43,14 +43,14 @@ Once the interactive node is running, clone the PhytoOracle repository:
 
    git clone https://github.com/uacic/PhytoOracle
 
-Before proceeding, note the IP address of the interactive node. You can find the IP address with :code:`ifconfig`. This will be used for connecting the commander to the workers.
+Before proceeding, note the IP address of the interactive node. You can find the IP address with :code:`ifconfig`. This will be used for connecting the manager to the workers.
 
 :code:`cd` (change directory) into the desired pipeline and continue.
 
 Launching Workers
 =================
 
- Create an executable script according to your HPC's RJMS system. If using PBS Pro, use your preferred editor to create a :code:`.pbs` script using the following template:
+Create an executable script according to your HPC's RJMS system. If using PBS Pro, use your preferred editor to create a :code:`.pbs` script using the following template:
 
 .. code::
 
@@ -76,9 +76,10 @@ Launching Workers
 
 As before, change the highlighted :code:`<fields>` to preferred settings. 
 
-An example on the UA HPC system using "u1" as the user number and "hpcuser" as the username looks like:
+An example on the UA HPC system, using "u1" as the user number and "hpcuser" as the username, looks like:
 
 .. code:: 
+
    #!/bin/bash
    #PBS -q standard
    #PBS -l select=1:ncpus=28:mem=224gb:np100s=1:os7=True
@@ -116,15 +117,16 @@ Save your changes and submit with:
 
    qsub <filename>.pbs
 
-Depending on the traffic to the HPC system, this might take some time. You can search for your submitted job using:
+Depending on the traffic to the HPC system, this may take some time. You can search for your submitted job using:
 
 .. code:: 
+
    qstat -u username
 
 **The HPC setup is now complete. Navigate to the pipeline of your choice to continue:**
 
 + `StereoTopRGB <https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html>`_
-+ `flirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
++ `FlirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
 + PSII
 + Stereo3DTop
 + Hyperspectral
