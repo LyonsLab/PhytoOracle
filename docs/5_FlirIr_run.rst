@@ -2,10 +2,6 @@
 Running the FlirIr Pipeline for Infrared Data
 *********************************************
 
-.. note::
-   
-   The FlirIr pipeline will be updated shortly. If this documentation is not accurate at time of use, please open an issue on the PhytoOracle GitHub.
-
 This pipeline extracts temperature data from image files. This guide provides demo data you can use follow along with and ensure the pipeline is functional. 
 
 Pipeline Overview
@@ -26,15 +22,15 @@ FlirIr currently uses 4 different programs for data conversion:
      - :code:`metadata_cleaned.json`
    * - `flir2tif <https://github.com/AgPipeline/moving-transformer-flir2tif>`_
      - Converts bin compressed files to tif 
-     - :code:`image.flir`
+     - :code:`image.bin`
      - :code:`image.tif`
-   * - `flir_clip <https://github.com/AgPipeline/moving-transformer->`_
+   * - `plotclip <https://github.com/emmanuelgonz/plotclip_shp>`_
      - Matches temperature data to plot
-     - :code:`image.tif`
+     - :code:`image.tif`, :code:`coordinatefile.geojson`
      - :code:`clipped_image.tif`
-   * - `plot_meantemp <https://github.com/AgPipeline/moving-transformer-meantemp>`_ 
+   * - `plot_meantemp <https://github.com/CosiMichele/Containers/tree/master/po_meantemp>`_ 
      - Extracts temperature from detected biomass
-     - :code:`image.bin`, :code:`clipped_image.tif`
+     - :code:`coordinatefile.geojson`, :code:`clipped_image.tif`
      - :code:`meantemp.csv`
 
 Running the Pipeline 
