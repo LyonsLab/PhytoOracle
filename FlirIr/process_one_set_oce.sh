@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 # Variable needed to be pass in by external
 # $RAW_DATA_PATH, $UUID, $DATA_BASE_URL
 #
@@ -23,7 +25,7 @@ METADATA=${HPC_PATH}${RAW_DATA_PATH}${UUID}"_metadata.json"
 IR_BIN=${HPC_PATH}${RAW_DATA_PATH}${UUID}"_ir.bin"
 METADATA_CLEANED=${CLEANED_META_DIR}${UUID}"_metadata_cleaned.json"
 IN_TIF=${TIFS_DIR}${UUID}"_ir.tif"
-#MEANTEMP_WK=${HPC_PATH}${MEANTEMP_DIR}${UUID}"/"
+MEANTEMP_WK=${HPC_PATH}${MEANTEMP_DIR}${UUID}"/"
 #MOSAIC_LIST_FILE=${HPC_PATH}${FIELDMOSAIC_DIR}"filelist.txt"
 
 HTTP_USER="mcosi"
@@ -43,34 +45,32 @@ WORKING_SPACE=${CLEANED_META_DIR}
 USERID=""
 
 #ls ${RAW_DATA_PATH}
-#ls ${METADATA}
+ls ${METADATA}
 ls "cached_betydb/bety_experiments.json"
 mkdir -p ${WORKING_SPACE}
-#BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ /home/u12/cosi/singularity/scripts/run-singularity -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
 BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
 #ls ${CLEANED_META_DIR}
-#ls ${METADATA_CLEANED}
+ls ${METADATA_CLEANED}
 
 # Convert  bin/RGB image to TIFF format
 IR_BIN=${IR_BIN}
 METADATA=${METADATA_CLEANED}
 WORKING_SPACE=${TIFS_DIR}
 
-#ls ${IR_BIN}
-#ls ${METADATA_CLEANED}
+ls ${IR_BIN}
+ls ${METADATA_CLEANED}
 mkdir -p ${WORKING_SPACE}
-#/home/u12/cosi/singularity/scripts/run-singularity -B $(pwd):/mnt --pwd /mnt docker://cosimichele/po_flir2tif_s10 -m ${METADATA} ${IR_BIN}
 singularity run -B $(pwd):/mnt --pwd /mnt docker://cosimichele/po_flir2tif_s10 -m ${METADATA} ${IR_BIN}
 #singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/flir2tif:2.2 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA} ${IR_BIN}
-#ls ${IN_TIF}
+ls ${IN_TIF}
 
 
 
-#mkdir -p ${HPC_PATH}${PLOTCLIP_DIR}
+mkdir -p ${HPC_PATH}${PLOTCLIP_DIR}
 
-#/home/u12/cosi/singularity/scripts/run-singularity -B $(pwd):/mnt --pwd /mnt/ docker://emmanuelgonzalez/plotclip_shp:latest --sensor FlirIrCamera --shape ${HPC_PATH}season10_multi_latlon_geno_up.geojson ${WORKING_SPACE}
+singularity run -B $(pwd):/mnt --pwd /mnt/ docker://emmanuelgonzalez/plotclip_shp:latest --sensor FlirIrCamera --shape ${HPC_PATH}season10_multi_latlon_geno_up.geojson ${WORKING_SPACE}
 
-#tar -cvf ${UUID}_plotclip.tar ${PLOTCLIP_DIR}
+tar -cvf ${UUID}_plotclip.tar ${PLOTCLIP_DIR}
 
 #tar -cvf plotclip_out.tar plotclip_out/
 

@@ -1,20 +1,9 @@
 {
-  "code": 0,
   "file": [
     {
-      "path": "./1a12fa5b-3aad-4898-a6d1-4abda59f4f38_ir.tif",
-      "key": "flirIrCamera",
-      "metadata": {
-        "data": {
-          "version": "2.1",
-          "name": "terra.multispectral.flir2tif",
-          "author": "Max Burnette",
-          "description": "Thermal IR Temperature (K) GeoTIFF",
-          "repository": {
-            "repUrl": "https://github.com/AgPipeline/transformer-flir2tif"
-          }
-        }
-      }
+      "path": "./0e3b9e9b-a785-4bc7-b57e-9cf90942ec89_metadata_cleaned.json",
+      "key": "flirIrCamera"
     }
-  ]
+  ],
+  "code": 0
 }

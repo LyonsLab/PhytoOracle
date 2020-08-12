@@ -18,7 +18,7 @@
   $CLEANED_META_DIR = "cleanmetadata_out/";
   $TIFS_DIR = "flir2tif_out/";
   $MEANTEMP_DIR= "meantemp_out/";
-  //  $PLOTCLIP_DIR = "plotclip_out/";
+  $PLOTCLIP_DIR = "plotclip_out/";
   $SENSOR = "flirIrCamera";
 //  $MOSAIC_BOUNDS = "-111.9747932 33.0764785 -111.9750545 33.0745238";
 
@@ -51,7 +51,6 @@
         "<?=$CLEANED_META_DIR?>" + "<?=$data_set["UUID"]?>" + "_metadata_cleaned.json",
 	"<?=$TIFS_DIR?>" + "<?=$data_set["UUID"]?>" + "_ir.tif",
 	"<?=$MEANTEMP_DIR?>" + "<?=$data_set["UUID"]?>/" + "meantemp.csv",
-	"<?=$MEANTEMP_DIR?>" + "<?=$data_set["UUID"]?>/" + "meantemp_geostreams.csv",
      <?php endforeach; ?>
       ]
     },
