@@ -20,17 +20,25 @@ FlirIr currently uses 4 different programs for data conversion:
      - Cleans gantry generated metadata
      - :code:`metadata.json`
      - :code:`metadata_cleaned.json`
-   * - `flir2tif <https://github.com/AgPipeline/moving-transformer-flir2tif>`_
-     - Converts bin compressed files to tif 
+   * - `flir2tif <https://github.com/CosiMichele/Containers/tree/master/po_flir2tif_s10>`_
+     - Temperature calibrated transformer that converts bin compressed files to tif 
      - :code:`image.bin`
      - :code:`image.tif`
-   * - `plotclip <https://github.com/emmanuelgonz/plotclip_shp>`_
-     - Matches temperature data to plot
-     - :code:`image.tif`, :code:`coordinatefile.geojson`
-     - :code:`clipped_image.tif`
-   * - `plot_meantemp <https://github.com/CosiMichele/Containers/tree/master/po_meantemp>`_ 
-     - Extracts temperature from detected biomass
-     - :code:`coordinatefile.geojson`, :code:`clipped_image.tif`
+   * - `flirfieldplot <https://github.com/CosiMichele/Containers/tree/master/flirfieldplot>`_
+     - GDAL based transformer that combines all immages into a single orthomosaic
+     - Directory of all converted :code:`image.tif`
+     - :code:`ortho.tif`
+   * - `plotclip_geo <https://github.com/emmanuelgonz/plotclip_shp>`_
+     - Clips plots from orthomosaic
+     - :code:`coordinatefile.geojson`, :code:`ortho.tif`
+     - :code:`clipped_plots.tif`
+   * - `stitch_plots <https://github.com/emmanuelgonz/stitch_plots>`_
+     - Renames and stitches plots
+     - Directory of all :code:`clipped_plots.tif`
+     - :code:`stitched_plots.tif`
+   * - `po_temp_cv2stats <https://github.com/CosiMichele/Containers/tree/master/po_meantemp_comb>`_ 
+     - Extracts temperature using from detected biomass
+     - :code:`coordinatefile.geojson`, Directory of all :code:`stitched_plots.tif`
      - :code:`meantemp.csv`
 
 Running the Pipeline 
@@ -64,15 +72,15 @@ Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-
 
     HPC_PATH="xdisk/group_folder/personal_folder/PhytoOracle/FlirIr/"
 
-+ :code:`entrypoint.sh`
++ :code:`entrypoint_M.sh`
 
-  + In line 1, specify the :code:`<scan_date>` folder you want to process. For our purposes, this will look like:
+  + In line 3, specify the :code:`<scan_date>` folder you want to process. For our purposes, this will look like:
 
     .. code:: 
 
-      phython3 gen_files_list.py FlirIr_demo > raw_data_files.json
+      DATE="FlirIr_demo"
 
-  + In lines 7 and 11, specify the location of CCTools:
+  + In lines 13 and 16, specify the location of CCTools:
 
     .. code:: 
 
@@ -90,7 +98,7 @@ Begin processing using:
 
 .. code::
 
-  ./entrypoint.sh
+  ./entrypoint_M.sh
 
 .. note::
 
