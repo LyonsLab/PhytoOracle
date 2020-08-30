@@ -25,24 +25,24 @@
   "rules": [
 
     {
-      "command": "python3 process_bundle.py ${BUNDLE_JSON}",
+      "command": "python3 process_bundle2.py ${BUNDLE_JSON}",
       "environment": {
         #"DATA_BASE_URL": "DATA_BASE_URL",
         "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
       },
       "inputs": [
-        "process_bundle.py",
-        "process_one_set.sh",
+        "process_bundle2.py",
+        "process_one_set2.sh",
         "bundle/bundle_" + BUNDLE["ID"] + ".json",
         "cached_betydb/bety_experiments.json"
       ],
       "outputs":
-      [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ TIFS_DIR + DATA_SET["UUID"] + "_left.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #[ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ TIFS_DIR + DATA_SET["UUID"] + "_left.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ TIFS_DIR + DATA_SET["UUID"] + "_right.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      #+ [ GPSCORRECT_DIR + DATA_SET["UUID"] + "_left_corrected.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      [ GPSCORRECT_DIR + DATA_SET["UUID"] + "_left_corrected.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ GPSCORRECT_DIR + DATA_SET["UUID"] + "_right_corrected.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      #+ [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
 
     } for BUNDLE in BUNDLE_LIST,
   ]
