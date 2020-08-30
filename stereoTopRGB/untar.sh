@@ -1,3 +1,3 @@
 #!/bin/bash 
 
-ls *.tar | xargs -I {} tar -xvf {}
+ls *_plotclip.tar | xargs -I {} tar -xvf {}
