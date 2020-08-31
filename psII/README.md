@@ -12,10 +12,10 @@ PSII currently uses 3 different transformers for data conversion:
 |:-:|:-:|:-:|
 1|[cleanmetadata](https://github.com/AgPipeline/moving-transformer-cleanmetadata)|Cleans gantry generated metadata|
 2|[bin2tif](https://github.com/emmanuelgonz/psii_bin2tif)|Converts bin compressed files to tif|
-3|[resizetif]|(https://github.com/emmanuelgonz/psii_resize_tif)|resizes original TIFFs|
+3|[resizetif](https://github.com/emmanuelgonz/psii_resize_tif)|resizes original TIFFs|
 4|[plotclip](https://github.com/emmanuelgonz/plotclip_shp)|Clips images to geographical plots|
-5|[psii_segmentation]|(https://github.com/emmanuelgonz/psii_segmentation)|segments images given a validated set of thresholds|
-6|[psii_fluorescence_aggregation]|(https://github.com/emmanuelgonz/psii_fluorescence_aggregation)|aggregates segmentation data for each image and calculates F0, Fm, Fv, and Fv/Fm|
+5|[psii_segmentation](https://github.com/emmanuelgonz/psii_segmentation)|segments images given a validated set of thresholds|
+6|[psii_fluorescence_aggregation](https://github.com/emmanuelgonz/psii_fluorescence_aggregation)|aggregates segmentation data for each image and calculates F0, Fm, Fv, and Fv/Fm|
 
 
 #### Data overview
