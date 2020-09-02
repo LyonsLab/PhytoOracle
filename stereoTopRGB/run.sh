@@ -4,8 +4,10 @@
 SCAN_DATE=${1%/}
 TIF_DIR='bin2tif_out/'
 PLOTCLIP_DIR='plotclip_out/'
-OUT_PATH='/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/ortho_out/'
-CSV_PATH='/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/img_coords_out/'${SCAN_DATE}'_coordinates.csv'
+PIPE_PATH='/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/'
+SIMG_PATH='/xdisk/ericlyons/big_data/singularity_images/'
+OUT_PATH=${PIPE_PATH}'ortho_out/'
+CSV_PATH=${PIPE_PATH}'img_coords_out/'${SCAN_DATE}'_coordinates.csv'
 set -e 
 
 echo "Processing ${SCAN_DATE} RGB scan."
@@ -18,7 +20,7 @@ echo "Processing ${SCAN_DATE} RGB scan."
 #module load singularity
 singularity run -B $(pwd):/mnt --pwd /mnt docker://emmanuelgonzalez/collect_gps:latest --scandate ${SCAN_DATE} ${TIF_DIR}
 
-singularity exec geo_correction_image_2.simg python /home/u31/emmanuelgonzalez/Lettuce_Image_Stitching/Dockerized_GPS_Correction_HPC.py -d ${OUT_PATH} -b /xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/bin2tif_out -g ${CSV_PATH} -s ${SCAN_DATE} -c /home/u31/emmanuelgonzalez/Lettuce_Image_Stitching/geo_correction_config.txt -l /xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/lids.txt -u /xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/season10_ind_lettuce_2020-05-27.csv
+singularity exec ${SIMG_PATH}geo_correction_image_2.simg python ../Lettuce_Image_Stitching/Dockerized_GPS_Correction_HPC.py -d ${OUT_PATH} -b ${PIPE_PATH}bin2tif_out -g ${CSV_PATH} -s ${SCAN_DATE} -c ../Lettuce_Image_Stitching/geo_correction_config.txt -l ${PIPE_PATH}lids.txt -u ${PIPE_PATH}season10_ind_lettuce_2020-05-27.csv
 
 # Part 3 > distributed
 ls ${CSV_PATH}
