@@ -4,7 +4,8 @@
 SCAN_DATE=${1%/}
 TIF_DIR='bin2tif_out/'
 PLOTCLIP_DIR='plotclip_out/'
-PIPE_PATH='/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/'
+#PIPE_PATH='/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/'
+PIPE_PATH=${2}'/'
 SIMG_PATH='/xdisk/ericlyons/big_data/singularity_images/'
 OUT_PATH=${PIPE_PATH}'ortho_out/'
 CSV_PATH=${PIPE_PATH}'img_coords_out/'${SCAN_DATE}'_coordinates.csv'
