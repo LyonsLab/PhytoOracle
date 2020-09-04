@@ -39,11 +39,12 @@ cd PhytoOracle/stereoTopRGB/
 
 #### Running pipeline on HPC 
 4. Launch workers:
-If using PBS: 
+
+-If using PBS: 
 ```
 qsub worker_scripts/po_work_ocelote.pbs
 ```
-If using SLURM:
+-If using SLURM:
 ```
 sbatch worker_scripts/po_work_puma.sh
 ```
