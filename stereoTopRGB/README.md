@@ -26,11 +26,29 @@ wget http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz
 
 tar -xvf cctools-7.1.6-x86_64-centos7.tar.gz
 ```        
-3. 
-#### Running on the HPC's interactive node
 
-At this point your worker nodes should already be running and you should be in your FlirIr directory within your interactive node. Download the data that you need using:
+2. Clone this repository within your HPCs storage space such as /xdisk:
+```
+git clone -b alpha https://github.com/LyonsLab/PhytoOracle.git
+```
 
+3. Go to stereoTopRGB:
+```
+cd PhytoOracle/stereoTopRGB/
+```
+
+#### Running pipeline on HPC 
+4. Launch workers:
+If using PBS: 
+```
+qsub worker_scripts/po_work_ocelote.pbs
+```
+If using SLURM:
+```
+sbatch worker_scripts/po_work_puma.sh
+```
+
+5. Download input data:
 ```
 iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<day>.tar
 ```
@@ -39,12 +57,13 @@ Replace `<day>` with any day you want to process. Un-tar and move the folder to 
 
 ```
 tar -xvf <day>.tar
-mv ./stereoTopRGB/<day> ./
+mv stereoTopRGB/<day> .
 ```
 
-Then edit your `entrypoint.sh` on line 4 to reflect the `<day>` folder you want to process.
-
-Once everything is edited, run the pipeline with `./entrypoint.sh`.
+6. You're now ready to run the pipeline:
+```
+./run.sh <day> .
+```
 
 #### Running on the Cloud with HPC support
 
