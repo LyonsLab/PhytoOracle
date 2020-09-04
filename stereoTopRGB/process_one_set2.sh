@@ -11,6 +11,8 @@ BETYDB_URL="http://128.196.65.186:8000/bety/"
 BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
 HPC_PATH="/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
+DIR_PATH=${RAW_DATA_PATH}
+DATE=$(dirname "DIR_PATH")
 
 CLEANED_META_DIR="cleanmetadata_out/"
 TIFS_DIR="bin2tif_out/"
@@ -33,7 +35,8 @@ LEFT_CLIP=${PLOTCLIP_DIR}${UUID}"_left.tif"
 RIGHT_CLIP=${PLOTCLIP_DIR}${UUID}"_right.tif"
 LEFT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_left_corrected.tif"
 RIGHT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_right_corrected.tif"
-GPS_CSV=${HPC_PATH}${ORTHO_OUT}"2020-03-02/2020-03-02_coordinates_CORRECTED.csv"
+#GPS_CSV=${HPC_PATH}${ORTHO_OUT}/2020-01-20/2020-01-20_coordinates_CORRECTED.csv"
+GPS_CSV=${HPC_PATH}${ORTHO_OUT}${DATE}"/"${DATE}"_coordinates_CORRECTED.csv"
 GEOJ=${HPC_PATH}"season10_multi_latlon_geno.geojson"
 GPS_UNCOR=${HPC_PATH}""
 
@@ -75,21 +78,6 @@ LEFT_TIF_CORRECT=${LEFT_TIF_CORRECT}
 #singularity run -B $(pwd):/mnt --pwd /mnt docker://emmanuelgonzalez/plotclip_geo:latest --sensor ${SENSOR} --shape ${GEOJ} ${LEFT_TIF_CORRECT}
 singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}plotclip_shp.simg --sensor ${SENSOR} --shape ${GEOJ} ${LEFT_TIF_CORRECT}
 #ls ${LEFT_CLIP}
-##mv plotclip_out/result.json plotclip_out/${UUID}.json
-
-# Correct GPS coordinates
-#RIGHT_TIF=${RIGHT_TIF}
-#GPSCORRECT_DIR=${GPSCORRECT_DIR}
-#WORKING_SPACE=${GPSCORRECT_DIR}
-#GPS_CSV=${GPS_CSV}
-#TIFS_DIR=${TIFS_DIR}
-
-#ls ${TIFS_DIR}
-#ls ${GPS_CSV}
-#mkdir -p ${WORKING_SPACE}
-##singularity run -B $(pwd):/mnt --pwd /mnt docker://acicarizona/gistools --csv ${GPS_CSV} -o ${WORKING_SPACE} ${TIFS_DIR}
-#singularity run -B $(pwd):/mnt --pwd /mnt/ docker://zhxu73/gistools:latest --csv ${GPS_CSV} -o ${WORKING_SPACE} ${TIFS_DIR}
-#ls ${RIGHT_TIF_CORRECT}
 
 # create tarball of plotclip result
 #
