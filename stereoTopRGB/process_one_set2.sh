@@ -12,7 +12,7 @@ BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
 HPC_PATH="/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/stereoTopRGB/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
 DIR_PATH=${RAW_DATA_PATH}
-DATE=$(dirname "DIR_PATH")
+DATE=$(dirname "$DIR_PATH")
 
 CLEANED_META_DIR="cleanmetadata_out/"
 TIFS_DIR="bin2tif_out/"
