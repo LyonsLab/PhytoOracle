@@ -26,7 +26,7 @@ singularity exec ${SIMG_PATH}geo_correction_image_2.simg python ../Lettuce_Image
 # Part 3 > distributed
 ls ${CSV_PATH}
 
-./replace_csv.py -s ${SCAN_DATE} process_one_set2.sh
+#./replace_csv.py -s ${SCAN_DATE} process_one_set2.sh
 
 ./entrypoint-2.sh 
 
