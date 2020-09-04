@@ -20,11 +20,13 @@ FlirIr currently uses 3 different transformers for data conversion:
 PhytoOracle's StereoTop RGB requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. These should already be in the same folder when obtaining data from the [CyVerse DataStore](https://cyverse.org/data-store).
 
 #### Setup Guide
+1. Download [CCTools](http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz) and extract it's contents within your HPC home path:
+```
+wget http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz
 
-Go [here](https://github.com/uacic/PhytoOracle/blob/alpha/HPC_Install.md) to launch on an HPC system (tested on the University of Arizona's HPC system).
-
-Go [here](https://github.com/uacic/PhytoOracle/blob/alpha/CloudHPC_installation.md) instead if using a cloud system with HPC support (tested on CyVerse Atmosphere, soon to be tested on NSF's JetStream).
-
+tar -xvf cctools-7.1.6-x86_64-centos7.tar.gz
+```        
+3. 
 #### Running on the HPC's interactive node
 
 At this point your worker nodes should already be running and you should be in your FlirIr directory within your interactive node. Download the data that you need using:
