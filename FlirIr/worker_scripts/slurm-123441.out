@@ -1,0 +1,45 @@
+2020/09/11 12:13:08: |submitted: 0 |needed: 40 |waiting connection: 0 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-86468
+work_queue_worker: creating workspace /tmp/worker-45035-86469
+work_queue_worker: creating workspace /tmp/worker-45035-86472
+work_queue_worker: creating workspace /tmp/worker-45035-86467
+work_queue_worker: creating workspace /tmp/worker-45035-86475
+work_queue_worker: creating workspace /tmp/worker-45035-86476
+work_queue_worker: creating workspace /tmp/worker-45035-86473
+work_queue_worker: creating workspace /tmp/worker-45035-86470
+work_queue_worker: creating workspace /tmp/worker-45035-86474
+work_queue_worker: creating workspace /tmp/worker-45035-86471
+2020/09/11 12:13:44: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-86588
+work_queue_worker: creating workspace /tmp/worker-45035-86590
+work_queue_worker: creating workspace /tmp/worker-45035-86589
+work_queue_worker: creating workspace /tmp/worker-45035-86591
+work_queue_worker: creating workspace /tmp/worker-45035-86594
+work_queue_worker: creating workspace /tmp/worker-45035-86592
+work_queue_worker: creating workspace /tmp/worker-45035-86595
+work_queue_worker: creating workspace /tmp/worker-45035-86597
+work_queue_worker: creating workspace /tmp/worker-45035-86596
+work_queue_worker: creating workspace /tmp/worker-45035-86593
+2020/09/11 12:14:19: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:14:55: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:15:31: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:16:06: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:16:42: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:17:18: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+slurmstepd: error: *** JOB 123441 ON r3u33n1 CANCELLED AT 2020-09-11T12:17:25 ***

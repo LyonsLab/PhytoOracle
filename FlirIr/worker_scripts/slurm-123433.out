@@ -1,0 +1,203 @@
+2020/09/11 11:47:55: |submitted: 0 |needed: 40 |waiting connection: 0 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-84733
+work_queue_worker: creating workspace /tmp/worker-45035-84732
+work_queue_worker: creating workspace /tmp/worker-45035-84738
+work_queue_worker: creating workspace /tmp/worker-45035-84731
+work_queue_worker: creating workspace /tmp/worker-45035-84735
+work_queue_worker: creating workspace /tmp/worker-45035-84737
+work_queue_worker: creating workspace /tmp/worker-45035-84739
+work_queue_worker: creating workspace /tmp/worker-45035-84734
+work_queue_worker: creating workspace /tmp/worker-45035-84736
+work_queue_worker: creating workspace /tmp/worker-45035-84740
+2020/09/11 11:48:31: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-84854
+work_queue_worker: creating workspace /tmp/worker-45035-84853
+work_queue_worker: creating workspace /tmp/worker-45035-84856
+work_queue_worker: creating workspace /tmp/worker-45035-84852
+work_queue_worker: creating workspace /tmp/worker-45035-84859
+work_queue_worker: creating workspace /tmp/worker-45035-84860
+work_queue_worker: creating workspace /tmp/worker-45035-84857
+work_queue_worker: creating workspace /tmp/worker-45035-84855
+work_queue_worker: creating workspace /tmp/worker-45035-84861
+work_queue_worker: creating workspace /tmp/worker-45035-84858
+2020/09/11 11:49:07: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:49:42: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:50:18: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:50:54: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:51:29: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:52:05: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:52:41: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:53:16: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:53:52: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:54:28: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:55:04: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:55:39: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:56:15: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:56:51: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:57:26: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:58:02: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:58:38: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:59:13: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 11:59:49: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:00:25: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:01:01: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:01:36: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:02:12: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:02:48: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:03:08.61 work_queue_worker[84738] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84738
+2020/09/11 12:03:08.62 work_queue_worker[84734] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84734
+2020/09/11 12:03:08.79 work_queue_worker[84731] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84731
+2020/09/11 12:03:08.92 work_queue_worker[84737] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84737
+2020/09/11 12:03:08.97 work_queue_worker[84735] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84735
+2020/09/11 12:03:09.03 work_queue_worker[84740] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84740
+2020/09/11 12:03:09.27 work_queue_worker[84733] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84733
+2020/09/11 12:03:09.31 work_queue_worker[84732] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84732
+2020/09/11 12:03:09.41 work_queue_worker[84736] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84736
+2020/09/11 12:03:09.46 work_queue_worker[84739] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84739
+2020/09/11 12:03:24: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:03:44.41 work_queue_worker[84861] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84861
+2020/09/11 12:03:44.43 work_queue_worker[84852] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84852
+2020/09/11 12:03:44.56 work_queue_worker[84853] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84853
+2020/09/11 12:03:44.77 work_queue_worker[84855] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84855
+2020/09/11 12:03:44.83 work_queue_worker[84859] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84859
+2020/09/11 12:03:44.98 work_queue_worker[84857] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84857
+2020/09/11 12:03:45.02 work_queue_worker[84858] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84858
+2020/09/11 12:03:45.11 work_queue_worker[84854] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84854
+2020/09/11 12:03:45.14 work_queue_worker[84860] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84860
+2020/09/11 12:03:45.33 work_queue_worker[84856] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-84856
+2020/09/11 12:03:59: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-85737
+work_queue_worker: creating workspace /tmp/worker-45035-85734
+work_queue_worker: creating workspace /tmp/worker-45035-85736
+work_queue_worker: creating workspace /tmp/worker-45035-85741
+work_queue_worker: creating workspace /tmp/worker-45035-85739
+work_queue_worker: creating workspace /tmp/worker-45035-85743
+work_queue_worker: creating workspace /tmp/worker-45035-85735
+work_queue_worker: creating workspace /tmp/worker-45035-85740
+work_queue_worker: creating workspace /tmp/worker-45035-85738
+work_queue_worker: creating workspace /tmp/worker-45035-85742
+2020/09/11 12:04:35: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-85861
+work_queue_worker: creating workspace /tmp/worker-45035-85862
+work_queue_worker: creating workspace /tmp/worker-45035-85860
+work_queue_worker: creating workspace /tmp/worker-45035-85863
+work_queue_worker: creating workspace /tmp/worker-45035-85857
+work_queue_worker: creating workspace /tmp/worker-45035-85858
+work_queue_worker: creating workspace /tmp/worker-45035-85864
+work_queue_worker: creating workspace /tmp/worker-45035-85865
+work_queue_worker: creating workspace /tmp/worker-45035-85866
+work_queue_worker: creating workspace /tmp/worker-45035-85859
+2020/09/11 12:05:11: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:05:46: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:06:22: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:06:58: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/09/11 12:07:33: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+slurmstepd: error: *** JOB 123433 ON r3u33n1 CANCELLED AT 2020-09-11T12:07:55 ***
