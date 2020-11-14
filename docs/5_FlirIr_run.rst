@@ -2,12 +2,12 @@
 Running the FlirIr Pipeline for Infrared Data
 *********************************************
 
-This pipeline extracts temperature data from image files. This guide provides demo data you can use follow along with and ensure the pipeline is functional. 
+This pipeline extracts temperature data from image files. This guide provides demo data you can use follow along with and ensure the pipeline is functional. Before starting, change to :code:`master` branch with :code:`git checkout master`.
 
 Pipeline Overview
 =================
 
-FlirIr currently uses 4 different programs for data conversion:
+FlirIr currently uses 9 different programs for data conversion:
 
 .. list-table::
    :header-rows: 1
@@ -24,6 +24,18 @@ FlirIr currently uses 4 different programs for data conversion:
      - Temperature calibrated transformer that converts bin compressed files to tif 
      - :code:`image.bin`
      - :code:`image.tif`
+   * - `collect_gps <https://github.com/emmanuelgonz/collect_gps>`_
+     - Collects GPS coordinates from all geotiff files
+     - :code:`image.tif`
+     - :code:`collected_coordinates.csv`
+   * - MEGASTITCH (Zarei, unpublished)
+     - Finds best possible coordinates of all geotiffs
+     - :code:`collected_coordinates.csv`
+     - :code:`corrected_coordinates.csv`
+   * - `replace_gps <https://github.com/emmanuelgonz/edit_gps>`_ 
+     - Applies corrected GPS coordinates to images
+     - :code:`corrected_coordinates.csv`, :code:`image.tif`
+     - :code:`corrected_image.tif`
    * - `flirfieldplot <https://github.com/CosiMichele/Containers/tree/master/flirfieldplot>`_
      - GDAL based transformer that combines all immages into a single orthomosaic
      - Directory of all converted :code:`image.tif`
@@ -46,10 +58,11 @@ Running the Pipeline
 
 .. note::
    
-   At this point, we assume that the interactive "manager" and "worker" nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
+   At this point, we assume that the interactive "foreman" and "worker" nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
    If this is not the case, start `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_.
 
-**Retrieve data**
+Retrieve data
+^^^^^^^^^^^^^
 
 Navigate to your directory containing FlirIr, and download the data from the CyVerse DataStore with iRODS commands and untar:
 
@@ -61,7 +74,8 @@ Navigate to your directory containing FlirIr, and download the data from the CyV
 
 Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/flirIrCamera/<scan_date>.tar`
    
-**Edit scripts**
+Edit scripts
+^^^^^^^^^^^^
 
 + :code:`process_one_set.sh`
 
@@ -72,15 +86,33 @@ Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-
 
     HPC_PATH="xdisk/group_folder/personal_folder/PhytoOracle/FlirIr/"
 
-+ :code:`entrypoint_M.sh`
+  Set your :code:`.simg` folder path in line 8.
 
-  + In line 3, specify the :code:`<scan_date>` folder you want to process. For our purposes, this will look like:
+  .. code:: 
+
+    SIMG_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/singularity_images/"  
+
++ :code:`run.sh`
+
+  + Paste the output from :code:`pwd` into line 7. It should look something like this:
+
+    .. code:: 
+
+      PIPE_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
+
+  + Set your :code:`.simg` folder path in line 8.
+
+    .. code:: 
+
+      SIMG_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/singularity_images/"  
+
+  + In line 4, specify the :code:`<scan_date>` folder you want to process. For our purposes, this will look like:
 
     .. code:: 
 
       DATE="FlirIr_demo"
 
-  + In lines 13 and 16, specify the location of CCTools:
+  + In lines 25 and 28, specify the location of CCTools:
 
     .. code:: 
 
@@ -92,13 +124,14 @@ Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-
 
       /home/<u_num>/<username>/cctools-<version>-x86_64-centos7/bin/makeflow
 
-**Run pipeline**
+Run pipeline
+^^^^^^^^^^^^
 
 Begin processing using:
 
 .. code::
 
-  ./entrypoint_M.sh
+  ./run.sh
 
 .. note::
 
