@@ -25,3 +25,58 @@ For Example:
 Full list of containers
 =======================
 
+Pipeline
+GitHub Link
+DockerHub Link
+
+`cleanmetadata <https://github.com/AgPipeline/moving-transformer-cleanmetadata>`_
+`bin2tif <https://github.com/AgPipeline/moving-transformer-bin2tif>`_
+`collect_gps <https://github.com/emmanuelgonz/collect_gps>`_
+MEGASTITCH (Zarei, unpublished)
+`replace_gps <https://github.com/emmanuelgonz/edit_gps>`_ 
+`plotclip <https://github.com/emmanuelgonz/plotclip_shp>`_ 
+`stitch_plots <https://github.com/phytooracle/stitch_plots>`_ 
+Plant area extractor (unpublished) 
+
+StereoTopRGB
+^^^^^^^^^^^^
+
+.. list-table::
+   :header-rows: 1
+
+   * - Container
+     - DockerHub Repo
+     - GitHub Link
+   * - cleanmetadata 
+     - :code:`docker://AgPipeline/moving-transformer-cleanmetadata:latest`
+     - https://github.com/AgPipeline/moving-transformer-cleanmetadata
+   * - bin2tif
+     - :code:`docker://AgPipeline/moving-transformer-bin2tif:latest`
+     - https://github.com/AgPipeline/moving-transformer-bin2tif
+   * - collect_gps 
+     - :code:`docker://emmanuelgonz/collect_gps:latest`
+     - https://github.com/emmanuelgonz/collect_gps
+   * - MEGASTITCH (Zarei, unpublished)
+     - unpublished
+     - unpublished
+   * - replace_gps
+     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
+     - https://github.com/emmanuelgonz/edit_gps
+   * - plotclip
+     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
+     - https://github.com/emmanuelgonz/plotclip_shp
+   * - stitch_plots
+     - :code:`docker://phytooracle/stitch_plots:latest`
+     - https://github.com/phytooracle/stitch_plots
+   * - Plant area extractor (unpublished, 2020) 
+     - unpublished
+     - unpublished
+
+FlirIr
+^^^^^^
+
+PSII
+^^^^
+
+Stereop3DTop
+^^^^^^^^^^^^

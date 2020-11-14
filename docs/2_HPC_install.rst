@@ -7,7 +7,7 @@ Overview
 
 This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a High Performance Computer system using interactive nodes (as tested on the University of Arizona's HPC running the PBS Pro and SLURM RJMS - Resource and Job Management System).
 
-The interactive node functions as the "foreman" within the time-saving "foreman-worker" framework. The interactive node distributes the computational load, connecting to the "workers" through its IP address and job management scripts from the PhytoOracle repository. 
+The interactive node functions as the "foreman" within the time-saving "foreman-worker" framework. The interactive node distributes the computational load, connecting to the "workers" through its IP address (or assigned job name) and job management scripts from the PhytoOracle repository. 
 
 Software Requirements
 =====================
@@ -124,18 +124,6 @@ PBS Pro:
    export PATH=${CCTOOLS_HOME}/bin:$PATH
    cd /home/u1/hpcuser/data_output_folder
 
-   #RGB
-   #singularity pull docker://agpipeline/cleanmetadata:2.2
-   #singularity pull docker://agpipeline/bin2tif:2.0
-   #singularity pull docker://zhxu73/gistools:latest
-   #singularity pull docker://emmanuelgonzalez/plotclip_shp:latest
-
-   #FlirIR
-   #singularity pull docker://agpipeline/cleanmetadata:2.2
-   #singularity pull docker://agpipeline/flir2tif:2.2
-   #singularity pull docker://agpipeline/meantemp:3.0
-   #singularity pull docker://agpipeline/bin2tif:2.0
-
    /home/u1/hpcuser/cctools-7.1.5-x86_64-centos7/bin/work_queue_factory -T local <commander_IP_address>.ocelote.hpc.arizona.edu 9123 -w 24 -W 26 --workers-per-cycle 10 --cores=1 -t 900
 
 It is important to note that lines 12, 14, and 27 will have to be personalized, and the commander IP address must be specified in line 27.
@@ -161,13 +149,13 @@ SLURM:
 
 Save your changes and submit with: 
 
-PBS Pro
+PBS Pro:
 
 .. code::
 
    qsub <filename>.pbs
 
-SLURM
+SLURM:
 
 .. code::
 
@@ -175,13 +163,13 @@ SLURM
 
 Depending on the traffic to the HPC system, this may take some time. You can search for your submitted job using:
 
-PBS Pro
+PBS Pro:
 
 .. code:: 
 
    qstat -u username
 
-SLURM
+SLURM:
 
 .. code::
 

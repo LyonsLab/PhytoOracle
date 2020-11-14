@@ -19,11 +19,11 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'PhytoOracle'
-copyright = '2019, UACIC'
-author = 'UACIC'
+copyright = '2020'
+author = 'Emmanuel Gonzalez, Michele Cosi, Ariyan Zarei, Travis Simmons, Holly Ellingson, Zhuoyun Xu, Nirav Merchant, Duke Pauli, Eric Lyons'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '1.0b'
 
 
 # -- General configuration ---------------------------------------------------
