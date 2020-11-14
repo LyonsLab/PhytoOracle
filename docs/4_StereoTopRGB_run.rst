@@ -2,12 +2,12 @@
 Running the StereoTopRGB Pipeline for Detecting Plant Area Data
 ***************************************************************
 
-This pipeline extracts plant area data from image files. This guide provides demo data you can use follow along with and ensure the pipeline is functional.
+This pipeline extracts plant area data from image files. This guide provides demo data you can use follow along with and ensure the pipeline is functional. Before starting, change to :code:`alpha` branch with :code:`git checkout alpha`.
 
 Pipeline Overview
 =================
 
-StereoTopRGB currently uses 4 different programs for the analytical pipeline:
+StereoTopRGB currently uses 8 different programs for the analytical pipeline:
 
 .. list-table::
    :header-rows: 1
@@ -57,7 +57,8 @@ Running the Pipeline
    At this point, we assume that the interactive "manager" and "worker" nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
    If this is not the case, start `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_.
 
-**Retrieve data**
+Retrieve data
+^^^^^^^^^^^^^
 
 Navigate to your RGB directory, download the data from the CyVerse DataStore with iRODS commands and untar:
 
@@ -69,7 +70,8 @@ Navigate to your RGB directory, download the data from the CyVerse DataStore wit
 
 Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar`
 
-**Retrieve correction file**
+Retrieve correction file
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Dowload the coordiate correction :code:`.csv` file:
 
@@ -81,18 +83,37 @@ Dowload the coordiate correction :code:`.csv` file:
    
    The :code:`.csv` file will soon be moved to a shared directory; this will change accordingly.
    
-**Edit scripts**
+Edit scripts
+^^^^^^^^^^^^
 
-+ :code:`process_one_set.sh`
++ :code:`process_one_set.sh`, :code:`process_one_set2.sh`
 
-  Find your current working directory using the command :code:`pwd`
-  Open :code:`process_one_set.sh` and paste the output from :code:`pwd` into line 14. It should look something like this:
+  Find your current working directory using the command :code:`pwd`.
+  Open :code:`process_one_set.sh` and paste the output from :code:`pwd` into line 14 (line 12 in :code:`process_one_set2.sh`). It should look something like this:
 
   .. code:: 
 
-    HPC_PATH="xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
+    HPC_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
+  
+  Set your :code:`.simg` folder path in line 15 (line 13 in :code:`process_one_set2.sh`).
 
-+ :code:`entrypoint.sh`
+  .. code:: 
+
+    SIMG_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/singularity_images/"  
+  
++ :code:`run.sh`
+
+  Open :code:`run.sh` and paste the output from :code:`pwd` into line 7. It should look something like this:
+
+    .. code:: 
+
+      PIPE_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
+    
+    Set your :code:`.simg` folder path in line 8.
+
+    .. code:: 
+
+      SIMG_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/singularity_images/"  
 
   + In line 1, specify the :code:`<scan_date>` folder you want to process. For our purposes this will look like:
 
@@ -100,7 +121,9 @@ Dowload the coordiate correction :code:`.csv` file:
 
       phython3 gen_files_list.py StereoTopRGB_demo > raw_data_files.json
 
-  + In lines 7 and 11, specify the location of CCTools:
++ :code:`entrypoint.sh`, :code:`entrypoint-2.sh`
+
+  In lines 7 and 11, specify the location of CCTools:
 
     .. code:: 
 
@@ -112,13 +135,14 @@ Dowload the coordiate correction :code:`.csv` file:
 
       /home/<u_num>/<username>/cctools-<version>-x86_64-centos7/bin/makeflow
 
-**Run pipeline**
+Run pipeline
+^^^^^^^^^^^^
 
 Begin processing using:
 
 .. code::
 
-  ./entrypoint.sh
+  ./run.sh <folder_to_process>
 
 .. note::
    
