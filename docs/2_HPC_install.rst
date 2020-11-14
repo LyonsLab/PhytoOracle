@@ -5,9 +5,9 @@ Using PhytoOracle on the HPC
 Overview
 ========
 
-This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a High Performance Computer system using interactive nodes (as tested on the University of Arizona's HPC running the PBS Pro RJMS - Resource and Job Management System).
+This guide will walk you through the necessary steps required to launch PhytoOracle's pipelines onto a High Performance Computer system using interactive nodes (as tested on the University of Arizona's HPC running the PBS Pro and SLURM RJMS - Resource and Job Management System).
 
-The interactive node functions as the "manager" within the time-saving "manager-worker" framework. The interactive node distributes the computational load, connecting to the "workers" through its IP address and job management scripts from the PhytoOracle repository. 
+The interactive node functions as the "foreman" within the time-saving "foreman-worker" framework. The interactive node distributes the computational load, connecting to the "workers" through its IP address and job management scripts from the PhytoOracle repository. 
 
 Software Requirements
 =====================
@@ -29,6 +29,12 @@ To launch an interactive node:
    
    qsub -I -N phytooracle -W group_list=<your_group_list> -q <priority> -l select=1:ncpus=<CPU_N>:mem=<RAM_N>gb:np100s=1:os7=True -l walltime=<max_hour_N>:0:0
 
+or
+
+.. code::
+
+   srun --nodes=1 --mem=<RAM_N> --ntasks=1 --cpus-per-task=<CPU_N> --time=<max_hour_N> --job-name=po_mcomp --account=<your_group_list> --partition=<priority> --mpi=pmi2 --pty bash -i
+
 replace :code:`<your_group_list>, <priority>, <CPU_N>, <RAM_N>, <max_hour_N>` with your preferred settings.
 
 An example on the UA HPC is:
@@ -36,6 +42,12 @@ An example on the UA HPC is:
 .. code:: 
    
    qsub -I -N phytooracle -W group_list=lyons_lab -q standard -l select=1:ncpus=28:mem=224gb:np100s=1:os7=True -l walltime=12:0:0
+
+or
+
+.. code::
+
+   srun --nodes=1 --mem=470GB --ntasks=1 --cpus-per-task=94 --time=24:00:00 --job-name=po_mcomp --account=lyons-lab --partition=standard --mpi=pmi2 --pty bash -i
 
 Once the interactive node is running, clone the PhytoOracle repository:
 
@@ -50,7 +62,9 @@ Before proceeding, note the IP address of the interactive node. You can find the
 Launching Workers
 =================
 
-Create an executable script according to your HPC's RJMS system. If using PBS Pro, use your preferred editor to create a :code:`.pbs` script using the following template:
+Create an executable script according to your HPC's RJMS system. If using PBS Pro, use your preferred editor to create a :code:`.pbs` script, if using SLURM create a :code:`.sh` using the following templates:
+
+PBS Pro:
 
 .. code::
 
@@ -66,17 +80,32 @@ Create an executable script according to your HPC's RJMS system. If using PBS Pr
    export CCTOOLS_HOME=/home/<u_num>/<username>/cctools-<version>
    export PATH=${CCTOOLS_HOME}/bin:$PATH
 
-   # This might change according with your RJMS system
-   cd /home/<u_num>/<username>
+   /home/<U_ID>/<USERNAME>/cctools-<version>/bin/resource_monitor -O log-flirIr-makeflow -i 2 -- work_queue_factory -T local <INTERACTIVE_NODE_ADDRESS>.<HPC_SYSTEM> 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
 
-   # Repeat the following line with as many transformers requried
-   singularity pull docker://agpipeline/<transformer>
+SLURM:
 
-   /home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/resource_monitor -O log-flirIr-makeflow -i 2 -- work_queue_factory -T local <INTERACTIVE_NODE_ADDRESS>.<HPC_SYSTEM> 9123 -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
+.. code::
+
+   #!/bin/bash 
+   #SBATCH --account=lyons-lab --partition=standard
+   #SBATCH --job-name="phytooracle"
+   #SBATCH --nodes=1
+   #SBATCH --ntasks=1
+   #SBATCH --ntasks-per-node=94
+   #SBATCH --time=24:00:00
+   #module load singularity
+   module load python/3.8
+
+   export CCTOOLS_HOME=/home/<u_num>/<username>/cctools-<version>
+   export PATH=${CCTOOLS_HOME}/bin:$PATH
+
+   /home/<U_ID>/<USERNAME>/cctools-<version>/bin/work_queue_worker -M PhytoOracle_FLIR -t 900
 
 As before, change the highlighted :code:`<fields>` to preferred settings. 
 
-An example on the UA HPC system, using "u1" as the user number and "hpcuser" as the username, looks like:
+Here are examples on the UA HPC system, using "u1" as the user number and "hpcuser" as the username, looks like:
+
+PBS Pro:
 
 .. code:: 
 
@@ -111,17 +140,52 @@ An example on the UA HPC system, using "u1" as the user number and "hpcuser" as 
 
 It is important to note that lines 12, 14, and 27 will have to be personalized, and the commander IP address must be specified in line 27.
 
+SLURM:
+
+.. code::
+
+   #!/bin/bash 
+   #SBATCH --account=windfall --partition=windfall
+   #SBATCH --job-name="phytooracle"
+   #SBATCH --nodes=1
+   #SBATCH --ntasks=1
+   #SBATCH --ntasks-per-node=94
+   #SBATCH --time=24:00:00
+   #module load singularity
+   module load python/3.8
+
+   export CCTOOLS_HOME=/home/u12/cosi/cctools-7.1.6-x86_64-centos7
+   export PATH=${CCTOOLS_HOME}/bin:$PATH
+
+   /home/u1/hpcuser/cctools-7.1.6-x86_64-centos7/bin/work_queue_worker -M PhytoOracle_FLIR -t 900
+
 Save your changes and submit with: 
+
+PBS Pro
 
 .. code::
 
    qsub <filename>.pbs
 
+SLURM
+
+.. code::
+
+   sbatch <filename.pbs>
+
 Depending on the traffic to the HPC system, this may take some time. You can search for your submitted job using:
+
+PBS Pro
 
 .. code:: 
 
    qstat -u username
+
+SLURM
+
+.. code::
+
+   squeue -u username
 
 **The HPC setup is now complete. Navigate to the pipeline of your choice to continue:**
 

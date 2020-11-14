@@ -27,10 +27,10 @@ Supported Sensors & Pipelines
    * - `FlirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
      - FLIR A615, 45°
      - Infrared images. Measures temperature of plants
-   * - PSII
+   * - `PSII <https://phytooracle.readthedocs.io/en/latest/7_PSII_run.html>`_
      - LemnaTec custom based of an Allied Vision Manta camera
      - Fluorescence images. Measures chlorophyll fluorescence for calculating plant photosynthetic potential.
-   * - StereoTop3D
+   * - `StereoTop3D <https://phytooracle.readthedocs.io/en/latest/8_3D_run.html>`_
      - Custom 3D Fraunhofer
      - Laser scanning images.  Generates a point cloud for measuring physical structure of plants.
    * - Hyperspectral (VNIR/SWIR)
@@ -56,4 +56,4 @@ This project partially built on code initially developed by the `TERRA-REF proje
 Issues and Questions
 ====================
 
-If you have questions, raise an issue on the `GitHub <https://github.com/uacic/PhytoOracle/>`_ page.
+If you have questions, raise an issue on the `GitHub <https://github.com/LyonsLab/PhytoOracle/>`_ page.

@@ -1,6 +1,6 @@
-*****************************************************
-Running the StereoTopRGB Pipeline for Plant Area Data
-*****************************************************
+***************************************************************
+Running the StereoTopRGB Pipeline for Detecting Plant Area Data
+***************************************************************
 
 This pipeline extracts plant area data from image files. This guide provides demo data you can use follow along with and ensure the pipeline is functional.
 
@@ -21,17 +21,33 @@ StereoTopRGB currently uses 4 different programs for the analytical pipeline:
      - :code:`metadata.json`
      - :code:`metadata_cleaned.json`
    * - `bin2tif <https://github.com/AgPipeline/moving-transformer-bin2tif>`_
-     - Converts bin compressed files to tif
-     - :code:`left_image.bin`, :code:`right_image.bin`
-     - :code:`left_image.tif`, :code:`right_image.tif`
-   * - `gistools <https://github.com/uacic/docker-builds/tree/master/gistools>`_
-     - Corrects GPS coordinates
-     - :code:`coordinates_CORRECTED_<date>.csv`
-     - :code:`corrected_coordinates_left_image.tif`, :code:`corrected_coordinates_right_image.tif`
-   * - `plotclip <https://github.com/AgPipeline/transformer-plotclip>`_ 
-     - Clips GeoTIFF or LAS files according to plots
-     - :code:`corrected_coordinates_left_image.tif`, :code:`corrected_coordinates_right_image.tif`
-     - :code:`clipped_left_image.tif`, :code:`clipped_right_image.tif`
+     - Converts bin compressed files to geotiff
+     - :code:`image.bin`
+     - :code:`image.tif`
+   * - `collect_gps <https://github.com/emmanuelgonz/collect_gps>`_
+     - Collects GPS coordinates from all geotiff files
+     - :code:`image.tif`
+     - :code:`collected_coordinates.csv`
+   * - MEGASTITCH (Zarei, unpublished)
+     - Finds best possible coordinates of all geotiffs
+     - :code:`collected_coordinates.csv`
+     - :code:`corrected_coordinates.csv`
+   * - `replace_gps <https://github.com/emmanuelgonz/edit_gps>`_ 
+     - Applies corrected GPS coordinates to images
+     - :code:`corrected_coordinates.csv`, :code:`image.tif`
+     - :code:`corrected_image.tif`
+   * - `plotclip <https://github.com/emmanuelgonz/plotclip_shp>`_ 
+     - Clips geotiffs to the plot
+     - :code:`corrected_image.tif`, :code:`shapefile.geojson`
+     - :code:`plot.tif`
+   * - `stitch_plots <https://github.com/phytooracle/stitch_plots>`_ 
+     - Stitch plots together to form a full field orthomosaic
+     - :code:`plot.tif`
+     - :code:`orthomosaic.tif`
+   * - Plant area extractor (unpublished, 2020) 
+     - Extracts plant area for each single plant
+     - :code:`plot.tif`
+     - ::code:`plant_area.csv`
 
 Running the Pipeline 
 ====================
