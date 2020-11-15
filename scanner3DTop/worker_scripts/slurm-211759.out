@@ -1,0 +1,25 @@
+work_queue_worker: creating workspace /tmp/worker-45035-38845
+2020/10/23 16:10:10.06 work_queue_worker[38845] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Operation timed out
+work_queue_worker: using 96 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+connected to master 10.141.28.146:9123 via local address 10.141.28.90:48668
+2020/10/23 18:29:36.37 work_queue_worker[38845] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Operation timed out
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 18:33:53.23 work_queue_worker[38845] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Operation timed out
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 18:38:12.04 work_queue_worker[38845] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Operation timed out
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 18:42:34.81 work_queue_worker[38845] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Operation timed out
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+Oct 23 18:46:48.613022 38825 slurmstepd   0x2ad43e89c700: error: *** JOB 211759 ON r1u32n2 CANCELLED AT 2020-10-23T18:46:48 ***

@@ -1,0 +1,46 @@
+work_queue_worker: creating workspace /tmp/worker-45035-59455
+2020/10/23 15:26:17.15 work_queue_worker[59455] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+couldn't connect to 150.135.165.68:9123: Operation timed out
+2020/10/23 15:28:26.88 work_queue_worker[59455] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+couldn't connect to 150.135.165.68:9123: Operation timed out
+2020/10/23 15:30:38.49 work_queue_worker[59455] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+couldn't connect to 150.135.165.68:9123: Operation timed out
+2020/10/23 15:32:54.07 work_queue_worker[59455] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+work_queue_worker: using 96 cores, 515861 MB memory, 1295418 MB disk, 0 gpus
+connected to master 10.141.24.146:9123 via local address 10.141.24.168:32920
+2020/10/23 15:39:42.50 work_queue_worker[59455] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:41:52.06 work_queue_worker[59455] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:44:03.69 work_queue_worker[59455] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:46:19.51 work_queue_worker[59455] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:48:43.12 work_queue_worker[59455] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+disconnected from master 10.141.24.146:9123
+connected to master 10.141.24.146:9123 via local address 10.141.24.168:33532
+2020/10/23 18:16:10.68 work_queue_worker[59455] notice: disconnecting from 10.141.24.146:9123 because I did not receive any task in 900 seconds (--idle-timeout).
+2020/10/23 18:16:17.01 work_queue_worker[59455] notice: stopping: could not connect after 900 seconds.
+disconnected from master 10.141.24.146:9123
+work_queue_worker: deleting workspace /tmp/worker-45035-59455

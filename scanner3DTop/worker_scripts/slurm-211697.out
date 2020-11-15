@@ -1,0 +1,31 @@
+work_queue_worker: creating workspace /tmp/worker-45035-19354
+2020/10/23 15:20:10.51 work_queue_worker[19354] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+work_queue_worker: using 96 cores, 515861 MB memory, 1295418 MB disk, 0 gpus
+connected to master 10.141.24.146:9123 via local address 10.141.24.163:59470
+2020/10/23 15:39:42.73 work_queue_worker[19354] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:41:52.56 work_queue_worker[19354] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:44:04.20 work_queue_worker[19354] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:46:20.06 work_queue_worker[19354] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Connection refused
+couldn't connect to 10.141.28.146:9123: Connection refused
+couldn't connect to 10.141.16.146:9123: Connection refused
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 15:48:43.63 work_queue_worker[19354] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+disconnected from master 10.141.24.146:9123
+connected to master 10.141.24.146:9123 via local address 10.141.24.163:60542
+2020/10/23 17:10:23.49 work_queue_worker[19354] notice: disconnecting from 10.141.24.146:9123 because I did not receive any task in 900 seconds (--idle-timeout).
+2020/10/23 17:10:29.87 work_queue_worker[19354] notice: stopping: could not connect after 900 seconds.
+disconnected from master 10.141.24.146:9123
+work_queue_worker: deleting workspace /tmp/worker-45035-19354

@@ -1,0 +1,28 @@
+#!/bin/bash
+#PBS -q windfall
+#PBS -l select=1:ncpus=28:mem=224gb:np100s=1:os7=True
+#PBS -W group_list=ericlyons
+#PBS -l place=pack:shared
+#PBS -l walltime=24:00:00
+#PBS -l cput=672:00:00
+#module load unsupported
+#module load ferng/glibc
+module load singularity
+
+export CCTOOLS_HOME=/home/u12/cosi/cctools-7.1.6-x86_64-centos7
+export PATH=${CCTOOLS_HOME}/bin:$PATH
+#cd /home/u31/emmanuelgonzalez/
+#RGB
+#singularity pull docker://agpipeline/cleanmetadata:2.2
+#singularity pull docker://agpipeline/bin2tif:2.0
+#singularity pull docker://zhxu73/gistools:latest
+#singularity pull docker://agpipeline/plotclip:3.1
+#singularity pull docker://emmanuelgonzalez/plotclip_shp:latest
+
+#3D
+#singularity pull docker://agpipeline/cleanmetadata:2.0
+#singularity pull docker://agpipeline/ply2las:2.1
+#singularity pull docker://agpipeline/plotclip:3.0
+#cd /xdisk/ericlyons/big_data/egonzalez/PhytoOracle/scanner3DTop/
+#/home/u31/emmanuelgonzalez/cctools-7.1.2-x86_64-centos7/bin/work_queue_factory -T local i18n3.ocelote.hpc.arizona.edu 9123 -w 24 -W 26 --workers-per-cycle 10 --cores=1 -t 900
+/home/u12/cosi/cctools-7.1.6-x86_64-centos7/bin/work_queue_factory -T local -M phyto_oracle-atmo -w 24 -W 26 --workers-per-cycle 10 --cores=1 -t 900
