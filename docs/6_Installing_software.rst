@@ -2,13 +2,9 @@
 Obtaining Pipeline Related Containers
 *************************************
 
-All the code used throughout the pipeline is containerized through `Docker <https://www.docker.com/>`_ and hosted on `DockerHub <https://hub.docker.com/>`_.
+All the code used throughout the pipeline is containerized through `Docker <https://www.docker.com/>`_ and hosted on `DockerHub <https://hub.docker.com/>`_. We use `Singularity <https://sylabs.io/docs/>`_ to execute containers on the HPC system.
 
-We use `Singularity <https://sylabs.io/docs/>`_ to execute containers on the HPC system.
-
-Each container is first downloaded and stored in :code:`.simg` format to maximise time efficiency. 
-
-We suggest creating a folder containing all containers in :code:`.simg` format close to your root directory and adding the path to the folder to the :code:`process_one_set.sh` pipeline scripts.
+Each container is first downloaded and stored in :code:`.simg` format to maximise time efficiency. We suggest creating a folder containing all containers in :code:`.simg` format close to your root directory and adding the path to the folder to the :code:`process_one_set.sh` pipeline scripts.
 
 To create a :code:`.simg` file you will require Singularity to be installed and executable, then do:
 
@@ -24,19 +20,6 @@ For Example:
 
 Full list of containers
 =======================
-
-Pipeline
-GitHub Link
-DockerHub Link
-
-`cleanmetadata <https://github.com/AgPipeline/moving-transformer-cleanmetadata>`_
-`bin2tif <https://github.com/AgPipeline/moving-transformer-bin2tif>`_
-`collect_gps <https://github.com/emmanuelgonz/collect_gps>`_
-MEGASTITCH (Zarei, unpublished)
-`replace_gps <https://github.com/emmanuelgonz/edit_gps>`_ 
-`plotclip <https://github.com/emmanuelgonz/plotclip_shp>`_ 
-`stitch_plots <https://github.com/phytooracle/stitch_plots>`_ 
-Plant area extractor (unpublished) 
 
 StereoTopRGB
 ^^^^^^^^^^^^
@@ -74,6 +57,40 @@ StereoTopRGB
 
 FlirIr
 ^^^^^^
+
+.. list-table::
+   :header-rows: 1
+
+   * - Container
+     - DockerHub Repo
+     - GitHub Link
+   * - cleanmetadata 
+     - :code:`docker://AgPipeline/moving-transformer-cleanmetadata:latest`
+     - https://github.com/AgPipeline/moving-transformer-cleanmetadata
+   * - flir2tif
+     - :code:`docker://cosimichele/po_flir2tif_s10:latest`
+     - https://github.com/CosiMichele/Containers/tree/master/po_flir2tif_s10
+   * - collect_gps 
+     - :code:`docker://emmanuelgonz/collect_gps:latest`
+     - https://github.com/emmanuelgonz/collect_gps
+   * - MEGASTITCH (Zarei, unpublished)
+     - unpublished
+     - unpublished
+   * - replace_gps
+     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
+     - https://github.com/emmanuelgonz/edit_gps
+   * - flirfieldplot
+     - :code:`docker://cosimichele/flirfieldplot:latest`
+     - https://github.com/CosiMichele/Containers/tree/master/flirfieldplot
+   * - plotclip_geo
+     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
+     - https://github.com/emmanuelgonz/plotclip_shp
+   * - stitch_plots
+     - :code:`docker://phytooracle/stitch_plots:latest`
+     - https://github.com/phytooracle/stitch_plots
+   * - po_temp_cv2stats 
+     - :code:`docker://cosimichele/po_temp_cv2stats:latest`
+     - https://github.com/CosiMichele/Containers/tree/master/po_meantemp_comb
 
 PSII
 ^^^^

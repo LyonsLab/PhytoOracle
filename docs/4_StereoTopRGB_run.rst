@@ -44,7 +44,7 @@ StereoTopRGB currently uses 8 different programs for the analytical pipeline:
      - Stitch plots together to form a full field orthomosaic
      - :code:`plot.tif`
      - :code:`orthomosaic.tif`
-   * - Plant area extractor (unpublished, 2020) 
+   * - Plant area extractor (unpublished) 
      - Extracts plant area for each single plant
      - :code:`plot.tif`
      - ::code:`plant_area.csv`
@@ -54,7 +54,7 @@ Running the Pipeline
 
 .. note::
    
-   At this point, we assume that the interactive "manager" and "worker" nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
+   At this point, we assume that the interactive "foreman" and "worker" nodes have already been setup and are running, and the pipelines have been cloned from GitHub. 
    If this is not the case, start `here <https://phytooracle.readthedocs.io/en/latest/2_HPC_install.html>`_.
 
 Retrieve data
@@ -103,13 +103,13 @@ Edit scripts
   
 + :code:`run.sh`
 
-  Open :code:`run.sh` and paste the output from :code:`pwd` into line 7. It should look something like this:
+  +Open :code:`run.sh` and paste the output from :code:`pwd` into line 7. It should look something like this:
 
     .. code:: 
 
       PIPE_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
     
-    Set your :code:`.simg` folder path in line 8.
+  +Set your :code:`.simg` folder path in line 8.
 
     .. code:: 
 
