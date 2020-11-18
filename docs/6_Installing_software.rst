@@ -30,9 +30,6 @@ StereoTopRGB
    * - Container
      - DockerHub Repo
      - GitHub Link
-   * - cleanmetadata 
-     - :code:`docker://AgPipeline/moving-transformer-cleanmetadata:latest`
-     - https://github.com/AgPipeline/moving-transformer-cleanmetadata
    * - bin2tif
      - :code:`docker://AgPipeline/moving-transformer-bin2tif:latest`
      - https://github.com/AgPipeline/moving-transformer-bin2tif
@@ -64,9 +61,6 @@ FlirIr
    * - Container
      - DockerHub Repo
      - GitHub Link
-   * - cleanmetadata 
-     - :code:`docker://AgPipeline/moving-transformer-cleanmetadata:latest`
-     - https://github.com/AgPipeline/moving-transformer-cleanmetadata
    * - flir2tif
      - :code:`docker://cosimichele/po_flir2tif_s10:latest`
      - https://github.com/CosiMichele/Containers/tree/master/po_flir2tif_s10

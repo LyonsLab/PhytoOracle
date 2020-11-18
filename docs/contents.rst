@@ -11,6 +11,7 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
    :caption: Requirements & Set Ups
 
    2_HPC_install
+   6_Installing_software
 
 .. toctree::
    :caption: User Guides
@@ -19,4 +20,4 @@ PhytoOracle is a scalable, modular data pipeline for phenomics research. It uses
    5_FlirIr_run
    7_PSII_run
    8_3D_run
-   6_Installing_software
+

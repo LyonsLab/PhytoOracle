@@ -7,7 +7,7 @@ This pipeline extracts temperature data from image files. This guide provides de
 Pipeline Overview
 =================
 
-FlirIr currently uses 9 different programs for data conversion:
+FlirIr currently uses 8 different programs for data conversion:
 
 .. list-table::
    :header-rows: 1
@@ -16,15 +16,11 @@ FlirIr currently uses 9 different programs for data conversion:
      - Function
      - Input
      - Output
-   * - `cleanmetadata <https://github.com/AgPipeline/moving-transformer-cleanmetadata>`_
-     - Cleans gantry generated metadata
-     - :code:`metadata.json`
-     - :code:`metadata_cleaned.json`
-   * - `flir2tif <https://github.com/CosiMichele/Containers/tree/master/po_flir2tif_s10>`_
+   * - `flir2tif <https://github.com/phytooracle/flir_bin_to_tif_s10>`_
      - Temperature calibrated transformer that converts bin compressed files to tif 
-     - :code:`image.bin`
+     - :code:`image.bin`, :code:`metadata.json`
      - :code:`image.tif`
-   * - `collect_gps <https://github.com/emmanuelgonz/collect_gps>`_
+   * - `collect_gps <https://github.com/phytooracle/rgb_flir_collect_gps>`_
      - Collects GPS coordinates from all geotiff files
      - :code:`image.tif`
      - :code:`collected_coordinates.csv`
@@ -32,23 +28,23 @@ FlirIr currently uses 9 different programs for data conversion:
      - Finds best possible coordinates of all geotiffs
      - :code:`collected_coordinates.csv`
      - :code:`corrected_coordinates.csv`
-   * - `replace_gps <https://github.com/emmanuelgonz/edit_gps>`_ 
+   * - `replace_gps <https://github.com/phytooracle/rgb_flir_edit_gps>`_ 
      - Applies corrected GPS coordinates to images
      - :code:`corrected_coordinates.csv`, :code:`image.tif`
      - :code:`corrected_image.tif`
-   * - `flirfieldplot <https://github.com/CosiMichele/Containers/tree/master/flirfieldplot>`_
+   * - `flir_field_stitch <https://github.com/phytooracle/flir_field_stitch>`_
      - GDAL based transformer that combines all immages into a single orthomosaic
      - Directory of all converted :code:`image.tif`
      - :code:`ortho.tif`
-   * - `plotclip_geo <https://github.com/emmanuelgonz/plotclip_shp>`_
+   * - `plotclip_geo <https://github.com/phytooracle/rgb_flir_plot_clip_geojson>`_
      - Clips plots from orthomosaic
      - :code:`coordinatefile.geojson`, :code:`ortho.tif`
      - :code:`clipped_plots.tif`
-   * - `stitch_plots <https://github.com/emmanuelgonz/stitch_plots>`_
+   * - `stitch_plots <https://github.com/phytooracle/stitch_plots>`_
      - Renames and stitches plots
      - Directory of all :code:`clipped_plots.tif`
      - :code:`stitched_plots.tif`
-   * - `po_temp_cv2stats <https://github.com/CosiMichele/Containers/tree/master/po_meantemp_comb>`_ 
+   * - `flir_meantemp <https://github.com/phytooracle/flir_meantemp>`_ 
      - Extracts temperature using from detected biomass
      - :code:`coordinatefile.geojson`, Directory of all :code:`stitched_plots.tif`
      - :code:`meantemp.csv`
@@ -98,7 +94,7 @@ Edit scripts
 
     .. code:: 
 
-      PIPE_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/StereoTopRGB/"
+      PIPE_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/FlirIr/"
 
   + Set your :code:`.simg` folder path in line 8.
 

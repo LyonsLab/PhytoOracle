@@ -7,7 +7,7 @@ This pipeline extracts plant area data from image files. This guide provides dem
 Pipeline Overview
 =================
 
-StereoTopRGB currently uses 8 different programs for the analytical pipeline:
+StereoTopRGB currently uses 9 different programs for the analytical pipeline:
 
 .. list-table::
    :header-rows: 1
@@ -16,19 +16,15 @@ StereoTopRGB currently uses 8 different programs for the analytical pipeline:
      - Function
      - Input
      - Output
-   * - `cleanmetadata <https://github.com/AgPipeline/moving-transformer-cleanmetadata>`_
-     - Cleans gantry generated metadata
-     - :code:`metadata.json`
-     - :code:`metadata_cleaned.json`
    * - `bin2tif <https://github.com/AgPipeline/moving-transformer-bin2tif>`_
      - Converts bin compressed files to geotiff
-     - :code:`image.bin`
+     - :code:`image.bin`, :code:`metadata.json`
      - :code:`image.tif`
    * - `collect_gps <https://github.com/emmanuelgonz/collect_gps>`_
      - Collects GPS coordinates from all geotiff files
      - :code:`image.tif`
      - :code:`collected_coordinates.csv`
-   * - MEGASTITCH (Zarei, unpublished)
+   * - Orthomosaicing (Zarei, unpublished)
      - Finds best possible coordinates of all geotiffs
      - :code:`collected_coordinates.csv`
      - :code:`corrected_coordinates.csv`
@@ -44,10 +40,15 @@ StereoTopRGB currently uses 8 different programs for the analytical pipeline:
      - Stitch plots together to form a full field orthomosaic
      - :code:`plot.tif`
      - :code:`orthomosaic.tif`
-   * - Plant area extractor (unpublished) 
-     - Extracts plant area for each single plant
-     - :code:`plot.tif`
-     - ::code:`plant_area.csv`
+   * - `Plant detection <https://github.com/phytooracle/rgb_flir_plant_detection>`_
+     - Detects plants over days
+     - :code:`orthomosaic.tif`
+     - ::code:`genotype.csv`
+   * - `Plant clustering <https://github.com/phytooracle/rgb_flir_plant_clustering>`_
+     - Tracks plants over days
+     - :code:`genotype.csv`
+     - ::code:`pointmatching.csv`
+
 
 Running the Pipeline 
 ====================
@@ -114,12 +115,6 @@ Edit scripts
     .. code:: 
 
       SIMG_PATH="/xdisk/group_folder/personal_folder/PhytoOracle/singularity_images/"  
-
-  + In line 1, specify the :code:`<scan_date>` folder you want to process. For our purposes this will look like:
-
-    .. code:: 
-
-      phython3 gen_files_list.py StereoTopRGB_demo > raw_data_files.json
 
 + :code:`entrypoint.sh`, :code:`entrypoint-2.sh`
 
