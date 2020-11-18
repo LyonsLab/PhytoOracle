@@ -31,26 +31,27 @@ StereoTopRGB
      - DockerHub Repo
      - GitHub Link
    * - bin2tif
-     - :code:`docker://AgPipeline/moving-transformer-bin2tif:latest`
-     - https://github.com/AgPipeline/moving-transformer-bin2tif
+     - :code:`docker://phytooracle/rgb_bin_to_tif:latest`
+     - https://github.com/phytooracle/rgb_bin_to_tif
    * - collect_gps 
-     - :code:`docker://emmanuelgonz/collect_gps:latest`
-     - https://github.com/emmanuelgonz/collect_gps
-   * - MEGASTITCH (Zarei, unpublished)
+     - :code:`docker://phytooracle/rgb_flir_collect_gps:latest`
+     - https://github.com/phytooracle/rgb_flir_collect_gps
+   * - Orthomosaicing (Zarei, unpublished)
      - unpublished
      - unpublished
    * - replace_gps
-     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
-     - https://github.com/emmanuelgonz/edit_gps
+     - :code:`docker://phytooracle/rgb_flir_edit_gps:latest`
+     - https://github.com/phytooracle/rgb_flir_edit_gps
    * - plotclip
-     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
-     - https://github.com/emmanuelgonz/plotclip_shp
-   * - stitch_plots
-     - :code:`docker://phytooracle/stitch_plots:latest`
-     - https://github.com/phytooracle/stitch_plots
-   * - Plant area extractor (unpublished, 2020) 
-     - unpublished
-     - unpublished
+     - :code:`docker://phytooracle/rgb_flir_plot_clip_geojson:latest`
+     - https://github.com/phytooracle/rgb_flir_plot_clip_geojson
+   * - Plant detection
+     - :code:`docker://phytooracle/rgb_flir_plant_detection`
+     - https://github.com/phytooracle/rgb_flir_plant_detection
+   * - Plant clustering
+     - :code:`docker://phytooracle/rgb_flir_plant_clustering:latest`
+     - https://github.com/phytooracle/rgb_flir_plant_clustering
+
 
 FlirIr
 ^^^^^^
@@ -62,32 +63,64 @@ FlirIr
      - DockerHub Repo
      - GitHub Link
    * - flir2tif
-     - :code:`docker://cosimichele/po_flir2tif_s10:latest`
-     - https://github.com/CosiMichele/Containers/tree/master/po_flir2tif_s10
+     - :code:`docker://phytooracle/flir_bin_to_tif_s10:latest`
+     - https://github.com/phytooracle/flir_bin_to_tif_s10
    * - collect_gps 
-     - :code:`docker://emmanuelgonz/collect_gps:latest`
-     - https://github.com/emmanuelgonz/collect_gps
-   * - MEGASTITCH (Zarei, unpublished)
+     - :code:`docker://phytooracle/rgb_flir_collect_gps:latest`
+     - https://github.com/phytooracle/rgb_flir_collect_gps
+   * - Orthomosaicing (Zarei, unpublished)
      - unpublished
      - unpublished
    * - replace_gps
-     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
-     - https://github.com/emmanuelgonz/edit_gps
-   * - flirfieldplot
-     - :code:`docker://cosimichele/flirfieldplot:latest`
-     - https://github.com/CosiMichele/Containers/tree/master/flirfieldplot
-   * - plotclip_geo
-     - :code:`docker://emmanuelgonz/plotclip_shp:latest`
-     - https://github.com/emmanuelgonz/plotclip_shp
-   * - stitch_plots
-     - :code:`docker://phytooracle/stitch_plots:latest`
-     - https://github.com/phytooracle/stitch_plots
-   * - po_temp_cv2stats 
-     - :code:`docker://cosimichele/po_temp_cv2stats:latest`
-     - https://github.com/CosiMichele/Containers/tree/master/po_meantemp_comb
+     - :code:`docker://phytooracle/rgb_flir_edit_gps:latest`
+     - https://github.com/phytooracle/rgb_flir_edit_gps
+   * - flir_field_stitch
+     - :code:`docker://phytooracle/flir_field_stitch:latest`
+     - https://github.com/phytooracle/flir_field_stitch
+   * - plotclip
+     - :code:`docker://phytooracle/rgb_flir_plot_clip_geojson:latest`
+     - https://github.com/phytooracle/rgb_flir_plot_clip_geojson
+   * - flir_meantemp 
+     - :code:`docker://phytooracle/flir_meantemp:latest`
+     - https://github.com/phytooracle/flir_meantemp
 
 PSII
 ^^^^
 
+.. list-table::
+   :header-rows: 1
+
+   * - Container
+     - DockerHub Repo
+     - GitHub Link
+   * - cleanmetadata
+     - :code:`docker://AgPipeline/moving-transformer-cleanmetadata:latest`
+     - https://github.com/AgPipeline/moving-transformer-cleanmetadata
+   * - bin2tif 
+     - :code:`docker://phytooracle/psii_bin_to_tif:latest`
+     - https://github.com/phytooracle/psii_bin_to_tif
+   * - resizetif
+     - :code:`docker://phytooracle/psii_resize_tif:latest`
+     - https://github.com/phytooracle/psii_resize_tif
+   * - flir_field_stitch
+     - :code:`docker://phytooracle/flir_field_stitch:latest`
+     - https://github.com/phytooracle/flir_field_stitch
+   * - plotclip
+     - :code:`docker://phytooracle/rgb_flir_plot_clip_geojson:latest`
+     - https://github.com/phytooracle/rgb_flir_plot_clip_geojson
+   * - psii_segmentation
+     - :code:`docker://phytooracle/psii_segmentation:latest`
+     - https://github.com/phytooracle/psii_segmentation
+   * - psii_fluorescence_aggregation
+     - :code:`docker://phytooracle/psii_fluorescence_aggregation:latest`
+     - https://github.com/phytooracle/psii_fluorescence_aggregation
+
 Stereop3DTop
 ^^^^^^^^^^^^
+
+   * - Container
+     - DockerHub Repo
+     - GitHub Link
+   * - 3D MergePly
+     - :code:`docker://phytooracle/3d_merge_ply:latest`
+     - https://github.com/phytooracle/3d_merge_ply

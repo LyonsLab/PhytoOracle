@@ -7,7 +7,7 @@ This pipeline extracts plant area data from image files. This guide provides dem
 Pipeline Overview
 =================
 
-StereoTopRGB currently uses 9 different programs for the analytical pipeline:
+StereoTopRGB currently uses 7 different programs for the analytical pipeline:
 
 .. list-table::
    :header-rows: 1
@@ -16,11 +16,11 @@ StereoTopRGB currently uses 9 different programs for the analytical pipeline:
      - Function
      - Input
      - Output
-   * - `bin2tif <https://github.com/AgPipeline/moving-transformer-bin2tif>`_
+   * - `bin2tif <https://github.com/phytooracle/rgb_bin_to_tif>`_
      - Converts bin compressed files to geotiff
      - :code:`image.bin`, :code:`metadata.json`
      - :code:`image.tif`
-   * - `collect_gps <https://github.com/emmanuelgonz/collect_gps>`_
+   * - `collect_gps <https://github.com/phytooracle/rgb_flir_collect_gps>`_
      - Collects GPS coordinates from all geotiff files
      - :code:`image.tif`
      - :code:`collected_coordinates.csv`
@@ -28,21 +28,17 @@ StereoTopRGB currently uses 9 different programs for the analytical pipeline:
      - Finds best possible coordinates of all geotiffs
      - :code:`collected_coordinates.csv`
      - :code:`corrected_coordinates.csv`
-   * - `replace_gps <https://github.com/emmanuelgonz/edit_gps>`_ 
+   * - `replace_gps <https://github.com/phytooracle/rgb_flir_edit_gps>`_ 
      - Applies corrected GPS coordinates to images
      - :code:`corrected_coordinates.csv`, :code:`image.tif`
      - :code:`corrected_image.tif`
-   * - `plotclip <https://github.com/emmanuelgonz/plotclip_shp>`_ 
+   * - `plotclip <https://github.com/phytooracle/rgb_flir_plot_clip_geojson>`_ 
      - Clips geotiffs to the plot
      - :code:`corrected_image.tif`, :code:`shapefile.geojson`
      - :code:`plot.tif`
-   * - `stitch_plots <https://github.com/phytooracle/stitch_plots>`_ 
-     - Stitch plots together to form a full field orthomosaic
-     - :code:`plot.tif`
-     - :code:`orthomosaic.tif`
    * - `Plant detection <https://github.com/phytooracle/rgb_flir_plant_detection>`_
      - Detects plants over days
-     - :code:`orthomosaic.tif`
+     - :code:`plot.tif`
      - ::code:`genotype.csv`
    * - `Plant clustering <https://github.com/phytooracle/rgb_flir_plant_clustering>`_
      - Tracks plants over days

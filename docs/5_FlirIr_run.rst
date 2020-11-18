@@ -7,7 +7,7 @@ This pipeline extracts temperature data from image files. This guide provides de
 Pipeline Overview
 =================
 
-FlirIr currently uses 8 different programs for data conversion:
+FlirIr currently uses 7 different programs for data conversion:
 
 .. list-table::
    :header-rows: 1
@@ -24,7 +24,7 @@ FlirIr currently uses 8 different programs for data conversion:
      - Collects GPS coordinates from all geotiff files
      - :code:`image.tif`
      - :code:`collected_coordinates.csv`
-   * - MEGASTITCH (Zarei, unpublished)
+   * - Orthomosaicing (Zarei, unpublished)
      - Finds best possible coordinates of all geotiffs
      - :code:`collected_coordinates.csv`
      - :code:`corrected_coordinates.csv`
@@ -40,13 +40,9 @@ FlirIr currently uses 8 different programs for data conversion:
      - Clips plots from orthomosaic
      - :code:`coordinatefile.geojson`, :code:`ortho.tif`
      - :code:`clipped_plots.tif`
-   * - `stitch_plots <https://github.com/phytooracle/stitch_plots>`_
-     - Renames and stitches plots
-     - Directory of all :code:`clipped_plots.tif`
-     - :code:`stitched_plots.tif`
    * - `flir_meantemp <https://github.com/phytooracle/flir_meantemp>`_ 
      - Extracts temperature using from detected biomass
-     - :code:`coordinatefile.geojson`, Directory of all :code:`stitched_plots.tif`
+     - :code:`coordinatefile.geojson`, Directory of all :code:`clipped_plots.tif`
      - :code:`meantemp.csv`
 
 Running the Pipeline 
