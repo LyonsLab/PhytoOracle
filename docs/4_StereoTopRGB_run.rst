@@ -24,7 +24,7 @@ StereoTopRGB currently uses 7 different programs for the analytical pipeline:
      - Collects GPS coordinates from all geotiff files
      - :code:`image.tif`
      - :code:`collected_coordinates.csv`
-   * - Orthomosaicing (Zarei, unpublished)
+   * - `Orthomosaicing <https://github.com/ariyanzri/Lettuce_Image_Stitching>`_
      - Finds best possible coordinates of all geotiffs
      - :code:`collected_coordinates.csv`
      - :code:`corrected_coordinates.csv`
