@@ -24,7 +24,7 @@ FlirIr currently uses 7 different programs for data conversion:
      - Collects GPS coordinates from all geotiff files
      - :code:`image.tif`
      - :code:`collected_coordinates.csv`
-   * - Orthomosaicing (Zarei, unpublished)
+   * - `Orthomosaicing <https://github.com/ariyanzri/Lettuce_Image_Stitching>`_
      - Finds best possible coordinates of all geotiffs
      - :code:`collected_coordinates.csv`
      - :code:`corrected_coordinates.csv`
@@ -36,7 +36,7 @@ FlirIr currently uses 7 different programs for data conversion:
      - GDAL based transformer that combines all immages into a single orthomosaic
      - Directory of all converted :code:`image.tif`
      - :code:`ortho.tif`
-   * - `plotclip_geo <https://github.com/phytooracle/rgb_flir_plot_clip_geojson>`_
+   * - `plotclip <https://github.com/phytooracle/rgb_flir_plot_clip_geojson>`_
      - Clips plots from orthomosaic
      - :code:`coordinatefile.geojson`, :code:`ortho.tif`
      - :code:`clipped_plots.tif`
