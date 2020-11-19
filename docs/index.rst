@@ -58,15 +58,15 @@ Issues and Questions
 
 If you have questions, raise an issue on the `GitHub <https://github.com/LyonsLab/PhytoOracle/>`_ page.
 
-For specific workflows and adapting a pipeline for your own work contact:
+**For specific workflows and adapting a pipeline for your own work contact:**
 
 * Emmanuel Gonzalez: emmanuelgonzalez [at] email.arizona.edu
 * Michele Cosi: cosi [at] email.arizona.edu
 
-For plant detection and plant clustering:
+**For plant detection and plant clustering:**
 
 * Travis Simmons: travis.simmons [at] ccga.edu 
 
-For the orthomosaicing algorithm:
+**For the orthomosaicing algorithm:**
 
 * Ariyan Zarei: ariyanzarei [at] email.arizona.edu 
