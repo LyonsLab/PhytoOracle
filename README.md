@@ -6,15 +6,20 @@ PhytoOracle uses a master-worker framework for distributed computing (HPC, Cloud
 
 ## Documentation
 
-See detailed documentation [here](https://phytooracle.readthedocs.io) for instruction manuals.
+See detailed documentation [here](https://phytooracle.readthedocs.io) for instruction manuals. 
 
-## Supported Sensors
+## Supported Sensors and Pipelines
 
 + [StereoTopRGB](https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html)
 + [FlirIr](https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html)
-+ PSII
-+ StereoTop3D
++ [PSII](https://phytooracle.readthedocs.io/en/latest/7_PSII_run.html)
++ [StereoTop3D](https://phytooracle.readthedocs.io/en/latest/8_3D_run.html)
 + Hyperspectral (VNIR/SWIR)
+
+## Resources
+
++ [Code availability (GitHub)](https://github.com/phytooracle)
++ [Containers repository (DockerHub)](https://hub.docker.com/u/phytooracle)
 
 **For more information on types and description of each camera used, access the documentation above.**
 
@@ -24,7 +29,21 @@ PhytoOracle is licensed under the **MIT License**.
 
 ## Issues and Questions
 
-Need help? Found a bug? Raise an issue on our github page [here](https://github.com/uacic/PhytoOracle/issues).
+Need help? Found a bug? Raise an issue on our github page [here](https://github.com/LyonsLab/PhytoOracle/issues).
+
+**For specific workflows and adapting a pipeline for your own work contact:**
+
++ Emmanuel Gonzalez: emmanuelgonzalez [at] email.arizona.edu
+
++ Michele Cosi: cosi [at] email.arizona.edu
+
+**For plant detection and plant clustering:**
+
++ Travis Simmons: travis.simmons [at] ccga.edu
+
+**For the orthomosaicing algorithm:**
+
++ Ariyan Zarei: ariyanzarei [at] email.arizona.edu
 
 ## Acknowledgements
 
