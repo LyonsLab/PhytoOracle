@@ -16,12 +16,12 @@ See detailed documentation [here](https://phytooracle.readthedocs.io) for instru
 + [StereoTop3D](https://phytooracle.readthedocs.io/en/latest/8_3D_run.html)
 + Hyperspectral (VNIR/SWIR)
 
+**For more information on types and description of each camera used, access the documentation above.**
+
 ## Resources
 
 + [Code availability (GitHub)](https://github.com/phytooracle)
 + [Containers repository (DockerHub)](https://hub.docker.com/u/phytooracle)
-
-**For more information on types and description of each camera used, access the documentation above.**
 
 ## License 
 
