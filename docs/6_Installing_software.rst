@@ -36,9 +36,9 @@ StereoTopRGB
    * - collect_gps 
      - :code:`docker://phytooracle/rgb_flir_collect_gps:latest`
      - https://github.com/phytooracle/rgb_flir_collect_gps
-   * - Orthomosaicing (Zarei, unpublished)
-     - unpublished
-     - unpublished
+   * - Orthomosaicing
+     - -
+     - https://github.com/ariyanzri/Lettuce_Image_Stitching
    * - replace_gps
      - :code:`docker://phytooracle/rgb_flir_edit_gps:latest`
      - https://github.com/phytooracle/rgb_flir_edit_gps
@@ -68,9 +68,9 @@ FlirIr
    * - collect_gps 
      - :code:`docker://phytooracle/rgb_flir_collect_gps:latest`
      - https://github.com/phytooracle/rgb_flir_collect_gps
-   * - Orthomosaicing (Zarei, unpublished)
-     - unpublished
-     - unpublished
+   * - Orthomosaicing
+     - -
+     - https://github.com/ariyanzri/Lettuce_Image_Stitching
    * - replace_gps
      - :code:`docker://phytooracle/rgb_flir_edit_gps:latest`
      - https://github.com/phytooracle/rgb_flir_edit_gps
