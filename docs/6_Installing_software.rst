@@ -118,6 +118,9 @@ PSII
 Stereop3DTop
 ^^^^^^^^^^^^
 
+.. list-table::
+   :header-rows: 1
+
    * - Container
      - DockerHub Repo
      - GitHub Link
