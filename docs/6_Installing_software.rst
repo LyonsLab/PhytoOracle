@@ -115,7 +115,7 @@ PSII
      - :code:`docker://phytooracle/psii_fluorescence_aggregation:latest`
      - https://github.com/phytooracle/psii_fluorescence_aggregation
 
-Stereop3DTop
+Scanner3DTop
 ^^^^^^^^^^^^
 
 .. list-table::
