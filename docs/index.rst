@@ -30,7 +30,7 @@ Supported Sensors & Pipelines
    * - `PSII <https://phytooracle.readthedocs.io/en/latest/7_PSII_run.html>`_
      - LemnaTec custom based of an Allied Vision Manta camera
      - Fluorescence images. Measures chlorophyll fluorescence for calculating plant photosynthetic potential.
-   * - `StereoTop3D <https://phytooracle.readthedocs.io/en/latest/8_3D_run.html>`_
+   * - `Scanner3DTop <https://phytooracle.readthedocs.io/en/latest/8_3D_run.html>`_
      - Custom 3D Fraunhofer
      - Laser scanning images.  Generates a point cloud for measuring physical structure of plants.
    * - Hyperspectral (VNIR/SWIR)
