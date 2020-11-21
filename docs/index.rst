@@ -53,7 +53,7 @@ All of the pipelines follow the same structure that allows for accessiblility, s
 Acknowledgements
 ================
 
-This project partially built on code initially developed by the `TERRA-REF project <https://www.terraref.org/>`_ and `Ag-Pipeline <https://github.com/AgPipeline/>`_ team. We thank the University of Arizona Advanced Cyberinfrastrcture Concept class of 2019 for additional work.
+This project partially built on code initially developed by the `TERRA-REF project <https://www.terraref.org/>`_ and `Ag-Pipeline <https://github.com/AgPipeline/>`_ team. We thank the University of Arizona Advanced Cyberinfrastrcture Concept class of 2019 for additional work. Logo credit: Christian Gonzalez.
 
 Issues and Questions
 ====================
@@ -75,3 +75,4 @@ If you have questions, raise an issue on the `GitHub <https://github.com/LyonsLa
 
 .. |PhytoOracle_logo| image:: ../pics/PhytoOracle_logo.PNG
     :width: 50
+.. _PhytoOracle_logo:
