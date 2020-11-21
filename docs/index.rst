@@ -74,5 +74,5 @@ If you have questions, raise an issue on the `GitHub <https://github.com/LyonsLa
 * Ariyan Zarei: ariyanzarei [at] email.arizona.edu 
 
 .. |PhytoOracle_logo| image:: ../pics/PhytoOracle_logo.PNG
-    :width: 50
+    :width: 250
 .. _PhytoOracle_logo:
