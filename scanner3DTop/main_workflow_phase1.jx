@@ -3,15 +3,10 @@
     "BETYDB_URL": "http://128.196.65.186:8000/bety/",
     "BETYDB_KEY": "wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD",
 
-    # Pass down by the main_workflow
-    #"LEVEL_0_PATH": "small_test_set/PNG/2017-06-21__00-00-26-364/",
-    #"LEVEL_1_PATH": "small_test_set/PLY/2017-06-21__00-00-26-364/",
-    #"UUID": "b5246694-65d8-44b9-a99c-3d010c92ec64",
-
-    "CLEANED_META_DIR": "cleanmetadata_out/",
-    "LAS_DIR": "las_out/",
-    "PLOTCLIP_DIR": "plotclip_out/",
-    "CANOPY_HEIGHT_DIR": "canopy_height_out/",
+    "MERGE_OUT": "icp_registration_out/",
+    "GEO_REF_OUT": "rotation_registration_out/",
+    "GEO_COR_OUT": "geocorrect_out/",
+    "SCALE_ROT_OUT": "scale_rotate_out/",
 
     #"METADATA": "RAW_DATA_PATH" + "UUID" + "_metadata.json",
     #"METADATA_CLEANED": "CLEANED_META_DIR" + "UUID" + "_metadata_cleaned.json",
@@ -33,13 +28,18 @@
       "inputs": [
         "process_bundle.py",
         "process_one_set.sh",
-        "bundle/bundle_" + BUNDLE["ID"] + ".json",
-        "cached_betydb/bety_experiments.json"
+        "bundle/bundle_" + BUNDLE["ID"] + ".json"
+        #"cached_betydb/bety_experiments.json"
       ],
       "outputs":
-      [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
-
-    } for BUNDLE in BUNDLE_LIST,
-  ]
+      #[ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      [ MERGE_OUT + DATA_SET["UUID"] + "_icp_merge.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ SCALE_ROT_OUT + DATA_SET["UUID"] + "_icp_merge_scaled.ply" for DATA_SET in BUNDLE["DATA_SETS"]]
+      + [ GEO_REF_OUT + DATA_SET["UUID"] + "_icp_merge_registered.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected_full.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ LAS_DIR + DATA_SET["UUID"] + "__Top-heading-east_0.las" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ LAS_DIR + DATA_SET["UUID"] + "__Top-heading-west_0.las" for DATA_SET in BUNDLE["DATA_SETS"] 
+     } for BUNDLE in BUNDLE_LIST,
+    ]
 }
