@@ -62,7 +62,7 @@ sbatch worker_scripts/po_work_puma.sh
 
 5. Download input data:
 ```
-iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTop/stereoTop-<day>.tar
+iget -N 0 -KVPT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTop/stereoTop-<day>.tar
 ```
 
 Replace `<day>` with any day you want to process. Un-tar and move the folder to the FlirIr directory.
