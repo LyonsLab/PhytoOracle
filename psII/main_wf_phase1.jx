@@ -1,0 +1,53 @@
+{
+  "define": {
+    "BETYDB_URL": "http://128.196.65.186:8000/bety/",
+    "BETYDB_KEY": "wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD",
+    #"XDG_RUNTIME_DIR": "/home/u31/emmanuelgonzalez",
+
+    # Pass down by the main_workflow
+    #"LEVEL_0_PATH": "small_test_set/PNG/2017-06-21__00-00-26-364/",
+    #"LEVEL_1_PATH": "small_test_set/PLY/2017-06-21__00-00-26-364/",
+    #"UUID": "b5246694-65d8-44b9-a99c-3d010c92ec64",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "TIFS_DIR": "bin2tif_out/",
+    "RESIZE_DIR": "tifresize_out/",
+    #"PLOTCLIP_DIR": "plotclip_out/",
+    
+    #"METADATA": "RAW_DATA_PATH" + "UUID" + "_metadata.json",
+    #"METADATA_CLEANED": "CLEANED_META_DIR" + "UUID" + "_metadata_cleaned.json",
+    #"EAST_PLY": "RAW_DATA_PATH" + "UUID" + "__Top-heading-east_0.ply",
+    #"WEST_PLY": "RAW_DATA_PATH" + "UUID" + "__Top-heading-west_0.ply",
+    #"EAST_LAS": "LAS_DIR" + "UUID" + "__Top-heading-east_0.las",
+    #"WEST_LAS": "LAS_DIR" + "UUID" + "__Top-heading-west_0.las",
+
+    #"DATA_BASE_URL": "128.196.142.42/"
+    #"RANGE": range(0,9),
+  },
+  "rules": [
+
+    {
+      "command": "python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        #"DATA_BASE_URL": "DATA_BASE_URL",
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      ],
+      "outputs":
+      #[ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      [ TIFS_DIR + DATA_SET["UUID"] + "_rawData000" + N + ".tif" for N in range(0,10) for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ TIFS_DIR + DATA_SET["UUID"] + "_rawData00" + N + ".tif" for N in range(10,100) for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ TIFS_DIR + DATA_SET["UUID"] + "_rawData0100.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ RESIZE_DIR + DATA_SET["UUID"] + "_rawData000" + N + "_resized.tif" for N in range(0,10) for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ RESIZE_DIR + DATA_SET["UUID"] + "_rawData00" + N + "_resized.tif" for N in range(10,100) for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ RESIZE_DIR + DATA_SET["UUID"] + "_rawData0100_resized.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DATA_SET["UUID"] + "_segmentation.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+
+    } for BUNDLE in BUNDLE_LIST,
+  ]
+}
