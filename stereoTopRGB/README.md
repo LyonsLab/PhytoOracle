@@ -29,6 +29,11 @@ wget http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz
 tar -xvf cctools-7.1.6-x86_64-centos7.tar.gz
 ```        
 
+2. Clone the image stitching repo within your HPC home path: 
+```
+git clone https://github.com/ariyanzri/Lettuce_Image_Stitching.git
+```
+
 2. Clone this repository within your HPCs storage space such as /xdisk:
 ```
 git clone https://github.com/LyonsLab/PhytoOracle.git
