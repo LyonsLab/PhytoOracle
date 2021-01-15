@@ -86,9 +86,9 @@ mv stereoTop/<day> .
 
 #### Running on the Cloud with HPC support
 
-Although very similar to the steps above,  to run PhytoOracle on the Cloud with HPC support, there are a few extra steps  you have to carry out for data staging before starting the pipeline with `./entrypoint.sh`.
+Although very similar to the steps above,  to run PhytoOracle on the Cloud with HPC support, there are a few extra steps  you have to carry out for data staging before starting the pipeline.
 
-Using your favouring editing tool do
+Using your editor
 
 ```bash
 /etc/nginx/sites-available/phyto_oracle.conf
