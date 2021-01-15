@@ -1,0 +1,9 @@
+work_queue_worker: creating workspace /tmp/worker-45035-74132
+2020/10/23 18:03:01.68 work_queue_worker[74132] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+couldn't connect to 10.141.24.146:9123: Operation timed out
+2020/10/23 18:20:09.96 work_queue_worker[74132] notice: disconnecting from 10.141.28.146:9123 because I did not receive any task in 900 seconds (--idle-timeout).
+2020/10/23 18:20:16.32 work_queue_worker[74132] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 96 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+connected to master 10.141.28.146:9123 via local address 10.141.28.83:36470
+disconnected from master 10.141.28.146:9123
+work_queue_worker: deleting workspace /tmp/worker-45035-74132

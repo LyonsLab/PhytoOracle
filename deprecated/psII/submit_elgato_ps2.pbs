@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -q windfall
+#PBS -l select=1:ncpus=16:mem=62gb:pcmem=4gb
+#PBS -W group_list=lyons-lab
+#PBS -l place=pack:shared
+#PBS -l walltime=24:00:00
+#PBS -l cput=384:00:00
+module load singularity
+module load unsupported
+module load ferng/glibc
+export CCTOOLS_HOME=/rsgrps/ericlyons/phytooracle/cctools-release-7.1.2
+export PATH=${CCTOOLS_HOME}/bin:$PATH
+cd /rsgrps/ericlyons/phytooracle/PSII/
+singularity pull docker://acicarizona/ps2top-bin2png:1.0
+singularity pull docker://acicarizona/ps2top-img_segmentation:1.0
+singularity pull docker://acicarizona/ps2top-fluorescence_aggregation:1.0
+/rsgrps/ericlyons/phytooracle/cctools-release-7.1.2/bin/resource_monitor -O log-ps2-makeflow -i 2 -- makeflow --jx main_workflow.jx --jx-args arg_exmaple.json

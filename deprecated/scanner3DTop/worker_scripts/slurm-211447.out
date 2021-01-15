@@ -1,0 +1,837 @@
+2020/10/23 12:30:55: |submitted: 0 |needed: 40 |waiting connection: 0 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-22379
+work_queue_worker: creating workspace /tmp/worker-45035-22377
+work_queue_worker: creating workspace /tmp/worker-45035-22378
+work_queue_worker: creating workspace /tmp/worker-45035-22385
+work_queue_worker: creating workspace /tmp/worker-45035-22384
+work_queue_worker: creating workspace /tmp/worker-45035-22383
+work_queue_worker: creating workspace /tmp/worker-45035-22386
+work_queue_worker: creating workspace /tmp/worker-45035-22381
+work_queue_worker: creating workspace /tmp/worker-45035-22382
+work_queue_worker: creating workspace /tmp/worker-45035-22380
+2020/10/23 12:31:30: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-22504
+work_queue_worker: creating workspace /tmp/worker-45035-22503
+work_queue_worker: creating workspace /tmp/worker-45035-22506
+work_queue_worker: creating workspace /tmp/worker-45035-22509
+work_queue_worker: creating workspace /tmp/worker-45035-22501
+work_queue_worker: creating workspace /tmp/worker-45035-22508
+work_queue_worker: creating workspace /tmp/worker-45035-22502
+work_queue_worker: creating workspace /tmp/worker-45035-22507
+work_queue_worker: creating workspace /tmp/worker-45035-22510
+work_queue_worker: creating workspace /tmp/worker-45035-22505
+2020/10/23 12:32:05: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:32:41: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:33:16: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:33:51: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:34:27: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:35:02: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:35:37: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:36:13: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:36:48: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:37:23: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:37:59: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:38:34: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:39:09: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:39:45: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:40:20: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:40:55: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:41:31: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:42:06: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:42:41: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:43:17: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:43:52: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:44:27: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:45:03: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:45:38: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:46:02.50 work_queue_worker[22377] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22377
+2020/10/23 12:46:02.50 work_queue_worker[22380] notice: stopping: could not connect after 900 seconds.
+2020/10/23 12:46:02.50 work_queue_worker[22384] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22384
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22380
+2020/10/23 12:46:02.55 work_queue_worker[22383] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22383
+2020/10/23 12:46:02.55 work_queue_worker[22379] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22379
+2020/10/23 12:46:02.59 work_queue_worker[22381] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22381
+2020/10/23 12:46:02.62 work_queue_worker[22385] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22385
+2020/10/23 12:46:02.64 work_queue_worker[22382] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22382
+2020/10/23 12:46:02.64 work_queue_worker[22378] notice: stopping: could not connect after 900 seconds.
+2020/10/23 12:46:02.65 work_queue_worker[22386] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22378
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22386
+2020/10/23 12:46:13: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:46:37.81 work_queue_worker[22506] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22506
+2020/10/23 12:46:37.85 work_queue_worker[22510] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22510
+2020/10/23 12:46:37.86 work_queue_worker[22503] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22503
+2020/10/23 12:46:37.86 work_queue_worker[22508] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22508
+2020/10/23 12:46:37.86 work_queue_worker[22507] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22507
+2020/10/23 12:46:37.90 work_queue_worker[22504] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22504
+2020/10/23 12:46:37.90 work_queue_worker[22505] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22505
+2020/10/23 12:46:37.95 work_queue_worker[22502] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22502
+2020/10/23 12:46:37.96 work_queue_worker[22509] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22509
+2020/10/23 12:46:38.00 work_queue_worker[22501] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22501
+2020/10/23 12:46:49: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-22679
+work_queue_worker: creating workspace /tmp/worker-45035-22673
+work_queue_worker: creating workspace /tmp/worker-45035-22672
+work_queue_worker: creating workspace /tmp/worker-45035-22675
+work_queue_worker: creating workspace /tmp/worker-45035-22671
+work_queue_worker: creating workspace /tmp/worker-45035-22674
+work_queue_worker: creating workspace /tmp/worker-45035-22676
+work_queue_worker: creating workspace /tmp/worker-45035-22680
+work_queue_worker: creating workspace /tmp/worker-45035-22678
+work_queue_worker: creating workspace /tmp/worker-45035-22677
+2020/10/23 12:47:24: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-22796
+work_queue_worker: creating workspace /tmp/worker-45035-22793
+work_queue_worker: creating workspace /tmp/worker-45035-22792
+work_queue_worker: creating workspace /tmp/worker-45035-22791
+work_queue_worker: creating workspace /tmp/worker-45035-22795
+work_queue_worker: creating workspace /tmp/worker-45035-22799
+work_queue_worker: creating workspace /tmp/worker-45035-22798
+work_queue_worker: creating workspace /tmp/worker-45035-22794
+work_queue_worker: creating workspace /tmp/worker-45035-22800
+work_queue_worker: creating workspace /tmp/worker-45035-22797
+2020/10/23 12:47:59: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:48:35: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:49:10: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:49:45: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:50:21: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:50:56: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:51:31: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:52:07: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:52:42: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:53:17: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:53:53: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:54:28: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:55:03: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:55:39: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:56:14: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:56:50: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:57:25: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:58:00: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:58:36: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:59:11: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 12:59:46: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 13:00:22: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 13:00:57: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 13:01:33: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 13:01:56.67 work_queue_worker[22671] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22671
+2020/10/23 13:01:56.71 work_queue_worker[22680] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22680
+2020/10/23 13:01:56.72 work_queue_worker[22675] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22675
+2020/10/23 13:01:56.83 work_queue_worker[22679] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22679
+2020/10/23 13:01:56.84 work_queue_worker[22672] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22672
+2020/10/23 13:01:56.84 work_queue_worker[22674] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22674
+2020/10/23 13:01:56.87 work_queue_worker[22677] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22677
+2020/10/23 13:01:56.93 work_queue_worker[22676] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22676
+2020/10/23 13:01:56.96 work_queue_worker[22673] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22673
+2020/10/23 13:01:56.96 work_queue_worker[22678] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22678
+2020/10/23 13:02:08: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 13:02:32.07 work_queue_worker[22796] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22796
+2020/10/23 13:02:32.07 work_queue_worker[22797] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22797
+2020/10/23 13:02:32.14 work_queue_worker[22791] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22791
+2020/10/23 13:02:32.20 work_queue_worker[22798] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22798
+2020/10/23 13:02:32.22 work_queue_worker[22799] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22799
+2020/10/23 13:02:32.22 work_queue_worker[22795] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22795
+2020/10/23 13:02:32.23 work_queue_worker[22794] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22794
+2020/10/23 13:02:32.32 work_queue_worker[22792] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22792
+2020/10/23 13:02:32.32 work_queue_worker[22793] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22793
+2020/10/23 13:02:32.49 work_queue_worker[22800] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-22800
+2020/10/23 13:02:43: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-23675
+work_queue_worker: creating workspace /tmp/worker-45035-23679
+work_queue_worker: creating workspace /tmp/worker-45035-23684
+work_queue_worker: creating workspace /tmp/worker-45035-23681
+work_queue_worker: creating workspace /tmp/worker-45035-23678
+work_queue_worker: creating workspace /tmp/worker-45035-23682
+work_queue_worker: creating workspace /tmp/worker-45035-23677
+work_queue_worker: creating workspace /tmp/worker-45035-23683
+work_queue_worker: creating workspace /tmp/worker-45035-23680
+work_queue_worker: creating workspace /tmp/worker-45035-23676
+2020/10/23 13:03:19: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+work_queue_worker: creating workspace /tmp/worker-45035-23795
+work_queue_worker: creating workspace /tmp/worker-45035-23796
+work_queue_worker: creating workspace /tmp/worker-45035-23798
+work_queue_worker: creating workspace /tmp/worker-45035-23797
+work_queue_worker: creating workspace /tmp/worker-45035-23799
+work_queue_worker: creating workspace /tmp/worker-45035-23800
+work_queue_worker: creating workspace /tmp/worker-45035-23802
+work_queue_worker: creating workspace /tmp/worker-45035-23801
+work_queue_worker: creating workspace /tmp/worker-45035-23804
+work_queue_worker: creating workspace /tmp/worker-45035-23803
+2020/10/23 13:03:54: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 13:04:29: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+
+2020/10/23 13:04:46.87 work_queue_worker[23675] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:46.87 work_queue_worker[23681] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:46.90 work_queue_worker[23682] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:46.91 work_queue_worker[23676] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:46.91 work_queue_worker[23680] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:46.96 work_queue_worker[23679] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:46.99 work_queue_worker[23684] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:47.00 work_queue_worker[23677] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:47.07 work_queue_worker[23683] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:04:47.08 work_queue_worker[23678] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:05: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       0       0        0       0 
+
+2020/10/23 13:05:22.23 work_queue_worker[23802] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.24 work_queue_worker[23801] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.25 work_queue_worker[23798] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.25 work_queue_worker[23795] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.26 work_queue_worker[23799] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.28 work_queue_worker[23804] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.30 work_queue_worker[23796] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.32 work_queue_worker[23800] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.33 work_queue_worker[23797] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:22.35 work_queue_worker[23803] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:05:40: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:06:15: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:06:51: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:07:26: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:08:01: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:08:37: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:09:12: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:09:47: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:10:01.72 work_queue_worker[23680] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:01.75 work_queue_worker[23681] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:01.76 work_queue_worker[23682] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:10:01.76 work_queue_worker[23675] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:10:01.77 work_queue_worker[23676] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:01.84 work_queue_worker[23679] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:10:01.84 work_queue_worker[23684] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:01.85 work_queue_worker[23677] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:01.85 work_queue_worker[23678] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:10:01.88 work_queue_worker[23683] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:23: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:10:37.07 work_queue_worker[23799] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:37.07 work_queue_worker[23802] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:10:37.16 work_queue_worker[23795] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:37.16 work_queue_worker[23801] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:37.16 work_queue_worker[23798] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:37.20 work_queue_worker[23800] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:10:37.21 work_queue_worker[23803] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:37.21 work_queue_worker[23797] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:10:37.26 work_queue_worker[23796] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:37.26 work_queue_worker[23804] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:10:58: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:11:34: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:12:09: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:12:44: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:13:20: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:13:55: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:14:30: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:15:06: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:15:16.47 work_queue_worker[23680] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:16.59 work_queue_worker[23681] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:16.60 work_queue_worker[23675] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:16.63 work_queue_worker[23682] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:16.63 work_queue_worker[23676] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:16.72 work_queue_worker[23679] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:16.72 work_queue_worker[23678] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:16.76 work_queue_worker[23684] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:16.76 work_queue_worker[23677] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:16.76 work_queue_worker[23683] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:41: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:15:51.88 work_queue_worker[23799] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:51.88 work_queue_worker[23802] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:51.96 work_queue_worker[23795] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:51.96 work_queue_worker[23801] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:52.01 work_queue_worker[23798] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:52.12 work_queue_worker[23804] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:52.13 work_queue_worker[23803] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:52.17 work_queue_worker[23796] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:15:52.17 work_queue_worker[23800] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:15:52.17 work_queue_worker[23797] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:16:17: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:16:52: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:17:27: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:18:03: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:18:38: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:19:13: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:19:31.03 work_queue_worker[23675] notice: stopping: could not connect after 900 seconds.
+2020/10/23 13:19:31.03 work_queue_worker[23681] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23675
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23681
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:19:31.03 work_queue_worker[23680] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23680
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:19:31.15 work_queue_worker[23676] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23676
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:19:31.15 work_queue_worker[23682] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23682
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:19:31.28 work_queue_worker[23684] notice: stopping: could not connect after 900 seconds.
+2020/10/23 13:19:31.28 work_queue_worker[23679] notice: stopping: could not connect after 900 seconds.
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:19:31.28 work_queue_worker[23678] notice: stopping: could not connect after 900 seconds.
+couldn't connect to 150.135.165.64:9123: Operation timed out
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23684
+2020/10/23 13:19:31.28 work_queue_worker[23683] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23679
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23683
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23678
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:19:31.28 work_queue_worker[23677] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23677
+2020/10/23 13:19:49: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:20:06.35 work_queue_worker[23802] notice: stopping: could not connect after 900 seconds.
+2020/10/23 13:20:06.35 work_queue_worker[23799] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23802
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23799
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:20:06.48 work_queue_worker[23795] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23795
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:20:06.48 work_queue_worker[23798] notice: stopping: could not connect after 900 seconds.
+2020/10/23 13:20:06.48 work_queue_worker[23801] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23798
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23801
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:20:06.61 work_queue_worker[23796] notice: stopping: could not connect after 900 seconds.
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:20:06.61 work_queue_worker[23804] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23796
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23804
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:20:06.61 work_queue_worker[23797] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23797
+couldn't connect to 150.135.165.72:9123: Operation timed out
+2020/10/23 13:20:06.61 work_queue_worker[23800] notice: stopping: could not connect after 900 seconds.
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:20:06.61 work_queue_worker[23803] notice: stopping: could not connect after 900 seconds.
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23800
+work_queue_worker: using 1 cores, 515861 MB memory, 1295419 MB disk, 0 gpus
+work_queue_worker: deleting workspace /tmp/worker-45035-23803
+2020/10/23 13:20:24: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+work_queue_worker: creating workspace /tmp/worker-45035-23979
+work_queue_worker: creating workspace /tmp/worker-45035-23985
+work_queue_worker: creating workspace /tmp/worker-45035-23984
+work_queue_worker: creating workspace /tmp/worker-45035-23983
+work_queue_worker: creating workspace /tmp/worker-45035-23988
+work_queue_worker: creating workspace /tmp/worker-45035-23980
+work_queue_worker: creating workspace /tmp/worker-45035-23987
+work_queue_worker: creating workspace /tmp/worker-45035-23981
+work_queue_worker: creating workspace /tmp/worker-45035-23986
+work_queue_worker: creating workspace /tmp/worker-45035-23982
+2020/10/23 13:20:25.08 work_queue_worker[23979] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:20:25.10 work_queue_worker[23984] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:20:25.11 work_queue_worker[23985] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:20:25.11 work_queue_worker[23980] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:20:25.11 work_queue_worker[23987] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:20:25.12 work_queue_worker[23988] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:20:25.12 work_queue_worker[23983] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:20:25.12 work_queue_worker[23982] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:20:25.12 work_queue_worker[23981] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:20:25.13 work_queue_worker[23986] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:20:59: |submitted: 10 |needed: 40 |waiting connection: 10 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+work_queue_worker: creating workspace /tmp/worker-45035-24106
+work_queue_worker: creating workspace /tmp/worker-45035-24105
+work_queue_worker: creating workspace /tmp/worker-45035-24108
+work_queue_worker: creating workspace /tmp/worker-45035-24102
+work_queue_worker: creating workspace /tmp/worker-45035-24104
+work_queue_worker: creating workspace /tmp/worker-45035-24101
+work_queue_worker: creating workspace /tmp/worker-45035-24109
+work_queue_worker: creating workspace /tmp/worker-45035-24103
+work_queue_worker: creating workspace /tmp/worker-45035-24107
+work_queue_worker: creating workspace /tmp/worker-45035-24110
+2020/10/23 13:21:00.42 work_queue_worker[24106] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:21:00.46 work_queue_worker[24105] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:21:00.46 work_queue_worker[24102] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:21:00.46 work_queue_worker[24108] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:21:00.47 work_queue_worker[24101] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:21:00.47 work_queue_worker[24103] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:21:00.47 work_queue_worker[24110] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:21:00.47 work_queue_worker[24107] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:21:00.47 work_queue_worker[24109] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:21:00.47 work_queue_worker[24104] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:21:35: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:22:10: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:22:46: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+couldn't connect to 10.141.250.28:9123: Operation timed out
+2020/10/23 13:23:21: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:23:56: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+2020/10/23 13:24:32: |submitted: 20 |needed: 40 |waiting connection: 20 |requested: 0 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     72-165-135-150.dynami  9123       2       0        0       0 
+PhytoOracle_3D     64-165-135-150.dynami  9123       2       0        0       0 
+
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+couldn't connect to 150.135.165.72:9123: Operation timed out
+couldn't connect to 150.135.165.64:9123: Operation timed out
+2020/10/23 13:24:41.82 work_queue_worker[23984] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:24:41.83 work_queue_worker[23979] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:24:41.96 work_queue_worker[23981] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:24:41.96 work_queue_worker[23983] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:24:41.96 work_queue_worker[23985] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:24:41.96 work_queue_worker[23982] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:24:41.96 work_queue_worker[23987] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+2020/10/23 13:24:41.97 work_queue_worker[23980] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:24:41.97 work_queue_worker[23988] error: Did not find the master address '150.135.165.64' in the list of interfaces.
+2020/10/23 13:24:42.08 work_queue_worker[23986] error: Did not find the master address '150.135.165.72' in the list of interfaces.
+Oct 23 13:24:45.72268  22354 slurmstepd   0x2aba1b140700: error: *** JOB 211447 ON r2u14n2 CANCELLED AT 2020-10-23T13:24:45 ***

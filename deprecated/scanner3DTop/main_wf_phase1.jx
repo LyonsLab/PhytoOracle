@@ -1,0 +1,32 @@
+{
+  "define": {
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "TIFS_DIR": "3D_out/",
+  },
+
+
+  "categories" : {
+      
+     "collect"  : {
+                      "resources" : { "cores" : 94, "memory" : 470000, "disk" : 8192000 }
+      }
+  },
+
+  "rules": [
+
+    {
+      "command": "python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      ],
+      "outputs":
+      [ TIFS_DIR + DATA_SET["UUID"] + "_merged.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+    } for BUNDLE in BUNDLE_LIST,
+  ]
+}

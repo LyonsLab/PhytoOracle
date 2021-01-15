@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Defining Variables and Paths
+DATE="2020-02-12" # Change to appropriate date (or data folder)!
+SENSOR="scanner3DTop"
+
+PIPE_PATH='/xdisk/ericlyons/big_data/cosi/scanner3DTop/'
+SIMG_PATH='/xdisk/ericlyons/big_data/singularity_images/'
+
+
+# Phase 1: CCTools Parallelization to HPC nodes (Image conversion)
+python3 gen_files_list.py ${DATE} > raw_data_files.json
+python3 gen_bundles_list.py raw_data_files.json bundle_list.json 10
+mkdir -p bundle/
+python3 split_bundle_list.py  bundle_list.json bundle/
+/home/u12/cosi/cctools-7.1.6-x86_64-centos7/bin/jx2json main_wf_phase1.jx -a bundle_list.json > main_workflow_phase1.json
+
+# -a advertise to catalog server
+/home/u12/cosi/cctools-7.1.6-x86_64-centos7/bin/makeflow -T wq --json main_workflow_phase1.json -a -N phyto_oracle_3D -p 9123 -M PhytoOracle_3D -dall -o dall.log --disable-cache $@

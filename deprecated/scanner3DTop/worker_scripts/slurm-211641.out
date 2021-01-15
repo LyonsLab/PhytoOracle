@@ -1,0 +1,55 @@
+2020/10/23 15:11:41: |submitted: 0 |needed: 40 |waiting connection: 0 |requested: 10 
+PROJECT            HOST                   PORT WAITING RUNNING COMPLETE WORKERS 
+PhytoOracle_3D     68-165-135-150.dynami  9123       0       0       10       0 
+
+work_queue_worker: creating workspace /tmp/worker-45035-22376
+work_queue_worker: creating workspace /tmp/worker-45035-22379
+work_queue_worker: creating workspace /tmp/worker-45035-22375
+work_queue_worker: creating workspace /tmp/worker-45035-22377
+work_queue_worker: creating workspace /tmp/worker-45035-22381
+work_queue_worker: creating workspace /tmp/worker-45035-22382
+work_queue_worker: creating workspace /tmp/worker-45035-22378
+work_queue_worker: creating workspace /tmp/worker-45035-22384
+work_queue_worker: creating workspace /tmp/worker-45035-22380
+work_queue_worker: creating workspace /tmp/worker-45035-22383
+2020/10/23 15:11:41.42 work_queue_worker[22375] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.44 work_queue_worker[22383] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+2020/10/23 15:11:41.44 work_queue_worker[22381] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.44 work_queue_worker[22380] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.45 work_queue_worker[22379] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.49 work_queue_worker[22376] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.51 work_queue_worker[22377] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.62 work_queue_worker[22378] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.63 work_queue_worker[22384] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+2020/10/23 15:11:41.63 work_queue_worker[22382] error: Did not find the master address '150.135.165.68' in the list of interfaces.
+couldn't connect to 10.141.24.173:9123: Connection refused
+couldn't connect to 10.141.28.173:9123: Connection refused
+couldn't connect to 10.141.16.173:9123: Connection refused
+Oct 23 15:11:55.957516 22352 slurmstepd   0x2ae328505700: error: *** JOB 211641 ON r2u04n2 CANCELLED AT 2020-10-23T15:11:55 ***
