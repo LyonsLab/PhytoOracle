@@ -1,0 +1,42 @@
+{
+  "define": {
+    "BETYDB_URL": "http://128.196.65.186:8000/bety/",
+    "BETYDB_KEY": "wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD",
+
+    "CLEANED_META_DIR": "cleanmetadata_out/",
+    "TIFS_DIR": "bin2tif_out/",
+    "GPSCORRECT_DIR": "gpscorrect_out/",
+    #"PLOTCLIP_DIR": "plotclip_out/",
+    
+  },
+
+  "categories": {
+      "proc" : {
+                   "resources" : { "cores" : 1
+      }
+     }
+  },
+  "rules": [
+
+    {
+      "command": "python3 process_bundle2.py ${BUNDLE_JSON}",
+      "environment": {
+        #"DATA_BASE_URL": "DATA_BASE_URL",
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      },
+      "inputs": [
+        "process_bundle2.py",
+        "process_one_set2.sh",
+        "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      ],
+      "category": [
+        "proc"
+      ],
+      "outputs":
+      [ GPSCORRECT_DIR + DATA_SET["UUID"] + "_left_corrected.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ GPSCORRECT_DIR + DATA_SET["UUID"] + "_right_corrected.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+
+    } for BUNDLE in BUNDLE_LIST,
+  ]
+}
