@@ -31,13 +31,22 @@ tar -xvf cctools-7.1.6-x86_64-centos7.tar.gz
 
 2. Clone this repository within your HPCs storage space such as /xdisk:
 ```
-git clone -b alpha https://github.com/LyonsLab/PhytoOracle.git
+git clone https://github.com/LyonsLab/PhytoOracle.git
 ```
 
 3. Go to stereoTopRGB:
 ```
 cd PhytoOracle/stereoTopRGB/
 ```
+4. Download required vector and ML model files:
+```
+iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/gcp_season_10.txt
+
+iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/season10_multi_latlon_geno.geojson
+
+iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/model_weights.pth
+```
+
 
 #### Running pipeline on HPC 
 4. Launch workers:
@@ -60,7 +69,7 @@ Replace `<day>` with any day you want to process. Un-tar and move the folder to 
 
 ```
 tar -xvf <day>.tar
-mv stereoTopRGB/<day> .
+mv stereoTop/<day> .
 ```
 
 6. You're now ready to run the pipeline:
