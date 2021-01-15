@@ -19,7 +19,7 @@ FlirIr currently uses 3 different transformers for data conversion:
 
 #### Data overview
 
-PhytoOracle's StereoTop RGB requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. These should already be in the same folder when obtaining data from the [CyVerse DataStore](https://cyverse.org/data-store).
+PhytoOracle's StereoTop RGB requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. We provide publicly-available data in the [CyVerse DataStore](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/ua-mac/raw_tars).
 
 #### Setup Guide
 1. Download [CCTools](http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz) and extract it's contents within your HPC home path:
@@ -62,7 +62,7 @@ sbatch worker_scripts/po_work_puma.sh
 
 5. Download input data:
 ```
-iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<day>.tar
+iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTop/<day>.tar
 ```
 
 Replace `<day>` with any day you want to process. Un-tar and move the folder to the FlirIr directory.
