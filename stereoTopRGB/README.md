@@ -2,7 +2,7 @@
 
 #### Outline
 
-Welcome to PhytoOracle's StereoTop RGB pipeline! This pipeline uses the data transformers from the [AgPipeline group](https://github.com/AgPipeline/) and the PhytoOracle group to extract canopy cover data from image files. PhytoOracle's StereoTop RGB was primarely built to process data originating from University of Arizona's gantry system, the world's largest robotic field scanner. The StereoTop RGB pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
+Welcome to PhytoOracle's StereoTop RGB pipeline! This pipeline uses the data transformers from the [PhytoOracle group](https://github.com/phytooracle) extract individual plant locations and bounding box area. PhytoOracle's StereoTopRGB was primarily built to process data from the University of Arizona's gantry system, the world's largest robotic field scanner. The StereoTop RGB pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
 
 #### Transformers used
 
@@ -10,10 +10,12 @@ FlirIr currently uses 3 different transformers for data conversion:
 
 | Order |                         Transformer                          |                   Process                    |
 | :---: | :----------------------------------------------------------: | :------------------------------------------: |
-|   1   | [cleanmetadata](https://github.com/AgPipeline/moving-transformer-cleanmetadata) |       Cleans gantry generated metadata       |
-|   2   | [bin2tif](https://github.com/AgPipeline/moving-transformer-bin2tif) |     Converts bin compressed files to tif     |
-|   3   |                           [gistools](https://github.com/uacic/docker-builds/tree/master/gistools)                           |           Correct GPS coordinates            |
-|   4   | [plotclip](https://github.com/AgPipeline/transformer-plotclip) | Clip GeoTIFF or LAS files according to plots |
+|   1   | [rgb_bin_to_tif](https://github.com/phytooracle/rgb_bin_to_tif) | Converts bin files to geoTIFFs |
+|   2   | [image_stitching](https://github.com/ariyanzri/Lettuce_Image_Stitching) | Corrects initial, noisy GPS coordinates within geoTIFFs |
+|   3   | [rgb_flir_edit_gps](https://github.com/phytooracle/rgb_flir_edit_gps) | Writes corrected GPS coordinates to geoTIFFs |
+|   4   | [rgb_flir_plot_clip_geojson](https://github.com/phytooracle/rgb_flir_plot_clip_geojson) | Clips GeoTIFFs to agricultural plots |
+|   5   | [rgb_flir_stitch_plots](https://github.com/phytooracle/rgb_flir_stitch_plots) | Aggregates individual, clipped GeoTIFFs to plot-level orthomosaics | 
+|   6   | [rgb_flir_plant_detection](https://github.com/phytooracle/rgb_flir_plant_detection) | Detects individual lettuces and outputs locations, bounding areas | 
 
 #### Data overview
 
