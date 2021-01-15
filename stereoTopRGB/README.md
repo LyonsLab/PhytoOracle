@@ -74,7 +74,14 @@ mv stereoTop/<day> .
 
 6. You're now ready to run the pipeline:
 ```
-./run.sh <day> .
+./run.sh <day>
+```
+
+7. If you'd like to monitor the pipeline's progress, run: 
+```
+./mf_monitor.sh
+
+./mf_monitor2.sh
 ```
 
 #### Running on the Cloud with HPC support
