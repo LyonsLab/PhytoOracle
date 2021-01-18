@@ -14,6 +14,7 @@ echo "> Processing ${SCAN_DATE} RGB scan."
 # --------------------------------------------------
 #echo "> Distributed workflow 1 of 2"
 ./replace.py ${SCAN_DATE}
+./replace_process_one.py $PWD
 ./entrypoint.sh
 
 

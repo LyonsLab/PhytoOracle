@@ -16,4 +16,7 @@ rm -r plotclip_orthos/
 rm dall.log
 rm main_workflow_phase1.json.*
 rm main_workflow_phase2.json.*
-rm wq-pool-*
+rm main_workflow_phase1.json
+rm main_workflow_phase2.json
+rm -r wq-pool-*
+rm -r slurm-*
