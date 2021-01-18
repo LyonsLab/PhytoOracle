@@ -22,24 +22,24 @@ FlirIr currently uses 3 different transformers for data conversion:
 PhytoOracle's StereoTop RGB requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. We provide publicly-available data in the [CyVerse DataStore](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/ua-mac/raw_tars).
 
 #### Setup Guide
-1. Download [CCTools](http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz) and extract it's contents within your HPC home path:
+- Download [CCTools](http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz) and extract it's contents within your HPC home path:
 ```
 wget http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz
 
 tar -xvf cctools-7.1.6-x86_64-centos7.tar.gz
 ```        
 
-2. Clone the image stitching repo within your HPC home path: 
+- Clone the image stitching repo within your HPC home path: 
 ```
 git clone https://github.com/ariyanzri/Lettuce_Image_Stitching.git
 ```
 
-2. Clone this repository within your HPCs storage space such as /xdisk:
+- Clone the PhytoOracle repository within your HPC's storage space such as /xdisk:
 ```
 git clone https://github.com/LyonsLab/PhytoOracle.git
 ```
 
-3. Go to stereoTopRGB:
+- Change directory to stereoTopRGB:
 ```
 cd PhytoOracle/stereoTopRGB/
 ```
@@ -52,20 +52,18 @@ iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/se
 iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/model_weights.pth
 ```
 
-
 #### Running pipeline on HPC 
-4. Launch workers:
-
--If using PBS: 
+##### Launch workers:
+- If using PBS: 
 ```
 qsub worker_scripts/po_work_ocelote.pbs
 ```
--If using SLURM:
+- If using SLURM:
 ```
 sbatch worker_scripts/po_work_puma.sh
 ```
 
-5. Download input data:
+- Download input data:
 ```
 iget -N 0 -KVPT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTop/stereoTop-<day>.tar
 ```
@@ -76,13 +74,17 @@ Replace `<day>` with any day you want to process. Un-tar and move the folder to 
 tar -xvf <day>.tar
 mv stereoTop/<day> .
 ```
+- Log into interactive manager node:
+```
+./manager_scripts/po_work_puma.sh
+```
 
-6. You're now ready to run the pipeline:
+- You're now ready to run the pipeline:
 ```
 ./run.sh <day>
 ```
 
-7. If you'd like to monitor the pipeline's progress, run: 
+- If you'd like to monitor the pipeline's progress, run: 
 ```
 ./mf_monitor.sh
 
