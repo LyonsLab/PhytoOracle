@@ -22,11 +22,11 @@ FlirIr currently uses 3 different transformers for data conversion:
 PhytoOracle's StereoTop RGB requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. We provide publicly-available data in the [CyVerse DataStore](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/ua-mac/raw_tars).
 
 #### Setup Guide
-- Download [CCTools](http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz) and extract it's contents within your HPC home path:
+- Download [CCTools](http://ccl.cse.nd.edu/software/downloadfiles.php) and extract it's contents within your HPC home path:
 ```
-wget http://www3.nd.edu/~ccl/software/files/cctools-7.1.6-x86_64-centos7.tar.gz
+wget http://ccl.cse.nd.edu/software/files/cctools-7.1.12-x86_64-centos7.tar.gz
 
-tar -xvf cctools-7.1.6-x86_64-centos7.tar.gz
+tar -xvf cctools-7.1.12-x86_64-centos7.tar.gz
 ```        
 
 - Clone the image stitching repo within your HPC home path: 
