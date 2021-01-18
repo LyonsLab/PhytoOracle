@@ -11,8 +11,9 @@ set -e
 
 echo "> Processing ${SCAN_DATE} RGB scan."
 
+#./test.sh ${SCAN_DATE} ${PIPE_PATH}
 # --------------------------------------------------
-#echo "> Distributed workflow 1 of 2"
+echo "> Distributed workflow 1 of 2"
 ./replace.py ${SCAN_DATE}
 ./replace_process_one.py $PWD
 ./entrypoint.sh
@@ -23,11 +24,9 @@ echo "> Geocorrection 1 of 1"
 mkdir -p ortho_out/
 singularity exec ${SIMG_PATH}full_geocorrection.simg python3 $HOME/Lettuce_Image_Stitching/Dockerized_GPS_Correction_HPC.py -d ${OUT_PATH} -b ${PIPEPATH}bin2tif_out -s ${SCAN_DATE} -c $HOME/Lettuce_Image_Stitching/geo_correction_config.txt -l ${PIPE_PATH}gcp_season_10.txt -r $HOME/Lettuce_Image_Stitching
 
-
 # --------------------------------------------------
-#echo "> Distributed workflow 2 of 2"
+echo "> Distributed workflow 2 of 2"
 ./entrypoint-2.sh 
-
 
 # --------------------------------------------------
 echo "> Generating orthomosaics and detecting plants."
@@ -51,6 +50,5 @@ mv ${SCAN_DATE} processed_scans/
 mkdir -p ${SCAN_DATE} 
 mv ${SCAN_DATE}_* ${SCAN_DATE}
  
-
 # --------------------------------------------------
 echo "> Done processing ${SCAN_DATE} RGB scan."
