@@ -24,6 +24,8 @@ PhytoOracle's StereoTop RGB requires a metadata file (`<metadata>.json`) for eve
 #### Setup Guide
 - Download [CCTools](http://ccl.cse.nd.edu/software/downloadfiles.php) and extract it's contents within your HPC home path:
 ```
+cd ~
+
 wget http://ccl.cse.nd.edu/software/files/cctools-7.1.12-x86_64-centos7.tar.gz
 
 tar -xvf cctools-7.1.12-x86_64-centos7.tar.gz
