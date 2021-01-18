@@ -53,7 +53,7 @@ iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/mo
 ```
 
 #### Running pipeline on HPC 
-##### Launch workers:
+##### Launch workers
 - If using PBS: 
 ```
 qsub worker_scripts/po_work_ocelote.pbs
@@ -63,13 +63,15 @@ qsub worker_scripts/po_work_ocelote.pbs
 sbatch worker_scripts/po_work_puma.sh
 ```
 
-- Download input data:
+##### Pipeline staging
+- Download raw data:
 ```
 iget -N 0 -KVPT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTop/stereoTop-<day>.tar
 ```
 
-Replace `<day>` with any day you want to process. Un-tar and move the folder to the FlirIr directory.
+Replace `<day>` with any day you want to process. 
 
+- Extract file contents and move the folder to the root directory:
 ```
 tar -xvf <day>.tar
 mv stereoTop/<day> .
@@ -79,6 +81,7 @@ mv stereoTop/<day> .
 ./manager_scripts/po_work_puma.sh
 ```
 
+##### Running PhytoOracle's stereoRGB pipeline
 - You're now ready to run the pipeline:
 ```
 ./run.sh <day>
