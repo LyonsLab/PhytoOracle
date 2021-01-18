@@ -43,7 +43,7 @@ git clone https://github.com/LyonsLab/PhytoOracle.git
 ```
 cd PhytoOracle/stereoTopRGB/
 ```
-4. Download required vector and ML model files:
+- Download required vector and ML model files:
 ```
 iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/gcp_season_10.txt
 
