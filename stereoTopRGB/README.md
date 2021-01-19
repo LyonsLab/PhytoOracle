@@ -80,7 +80,7 @@ mv stereoTop/stereoTop-<day> .
 ```
 - Log into interactive manager node:
 ```
-./manager_scripts/po_work_puma.sh
+./manager_scripts/gpu_init_puma.sh
 ```
 
 ##### Running PhytoOracle's stereoRGB pipeline
