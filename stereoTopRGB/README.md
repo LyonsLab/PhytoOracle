@@ -75,7 +75,7 @@ Replace `<day>` with any day you want to process.
 
 - Extract file contents and move the folder to the root directory:
 ```
-tar -xvf <day>.tar
+tar -xvf stereoTop-<day>.tar
 mv stereoTop/stereoTop-<day> .
 ```
 - Log into interactive manager node:
