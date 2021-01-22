@@ -10,10 +10,10 @@
 BETYDB_URL="http://128.196.65.186:8000/bety/"
 BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
 DATA_PATH="/tmp/"
-HPC_PATH="/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/psII/"
+HPC_PATH="/xdisk/ericlyons/big_data/egonzalez/phyto_training/PhytoOracle/psII/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
 XDG_RUNTIME_DIR=${HPC_PATH}
-GEOJ=${HPC_PATH}"season11_multi_latlon_geno.geojson"
+GEOJ=${HPC_PATH}"season10_multi_latlon_geno.geojson"
 SENSOR="psiiTop"
 CLEANED_META_DIR="cleanmetadata_out/"
 TIFS_DIR="bin2tif_out/"

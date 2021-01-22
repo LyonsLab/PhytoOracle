@@ -6,7 +6,7 @@ set -e
 
 echo "Processing ${SCAN_DATE}"
 ./replace.py ${SCAN_DATE}
-
+./replace_process_one.py $PWD 
 ./entrypoint.sh
 
 ls *_segmentation.tar | xargs -I {} tar -xvf {}
