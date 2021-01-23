@@ -11,7 +11,8 @@ set -e
 
 echo "> Processing ${SCAN_DATE} RGB scan."
 
-#./test.sh ${SCAN_DATE} ${PIPE_PATH}
+ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
+
 # --------------------------------------------------
 echo "> Distributed workflow 1 of 2"
 ./replace.py ${SCAN_DATE}
