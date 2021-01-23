@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python3 gen_files_list.py 2020-01-07 > raw_data_files.json
+python3 gen_files_list.py 2020-01-05 > raw_data_files.json
 python3 gen_bundles_list.py raw_data_files.json bundle_list.json 1
 mkdir -p bundle/
 python3 split_bundle_list.py bundle_list.json bundle/
