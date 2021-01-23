@@ -47,8 +47,8 @@ tar -cvf ${SCAN_DATE}_bundle.tar bundle/
 tar -cvf ${SCAN_DATE}_plotclip_orthos.tar ${SCAN_DATE}_plotclip_orthos/ 
 rm -r ${SCAN_DATE}_plotclip_orthos/
 mv ${SCAN_DATE} processed_scans/
-mkdir -p ${SCAN_DATE} 
-mv ${SCAN_DATE}_* ${SCAN_DATE}
+mkdir -p ${SCAN_DATE}
+mv ${SCAN_DATE}_* ${SCAN_DATE}/
  
 # --------------------------------------------------
 echo "> Done processing ${SCAN_DATE} RGB scan."
