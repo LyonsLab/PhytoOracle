@@ -9,7 +9,7 @@
 
 BETYDB_URL="http://128.196.65.186:8000/bety/"
 BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
-HPC_PATH="/xdisk/ericlyons/big_data/egonzalez/phyto_training/PhytoOracle/stereoTopRGB/"
+HPC_PATH="/xdisk/cjfrost/egonzalez/PhytoOracle/stereoTopRGB/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
 
 CLEANED_META_DIR="cleanmetadata_out/"
@@ -33,7 +33,7 @@ LEFT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_left_corrected.tif"
 RIGHT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_right_corrected.tif"
 GPS_CSV=${HPC_PATH}"2020-02-18_coordinates_CORRECTED.csv"
 GEOJ=${HPC_PATH}"season10_lettuce_multi.geojson"
-GPS_UNCOR=${HPC_PATH}"/xdisk/ericlyons/big_data/egonzalez/phyto_training/PhytoOracle/stereoTopRGB/"
+GPS_UNCOR=${HPC_PATH}"/xdisk/cjfrost/egonzalez/PhytoOracle/stereoTopRGB/"
 
 HTTP_USER="YOUR_USERNAME"
 HTTP_PASSWORD="PhytoOracle"
