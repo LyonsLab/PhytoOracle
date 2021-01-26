@@ -19,7 +19,6 @@ echo "> Distributed workflow 1 of 2"
 ./replace_process_one.py $PWD
 ./entrypoint.sh
 
-
 # --------------------------------------------------
 echo "> Geocorrection 1 of 1"
 mkdir -p ortho_out/
@@ -39,17 +38,18 @@ singularity run ${SIMG_PATH}rgb_flir_plant_detection.simg -d ${SCAN_DATE} -m ${P
 
 # --------------------------------------------------
 echo "> Compressing outputs."
-tar -cvf ${SCAN_DATE}_bin2tif.tar bin2tif_out/
-tar -cvf ${SCAN_DATE}_gpscorrect.tar gpscorrect_out/
-tar -cvf ${SCAN_DATE}_plotclip_tifs.tar plotclip_out/
-cp bundle_list.json bundle/
-cp raw_data_files.json bundle/
-tar -cvf ${SCAN_DATE}_bundle.tar bundle/
-tar -cvf ${SCAN_DATE}_plotclip_orthos.tar ${SCAN_DATE}_plotclip_orthos/ 
-rm -r ${SCAN_DATE}_plotclip_orthos/
-mv ${SCAN_DATE} processed_scans/
-mkdir -p ${SCAN_DATE}
-mv ${SCAN_DATE}_* ${SCAN_DATE}/
+./compress_outputs.sh ${SCAN_DATE}
+#tar -cvf ${SCAN_DATE}_bin2tif.tar bin2tif_out/
+#tar -cvf ${SCAN_DATE}_gpscorrect.tar gpscorrect_out/
+#tar -cvf ${SCAN_DATE}_plotclip_tifs.tar plotclip_out/
+#cp bundle_list.json bundle/
+#cp raw_data_files.json bundle/
+#tar -cvf ${SCAN_DATE}_bundle.tar bundle/
+#tar -cvf ${SCAN_DATE}_plotclip_orthos.tar ${SCAN_DATE}_plotclip_orthos/ 
+#rm -r ${SCAN_DATE}_plotclip_orthos/
+#mv ${SCAN_DATE} processed_scans/
+#mkdir -p ${SCAN_DATE}
+#mv ${SCAN_DATE}_* ${SCAN_DATE}/
  
 # --------------------------------------------------
 echo "> Done processing ${SCAN_DATE} RGB scan."
