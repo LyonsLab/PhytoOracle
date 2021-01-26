@@ -28,19 +28,24 @@ PhytoOracle's PS2 pipeline requires a metadata file (<metadata>.json) for every 
 At this point your worker nodes should already be running and you should be in your FlirIr directory within your interactive node. Download the data that you need using:
 
 ```
-iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/ps2Top/<date>.tar
+iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/ps2Top/ps2Top-<date>.tar
 ```
 
 Replace <day> with any day you want to process. Un-tar and move the folder to the PSII directory.
 
 ```
-tar -xvf <date>.tar
-mv ./ps2Top/<date> ./
+tar -xvf ps2Top-<date>.tar
+mv ./ps2Top/<date> .
 ```
 
 Then run the following command.
 ```
 ./run.sh <date>
+```
+
+If you would like to submit this job instead of running it interactively, run the following command:
+```
+sbatch po_slurm_submit.sh <date> .
 ```
 
 #### Running on the Cloud with HPC support
