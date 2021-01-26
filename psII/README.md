@@ -56,8 +56,11 @@ sbatch worker_scripts/po_work_puma.sh
 ```
 iget -N 0 -KVPT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/ps2Top/ps2Top-<day>.tar
 ```
-
+---
+***NOTE***
 Replace <day> with any day you want to process. 
+---
+
 
 - Extract file contents and move the folder to the root directory:
 ```
