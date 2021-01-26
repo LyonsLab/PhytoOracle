@@ -2,7 +2,7 @@
 
 #### Outline
 
-Welcome to PhytoOracle's PSII pipeline! This pipeline uses the data transformers to extract chlorophyll fluorescence data from image files. PhytoOracle's PII was developed to process data originating from University of Arizona's gantry system, the world's largest robotic field scanner. You can run our PSII pipeline on either HPC (High Performance Computing) systems or cloud based systems.
+Welcome to PhytoOracle's psII pipeline! This pipeline uses the data transformers from the [PhytoOracle group](https://github.com/phytooracle) to extract chlorophyll fluorescence data. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
 
 #### Transformers used
 
