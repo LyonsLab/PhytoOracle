@@ -72,7 +72,7 @@ mv ./ps2Top/<date> .
 ./run.sh <date>
 ```
 
-- Submit the pipeline to job scheduler (HPC only):
+- Submit the pipeline as a job (HPC only):
 ```
 sbatch po_slurm_submit.sh <date> .
 ```
