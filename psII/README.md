@@ -67,7 +67,7 @@ iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/se
 - Extract file contents and move the folder to the root directory:
 ```
 tar -xvf ps2Top-<date>.tar
-mv ./ps2Top/<date> .
+mv ps2Top/<date> .
 ```
 
 - Run the pipeline interactively:
