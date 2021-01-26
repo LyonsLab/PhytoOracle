@@ -72,7 +72,7 @@ mv ./ps2Top/<date> .
 ./run.sh <date>
 ```
 
-If you would like to submit this job instead of running it interactively, run the following command:
+- If you would like to submit this job instead of running it interactively, run the following command:
 ```
 sbatch po_slurm_submit.sh <date> .
 ```
