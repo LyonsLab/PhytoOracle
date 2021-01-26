@@ -17,29 +17,58 @@ PSII currently uses 3 different transformers for data conversion:
 
 #### Data overview
 
-PhytoOracle's PS2 pipeline requires a metadata file (<metadata>.json) for every compressed image file (<image>.bin). These should already be in the same folder when obtaining data from the CyVerse DataStore.
+PhytoOracle's psII pipeline requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. We provide publicly-available data in the [CyVerse DataStore](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/ua-mac/raw_tars).
 
 #### Setup Guide
 
-+ Go [here](https://github.com/uacic/PhytoOracle/blob/alpha/HPC_Install.md) to launch on an HPC system (tested on the University of Arizona's HPC system).
-
-#### Running on the HPC's interactive node
-
-At this point your worker nodes should already be running and you should be in your FlirIr directory within your interactive node. Download the data that you need using:
-
+- Download [CCTools](http://ccl.cse.nd.edu/software/downloadfiles.php) and extract it's contents within your HPC home path:
 ```
-iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/ps2Top/ps2Top-<date>.tar
+cd ~
+
+wget http://ccl.cse.nd.edu/software/files/cctools-7.1.12-x86_64-centos7.tar.gz
+
+tar -xvf cctools-7.1.12-x86_64-centos7.tar.gz
+```       
+
+- Clone the PhytoOracle repository within your HPC's storage space such as /xdisk:
+```
+git clone https://github.com/LyonsLab/PhytoOracle.git
 ```
 
-Replace <day> with any day you want to process. Un-tar and move the folder to the PSII directory.
+- Change directory to psII:
+```
+cd PhytoOracle/psII/
+```
 
+#### Running on the HPC systems
+##### Launch workers
+- If using PBS: 
+```
+qsub worker_scripts/po_work_ocelote.pbs
+```
+- If using SLURM:
+```
+sbatch worker_scripts/po_work_puma.sh
+```
+
+##### Pipeline staging
+- Download raw data:
+```
+iget -N 0 -KVPT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/ps2Top/ps2Top-<day>.tar
+```
+
+Replace <day> with any day you want to process. 
+
+- Extract file contents and move the folder to the root directory:
 ```
 tar -xvf ps2Top-<date>.tar
 mv ./ps2Top/<date> .
 ```
 
-Then run the following command.
+- Log into interactive manager node and run the pipeline:
 ```
+./manager_scripts/gpu_init_puma.sh
+
 ./run.sh <date>
 ```
 
