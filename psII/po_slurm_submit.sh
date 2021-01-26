@@ -8,6 +8,9 @@
 #SBATCH --time=12:00:00
 module load python/3.8
 SCAN_DATE=${1%/}
+WORK_DIR=${2}
+NUM_WORKERS=${3}
+#cd /xdisk/ericlyons/big_data/egonzalez/phyto_training/PhytoOracle/stereoTopRGB
+cd ${WORK_DIR}
 
-cd /xdisk/ericlyons/big_data/egonzalez/phyto_training/PhytoOracle/psII/
-./run.sh ${SCAN_DATE}
+{ time ./run.sh ${SCAN_DATE} ; } 2> ${SCAN_DATE}_${NUM_WORKERS}.txt
