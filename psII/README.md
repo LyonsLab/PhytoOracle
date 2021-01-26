@@ -79,6 +79,6 @@ mv ps2Top/<date> .
 
 - Submit the pipeline as a job (HPC only):
 ```
-sbatch po_slurm_submit.sh <date> .
+sbatch po_slurm_submit.sh <date> . <num_workers>
 ```
 
