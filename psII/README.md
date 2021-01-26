@@ -65,14 +65,14 @@ tar -xvf ps2Top-<date>.tar
 mv ./ps2Top/<date> .
 ```
 
-- Log into interactive manager node and run the pipeline:
+- Run the pipeline interactively:
 ```
 ./manager_scripts/gpu_init_puma.sh
 
 ./run.sh <date>
 ```
 
-- If you would like to submit this job instead of running it interactively, run the following command:
+- Submit the pipeline to job scheduler (HPC only):
 ```
 sbatch po_slurm_submit.sh <date> .
 ```
