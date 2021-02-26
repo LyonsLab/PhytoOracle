@@ -179,6 +179,6 @@ SLURM:
 
 + `StereoTopRGB <https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html>`_
 + `FlirIr <https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html>`_
-+ PSII <https://phytooracle.readthedocs.io/en/latest/7_PSII_run.html>`_
-+ Stereo3DTop
++ `PSII <https://phytooracle.readthedocs.io/en/latest/7_PSII_run.html>`_
++ `Stereo3DTop <https://phytooracle.readthedocs.io/en/latest/8_3D_run.html>`_
 + Hyperspectral
