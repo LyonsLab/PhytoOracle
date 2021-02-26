@@ -62,23 +62,25 @@ Navigate to your RGB directory, download the data from the CyVerse DataStore wit
 .. code::
 
    cd /<personal_folder>/PhytoOracle/StereoTopRGB
-   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/demo_data/Lettuce/StereoTopRGB_demo.tar
-   tar -xvf StereoTopRGB_demo.tar
+   iget -rKVP /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/stereoTop/<stereoTop-date.tar>
+   tar -xvf <stereoTop-date.tar>
 
-Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTopRGB/<scan_date>.tar`
+.. note::
 
-Retrieve correction file
-^^^^^^^^^^^^^^^^^^^^^^^^
+   For a full list of available unprocessed data navigate to https://datacommons.cyverse.org/browse/iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/StereoTopRGB/
+
+Retrieve vector and ML model files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Dowload the coordiate correction :code:`.csv` file:
 
 .. code::
 
-   iget -rKVP /iplant/home/emmanuelgonzalez/Ariyan_ortho_attempt_4/2020-01-08_coordinates_CORRECTED_4-16-2020.csv
+  iget -N 0 -PVT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/season10_multi_latlon_geno.geojson
 
-.. note::
-   
-   The :code:`.csv` file will soon be moved to a shared directory; this will change accordingly.
+  iget -N 0 -PVT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/necessary_files/gcp_season_10.txt
+
+  iget -N 0 -PVT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/necessary_files/model_weights.pth
    
 Edit scripts
 ^^^^^^^^^^^^
@@ -140,3 +142,9 @@ Begin processing using:
    This may return a notice with a "FATAL" error. This happens as the pipeline waits for a connection to DockerHub, which takes some time. Usually, the system will fail quickly if there is an issue.
 
    If the pipeline fails, check to make sure you have a "/" concluding line 14 of :code:`process_one_set.sh`. This is one of the most common errors and is necessary to connect the program scripts to the HPC.
+
+
+Troubleshooting and Issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If problems arise with this pipeline, please refer to the `tutorial on GitHub specific to the RGB pileline <https://github.com/LyonsLab/PhytoOracle/tree/master/stereoTopRGB>`_. If problems persist, raise an issue.

@@ -36,12 +36,14 @@ Navigate to your directory containing Scanner3DTop, and download the data from t
 
 .. code::
 
-   cd /<personal_folder>/PhytoOracle/Scanner3DTop
-   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/Scanner3DTop/<scan_date>.tar
-   tar -xvf <scan_date>.tar
+   cd /<personal_folder>/PhytoOracle/FlirIr
+   iget -rKVP /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/Scanner3DTop/<Scanner3DTop-date.tar>
+   tar -xvf <Scanner3DTop-date.tar>
 
-Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/Scanner3DTop/<scan_date>.tar`
-   
+.. note::
+
+   For a full list of available unprocessed data navigate to https://datacommons.cyverse.org/browse/iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/Scanner3DTop/
+
 Edit scripts
 ^^^^^^^^^^^^
 

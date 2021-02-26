@@ -56,11 +56,13 @@ Navigate to your PSII directory, download the data from the CyVerse DataStore wi
 
 .. code::
 
-   cd /<personal_folder>/PhytoOracle/StereoTopRGB
-   iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/demo_data/Lettuce/PSII_demo.tar
-   tar -xvf PSII_demo.tar
+   cd /<personal_folder>/PhytoOracle/FlirIr
+   iget -rKVP /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/ps2Top/<ps2Top-date.tar>
+   tar -xvf <ps2Top-date.tar>
 
-Data from the Gantry can be found within :code:`/iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/psii/<scan_date>.tar`
+.. note::
+
+   For a full list of available unprocessed data navigate to https://datacommons.cyverse.org/browse/iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/ps2Top/
    
 Edit scripts
 ^^^^^^^^^^^^
