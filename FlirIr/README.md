@@ -21,7 +21,28 @@ PhytoOracle's FlirIr requires a metadata file (<metadata>.json) for every compre
 
 #### Setup Guide
 
-+ Go [here](https://github.com/uacic/PhytoOracle/blob/alpha/HPC_Install.md) to launch on an HPC system (tested on the University of Arizona's HPC system).
++ Go [here](https://github.com/LyonsLab/PhytoOracle/blob/alpha/HPC_Install.md) to launch on an HPC system (tested on the University of Arizona's HPC system).
++ Clone the [coordinates correction](https://github.com/ariyanzri/Lettuce_Image_Stitching)
+
+```
+git clone https://github.com/ariyanzri/Lettuce_Image_Stitching
+mv Lettuce_Image_stitching ../
+``` 
+
++ Download necessary model files
+
+```
+iget -rKVP /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/necessary_files/
+``` 
+
++ Edit line 33 of `Lettuce_Image_Stitching/geo_correction_config.txt` to match where the necessary file location is, as well as making sure that `SAVE_NEW_TIFF_FILES` is `True`
+
+```
+cd necessary_files/ 
+find $(pwd) -maxdepth 1 -type f -name model_weights_2021-01-14_flir_lid_10e.pth  # copy this!
+cd ../../Lettuce_Image_stitching
+nano geo_correction_config.txt
+```
 
 #### Running on the HPC's interactive node
 

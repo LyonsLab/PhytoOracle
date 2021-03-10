@@ -3,8 +3,16 @@
 
     "CLEANED_META_DIR": "cleanmetadata_out/",
     "TIFS_DIR": "flir2tif_out/",
-    
   },
+
+
+  "categories" : {
+      
+     "collect"  : {
+                      "resources" : { "cores" : 94, "memory" : 470000, "disk" : 8192000 }
+      }
+  },
+
   "rules": [
 
     {
@@ -19,8 +27,7 @@
         "cached_betydb/bety_experiments.json"
       ],
       "outputs":
-      [ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ TIFS_DIR + DATA_SET["UUID"] + "_ir.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      [ TIFS_DIR + DATA_SET["UUID"] + "_ir.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
     } for BUNDLE in BUNDLE_LIST,
   ]
 }
