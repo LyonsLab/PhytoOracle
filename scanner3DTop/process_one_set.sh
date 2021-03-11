@@ -1,7 +1,5 @@
 #!/bin/bash
 
-BETYDB_URL="http://128.196.65.186:8000/bety/"
-BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
 HPC_PATH="/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/scanner3DTop/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
 #PLANT_LOC=${HPC_PATH}"season10_plant_detections.csv"

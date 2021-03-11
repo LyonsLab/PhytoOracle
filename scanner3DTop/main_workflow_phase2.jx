@@ -1,7 +1,5 @@
 {
   "define": {
-    "BETYDB_URL": "https://terraref.ncsa.illinois.edu/bety/",
-    "BETYDB_KEY": "9999999999999999999999999999999999999999",
 
     # Pass down by the main_workflow
     "LEVEL_0_DATA_PATH": "small_test_set/PNG/2017-06-21__00-00-26-364/",

@@ -7,8 +7,6 @@
 #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
 #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
 
-BETYDB_URL="http://128.196.65.186:8000/bety/"
-BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
 HPC_PATH="/xdisk/cjfrost/egonzalez/PhytoOracle/stereoTopRGB/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
 
