@@ -34,6 +34,7 @@
       ],
       "outputs":
       [ MERGE_OUT + DATA_SET["UUID"] + "_icp_merge.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DATA_SET["UUID"] + "_merged_east_west.png" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ SCALE_ROT_OUT + DATA_SET["UUID"] + "_icp_merge_scaled.ply" for DATA_SET in BUNDLE["DATA_SETS"]]
       + [ GEO_REF_OUT + DATA_SET["UUID"] + "_icp_merge_registered.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
       + [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected_full.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]

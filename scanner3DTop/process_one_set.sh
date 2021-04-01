@@ -47,7 +47,9 @@ SIMG_PATH=${SIMG_PATH}
 
 mkdir -p ${MERGE_DIR}
 #singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las:2.1 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA}
-singularity run ${SIMG_PATH}3d_icp_registration.simg -w ${WEST_PLY} -e ${EAST_PLY}
+#singularity run ${SIMG_PATH}3d_icp_registration.simg -w ${WEST_PLY} -e ${EAST_PLY}
+#NEW
+singularity run ${SIMG_PATH}3d_icp_merge.simg -w ${WEST_PLY} -e ${EAST_PLY}
 
 ###############################
 # Scale and rotate point cloud#
@@ -78,19 +80,21 @@ GEO_COR_DIR=${GEO_COR_DIR}
 PLANT_LOC=${PLANT_LOC}
 
 mkdir -p ${GEO_COR_DIR}
-singularity run ${SIMG_PATH}3d_geo_cor.simg -m ${METADATA} -l ${PLANT_LOC} -d Y ${MERGE_REF_PLY} 
+#singularity run ${SIMG_PATH}3d_geo_cor.simg -m ${METADATA} -l ${PLANT_LOC} -d Y ${MERGE_REF_PLY} 
+#NEW
+singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2021-03-26_10e_season10_3dpng.pth -p ${GEO_COR_PLY} -d ${HPC_PATH}season10_lettuce_rgb_complete.csv -s 2020-03-03 -o ${GEO_COR_DIR} 
 
 #############################
 # Clip out individual plants#
 #############################
-PLANT_LOC_CLIP=${PLANT_LOC_CLIP}
-GEO_COR_PLY=${GEO_COR_PLY}
-PLANT_CLIP_DIR=${PLANT_CLIP_DIR}
+#PLANT_LOC_CLIP=${PLANT_LOC_CLIP}
+#GEO_COR_PLY=${GEO_COR_PLY}
+#PLANT_CLIP_DIR=${PLANT_CLIP_DIR}
 
-mkdir -p ${PLANT_CLIP_DIR}
-singularity run ${SIMG_PATH}3d_plant_clip.simg -c ${PLANT_LOC_CLIP} ${GEO_COR_PLY}
+#mkdir -p ${PLANT_CLIP_DIR}
+#singularity run ${SIMG_PATH}3d_plant_clip.simg -c ${PLANT_LOC_CLIP} ${GEO_COR_PLY}
 
 ####################################
 # create tarball of plotclip result#
 ####################################
-tar -cvf ${UUID}_plantclip.tar ${PLANT_CLIP_DIR}
+#tar -cvf ${UUID}_plantclip.tar ${PLANT_CLIP_DIR}
