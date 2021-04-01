@@ -10,8 +10,7 @@ OUT_PATH=${PIPE_PATH}'ortho_out/'
 set -e 
 
 echo "> Processing ${SCAN_DATE} RGB scan."
-
-ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
+#ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
 
 # --------------------------------------------------
 echo "> Distributed workflow 1 of 2"

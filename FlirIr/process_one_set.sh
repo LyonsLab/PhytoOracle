@@ -7,9 +7,7 @@
 #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
 #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
 
-BETYDB_URL="http://128.196.65.186:8000/bety/"
-BETYDB_KEY="wTtaueVXsUIjtqaxIaaaxsEMM4xHyPYeDZrg8dCD"
-HPC_PATH="/xdisk/ericlyons/big_data/cosi/PhytoOracle_flirIr/"
+HPC_PATH="/xdisk/ericlyons/big_data/cosi/PhytoOracle/FlirIr/"
 SIMG_PATH='/xdisk/ericlyons/big_data/singularity_images/'
 
 CLEANED_META_DIR="cleanmetadata_out/"
@@ -45,22 +43,22 @@ USERID=""
 #ls ${RAW_DATA_PATH}
 #ls ${METADATA}
 ls "cached_betydb/bety_experiments.json"
-mkdir -p ${WORKING_SPACE}
+#mkdir -p ${WORKING_SPACE}
 #BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ /home/u12/cosi/singularity/scripts/run-singularity -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
-BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}cleanmetadata_2.2.simg --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
+#BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}cleanmetadata_2.2.simg --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
 #ls ${CLEANED_META_DIR}
 #ls ${METADATA_CLEANED}
 
 # Convert  bin/RGB image to TIFF format
 IR_BIN=${IR_BIN}
-METADATA=${METADATA_CLEANED}
+#METADATA=${METADATA_CLEANED}
 WORKING_SPACE=${TIFS_DIR}
 
 #ls ${IR_BIN}
 #ls ${METADATA_CLEANED}
 mkdir -p ${WORKING_SPACE}
 #/home/u12/cosi/singularity/scripts/run-singularity -B $(pwd):/mnt --pwd /mnt docker://cosimichele/po_flir2tif_s10 -m ${METADATA} ${IR_BIN}
-singularity run -B $(pwd):/mnt --pwd /mnt  ${SIMG_PATH}po_flir2tif_s10.simg -m ${METADATA} ${IR_BIN}
+singularity run -B $(pwd):/mnt --pwd /mnt  ${SIMG_PATH}po_flir2tif_s10_latest.simg -m ${METADATA} ${IR_BIN}
 #singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/flir2tif:2.2 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA} ${IR_BIN}
 #ls ${IN_TIF}
 
@@ -89,6 +87,6 @@ singularity run -B $(pwd):/mnt --pwd /mnt  ${SIMG_PATH}po_flir2tif_s10.simg -m $
 #ls ${METADATA_CLEANED}
 #mkdir -p ${WORKING_SPACE}
 
-#BETYDB_URL=http://128.196.65.186:8000/bety/ BETYDB_KEY=YUKPF38ZxMB0UOkP6etB9bNOjTjIeWFj0RbNGIg5 singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/meantemp:3.0 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA} --citation_author $AUTHOR --citation_title $TITLE --citation_year ${YEAR} ${IN_TIF}
+#BETYDB_URL=http://128.196.65.186:8000/bety/ BETYDB_KEY=<> singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/meantemp:3.0 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA} --citation_author $AUTHOR --citation_title $TITLE --citation_year ${YEAR} ${IN_TIF}
 
-#docker run --rm --mount "src=`pwd`,target=/mnt,type=bind" -e "BETYDB_URL=http://128.196.65.186:8000/bety/" -e "BETYDB_KEY=YUKPF38ZxMB0UOkP6etB9bNOjTjIeWFj0RbNGIg5" agpipeline/meantemp:3.0 --working_space "/mnt" --metadata "/mnt/cleanmetadata_out/46bbef81-0858-4195-b921-05cd8700af47_metadata_cleaned.json" --citation_author "Me Myself" --citation_title "Something that's warm" --citation_year "2020" "/mnt/flir2tif_out/46bbef81-0858-4195-b921-05cd8700af47_ir.tif"
+#docker run --rm --mount "src=`pwd`,target=/mnt,type=bind" -e "BETYDB_URL=http://128.196.65.186:8000/bety/" -e "BETYDB_KEY=<>" agpipeline/meantemp:3.0 --working_space "/mnt" --metadata "/mnt/cleanmetadata_out/46bbef81-0858-4195-b921-05cd8700af47_metadata_cleaned.json" --citation_author "Me Myself" --citation_title "Something that's warm" --citation_year "2020" "/mnt/flir2tif_out/46bbef81-0858-4195-b921-05cd8700af47_ir.tif"

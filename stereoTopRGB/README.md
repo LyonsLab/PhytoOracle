@@ -47,11 +47,11 @@ cd PhytoOracle/stereoTopRGB/
 ```
 - Download required vector and ML model files:
 ```
-iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/gcp_season_10.txt
+iget -N 0 -PVT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/season10_multi_latlon_geno.geojson
 
-iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/season10_multi_latlon_geno.geojson
+iget -N 0 -PVT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/necessary_files/gcp_season_10.txt
 
-iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/model_weights.pth
+iget -N 0 -PVT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/necessary_files/model_weights.pth
 ```
 
 #### Running pipeline on HPC 
@@ -68,7 +68,7 @@ sbatch worker_scripts/po_work_puma.sh
 ##### Pipeline staging
 - Download raw data:
 ```
-iget -N 0 -KVPT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTop/stereoTop-<day>.tar
+iget -N 0 -KVPT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/stereoTop/stereoTop-<day>.tar
 ```
 
 Replace `<day>` with any day you want to process. 
