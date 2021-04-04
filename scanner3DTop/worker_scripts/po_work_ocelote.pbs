@@ -9,7 +9,7 @@
 #module load ferng/glibc
 module load singularity
 
-export CCTOOLS_HOME=/home/u31/emmanuelgonzalez/cctools-7.1.6-x86_64-centos7
+export CCTOOLS_HOME=/home/u31/emmanuelgonzalez/cctools-7.1.12-x86_64-centos7
 export PATH=${CCTOOLS_HOME}/bin:$PATH
 
-${HOME}/cctools-7.1.6-x86_64-centos7/bin/work_queue_factory -T local -M phytooracle -w 24 -W 26 --workers-per-cycle 10 --cores=1 -t 900
+${HOME}/cctools-7.1.12-x86_64-centos7/bin/work_queue_factory -T local -M phytooracle -w 24 -W 26 --workers-per-cycle 10 --cores=1 -t 900
