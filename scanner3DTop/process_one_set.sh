@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HPC_PATH="/xdisk/ericlyons/big_data/egonzalez/PhytoOracle/scanner3DTop/"
+HPC_PATH="/xdisk/cjfrost/egonzalez/PhytoOracle/scanner3DTop/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
 #PLANT_LOC=${HPC_PATH}"season10_plant_detections.csv"
 PLANT_LOC=${HPC_PATH}"plant_detections/2020-01-20_detection.csv"
@@ -10,7 +10,8 @@ PLANT_LOC_CLIP=${HPC_PATH}"season10_plant_locations_for_3d.csv"
 CLEANED_META_DIR="cleanmetadata_out/"
 MERGE_DIR="icp_registration_out/"
 GEO_REF_DIR="rotation_registration_out/"
-GEO_COR_DIR="geocorrect_out/"
+#GEO_COR_DIR="geocorrect_out/"
+GEO_COR_DIR="3d_geo_correction_out/"
 SCALE_ROT_DIR="scale_rotate_out/"
 PLANT_CLIP_DIR="plantclip_out/"
 
@@ -19,7 +20,9 @@ EAST_PLY=${HPC_PATH}${RAW_DATA_PATH}${UUID}"__Top-heading-east_0.ply"
 WEST_PLY=${HPC_PATH}${RAW_DATA_PATH}${UUID}"__Top-heading-west_0.ply"
 MERGE_PLY=${MERGE_DIR}${UUID}"_icp_merge.ply"
 MERGE_REF_PLY=${GEO_REF_DIR}${UUID}"_icp_merge_registered.ply"
-GEO_COR_PLY=${GEO_COR_DIR}${UUID}"_icp_merge_registered_geocorrected_full.ply"
+#GEO_COR_PLY=${GEO_COR_DIR}${UUID}"_icp_merge_registered_geocorrected_full.ply"
+GEO_COR_PLY=${GEO_COR_DIR}${UUID}"_corrected.ply"
+MERGE_PNG=${MERGE_DIR}${UUID}"_merged_east_west.png"
 
 HTTP_USER="YOUR_USERNAME"
 HTTP_PASSWORD="PhytoOracle"
@@ -76,23 +79,24 @@ METADATA=${METADATA}
 MERGE_REF_PLY=${MERGE_REF_PLY}
 GEO_COR_DIR=${GEO_COR_DIR}
 PLANT_LOC=${PLANT_LOC}
+MERGE_PNG=${MERGE_PNG}
 
 mkdir -p ${GEO_COR_DIR}
-#singularity run ${SIMG_PATH}3d_geo_cor.simg -m ${METADATA} -l ${PLANT_LOC} -d Y ${MERGE_REF_PLY} 
+##singularity run ${SIMG_PATH}3d_geo_cor.simg -m ${METADATA} -l ${PLANT_LOC} -d Y ${MERGE_REF_PLY} 
 #NEW
-singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2021-03-26_10e_season10_3dpng.pth -p ${GEO_COR_PLY} -d ${HPC_PATH}season10_lettuce_rgb_complete.csv -s 2020-03-03 -o ${GEO_COR_DIR} 
+singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2021-03-26_10e_season10_3dpng.pth -d ${HPC_PATH}season10_lettuce_rgb_complete.csv -s 2020-03-03 -p ${MERGE_REF_PLY} -j ${METADATA} -i ${MERGE_PNG} 
 
 #############################
 # Clip out individual plants#
 #############################
-#PLANT_LOC_CLIP=${PLANT_LOC_CLIP}
-#GEO_COR_PLY=${GEO_COR_PLY}
-#PLANT_CLIP_DIR=${PLANT_CLIP_DIR}
+PLANT_LOC_CLIP=${PLANT_LOC_CLIP}
+GEO_COR_PLY=${GEO_COR_PLY}
+PLANT_CLIP_DIR=${PLANT_CLIP_DIR}
 
-#mkdir -p ${PLANT_CLIP_DIR}
-#singularity run ${SIMG_PATH}3d_plant_clip.simg -c ${PLANT_LOC_CLIP} ${GEO_COR_PLY}
+mkdir -p ${PLANT_CLIP_DIR}
+singularity run ${SIMG_PATH}3d_plant_clip.simg -c ${PLANT_LOC_CLIP} ${GEO_COR_PLY}
 
 ####################################
 # create tarball of plotclip result#
 ####################################
-#tar -cvf ${UUID}_plantclip.tar ${PLANT_CLIP_DIR}
+tar -cvf ${UUID}_plantclip.tar ${PLANT_CLIP_DIR}

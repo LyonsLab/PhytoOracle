@@ -30,10 +30,10 @@ def find():
     args = get_args()
     with open("entrypoint_p1.sh", 'r') as f:
         lines = f.readlines()[2]
-        print(lines)
+        #print(lines)
         #global line2replace
         line2replace = lines.split()[2]
-        print("Replacing: " + line2replace)
+        #print("Replacing: " + line2replace)
 	#print(f'Replacing "{line2replace}" with "{args.replace}"')
     replace(line2replace, args.replace)
 
@@ -48,7 +48,7 @@ def replace(line2replace, date):
     f = open("entrypoint_p1.sh", 'w')
     f.write(nline)
     f.close()
-    print("Change complete")
+    #print("Change complete")
 
 
 # --------------------------------------------------

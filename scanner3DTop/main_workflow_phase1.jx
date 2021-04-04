@@ -6,6 +6,7 @@
     "GEO_COR_OUT": "geocorrect_out/",
     "SCALE_ROT_OUT": "scale_rotate_out/",
     "PLANT_CLIP_OUT": "plantclip_out/",
+    "PLY_GEO_COR": "3d_geo_correction_out/",
 
     #"METADATA": "RAW_DATA_PATH" + "UUID" + "_metadata.json",
     #"METADATA_CLEANED": "CLEANED_META_DIR" + "UUID" + "_metadata_cleaned.json",
@@ -32,12 +33,13 @@
       ],
       "outputs":
       [ MERGE_OUT + DATA_SET["UUID"] + "_icp_merge.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ DATA_SET["UUID"] + "_merged_east_west.png" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ MERGE_OUT + DATA_SET["UUID"] + "_merged_east_west.png" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ SCALE_ROT_OUT + DATA_SET["UUID"] + "_icp_merge_scaled.ply" for DATA_SET in BUNDLE["DATA_SETS"]]
       + [ GEO_REF_OUT + DATA_SET["UUID"] + "_icp_merge_registered.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected_full.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ DATA_SET["UUID"] + "_plantclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected_full.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ PLY_GEO_COR + DATA_SET["UUID"] + "_corrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ DATA_SET["UUID"] + "_plantclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
      } for BUNDLE in BUNDLE_LIST,
     ]
 }
