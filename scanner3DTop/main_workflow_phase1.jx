@@ -39,7 +39,7 @@
       #+ [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected_full.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
       + [ PLY_GEO_COR + DATA_SET["UUID"] + "_corrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      #+ [ DATA_SET["UUID"] + "_plantclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DATA_SET["UUID"] + "_plantclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
      } for BUNDLE in BUNDLE_LIST,
     ]
 }
