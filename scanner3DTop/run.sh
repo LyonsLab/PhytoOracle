@@ -1,5 +1,10 @@
 #!/bin/bash 
 SCAN_DATE=${1%/}
+PIPE_PATH=$PWD'/'
+
+sbatch worker_scripts/po_work_puma_slurm.sh
+echo "> Processing ${SCAN_DATE} 3D scan."
+ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
 
 # Set paths
 ./replace.py $SCAN_DATE
@@ -22,3 +27,13 @@ mv ${SCAN_DATE}/ processed_scans/
 mkdir -p ${SCAN_DATE}
 rm *_plantclip.tar
 mv *.tar ${SCAN_DATE}
+
+#Upload outputs
+ssh filexfer 'cd' "${PIPE_PATH}" '&& ./upload.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
+
+#Cancel workers and clean the file system.
+scancel --name=po_worker
+rm -r ${SCAN_DATE}
+rm scanner3DTop-${SCAN_DATE}.tar
+rm -r processed_scans/ 
+./clean.sh

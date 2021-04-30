@@ -3,9 +3,11 @@
 HPC_PATH="/xdisk/cjfrost/egonzalez/PhytoOracle/scanner3DTop/"
 SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
 #PLANT_LOC=${HPC_PATH}"season10_plant_detections.csv"
-PLANT_LOC=${HPC_PATH}"plant_detections/2020-01-20_detection.csv"
+#PLANT_LOC=${HPC_PATH}"plant_detections/2020-01-20_detection.csv"
 #PLANT_LOC=${HPC_PATH}"season10_plant_locations_for_3d.csv"
-PLANT_LOC_CLIP=${HPC_PATH}"season10_plant_locations_for_3d.csv"
+#PLANT_LOC_CLIP=${HPC_PATH}"stereoTop_full_season_clustering.csv"
+PLANT_LOC_CLIP=${HPC_PATH}"season10_plant_detections_cleaned.csv"
+DATE="`echo ${RAW_DATA_PATH} | grep -Eo '[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}' | tail -1`"
 
 CLEANED_META_DIR="cleanmetadata_out/"
 MERGE_DIR="icp_registration_out/"
@@ -34,7 +36,6 @@ set -e
 #wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${METADATA} -O ${METADATA}
 #wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${EAST_PLY} -O ${EAST_PLY}
 #wget --user ${HTTP_USER} --password ${HTTP_PASSWORD} ${DATA_BASE_URL}${WEST_PLY} -O ${WEST_PLY}
-
 #################################
 # Merge east and west pointcloud#
 #################################
@@ -50,7 +51,7 @@ mkdir -p ${MERGE_DIR}
 #singularity run -B $(pwd):/mnt --pwd /mnt docker://agpipeline/ply2las:2.1 --result print --working_space ${WORKING_SPACE} --metadata ${METADATA}
 #singularity run ${SIMG_PATH}3d_icp_registration.simg -w ${WEST_PLY} -e ${EAST_PLY}
 #NEW
-singularity run ${SIMG_PATH}3d_icp_merge.simg -w ${WEST_PLY} -e ${EAST_PLY}
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}3d_icp_merge.simg -w ${WEST_PLY} -e ${EAST_PLY}
 
 ###############################
 # Scale and rotate point cloud#
@@ -78,13 +79,16 @@ singularity run ${SIMG_PATH}3d_geo_ref.simg -m ${METADATA} ${MERGE_PLY}
 METADATA=${METADATA}
 MERGE_REF_PLY=${MERGE_REF_PLY}
 GEO_COR_DIR=${GEO_COR_DIR}
-PLANT_LOC=${PLANT_LOC}
+PLANT_LOC_CLIP=${PLANT_LOC_CLIP}
 MERGE_PNG=${MERGE_PNG}
+DATE=${DATE}
 
 mkdir -p ${GEO_COR_DIR}
 ##singularity run ${SIMG_PATH}3d_geo_cor.simg -m ${METADATA} -l ${PLANT_LOC} -d Y ${MERGE_REF_PLY} 
 #NEW
-singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2021-03-26_10e_season10_3dpng.pth -d ${HPC_PATH}season10_lettuce_rgb_complete.csv -s 2020-03-03 -p ${MERGE_REF_PLY} -j ${METADATA} -i ${MERGE_PNG} 
+#singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2021-03-26_10e_season10_3dpng.pth -d ${HPC_PATH}season10_lettuce_rgb_complete.csv -s ${DATE} -p ${MERGE_REF_PLY} -j ${METADATA} -i ${MERGE_PNG} 
+#singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2021-03-26_10e_season10_3dpng.pth -d ${HPC_PATH}season10_lettuce_rgb_complete.csv -s ${DATE} -p ${MERGE_REF_PLY} -j ${METADATA} -i ${MERGE_PNG}
+singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2021-03-26_10e_season10_3dpng.pth -d ${PLANT_LOC_CLIP} -s ${DATE} -p ${MERGE_REF_PLY} -j ${METADATA} -i ${MERGE_PNG}
 
 #############################
 # Clip out individual plants#
@@ -92,9 +96,10 @@ singularity run ${SIMG_PATH}3d_geo_correction.simg -m ${HPC_PATH}model_weights_2
 PLANT_LOC_CLIP=${PLANT_LOC_CLIP}
 GEO_COR_PLY=${GEO_COR_PLY}
 PLANT_CLIP_DIR=${PLANT_CLIP_DIR}
+DATE=${DATE}
 
 mkdir -p ${PLANT_CLIP_DIR}
-singularity run ${SIMG_PATH}3d_plant_clip.simg -c ${PLANT_LOC_CLIP} ${GEO_COR_PLY}
+singularity run ${SIMG_PATH}3d_plant_clip.simg -c ${PLANT_LOC_CLIP} -d ${DATE} ${GEO_COR_PLY}
 
 ####################################
 # create tarball of plotclip result#

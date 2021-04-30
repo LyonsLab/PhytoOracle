@@ -9,6 +9,8 @@ rm -r rotation_registration_out/
 rm -r geocorrect_out/
 rm -r scale_rotate_out/
 rm -r plantclip_out/
+rm -r 3d_geo_correction_out/
+
 rm main_workflow_phase1.json
 rm bundle_list.json
 rm raw_data_files.jx 
