@@ -3,12 +3,7 @@ TAR_FILE=${1}
 WORK_DIR=${2}
 
 cd ${WORK_DIR}
-#iget -fKPVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/stereoTop/stereoTop-${TAR_FILE}.tar
-iget -fKPVT /iplant/home/shared/terraref/ua-mac/raw_tars/old/stereoTop-${TAR_FILE}.tar
-tar -xvf stereoTop-$(basename $TAR_FILE).tar
-
-#prefix="stereoTop-"
-#foo=$(basename ${TAR_FILE%.*})
-#foo=${foo#"$prefix"}
-#echo ${foo}
+iget -fKPVT /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/stereoTop/stereoTop-${TAR_FILE}.tar
+tar -xvf stereoTop-${TAR_FILE}.tar
+rm stereoTop-${TAR_FILE}.tar
 mv stereoTop/* .

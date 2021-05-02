@@ -9,8 +9,9 @@ OUT_PATH=${PIPE_PATH}'ortho_out/'
 #CSV_PATH=${PIPE_PATH}'img_coords_out/'${SCAN_DATE}'_coordinates.csv'
 set -e 
 
+sbatch worker_scripts/po_work_puma_slurm.sh
 echo "> Processing ${SCAN_DATE} RGB scan."
-#ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
+ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
 
 # --------------------------------------------------
 echo "> Distributed workflow 1 of 2"
@@ -37,18 +38,26 @@ singularity run ${SIMG_PATH}rgb_flir_plant_detection.simg -d ${SCAN_DATE} -m ${P
 
 # --------------------------------------------------
 echo "> Compressing outputs."
-./compress_outputs.sh ${SCAN_DATE}
-#tar -cvf ${SCAN_DATE}_bin2tif.tar bin2tif_out/
-#tar -cvf ${SCAN_DATE}_gpscorrect.tar gpscorrect_out/
-#tar -cvf ${SCAN_DATE}_plotclip_tifs.tar plotclip_out/
-#cp bundle_list.json bundle/
-#cp raw_data_files.json bundle/
-#tar -cvf ${SCAN_DATE}_bundle.tar bundle/
-#tar -cvf ${SCAN_DATE}_plotclip_orthos.tar ${SCAN_DATE}_plotclip_orthos/ 
-#rm -r ${SCAN_DATE}_plotclip_orthos/
-#mv ${SCAN_DATE} processed_scans/
-#mkdir -p ${SCAN_DATE}
-#mv ${SCAN_DATE}_* ${SCAN_DATE}/
+tar -cvf ${SCAN_DATE}_bin2tif.tar bin2tif_out/
+tar -cvf ${SCAN_DATE}_gpscorrect.tar gpscorrect_out/
+tar -cvf ${SCAN_DATE}_plotclip_tifs.tar plotclip_out/
+cp bundle_list.json bundle/
+cp raw_data_files.json bundle/
+tar -cvf ${SCAN_DATE}_bundle.tar bundle/
+tar -cvf ${SCAN_DATE}_plotclip_orthos.tar ${SCAN_DATE}_plotclip_orthos/ 
+rm -r ${SCAN_DATE}_plotclip_orthos/
+mv ${SCAN_DATE} processed_scans/
+mkdir -p ${SCAN_DATE}
+mv ${SCAN_DATE}_* ${SCAN_DATE}/
+./clean.sh
+
+#Upload outputs
+ssh filexfer 'cd' "${PIPE_PATH}" '&& ./upload.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
+
+#Cancel workers and clean the file system.
+scancel --name=po_worker
+rm -r ${SCAN_DATE}
+rm -r processed_scans/
  
 # --------------------------------------------------
 echo "> Done processing ${SCAN_DATE} RGB scan."
