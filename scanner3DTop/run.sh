@@ -27,6 +27,7 @@ mv ${SCAN_DATE}/ processed_scans/
 mkdir -p ${SCAN_DATE}
 rm *_plantclip.tar
 mv *.tar ${SCAN_DATE}
+./clean.sh
 
 #Upload outputs
 ssh filexfer 'cd' "${PIPE_PATH}" '&& ./upload.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
@@ -34,6 +35,4 @@ ssh filexfer 'cd' "${PIPE_PATH}" '&& ./upload.sh' ${SCAN_DATE} ${PIPE_PATH} '&& 
 #Cancel workers and clean the file system.
 scancel --name=po_worker
 rm -r ${SCAN_DATE}
-rm scanner3DTop-${SCAN_DATE}.tar
 rm -r processed_scans/ 
-./clean.sh
