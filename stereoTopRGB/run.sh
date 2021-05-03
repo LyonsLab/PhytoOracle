@@ -10,12 +10,13 @@ OUT_PATH=${PIPE_PATH}'ortho_out/'
 set -e 
 
 sbatch worker_scripts/po_work_puma_slurm.sh
+singularity run ${SIMG_PATH}slack_notification.simg -m "Downloading and preparing to process stereoTop-${SCAN_DATE}." 
 echo "> Processing ${SCAN_DATE} RGB scan."
 ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
 
 # --------------------------------------------------
 echo "> Distributed workflow 1 of 2"
-./replace.py ${SCAN_DATE}
+./replace.py "stereoTop-${SCAN_DATE}"
 ./replace_process_one.py $PWD
 ./entrypoint.sh
 
@@ -37,6 +38,7 @@ singularity exec ${SIMG_PATH}gdal_313.simg bash ortho.sh gpscorrect_out ${SCAN_D
 singularity run ${SIMG_PATH}rgb_flir_plant_detection.simg -d ${SCAN_DATE} -m ${PIPE_PATH}model_weights_sorghum_rgb.pth -g ${PIPE_PATH}season11_multi_latlon_geno.geojson -t RGB -o season11_plant_detection ${SCAN_DATE}_plotclip_orthos 
 
 # --------------------------------------------------
+singularity run ${SIMG_PATH}slack_notification.simg -m "Finished processing ${SCAN_DATE}. Now compressing outputs."
 echo "> Compressing outputs."
 tar -cvf ${SCAN_DATE}_bin2tif.tar bin2tif_out/
 tar -cvf ${SCAN_DATE}_gpscorrect.tar gpscorrect_out/
@@ -51,10 +53,13 @@ mkdir -p ${SCAN_DATE}
 mv ${SCAN_DATE}_* ${SCAN_DATE}/
 ./clean.sh
 
+singularity run ${SIMG_PATH}slack_notification.simg -m "Finished compressing ${SCAN_DATE}. Now uploading to the CyVerse DataStore."
 #Upload outputs
 ssh filexfer 'cd' "${PIPE_PATH}" '&& ./upload.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
 
 #Cancel workers and clean the file system.
+singularity run ${SIMG_PATH}slack_notification.simg -m "Upload complete. See outputs at /iplant/home/shared/phytooracle/season_11_sorghum_yr_2020/level_0/stereoTop/${SCAN_DATE}/"
+
 scancel --name=po_worker
 rm -r ${SCAN_DATE}
 rm -r processed_scans/

@@ -12,4 +12,4 @@
 export CCTOOLS_HOME=${HOME}/cctools-7.1.12-x86_64-centos7
 export PATH=${CCTOOLS_HOME}/bin:$PATH
 
-${HOME}/cctools-7.1.12-x86_64-centos7/bin/work_queue_factory -T slurm -M phytooracle -B "--account=lyons-lab --partition=standard --job-name=po_worker"  -w 500 -W 800 --workers-per-cycle 0 --cores=1 -t 300
+${HOME}/cctools-7.1.12-x86_64-centos7/bin/work_queue_factory -T slurm -M phytooracle_s11 -B "--account=lyons-lab --partition=standard --job-name=po_worker"  -w 500 -W 800 --workers-per-cycle 0 --cores=1 -t 300
