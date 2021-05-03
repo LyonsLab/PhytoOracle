@@ -22,7 +22,7 @@ echo "> Distributed workflow 1 of 2"
 # --------------------------------------------------
 echo "> Geocorrection 1 of 1"
 mkdir -p ortho_out/
-singularity exec ${SIMG_PATH}full_geocorrection.simg python3 $HOME/Lettuce_Image_Stitching/Dockerized_GPS_Correction_HPC.py -d ${OUT_PATH} -b ${PIPEPATH}bin2tif_out -s ${SCAN_DATE} -c $HOME/Lettuce_Image_Stitching/geo_correction_config.txt -l ${PIPE_PATH}gcp_season_10.txt -r $HOME/Lettuce_Image_Stitching
+singularity exec ${SIMG_PATH}full_geocorrection.simg python3 $HOME/Lettuce_Image_Stitching/Dockerized_GPS_Correction_HPC.py -d ${OUT_PATH} -b ${PIPEPATH}bin2tif_out -s ${SCAN_DATE} -c $HOME/Lettuce_Image_Stitching/geo_correction_config.txt -l ${PIPE_PATH}gcp_season_11.txt -r $HOME/Lettuce_Image_Stitching
 
 # --------------------------------------------------
 echo "> Distributed workflow 2 of 2"
@@ -34,7 +34,7 @@ ls *_plotclip.tar | xargs -I {} tar -xvf {}
 rm *_plotclip.tar
 singularity run ${SIMG_PATH}rgb_flir_stitch_plots.simg -o ${SCAN_DATE}_plotclip_orthos ${PLOTCLIP_DIR}
 singularity exec ${SIMG_PATH}gdal_313.simg bash ortho.sh gpscorrect_out ${SCAN_DATE}
-singularity run ${SIMG_PATH}rgb_flir_plant_detection.simg -d ${SCAN_DATE} -m ${PIPE_PATH}model_weights.pth -g ${PIPE_PATH}season10_multi_latlon_geno.geojson -t RGB -o season10_plant_detection ${SCAN_DATE}_plotclip_orthos 
+singularity run ${SIMG_PATH}rgb_flir_plant_detection.simg -d ${SCAN_DATE} -m ${PIPE_PATH}model_weights_sorghum_rgb.pth -g ${PIPE_PATH}season11_multi_latlon_geno.geojson -t RGB -o season11_plant_detection ${SCAN_DATE}_plotclip_orthos 
 
 # --------------------------------------------------
 echo "> Compressing outputs."

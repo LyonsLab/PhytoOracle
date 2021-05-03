@@ -35,7 +35,7 @@ LEFT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_left_corrected.tif"
 RIGHT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_right_corrected.tif"
 #GPS_CSV=${HPC_PATH}${ORTHO_OUT}/2020-01-20/2020-01-20_coordinates_CORRECTED.csv"
 GPS_CSV=${HPC_PATH}${ORTHO_OUT}${DATE}"/"${DATE}"_coordinates_CORRECTED.csv"
-GEOJ=${HPC_PATH}"season10_multi_latlon_geno.geojson"
+GEOJ=${HPC_PATH}"season11_multi_latlon_geno.geojson"
 GPS_UNCOR=${HPC_PATH}"/xdisk/cjfrost/egonzalez/po_updates/PhytoOracle/stereoTopRGB/"
 
 HTTP_USER="YOUR_USERNAME"

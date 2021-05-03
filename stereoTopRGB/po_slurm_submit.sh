@@ -10,4 +10,4 @@
 WORK_DIR=${1}
 cd ${WORK_DIR}
 
-./run_pipeline.py --season 10 --sensor rgb
+./run_pipeline.py --season 11 --sensor stereoTop
