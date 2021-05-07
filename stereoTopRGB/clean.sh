@@ -19,5 +19,5 @@ rm main_workflow_phase2.json.*
 rm main_workflow_phase1.json
 rm main_workflow_phase2.json
 rm -r makeflow.failed.*
-#rm -r wq-pool-*
-#rm -r slurm-*
+rm -r wq-pool-*
+rm -r slurm-*

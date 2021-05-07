@@ -2,12 +2,11 @@
 #SBATCH --account=lyons-lab
 #SBATCH --partition=standard
 #SBATCH --job-name="po_batch"
-#SBATCH --nodes=1
 #SBATCH --mem=470GB
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=94
+#SBATCH --ntasks=94
+#SBATCH --ntasks-per-node=94
+#SBATCH --nodes=1
 #SBATCH --time=168:00:00
-#SBATCH --mpi=pmi2
 WORK_DIR=${1}
 cd ${WORK_DIR}
 

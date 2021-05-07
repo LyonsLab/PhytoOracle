@@ -74,7 +74,6 @@ def main():
 
     args = get_args()
     season_path, sensor_path = get_paths(args.season, args.sensor)
-    print(season_path, sensor_path)
 
     level_0 = os.path.join(season_path, 'level_0', sensor_path)
     level_1 = os.path.join(season_path, 'level_1', sensor_path)
@@ -89,11 +88,11 @@ def main():
     user_list = level_0_list
     matchers = process_list
     matching = [os.path.splitext(os.path.basename(s))[0].replace(f'{args.sensor}-', '') for s in user_list if any(xs in s for xs in matchers)]
-
+    
     for item in matching:
         cmd = f'./run.sh {item}'
         subprocess.call(cmd, shell=True)
-        print(f'Season {args.season} {sensor_path} processing complete.')
+        #print(f'Season {args.season} {sensor_path} processing complete.')
 
 
 # --------------------------------------------------
