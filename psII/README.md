@@ -1,12 +1,10 @@
 # PhytoOracle's PSII Pipeline
 
-#### Outline
-
-Welcome to PhytoOracle's psII pipeline! This pipeline uses the data transformers from the [PhytoOracle group](https://github.com/phytooracle) to extract chlorophyll fluorescence data. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
+#### Intro
+Welcome to PhytoOracle's PSII chlorophyll fluorescence pipeline! This pipeline uses the data transformers from the [PhytoOracle team](https://github.com/phytooracle) to extract chlorophyll fluorescence data. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
 
 #### Transformers used
-
-PSII currently uses 3 different transformers for data conversion:
+PSII currently uses the following transformers for data processing:
 
 |Order|Transformer|Process
 |:-:|:-:|:-:|
@@ -16,8 +14,7 @@ PSII currently uses 3 different transformers for data conversion:
 4|[fluorescence aggregation](https://github.com/phytooracle/psii_fluorescence_aggregation)|Aggregates segmentation data for each image and calculates F0, Fm, Fv, and Fv/Fm|
 
 #### Data overview
-
-PhytoOracle's psII pipeline requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 2 compressed images, one taken from a left camera and one taken from a right camera. We provide publicly-available data in the [CyVerse DataStore](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/ua-mac/raw_tars).
+PhytoOracle's psII pipeline requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 102 compressed images. 
 
 #### Setup Guide
 
