@@ -2,25 +2,22 @@
 
 #### Outline
 
-Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses the data transformers from the AgPipeline group to extract thermal data from image files. PhytoOracle's FlirIr was primarely built to process data originating from University of Arizona's gantry system, the world's largest robotic field scanner. The FlirIr pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
+Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses the pre-processing transformers from the [PhytoOracle team](https://github.com/phytooracle) to extract thermal data from image files. 
 
 #### Transformers used
-
-FlirIr currently uses 3 different transformers for data conversion:
+FlirIr uses 3 different transformers for data conversion:
 
 |Order|Transformer|Process
 |:-:|:-:|:-:|
-1|[cleanmetadata](https://github.com/AgPipeline/moving-transformer-cleanmetadata)|Cleans gantry generated metadata|
-2|[flir2tif](https://github.com/AgPipeline/moving-transformer-flir2tif)|Converts bin compressed files to tif|
-3|plotclip|clips images to the plot|
-4|[meantemp](https://github.com/AgPipeline/moving-transformer-meantemp)|Extracts temperature from detected biomass|
+1|[flir2tif](https://github.com/phytooracle/flir_bin_to_tif_s11)|Converts bin compressed files to tif|
+2|[stitchplots](https://github.com/phytooracle/flir_field_stitch)|Aggregates multiple images into a single orthomosaic|
+2|[plotclip](https://github.com/phytooracle/rgb_flir_plot_clip_geojson)|Clips images to the plot|
+3|[planttemp](https://github.com/phytooracle/flir_plant_temp)|Extracts individual plant temperatures|
 
 #### Data overview
-
-PhytoOracle's FlirIr requires a metadata file (<metadata>.json) for every compressed image file (<image>.bin). These should already be in the same folder when obtaining data from the CyVerse DataStore.
+PhytoOracle's FlirIr requires a metadata file (<metadata>.json) for every compressed image file (<image>.bin). 
 
 #### Setup Guide
-
 + Go [here](https://github.com/LyonsLab/PhytoOracle/blob/alpha/HPC_Install.md) to launch on an HPC system (tested on the University of Arizona's HPC system).
 + Clone the [coordinates correction](https://github.com/ariyanzri/Lettuce_Image_Stitching)
 
