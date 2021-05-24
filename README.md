@@ -17,7 +17,7 @@ See our [detailed documentation](https://phytooracle.readthedocs.io) for instruc
 + [StereoTopRGB](https://phytooracle.readthedocs.io/en/latest/4_StereoTopRGB_run.html)
 + [FlirIr](https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html)
 + [PSII](https://phytooracle.readthedocs.io/en/latest/7_PSII_run.html)
-+ [StereoTop3D](https://phytooracle.readthedocs.io/en/latest/8_3D_run.html)
++ [Scanner3DTop](https://phytooracle.readthedocs.io/en/latest/8_3D_run.html)
 
 ## Resources
 
