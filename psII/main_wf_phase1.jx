@@ -38,15 +38,10 @@
         "bundle/bundle_" + BUNDLE["ID"] + ".json"
       ],
       "outputs":
-      #[ CLEANED_META_DIR + DATA_SET["UUID"] + "_metadata_cleaned.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      [ TIFS_DIR + DATA_SET["UUID"] + "_rawData000" + N + ".tif" for N in range(0,10) for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ TIFS_DIR + DATA_SET["UUID"] + "_rawData00" + N + ".tif" for N in range(10,100) for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ TIFS_DIR + DATA_SET["UUID"] + "_rawData0100.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      #+ [ RESIZE_DIR + DATA_SET["UUID"] + "_rawData000" + N + "_resized.tif" for N in range(0,10) for DATA_SET in BUNDLE["DATA_SETS"] ]
-      #+ [ RESIZE_DIR + DATA_SET["UUID"] + "_rawData00" + N + "_resized.tif" for N in range(10,100) for DATA_SET in BUNDLE["DATA_SETS"] ]
-      #+ [ RESIZE_DIR + DATA_SET["UUID"] + "_rawData0100_resized.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      #+ [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ DATA_SET["UUID"] + "_segmentation.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #[ TIFS_DIR + DATA_SET["UUID"] + "_rawData000" + N + ".tif" for N in range(0,10) for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ TIFS_DIR + DATA_SET["UUID"] + "_rawData00" + N + ".tif" for N in range(10,100) for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ TIFS_DIR + DATA_SET["UUID"] + "_rawData0100.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      [ DATA_SET["UUID"] + "_segmentation.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
 
     } for BUNDLE in BUNDLE_LIST,
   ]
