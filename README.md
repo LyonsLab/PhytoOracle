@@ -4,12 +4,13 @@
     <img src="pics/PhytoOracle_logo.PNG" width="300" height="300" />
 <p>
 
-PhytoOracle is a scalable, distributed workflow manager for analyzing highthroughput phenotyping data. It is designed to process data from the [UA Gantry](https://youtu.be/da2gKRdMeXY), but can be adapted to work on data coming from other platforms.  
-PhytoOracle uses a master-worker framework for distributed computing (HPC, Cloud, etc.) and can run jobs on nearly all unix-like environments. 
+PhytoOracle is a scalable, distributed workflow manager for analyzing highthroughput phenotyping data. It is designed to process data from the [UArizona Gantry](https://youtu.be/da2gKRdMeXY), but it can be adapted to work for data from other platforms such as drones, indoor plant phenotyping platforms, and satellite imagery.
+
+PhytoOracle uses a master-worker framework for distributed computing (HPC, Cloud, etc.) and can run jobs on nearly all Unix environments. 
 
 ## Documentation
 
-See detailed documentation [here](https://phytooracle.readthedocs.io) for instruction manuals. 
+See our [detailed documentation](https://phytooracle.readthedocs.io) for instruction manuals and examples. 
 
 ## Supported Sensors and Pipelines
 
@@ -17,14 +18,11 @@ See detailed documentation [here](https://phytooracle.readthedocs.io) for instru
 + [FlirIr](https://phytooracle.readthedocs.io/en/latest/5_FlirIr_run.html)
 + [PSII](https://phytooracle.readthedocs.io/en/latest/7_PSII_run.html)
 + [StereoTop3D](https://phytooracle.readthedocs.io/en/latest/8_3D_run.html)
-+ Hyperspectral (VNIR/SWIR)
-
-**For more information on types and description of each camera used, access the documentation above.**
 
 ## Resources
 
-+ [Code availability (GitHub)](https://github.com/phytooracle)
-+ [Containers repository (DockerHub)](https://hub.docker.com/u/phytooracle)
++ [Container code availability (GitHub)](https://github.com/phytooracle)
++ [Container DockerHub repository (DockerHub)](https://hub.docker.com/u/phytooracle)
 
 ## License 
 
@@ -35,18 +33,7 @@ PhytoOracle is licensed under the **MIT License**.
 Need help? Found a bug? Raise an issue on our github page [here](https://github.com/LyonsLab/PhytoOracle/issues).
 
 **For specific workflows and adapting a pipeline for your own work contact:**
-
-+ Emmanuel Gonzalez: emmanuelgonzalez [at] email.arizona.edu
-
-+ Michele Cosi: cosi [at] email.arizona.edu
-
-**For plant detection and plant clustering:**
-
-+ Travis Simmons: travis.simmons [at] ccga.edu
-
-**For the orthomosaicing algorithm:**
-
-+ Ariyan Zarei: ariyanzarei [at] email.arizona.edu
++ phytooracle@gmail.com
 
 ## Acknowledgements
 
