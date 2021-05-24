@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -q windfall
+#PBS -l select=1:ncpus=16:mem=250gb:pcmem=4gb
+#PBS -W group_list=lyons-lab
+#PBS -l place=pack:shared
+#PBS -l walltime=120:00:00
+#PBS -l cput=1920:00:00
+#module load unsupported
+#module load ferng/glibc
+module load singularity
+#module load python/3.5
+#singularity cache clean -a
+
+#cd /xdisk/ericlyons/big_data/egonzalez/PhytoOracle/psII/
+
+export CCTOOLS_HOME=/home/u12/cosi/cctools-7.1.6-x86_64-centos7
+export PATH=${CCTOOLS_HOME}/bin:$PATH
+#cd /home/u31/emmanuelgonzalez/
+#singularity pull docker://agpipeline/cleanmetadata:2.2
+#singularity pull docker://agpipeline/bin2tif:2.0
+#singularity pull docker://zhxu73/gistools:latest
+#singularity pull docker://agpipeline/plotclip:3.1
+
+/home/u12/cosi/cctools-7.1.6-x86_64-centos7/bin/work_queue_factory -T local -M phyto_oracle-atmo -w 12 -W 16 --workers-per-cycle 10 --cores=1 -t 900
