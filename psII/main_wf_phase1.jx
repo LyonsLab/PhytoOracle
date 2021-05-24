@@ -38,7 +38,7 @@
         "bundle/bundle_" + BUNDLE["ID"] + ".json"
       ],
       "outputs":
-      #[ TIFS_DIR + DATA_SET["UUID"] + "_rawData000" + N + ".tif" for N in range(0,10) for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #[ TIFS_DIR + DATA_SET["UUID"] + "_rawData0046" + ".tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ TIFS_DIR + DATA_SET["UUID"] + "_rawData00" + N + ".tif" for N in range(10,100) for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ TIFS_DIR + DATA_SET["UUID"] + "_rawData0100.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
       [ DATA_SET["UUID"] + "_segmentation.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
