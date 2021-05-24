@@ -8,6 +8,9 @@ rm -rf .singularity/
 rm -r meantemp_out
 rm -r stitched_ortho_out/
 rm -r wq-pool-*
+rm -r plotclip_out/
+rm -r individual_thermal_out/
+rm -r plot_meantemp_out/
 rm dall.log
 rm bundle_list.json
 #rm main_wf_phase1.jx
