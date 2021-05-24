@@ -7,8 +7,8 @@
 #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
 #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
 
-HPC_PATH="/xdisk/ericlyons/big_data/cosi/PhytoOracle/FlirIr/"
-SIMG_PATH='/xdisk/ericlyons/big_data/singularity_images/'
+HPC_PATH="/home/emmanuelgonzalez/PhytoOracle/FlirIr/"
+SIMG_PATH='/scratch/singularity_images/'
 
 CLEANED_META_DIR="cleanmetadata_out/"
 TIFS_DIR="flir2tif_out/"
@@ -42,7 +42,7 @@ USERID=""
 
 #ls ${RAW_DATA_PATH}
 #ls ${METADATA}
-ls "cached_betydb/bety_experiments.json"
+#ls "cached_betydb/bety_experiments.json"
 #mkdir -p ${WORKING_SPACE}
 #BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ /home/u12/cosi/singularity/scripts/run-singularity -B $(pwd):/mnt --pwd /mnt docker://agpipeline/cleanmetadata:2.0 --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
 #BETYDB_LOCAL_CACHE_FOLDER=cached_betydb/ singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}cleanmetadata_2.2.simg --metadata ${METADATA} --working_space ${WORKING_SPACE} ${SENSOR} ${USERID}
