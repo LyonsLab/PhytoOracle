@@ -13,7 +13,7 @@ PSII currently uses 3 different transformers for data conversion:
 1|[bin2tif](https://github.com/phytooracle/psii_bin_to_tif)|Converts bin files to GeoTIFFs|
 2|[plotclip](https://github.com/phytooracle/rgb_flir_plot_clip_geojson)|Clips GeoTIFFs to agricultural plot boundaries|
 3|[fluorescence segmentation](https://github.com/phytooracle/psii_segmentation)|Segments pixels given a validated set of thresholds|
-4|[fluorescence aggregation](https://github.com/phytooracle/psii_fluorescence_aggregation)|aggregates segmentation data for each image and calculates F0, Fm, Fv, and Fv/Fm|
+4|[fluorescence aggregation](https://github.com/phytooracle/psii_fluorescence_aggregation)|Aggregates segmentation data for each image and calculates F0, Fm, Fv, and Fv/Fm|
 
 #### Data overview
 
@@ -21,64 +21,20 @@ PhytoOracle's psII pipeline requires a metadata file (`<metadata>.json`) for eve
 
 #### Setup Guide
 
-- Download [CCTools](http://ccl.cse.nd.edu/software/downloadfiles.php) and extract it's contents within your HPC home path:
-```
-cd ~
-
-wget http://ccl.cse.nd.edu/software/files/cctools-7.1.12-x86_64-centos7.tar.gz
-
-tar -xvf cctools-7.1.12-x86_64-centos7.tar.gz
-```       
-
-- Clone the PhytoOracle repository within your HPC's storage space such as /xdisk:
-```
-git clone https://github.com/LyonsLab/PhytoOracle.git
-```
-
 - Change directory to psII:
 ```
-cd PhytoOracle/psII/
+cd ~/PhytoOracle/psII/
 ```
 
-#### Running on the HPC systems
+#### Running PhytoOracle on Atmosphere VM
 ##### Launch workers
-- If using PBS: 
+- Open a new terminal window and run:
 ```
-qsub worker_scripts/po_work_ocelote.pbs
-```
-- If using SLURM:
-```
-sbatch worker_scripts/po_work_puma.sh
+./worker_scripts/po_worker.sh
 ```
 
-##### Pipeline staging
-- Download raw data:
+##### Process data
+- Run the pipeline:
 ```
-iget -N 0 -KVPT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/ps2Top/ps2Top-<day>.tar
-```
-
-- Download the required files:
-```
-iget -N 0 -PVT /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/season10_multi_latlon_geno.geojson
-```
-
-> **_NOTE:_** Replace <day> with any day you want to process. 
-
-- Extract file contents and move the folder to the root directory:
-```
-tar -xvf ps2Top-<date>.tar
-mv ps2Top/<date> .
-```
-
-- Run the pipeline interactively:
-```
-./manager_scripts/gpu_init_puma.sh
-
 ./run.sh <date>
 ```
-
-- Submit the pipeline as a job (HPC only):
-```
-sbatch po_slurm_submit.sh <date> . <num_workers>
-```
-
