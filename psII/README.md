@@ -3,6 +3,10 @@
 #### Overview
 Welcome to PhytoOracle's PSII chlorophyll fluorescence pipeline! This pipeline uses the data transformers from the [PhytoOracle team](https://github.com/phytooracle) to extract chlorophyll fluorescence data. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
 
+<p align="center">
+    <img src="../pics/PSII_pipeline.png" />
+<p>
+
 #### Transformers used
 PSII currently uses the following transformers for data processing:
 

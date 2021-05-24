@@ -3,6 +3,10 @@
 #### Overview
 Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses the data transformers from the [PhytoOracle team](https://github.com/phytooracle) to extract thermal data from image files. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
 
+<p align="center">
+    <img src="../pics/FLIR_pipeline.png" />
+<p>
+
 #### Transformers used
 FlirIr uses 3 different transformers for data conversion:
 
