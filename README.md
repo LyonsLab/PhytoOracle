@@ -26,7 +26,7 @@ See our [detailed documentation](https://phytooracle.readthedocs.io) for instruc
 
 ## License 
 
-PhytoOracle is licensed under the **MIT License**.
++ **MIT License**.
 
 ## Issues and Questions
 
