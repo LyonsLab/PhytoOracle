@@ -26,7 +26,7 @@ See our [detailed documentation](https://phytooracle.readthedocs.io) for instruc
 
 ## License 
 
-+ **MIT License**.
++ **MIT License**
 
 ## Issues and Questions
 
