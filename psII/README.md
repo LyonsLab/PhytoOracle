@@ -17,7 +17,6 @@ PSII currently uses the following transformers for data processing:
 PhytoOracle's psII pipeline requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and 102 compressed images. 
 
 #### Setup Guide
-
 - Change directory to psII:
 ```
 cd ~/PhytoOracle/psII/
