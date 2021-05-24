@@ -1,5 +1,5 @@
 # PhytoOracle
-![Alt text](pics/Phytooracle_logo.png?raw=true "Title")
+![Alt text](pics/PhytoOracle_logo.PNG?raw=true "Title")
 
 PhytoOracle is a scalable, distributed workflow manager for analyzing highthroughput phenotyping data.  
 It is designed to process data from the [UA Gantry](https://uanews.arizona.edu/story/world-s-largest-robotic-field-scanner-now-place), but can be adapted to work on data coming from other platforms.  
