@@ -14,7 +14,9 @@ PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master
 
 ## Workshop preparation
 - Create a CyVerse account [here](https://cyverse.org/new%20users)
+
 - Register for the workshop [here](https://user.cyverse.org/workshops/67).
+
 - Launch the phenome_force_phytooracle VM
 
 <p align="center">
@@ -34,6 +36,11 @@ PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master
 <p align="center">
     <img src="pics/cyverse_atmo.png" />
 <p>
+
+- Move contents
+```
+mv PhytoOracle/ singularity_images/ /scratch/
+```
 
 - We are now ready to process! 
 
