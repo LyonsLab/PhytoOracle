@@ -12,6 +12,25 @@ PhytoOracle is a scalable, distributed workflow manager for analyzing highthroug
 
 PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master-worker framework for distributed computing (HPC, Cloud, etc.) and can run jobs on nearly all Unix environments. This framework allows thousands of jobs to run in parallel, significantly expediting processing of phenomic data. 
 
+## Workshop preparation
+- Register for the workshop [here](https://user.cyverse.org/workshops/67).
+- Launch the phenome_force_phytooracle VM
+
+<p align="center">
+    <img src="pics/cyverse_image.png" />
+<p>
+
+- Launch the VM by clicking on Open Web Shell 
+
+<p align="center">
+    <img src="pics/cyverse_vm.png" />
+<p>
+
+- Download the necessary data 
+```
+./prepare_pipeline.sh
+```
+
 ## Documentation
 
 See our [detailed documentation](https://phytooracle.readthedocs.io) for instruction manuals and examples. 
