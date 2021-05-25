@@ -24,7 +24,7 @@ PhytoOracle's psII pipeline requires a metadata file (`<metadata>.json`) for eve
 ### Running PhytoOracle on Atmosphere VM
 - Change directory to psII:
 ```
-cd ~/PhytoOracle/psII/
+cd /scratch/PhytoOracle/psII/
 ```
 
 - Open a new terminal window and run:

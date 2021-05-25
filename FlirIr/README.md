@@ -25,7 +25,7 @@ PhytoOracle's FlirIr requires a metadata file (`<metadata>.json`) for every comp
 
 - Change directory to psII:
 ```
-cd ~/PhytoOracle/FlirIr/
+cd /scratch/PhytoOracle/FlirIr/
 ```
 
 - Open a new terminal window and run:
