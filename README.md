@@ -30,6 +30,11 @@ PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master
 ```
 ./prepare_pipeline.sh
 ```
+<p align="center">
+    <img src="pics/cyverse_atmo.png" />
+<p>
+
+- We are now ready to process! 
 
 ## Documentation
 
