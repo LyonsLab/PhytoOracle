@@ -6,6 +6,10 @@
 
 PhytoOracle is a scalable, distributed workflow manager for analyzing highthroughput phenotyping (phenomic) data. It is designed to process data from the [UArizona Gantry](https://youtu.be/da2gKRdMeXY) but can be adapted to work for data from other platforms such as drones, indoor plant phenotyping platforms, and satellite imagery. 
 
+<p align="center">
+    <img src="pics/sorghum_data_examples_2.png" />
+<p>
+
 PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master-worker framework for distributed computing (HPC, Cloud, etc.) and can run jobs on nearly all Unix environments. This framework allows thousands of jobs to run in parallel, significantly expediting processing of phenomic data. 
 
 ## Documentation

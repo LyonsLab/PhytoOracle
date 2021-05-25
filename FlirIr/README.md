@@ -1,118 +1,39 @@
 # PhytoOracle's FlirIr Pipeline
 
-#### Outline
+## Overview
+Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses the data transformers from the [PhytoOracle team](https://github.com/phytooracle) to extract thermal data from image files. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
 
-Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses the data transformers from the AgPipeline group to extract thermal data from image files. PhytoOracle's FlirIr was primarely built to process data originating from University of Arizona's gantry system, the world's largest robotic field scanner. The FlirIr pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
+<p align="center">
+    <img src="../pics/FLIR_pipeline.png" />
+<p>
 
-#### Transformers used
-
-FlirIr currently uses 3 different transformers for data conversion:
+## Transformers used
+FlirIr uses 3 different transformers for data conversion:
 
 |Order|Transformer|Process
 |:-:|:-:|:-:|
-1|[cleanmetadata](https://github.com/AgPipeline/moving-transformer-cleanmetadata)|Cleans gantry generated metadata|
-2|[flir2tif](https://github.com/AgPipeline/moving-transformer-flir2tif)|Converts bin compressed files to tif|
-3|plotclip|clips images to the plot|
-4|[meantemp](https://github.com/AgPipeline/moving-transformer-meantemp)|Extracts temperature from detected biomass|
+1|[flir2tif](https://github.com/phytooracle/flir_bin_to_tif_s11)|Converts bin compressed files to GeoTIFFs|
+2|[stitchplots](https://github.com/phytooracle/flir_field_stitch)|Aggregates multiple GeoTIFFs into a single orthomosaic|
+2|[plotclip](https://github.com/phytooracle/rgb_flir_plot_clip_geojson)|Clips GeoTIFFs to the plot|
+3|[planttemp](https://github.com/phytooracle/flir_plant_temp)|Extracts individual plant temperatures|
 
-#### Data overview
+## Data overview
+PhytoOracle's FlirIr requires a metadata file (`<metadata>.json`) for every compressed image file (`<image>.bin`). Each folder (one scan) contains one metadata file and one compressed images. 
 
-PhytoOracle's FlirIr requires a metadata file (<metadata>.json) for every compressed image file (<image>.bin). These should already be in the same folder when obtaining data from the CyVerse DataStore.
+## Setup Guide
+### Running PhytoOracle on Atmosphere VM
 
-#### Setup Guide
-
-+ Go [here](https://github.com/LyonsLab/PhytoOracle/blob/alpha/HPC_Install.md) to launch on an HPC system (tested on the University of Arizona's HPC system).
-+ Clone the [coordinates correction](https://github.com/ariyanzri/Lettuce_Image_Stitching)
-
+- Change directory to psII:
 ```
-git clone https://github.com/ariyanzri/Lettuce_Image_Stitching
-mv Lettuce_Image_stitching ../
-``` 
-
-+ Download necessary model files
-
-```
-iget -rKVP /iplant/home/shared/phytooracle/season_10_lettuce_yr_2020/level_0/necessary_files/
-``` 
-
-+ Edit line 33 of `Lettuce_Image_Stitching/geo_correction_config.txt` to match where the necessary file location is, as well as making sure that `SAVE_NEW_TIFF_FILES` is `True`
-
-```
-cd necessary_files/ 
-find $(pwd) -maxdepth 1 -type f -name model_weights_2021-01-14_flir_lid_10e.pth  # copy this!
-cd ../../Lettuce_Image_stitching
-nano geo_correction_config.txt
+cd ~/PhytoOracle/FlirIr/
 ```
 
-#### Running on the HPC's interactive node
-
-At this point your worker nodes should already be running and you should be in your FlirIr directory within your interactive node. Download the data that you need using:
-
+- Open a new terminal window and run:
 ```
-iget -rKVP /iplant/home/shared/terraref/ua-mac/raw_tars/season_10_yr_2020/flirIrCamera/<day>.tar
+./worker_scripts/po_worker.sh
 ```
 
-Replace <day> with any day you want to process. Un-tar and move the folder to the FlirIr directory.
-
+- Run the pipeline:
 ```
-tar -xvf <day>.tar
-mv ./flirIrCamera/<day> ./
+./run.sh <date>
 ```
-
-Then edit your entrypoint.sh on line 4 to reflect the <day> folder you want to process.
-
-Once everything is edited, run the pipeline with ./entrypoint.sh.
-
-#### Running on the Cloud with HPC support
-
-Although very similar to the steps above, to run PhytoOracle on the Cloud with HPC support, there are a few extra steps you have to carry out for data staging before starting the pipeline with ./entrypoint.sh.
-
-Using your favouring editing tool do
-
-```
-/etc/nginx/sites-available/phyto_oracle.conf
-paste the next snipped and save (changing the highlighted <fields>)
-
-server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-
-        # SSL configuration
-        #
-        # listen 443 ssl default_server;
-        # listen [::]:443 ssl default_server;
-        #
-        # Note: You should disable gzip for SSL traffic.
-        # See: https://bugs.debian.org/773332
-        #
-        # Read up on ssl_ciphers to ensure a secure configuration.
-        # See: https://bugs.debian.org/765782
-        #
-        # Self signed certs generated by the ssl-cert package
-        # Don't use them in a production server!
-        #
-        # include snippets/snakeoil.conf;
-
-        root <PATH/TO/YOUR/PHYTOORACLE/PIPELINE>;
-
-        index index.html index.htm index.nginx-debian.html;
-
-        server_name _;
-
-        location / {
-                auth_basic "PhytoOracle Data";
-        auth_basic_user_file /etc/apache2/.htpasswd;
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
-                autoindex on;
-        }
-}
-```
-
-then from within your Transformer directory do ./nginx_reload.sh. Input your password if asked.
-
-Open and edit process_one_set.sh :
-
-delete the # on lines 37 and 38
-remove ${HPC_PATH} on lines 24, 25, 28
