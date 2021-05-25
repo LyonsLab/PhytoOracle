@@ -8,5 +8,5 @@ jx2json main_wf_phase1.jx -a bundle_list.json > main_workflow_phase1.json
 
 
 # -a advertise to catalog server
-makeflow -r 1000 -T wq --json main_workflow_phase1.json -a -M phytooracle -p 0 -dall -o dall.log --disable-cache $@
+makeflow --working-dir /scratch -r 1000 -T local --json main_workflow_phase1.json -a -M phytooracle -p 0 -dall -o dall.log --disable-cache $@
 

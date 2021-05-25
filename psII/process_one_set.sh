@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #DATA_PATH="/tmp/"
-HPC_PATH="/home/emmanuelgonzalez/PhytoOracle/psII/"
+HPC_PATH="/scratch/PhytoOracle/psII/"
 SIMG_PATH="/scratch/singularity_images/"
 GEOJ=${HPC_PATH}"season11_multi_latlon_geno.geojson"
 SENSOR="psiiTop"
