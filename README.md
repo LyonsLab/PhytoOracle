@@ -49,6 +49,7 @@ PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master
 ssh <CyVerse username here>@<IP address> 
 ```
 
+## Pipeline preparation
 - Change directory
 ```
 cd /opt/
