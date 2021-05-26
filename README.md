@@ -10,7 +10,7 @@
 PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master-worker framework for distributed computing (HPC, Cloud, etc.) to process RGB (StereoTopRGB), thermal (FlirIr), chlororphyll fluorescence (PSII), and 3D point cloud (Scanner3DTop) datasets. This framework allows thousands of jobs to run in parallel on nearly any Linux environment, significantly expediting processing of phenomic data. 
 
 ## Workshop preparation
-- Create a CyVerse account [here](https://cyverse.org/new%20users).
+- Create a CyVerse account [here](https://user.cyverse.org/) by clicking on "Sign Up".
 
 - Register for the workshop [here](https://user.cyverse.org/workshops/67).
 
@@ -43,6 +43,11 @@ PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master
 <p align="center">
     <img src="pics/cyverse_terminal.png" />
 <p>
+
+- Alternatively, you can access the VM on your own terminal by running the following command: 
+```
+ssh <CyVerse username here>@<IP address> 
+```
 
 - Change directory
 ```
