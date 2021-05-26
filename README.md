@@ -64,7 +64,7 @@ cd /scratch/
 ./prepare_pipeline.sh
 ```
 
-We are now ready to process our phenomic data! 
+We are now ready to process our phenomic data! Lets start with [FLIR thermal data](https://github.com/LyonsLab/PhytoOracle/tree/phenome_force/FlirIr).
 
 ## Documentation
 
