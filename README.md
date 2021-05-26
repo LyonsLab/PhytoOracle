@@ -17,32 +17,57 @@ PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master
 
 - Register for the workshop [here](https://user.cyverse.org/workshops/67).
 
-- Launch the phenome_force_phytooracle VM (V2)
-
+- Search for phenome_force_phytooracle image
 <p align="center">
     <img src="pics/cyverse_image.png" />
 <p>
 
-- Launch the VM by clicking on Open Web Shell 
+- Launch the node 
+<p align="center">
+    <img src="pics/cyverse_request_atmo.png" />
+<p>
 
+- Specify VM resources
+<p align="center">
+    <img src="pics/cyverse_atmo_details.png" />
+<p>
+
+- Once the VM status is Active, click phenome_force_phytooracle
+<p align="center">
+    <img src="pics/cyverse_vm_ready.png" />
+<p>
+
+- Launch the VM by clicking on Open Web Shell 
 <p align="center">
     <img src="pics/cyverse_vm.png" />
 <p>
+
+- You will see a window like the one below
+<p align="center">
+    <img src="pics/cyverse_terminal.png" />
+<p>
+
+- Change directory
+```
+cd /opt/
+```
+
+- Move contents
+```
+mv PhytoOracle/ phenome_force_data.simg prepare_pipeline.sh /scratch/
+```
+
+- Change directory 
+```
+cd /scratch/
+```
 
 - Download the necessary data 
 ```
 ./prepare_pipeline.sh
 ```
-<p align="center">
-    <img src="pics/cyverse_atmo.png" />
-<p>
 
-- Move contents
-```
-mv PhytoOracle/ singularity_images/ /scratch/
-```
-
-- We are now ready to process! 
+We are now ready to process our phenomic data! 
 
 ## Documentation
 
