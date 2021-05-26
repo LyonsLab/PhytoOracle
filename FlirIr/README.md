@@ -1,16 +1,16 @@
 # PhytoOracle's FlirIr Pipeline
 
 ## Overview
-Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses the data transformers from the [PhytoOracle team](https://github.com/phytooracle) to extract thermal data from image files. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
+Welcome to PhytoOracle's FlirIr pipeline! This pipeline uses containers developed by the [PhytoOracle team](https://github.com/phytooracle) to extract thermal data from image files. The pipeline is avaiable for either HPC (High Performance Computing) systems or cloud based systems.
 
 <p align="center">
     <img src="../pics/FLIR_pipeline.png" />
 <p>
 
-## Transformers used
-FlirIr uses 3 different transformers for data conversion:
+## Containers
+FlirIr uses the following containers for data conversion:
 
-|Order|Transformer|Process
+|Order|Container|Process
 |:-:|:-:|:-:|
 1|[flir2tif](https://github.com/phytooracle/flir_bin_to_tif_s11)|Converts bin compressed files to GeoTIFFs|
 2|[stitchplots](https://github.com/phytooracle/flir_field_stitch)|Aggregates multiple GeoTIFFs into a single orthomosaic|
@@ -22,15 +22,9 @@ PhytoOracle's FlirIr requires a metadata file (`<metadata>.json`) for every comp
 
 ## Setup Guide
 ### Running PhytoOracle on Atmosphere VM
-
-- Change directory to psII:
+- Change directory:
 ```
 cd /scratch/PhytoOracle/FlirIr/
-```
-
-- Open a new terminal window and run:
-```
-./worker_scripts/po_worker.sh
 ```
 
 - Run the pipeline:
