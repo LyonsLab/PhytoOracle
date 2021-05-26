@@ -2,7 +2,7 @@
 
 <img src="pics/PhytoOracle_logo.PNG" width="200" height="200" align="left" /><p>PhytoOracle is a scalable, distributed workflow manager for analyzing high-throughput phenotyping (phenomic) data. It was developed to process data from the [UArizona Gantry](https://youtu.be/da2gKRdMeXY) but can be adapted to work for data from other platforms such as drones, indoor plant phenotyping platforms, and satellite imagery. As sensors become cheaper and faster, distributed workflows such as PhytoOracle will be required to extract actionable data from large image datasets, allowing researchers & breeders to develop the next generation of resilient plant cultivars by *connecting phenotypes to genotypes*.</p>
 
-## General pipeline overview
+## Pipeline overview
 <p align="center">
     <img src="pics/sorghum_data_examples_2.png" />
 <p>
