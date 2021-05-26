@@ -31,3 +31,5 @@ cd /scratch/PhytoOracle/FlirIr/
 ```
 ./run.sh <date>
 ```
+
+We have successfully processed FLIR thermal data, lets now move on to [PSII chlorophyll fluorescence](https://github.com/LyonsLab/PhytoOracle/tree/phenome_force/psII).
