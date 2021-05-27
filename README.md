@@ -55,11 +55,11 @@ ssh <CyVerse username here>@<IP address>
 cd /opt/
 ```
 
-- Move contents
+- Move contents (**Note**: sudo will require your CyVerse password.)
 ```
-mv PhytoOracle/ phenome_force_data.simg prepare_pipeline.sh /scratch/
+sudo mv PhytoOracle/ phenome_force_data.simg prepare_pipeline.sh /scratch/
 ```
-
+    
 - Change directory 
 ```
 cd /scratch/
