@@ -52,7 +52,21 @@ ssh <CyVerse username here>@<IP address>
 ## Pipeline preparation
 - Move workshop contents and change directory 
 ```
+<<<<<<< HEAD
 cd /opt/ && mv PhytoOracle/ prepare_pipeline.sh /scratch/ && cd /scratch/
+=======
+cd /opt/
+```
+
+- Move contents (**Note**: sudo will require your CyVerse password.)
+```
+sudo mv PhytoOracle/ phenome_force_data.simg prepare_pipeline.sh /scratch/
+```
+    
+- Change directory 
+```
+cd /scratch/
+>>>>>>> 7a0d7cd105dfe014041772a5d137b26ba7a6360b
 ```
 
 - Download the necessary data 
