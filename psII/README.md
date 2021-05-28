@@ -29,5 +29,5 @@ cd /scratch/PhytoOracle/psII/
 
 - Run the pipeline:
 ```
-./run.sh <date>
+./run.sh 2020-08-21/
 ```
