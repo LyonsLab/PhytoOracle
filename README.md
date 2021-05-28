@@ -53,7 +53,8 @@ ssh <CyVerse username here>@<IP address>
 - Move workshop contents and change directory 
 ```
 cd /opt/ && mv PhytoOracle/ prepare_pipeline.sh /scratch/ && cd /scratch/
-
+```
+    
 - Download the necessary data 
 ```
 ./prepare_pipeline.sh
