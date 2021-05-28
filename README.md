@@ -26,7 +26,7 @@ PhytoOracle uses the [CCTools](https://cctools.readthedocs.io/en/latest/) master
 
 - Specify VM resources:
 <p align="center">
-    <img src="pics/cyverse_atmo_details.png" />
+    <img src="pics/new_cyverse_resources.png" />
 <p>
 
 - Once the VM status is "Active", click "phenome_force_phytooracle":
@@ -50,19 +50,9 @@ ssh <CyVerse username here>@<IP address>
 ```
 
 ## Pipeline preparation
-- Change directory
+- Move workshop contents and change directory 
 ```
-cd /opt/
-```
-
-- Move contents
-```
-mv PhytoOracle/ phenome_force_data.simg prepare_pipeline.sh /scratch/
-```
-
-- Change directory 
-```
-cd /scratch/
+cd /opt/ && mv PhytoOracle/ prepare_pipeline.sh /scratch/ && cd /scratch/
 ```
 
 - Download the necessary data 
