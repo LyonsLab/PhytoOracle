@@ -29,7 +29,7 @@ cd /scratch/PhytoOracle/FlirIr/
 
 - Run the pipeline:
 ```
-./run.sh <date>
+./run.sh 2020-08-21/
 ```
 
 We have successfully processed FLIR thermal data, lets now move on to [PSII chlorophyll fluorescence](https://github.com/LyonsLab/PhytoOracle/tree/phenome_force/psII).
