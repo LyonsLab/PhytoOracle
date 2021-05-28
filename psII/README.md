@@ -31,3 +31,13 @@ cd /scratch/PhytoOracle/psII/
 ```
 ./run.sh 2020-08-21/
 ```
+
+We can now visualize our outputs!
+## Visualizing outputs 
+### Setting up Jupyter notebook
+```
+cd ../ && ezj
+```
+
+### Open Jupyter notebook 
+- Click on "visualize_data.ipynb"
