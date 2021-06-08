@@ -5,4 +5,4 @@
 #qsub -I -N phytooracle -W group_list=lyons-lab -q standard -l select=1:ncpus=96:mem=512gb -l walltime=20:0:0
 # mem: either 470 or 3000
 
-srun --nodes=1 --mem=470GB --ntasks=1 --cpus-per-task=94 --time=24:00:00 --job-name=po_mcomp --account=lyons-lab --partition=standard --mpi=pmi2 --pty bash -i
+srun --nodes=1 --mem=470GB --ntasks=1 --cpus-per-task=94 --time=24:00:00 --job-name=po_mcomp --account=frost_lab --partition=standard --mpi=pmi2 --pty bash -i

@@ -1,6 +1,6 @@
 #!/bin/bash 
-#SBATCH --account=lyons-lab --partition=standard
-#SBATCH --job-name="phytooracle"
+#SBATCH --account=frost_lab --partition=standard
+#SBATCH --job-name="phytoFLIR"
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=94

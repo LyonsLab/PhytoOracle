@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Defining Variables and Paths
+DATE="flirIrCamera-2020-09-09__03-03-09-696" # Change to appropriate date (or data folder)!
+SENSOR="flirIrCamera"
+
+PIPE_PATH='/xdisk/ericlyons/big_data/cosi/PhytoOracle_flirIr/'
+SIMG_PATH='/xdisk/ericlyons/big_data/singularity_images/'
+
+FLIR_DIR="flir2tif_out/"
+BIN_DIR="bin2tif_out/"
+STITCH_ORTHO_DIR="stitched_ortho_out/"
+PLOTCLIP_DIR="plotclip_out/"
+GPS_DIR="gpscorrect_out/"
+
+ORTHO_PATH=${PIPE_PATH}'ortho_out'
+CSV_PATH=${PIPE_PATH}'img_coords_out/'${DATE}'_coordinates.csv'
+GPS_CS_PATH=${ORTHO_PATH}"${DATE}_out/${DATE}_coordinates_CORRECTED.csv"
+
+# Phase 1: CCTools Parallelization to HPC nodes (Image conversion)
+python3 gen_files_list.py ${DATE} > raw_data_files.json
+python3 gen_bundles_list.py raw_data_files.json bundle_list.json 50
+mkdir -p bundle/
+python3 split_bundle_list.py  bundle_list.json bundle/
+/home/u12/cosi/cctools-7.1.6-x86_64-centos7/bin/jx2json main_wf_phase1.jx -a bundle_list.json > main_workflow_phase1.json
+
+# -a advertise to catalog server
+/home/u12/cosi/cctools-7.1.6-x86_64-centos7/bin/makeflow -T wq --json main_workflow_phase1.json -a -N phyto_oracle_FLIR -p 9123 -M PhytoOracle_FLIR -dall -o dall.log -r 100 --disable-cache $@
+
+# Phase 2: Orthomosaic building and temperature extraction
+##singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}flirfieldplot.simg -d ${DATE} -o ${STITCH_ORTHO_DIR} ${ORTHO_PATH}/${DATE}/output_tiffs/
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}flirfieldplot.simg -d ${DATE} -o ${STITCH_ORTHO_DIR} ${FLIR_DIR}
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}plotclip_geo.simg -sen ${SENSOR} -shp season11_multi_latlon_geno.geojson -o ${PLOTCLIP_DIR} ${STITCH_ORTHO_DIR}${DATE}"_ortho.tif"
+
+cd ${PLOTCLIP_DIR}
+for subdir in *; do mv ${subdir}/*_ortho.tif ${subdir}/${subdir}_ortho.tif; done;
+cd ../
+
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}po_temp_cv2stats.simg -g season11_multi_latlon_geno.geojson -o plot_meantemp_out/ -d ${DATE} ${PLOTCLIP_DIR}
+
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}flir_plant_tempS11.simg -d ${DATE}  -g season11_multi_latlon_geno.geojson -m model_weights_sorghum_flir.pth -c 20 ${PLOTCLIP_DIR}
+
