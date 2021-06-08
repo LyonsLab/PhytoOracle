@@ -1,0 +1,24 @@
+{
+  "define": {
+    "RGB_DIR": "hsi_rgb_out/",
+    "H5_DIR": "hsi_h5_out/",
+  },
+  "rules": [
+
+    {
+      "command": "python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      ],
+      "outputs":
+      [ RGB_DIR + DATA_SET["UUID"] + ".png" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ H5_DIR + DATA_SET["UUID"] + ".h5" for DATA_SET in BUNDLE["DATA_SETS"] ]
+
+    } for BUNDLE in BUNDLE_LIST,
+  ]
+}

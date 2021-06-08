@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q windfall
+#PBS -l select=1:ncpus=28:mem=224gb:np100s=1:os7=True
+#PBS -W group_list=<group>
+#PBS -l place=pack:shared
+#PBS -l walltime=24:00:00
+#PBS -l cput=672:00:00
+#module load unsupported
+#module load ferng/glibc
+module load singularity
+
+export CCTOOLS_HOME=${HOME}/cctools-7.1.12-x86_64-centos7
+export PATH=${CCTOOLS_HOME}/bin:$PATH
+
+${HOME}/cctools-7.1.12-x86_64-centos7/bin/work_queue_factory -T local -M phytooracle -w 24 -W 26 --workers-per-cycle 10 --cores=1 -t 900
