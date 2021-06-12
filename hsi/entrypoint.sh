@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python3 gen_files_list.py VNIR-2021-05-26__10-44-56-840_sunflower RAW_DATA_PATH _metadata.json > raw_data_files.json
+python3 gen_files_list.py VNIR-2021-06-02__10-32-37-106_sunflower RAW_DATA_PATH _metadata.json > raw_data_files.json
 python3 gen_bundles_list.py raw_data_files.json bundle_list.json 1
 mkdir -p bundle/
 python3 split_bundle_list.py bundle_list.json bundle/
