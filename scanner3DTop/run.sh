@@ -4,7 +4,7 @@ PIPE_PATH=$PWD'/'
 
 sbatch worker_scripts/po_work_puma_slurm.sh
 echo "> Processing ${SCAN_DATE} 3D scan."
-ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
+#ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
 
 # Set paths
 ./replace.py $SCAN_DATE

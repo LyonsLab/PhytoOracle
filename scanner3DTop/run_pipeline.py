@@ -37,11 +37,11 @@ def get_args():
     parser.add_argument('-sen',
                         '--sensor',
                         help='Sensor to query.\
-                            Allowed values are: envi, flir, psii, 3d, rgb, vnir, swir, pika.',
+                            Allowed values are: EnvironmentLogger, flirIrCamera, ps2Top, scanner3DTop, stereoTop, VNIR, SWIR, PikaVNIR.',
                         metavar='',
                         type=str,
                         required=True,
-                        choices=['envi', 'flir', 'psii', '3d', 'rgb', 'vnir', 'swir', 'pika'])
+                        choices=['EnvironmentLogger', 'flirIrCamera', 'ps2Top', 'scanner3DTop', 'stereoTop', 'VNIR', 'SWIR', 'PikaVNIR'])
 
     return parser.parse_args()
 
@@ -63,17 +63,8 @@ def get_paths(season, sensor):
                     '11': '/iplant/home/shared/phytooracle/season_11_sorghum_yr_2020/',
                     '12': '/iplant/home/shared/phytooracle/season_12_sorghum_soybean_sunflower_tepary_yr_2021/'}
 
-    sensor_dict = {'envi': 'EnvironmentLogger',
-                    'flir': 'flirIrCamera',
-                    'psii': 'ps2Top',
-                    '3d': 'scanner3DTop',
-                    'rgb': 'stereoTop',
-                    'vnir': 'VNIR',
-                    'swir': 'SWIR',
-                    'pika': 'PikaVNIR'}
-
     season_path = season_dict[season]
-    sensor_path = sensor_dict[sensor]
+    sensor_path = sensor
 
     return season_path, sensor_path
 
@@ -94,12 +85,20 @@ def main():
     level_0_dates, level_1_dates = return_date_list(level_0_list) \
                                 , return_date_list(level_1_list)
 
+
     process_list = np.setdiff1d(level_0_dates, level_1_dates)
+    user_list = level_0_list
+    matchers = process_list
+    matching = [os.path.splitext(os.path.basename(s))[0].replace(f'{args.sensor}-', '') for s in user_list if any(xs in s for xs in matchers)]
 
     for item in process_list:
-        cmd = f'./run.sh {item}'
-        subprocess.call(cmd, shell=True)
-        print(f'Season {args.season} {sensor_path} processing complete.')
+        
+        for date in level_0_list:
+            if item in date and 'none' not in date: 
+                scan = os.path.splitext(os.path.basename(date))[0]
+                cmd = f'./run.sh {scan}'
+                subprocess.call(cmd, shell=True)
+                print(f'Season {args.season} {sensor_path} processing complete.')
 
 
 # --------------------------------------------------

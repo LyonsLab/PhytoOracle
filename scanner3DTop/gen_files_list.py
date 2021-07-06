@@ -27,8 +27,8 @@ def main():
         UUID_indexed_data_sets = path_for_all_UUID(base_dir, path_list, UUID_indexed_data_sets, data_dir["label"], data_dir["file_ending"])
         #assert(len(UUID_indexed_data_sets) == prev_len or prev_len == 0)
 
-        if len(path_list) != len(UUID_indexed_data_sets):
-            raise Exception("Error! number of sub directory is not matching with the number of data sets")
+        #if len(path_list) != len(UUID_indexed_data_sets):
+        #    raise Exception("Error! number of sub directory is not matching with the number of data sets")
 
     data_sets = []
     for UUID in UUID_indexed_data_sets:
