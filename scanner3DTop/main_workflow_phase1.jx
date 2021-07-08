@@ -7,13 +7,8 @@
     "SCALE_ROT_OUT": "scale_rotate_out/",
     "PLANT_CLIP_OUT": "plantclip_out/",
     "PLY_GEO_COR": "3d_geo_correction_out/",
-
-    #"METADATA": "RAW_DATA_PATH" + "UUID" + "_metadata.json",
-    #"METADATA_CLEANED": "CLEANED_META_DIR" + "UUID" + "_metadata_cleaned.json",
-    #"EAST_PLY": "RAW_DATA_PATH" + "UUID" + "__Top-heading-east_0.ply",
-    #"WEST_PLY": "RAW_DATA_PATH" + "UUID" + "__Top-heading-west_0.ply",
-    #"EAST_LAS": "LAS_DIR" + "UUID" + "__Top-heading-east_0.las",
-    #"WEST_LAS": "LAS_DIR" + "UUID" + "__Top-heading-west_0.las",
+    "DOWNSAMPLE_DIR": "downsample_out/",
+    "HEATMAP_DIR": "heatmap_out/",
 
     "DATA_BASE_URL": "128.196.142.42/"
   },
@@ -37,8 +32,11 @@
       + [ GEO_REF_OUT + DATA_SET["UUID"] + "_icp_merge_registered.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected_full.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ GEO_COR_OUT + DATA_SET["UUID"] + "_icp_merge_registered_geocorrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ PLY_GEO_COR + DATA_SET["UUID"] + "_corrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ DATA_SET["UUID"] + "_plantclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ PLY_GEO_COR + DATA_SET["UUID"] + "_corrected.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ DOWNSAMPLE_DIR + DATA_SET["UUID"] + "_icp_merge_registered_downsampled.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ HEATMAP_DIR + DATA_SET["UUID"] + "_icp_merge_registered_downsampled_heatmap.png" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ HEATMAP_DIR + DATA_SET["UUID"] + "_icp_merge_registered_downsampled.json" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ DATA_SET["UUID"] + "_plantclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
      } for BUNDLE in BUNDLE_LIST,
     ]
 }

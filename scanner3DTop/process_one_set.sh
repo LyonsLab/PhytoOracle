@@ -11,6 +11,8 @@ GEO_REF_DIR="rotation_registration_out/"
 GEO_COR_DIR="3d_geo_correction_out/"
 SCALE_ROT_DIR="scale_rotate_out/"
 PLANT_CLIP_DIR="plantclip_out/"
+DOWNSAMPLE_DIR="downsample_out/"
+HEATMAP_DIR="heatmap_out/"
 
 METADATA=${HPC_PATH}${RAW_DATA_PATH}${UUID}"_metadata.json"
 EAST_PLY=${HPC_PATH}${RAW_DATA_PATH}${UUID}"__Top-heading-east_0.ply"
@@ -19,11 +21,10 @@ MERGE_PLY=${MERGE_DIR}${UUID}"_icp_merge.ply"
 MERGE_REF_PLY=${GEO_REF_DIR}${UUID}"_icp_merge_registered.ply"
 GEO_COR_PLY=${GEO_COR_DIR}${UUID}"_corrected.ply"
 MERGE_PNG=${MERGE_DIR}${UUID}"_merged_east_west.png"
-
-HTTP_USER="YOUR_USERNAME"
-HTTP_PASSWORD="PhytoOracle"
-DATA_BASE_URL="128.196.142.42/"
-set -e
+#DOWNSAMPLED_PLY=${DOWNSAMPLE_DIR}${UUID}"_corrected_downsampled.ply"
+DOWNSAMPLED_PLY=${DOWNSAMPLE_DIR}${UUID}"_icp_merge_registered_downsampled.ply"
+COORD_JSON=${HEATMAP_DIR}${UUID}"_corrected_downsampled.json"
+HEATMAP=${HEATMAP_DIR}${UUID}"_corrected_downsampled_heatmap.png"
 
 #################################
 # Merge east and west pointcloud#
@@ -45,7 +46,32 @@ METADATA=${METADATA}
 GEO_REF_DIR=${GEO_REF_DIR}
 
 mkdir -p ${GEO_REF_DIR}
-singularity run ${SIMG_PATH}3d_geo_ref.simg -m ${METADATA} ${MERGE_PLY}
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}3d_geo_ref.simg -m ${METADATA} ${MERGE_PLY}
+
+########################
+# Downsample pointcloud#
+########################
+DOWNSAMPLE_DIR=${DOWNSAMPLE_DIR}
+MERGE_REF_PLY=${MERGE_REF_PLY}
+
+mkdir -p ${DOWNSAMPLE_DIR}
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}3d_down_sample.simg ${MERGE_REF_PLY}
+
+####################
+# Generate heatmap #
+####################
+DOWNSAMPLED_PLY=${DOWNSAMPLED_PLY}
+HEATMAP_DIR=${HEATMAP_DIR}
+ORTHO_PATH=${HPC_PATH}"*.tif"
+
+mkdir -p ${HEATMAP_DIR}
+singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}3d_heat_map.simg -d ${DOWNSAMPLED_PLY} -t ${ORTHO_PATH}
+
+
+
+
+
+
 
 ###############################################
 # Correct georeferencing of merged point cloud#
