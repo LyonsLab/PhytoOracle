@@ -10,6 +10,9 @@ rm -r geocorrect_out/
 rm -r scale_rotate_out/
 rm -r plantclip_out/
 rm -r 3d_geo_correction_out/
+rm -r downsample_out/
+rm -r heatmap_out/ 
+rm *.tif
 
 rm main_workflow_phase1.json
 rm bundle_list.json

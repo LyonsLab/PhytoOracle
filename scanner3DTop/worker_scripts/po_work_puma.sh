@@ -7,7 +7,7 @@
 #SBATCH --ntasks-per-node=94
 #SBATCH --time=12:00:00
 #module load singularity
-module load python/3.8
+#module load python/3.8
 
 export CCTOOLS_HOME=${HOME}/cctools-7.1.12-x86_64-centos7
 export PATH=${CCTOOLS_HOME}/bin:$PATH
