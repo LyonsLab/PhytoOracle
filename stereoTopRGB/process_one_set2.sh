@@ -7,8 +7,8 @@
 #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
 #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
 
-HPC_PATH="/xdisk/cjfrost/egonzalez/po_season11/PhytoOracle/stereoTopRGB/"
-SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
+HPC_PATH="/xdisk/ericlyons/data/emmanuelgonzalez/season_12/PhytoOracle/stereoTopRGB/"
+SIMG_PATH=${HPC_PATH}
 DIR_PATH=${RAW_DATA_PATH}
 DATE=$(dirname "$DIR_PATH")
 DATE=${DATE/stereoTop-}
@@ -37,7 +37,7 @@ RIGHT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_right_corrected.tif"
 #GPS_CSV=${HPC_PATH}${ORTHO_OUT}/2020-01-20/2020-01-20_coordinates_CORRECTED.csv"
 GPS_CSV=${HPC_PATH}${ORTHO_OUT}${DATE}"/"${DATE}"_coordinates_CORRECTED.csv"
 GEOJ=${HPC_PATH}"season11_multi_latlon_geno.geojson"
-GPS_UNCOR=${HPC_PATH}"/xdisk/cjfrost/egonzalez/po_season11/PhytoOracle/stereoTopRGB/"
+GPS_UNCOR=${HPC_PATH}"/xdisk/ericlyons/data/emmanuelgonzalez/season_12/PhytoOracle/stereoTopRGB/"
 
 HTTP_USER="YOUR_USERNAME"
 HTTP_PASSWORD="PhytoOracle"
@@ -57,24 +57,20 @@ ls ${LEFT_TIF}
 ls ${GPS_CSV}
 
 mkdir -p ${WORKING_SPACE}
-##singularity run -B $(pwd):/mnt --pwd /mnt docker://acicarizona/gistools --csv ${GPS_CSV} -o ${WORKING_SPACE} ${TIFS_DIR}
-#singularity run -B $(pwd):/mnt --pwd /mnt docker://emmanuelgonzalez/edit_gps:latest --csv ${GPS_CSV} ${LEFT_TIF}
 singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}edit_gps.simg --csv ${GPS_CSV} ${LEFT_TIF}
 ls ${LEFT_TIF_CORRECT}
-#ls ${RIGHT_TIF_CORRECT}
 
 # plotclip-shp > NEW
 # left
-PLOTCLIP_DIR=${PLOTCLIP_DIR}
-WORKING_SPACE=${PLOTCLIP_DIR}
-SENSOR="stereoTop"
-GEOJ=${GEOJ}
-LEFT_TIF_CORRECT=${LEFT_TIF_CORRECT}
+#PLOTCLIP_DIR=${PLOTCLIP_DIR}
+#WORKING_SPACE=${PLOTCLIP_DIR}
+#SENSOR="stereoTop"
+#GEOJ=${GEOJ}
+#LEFT_TIF_CORRECT=${LEFT_TIF_CORRECT}
 
-##singularity run -B $(pwd):/mnt --pwd /mnt docker://emmanuelgonzalez/plotclip_geo:latest --sensor ${SENSOR} --shape ${GEOJ} ${LEFT_TIF_CORRECT}
-singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}rgb_flir_plot_clip_geojson.simg --sensor ${SENSOR} --shape ${GEOJ} ${LEFT_TIF_CORRECT}
+#singularity run -B $(pwd):/mnt --pwd /mnt ${SIMG_PATH}rgb_flir_plot_clip_geojson.simg --sensor ${SENSOR} --shape ${GEOJ} ${LEFT_TIF_CORRECT}
 
 # create tarball of plotclip result
 #
-tar -cvf ${UUID}_plotclip.tar ${PLOTCLIP_DIR}
+#tar -cvf ${UUID}_plotclip.tar ${PLOTCLIP_DIR}
 

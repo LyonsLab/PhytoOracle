@@ -7,8 +7,8 @@
 #"RAW_DATA_PATH": "2018-05-15/2018-05-15__12-04-43-833",
 #"UUID": "5716a146-8d3d-4d80-99b9-6cbf95cfedfb",
 
-HPC_PATH="/xdisk/cjfrost/egonzalez/po_season11/PhytoOracle/stereoTopRGB/"
-SIMG_PATH="/xdisk/ericlyons/big_data/singularity_images/"
+HPC_PATH="/xdisk/ericlyons/data/emmanuelgonzalez/season_12/PhytoOracle/stereoTopRGB/"
+SIMG_PATH=${HPC_PATH}
 
 CLEANED_META_DIR="cleanmetadata_out/"
 TIFS_DIR="bin2tif_out/"
@@ -31,7 +31,7 @@ LEFT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_left_corrected.tif"
 RIGHT_TIF_CORRECT=${GPSCORRECT_DIR}${UUID}"_right_corrected.tif"
 #GPS_CSV=${HPC_PATH}"2020-02-18_coordinates_CORRECTED.csv"
 #GEOJ=${HPC_PATH}"season10_lettuce_multi.geojson"
-#GPS_UNCOR=${HPC_PATH}"/xdisk/cjfrost/egonzalez/po_season11/PhytoOracle/stereoTopRGB/"
+#GPS_UNCOR=${HPC_PATH}"/xdisk/ericlyons/data/emmanuelgonzalez/season_12/PhytoOracle/stereoTopRGB/"
 
 HTTP_USER="YOUR_USERNAME"
 HTTP_PASSWORD="PhytoOracle"

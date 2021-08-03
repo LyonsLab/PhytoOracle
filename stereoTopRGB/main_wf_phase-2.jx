@@ -33,7 +33,7 @@
       "outputs":
       [ GPSCORRECT_DIR + DATA_SET["UUID"] + "_left_corrected.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
       #+ [ GPSCORRECT_DIR + DATA_SET["UUID"] + "_right_corrected.tif" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      #+ [ DATA_SET["UUID"] + "_plotclip.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
 
     } for BUNDLE in BUNDLE_LIST,
   ]
