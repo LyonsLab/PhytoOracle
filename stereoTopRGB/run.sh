@@ -7,9 +7,9 @@ SIMG_PATH=${PIPE_PATH}
 OUT_PATH=${PIPE_PATH}'ortho_out/' 
 
 #---------------------------------------------Download raw data
-#singularity run ${SIMG_PATH}slack_notification.simg -m "Downloading and preparing to process stereoTop-${SCAN_DATE}." 
-#echo "> Processing ${SCAN_DATE} RGB scan."
-#ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
+singularity run ${SIMG_PATH}slack_notification.simg -m "Downloading and preparing to process stereoTop-${SCAN_DATE}." 
+echo "> Processing ${SCAN_DATE} RGB scan."
+ssh filexfer 'cd' "${PIPE_PATH}" '&& ./download.sh' ${SCAN_DATE} ${PIPE_PATH} '&& exit'
 
 # ---------------------------------------------Workflow 1
 echo "> Distributed workflow 1 of 2"
