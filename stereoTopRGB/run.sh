@@ -22,7 +22,7 @@ scancel --name=po_worker_emm
 # ---------------------------------------------Geocorrection
 echo "> Geocorrection 1 of 1"
 mkdir -p ortho_out/
-singularity exec ${SIMG_PATH}full_geocorrection.simg python3 $HOME/Lettuce_Image_Stitching/Dockerized_GPS_Correction_HPC.py -d ${OUT_PATH} -b ${PIPEPATH}bin2tif_out -s ${SCAN_DATE} -c $HOME/Lettuce_Image_Stitching/geo_correction_config.txt -l ${PIPE_PATH}season12_north_bucket_gcps.txt -r $HOME/Lettuce_Image_Stitching
+singularity exec ${SIMG_PATH}full_geocorrection.simg python3 $HOME/Lettuce_Image_Stitching/Dockerized_GPS_Correction_HPC.py -d ${OUT_PATH} -b ${PIPEPATH}bin2tif_out -s ${SCAN_DATE} -c $HOME/Lettuce_Image_Stitching/geo_correction_config.txt -l ${PIPE_PATH}season12_all_bucket_gcps.txt -r $HOME/Lettuce_Image_Stitching
 
 # ---------------------------------------------Workflow 2
 echo "> Distributed workflow 2 of 2"
