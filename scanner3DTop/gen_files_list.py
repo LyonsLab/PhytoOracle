@@ -90,6 +90,8 @@ def path_for_all_UUID(base_dir, path_list, data_sets, label, file_ending):
                 if UUID not in data_sets:
                     data_sets[UUID] = {}
                 data_sets[UUID][label] = base_dir + path + "/"
+                data_sets[UUID]['DATE'] = base_dir
+                data_sets[UUID]['SUBDIR'] = path + "/"
     return data_sets
 
 def print_json(data_sets):
