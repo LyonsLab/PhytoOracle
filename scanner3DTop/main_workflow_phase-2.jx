@@ -1,17 +1,18 @@
 {
   "define": {
-    "PREP_OUT": "preprocessing_out/",
+    "PREP_OUT": "postprocessing_out/",
+    "IND_PLAN": "individual_plants_out/",
   },
   "rules": [
 
     {
-      "command": "python3 process_bundle.py ${BUNDLE_JSON}",
+      "command": "python3 process_bundle2.py ${BUNDLE_JSON}",
       "environment": {
         "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
       },
       "inputs": [
-        "process_bundle.py",
-        "process_one_set.sh",
+        "process_bundle2.py",
+        "process_one_set2.sh",
         "bundle/bundle_" + BUNDLE["ID"] + ".json"
       ],
       "outputs":
@@ -21,7 +22,7 @@
       + [ PREP_OUT + "west_downsampled/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-west.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
       + [ PREP_OUT + "merged/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-merged.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
       + [ PREP_OUT + "merged_downsampled/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-merged.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
-      + [ PREP_OUT + "metadata/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "_updated-metadata.json" for DATA_SET in BUNDLE["DATA_SETS"] ] 
+      + [ DATA_SET["SUBDIR"] + "_individual_plants.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
      } for BUNDLE in BUNDLE_LIST,
     ]
 }

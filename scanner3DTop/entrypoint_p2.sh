@@ -1,8 +1,7 @@
 #!/bin/bash
 
-#ls *.tar | xargs -I {} tar -xvf {}
+${HOME}/cctools-7.1.12-x86_64-centos7/bin/jx2json main_workflow_phase-2.jx -a bundle_list.json > main_workflow_phase2.json
 
-#python3 gen_plot_list.py plotclip_out/ cleanmetadata_out/ LAS_FILES .las > plot_list.json
 
-/home/u31/emmanuelgonzalez/cctools-7.1.2-x86_64-centos7/bin/makeflow --jx main_workflow_phase2.jx --jx-args plot_list.json $@
-
+# -a advertise to catalog server
+${HOME}/cctools-7.1.12-x86_64-centos7/bin/makeflow -T wq --json main_workflow_phase2.json -a -r 2 -M phytooracle_3d -N phytooracle_3d -p 60221 -dall -o dall.log --disable-cache $@

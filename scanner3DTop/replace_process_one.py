@@ -76,7 +76,7 @@ def main():
                 replacing = line.split('=')[-1]
 
                 replace_file_one(replacing, f'"{args.positional}"\n')
-                #replace_file_two(replacing, f'"{args.positional}"\n')
+                replace_file_two(replacing, f'"{args.positional}"\n')
 
 
 # --------------------------------------------------
