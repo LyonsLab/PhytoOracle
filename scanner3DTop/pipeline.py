@@ -41,6 +41,11 @@ def get_args():
                         help='Reverse the order of processing list.',
                         action='store_true')
 
+    parser.add_argument('-c',
+                        '--crop',
+                        help='Crop to process.',
+                        choices=['sunflower', 'bean', 'sorghum'])
+
     parser.add_argument('-sen',
                         '--sensor',
                         help='Sensor to query.\
@@ -135,17 +140,17 @@ def main():
     process_list = list(np.setdiff1d(level_0_dates, level_1_dates))
 
     matching = [os.path.splitext(os.path.basename(s))[0].replace(f'{args.sensor}-', '') for s in level_0_list if any(xs in s for xs in process_list)]
-
+    
     if args.reverse:
-        process_list.reverse()
-
-    for item in process_list:
+        matching.reverse()
+    
+    for item in matching:
 
         for date in level_0_list:
 
             if item in date and 'none' not in date: 
-
-                scan = os.path.splitext(os.path.basename(date))[0]
+                scan = item
+                #scan = os.path.splitext(os.path.basename(date))[0]
                 if args.ortho:
                     orthomosaic_path = get_rgb_ortho(season_path, 'stereoTop', date)
 
@@ -153,9 +158,15 @@ def main():
                         cmd1 = f'iget -N 0 -PVT {orthomosaic_path}'
                         subprocess.call(cmd1, shell=True)
 
-                cmd2 = f'./run.sh {scan}'
-                subprocess.call(cmd2, shell=True)
-                print(f'INFO: {scan} processing complete.')
+                if args.crop:
+                    if args.crop in scan:
+                        cmd2 = f'./run.sh {scan}'
+                        subprocess.call(cmd2, shell=True)
+                        print(f'INFO: {scan} processing complete.')
+                else:
+                    cmd2 = f'./run.sh {scan}'
+                    subprocess.call(cmd2, shell=True)
+                    print(f'INFO: {scan} processing complete.')
 
 
 # --------------------------------------------------
