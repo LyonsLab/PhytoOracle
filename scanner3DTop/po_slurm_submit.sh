@@ -9,4 +9,4 @@
 WORK_DIR=${1}
 cd ${WORK_DIR}
 
-./run_pipeline.py --season 10 --sensor 3d
+./run_pipeline.py --season 10 --sensor scanner3DTop
