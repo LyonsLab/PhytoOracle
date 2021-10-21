@@ -20,7 +20,7 @@ rm -r downsample_out/
 rm -r heatmap_out/ 
 rm *.tif
 rm -r wq-pool*
-
+rm -f slurm-*
 rm main_workflow_phase1.json
 rm main_workflow_phase2.json
 rm bundle_list.json

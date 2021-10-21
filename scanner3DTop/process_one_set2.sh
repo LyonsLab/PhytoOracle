@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HPC_PATH="/xdisk/dukepauli/emmanuelgonzalez/season_10_test/PhytoOracle/scanner3DTop/"
+HPC_PATH="/xdisk/cjfrost/egonzalez/season_10/PhytoOracle/scanner3DTop/"
 SIMG_PATH=${HPC_PATH}
 PLANT_LOC_CLIP=${HPC_PATH}"season10_plant_detections_cleaned.csv"
 DATE="`echo ${RAW_DATA_PATH} | grep -Eo '[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}' | tail -1`"
