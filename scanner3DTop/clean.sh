@@ -5,9 +5,6 @@ rm -r preprocessing_out/
 rm -r sequential_alignment_out/
 rm -r postprocessing_out/
 rm -r individual_plants_out/
-rm -r cleanmetadata_out/
-rm -r las_out/
-rm -r plotclip_out/
 rm -r bundle/
 rm -r makeflow.failed*
 rm -r icp_registration_out/
