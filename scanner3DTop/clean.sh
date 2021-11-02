@@ -1,6 +1,8 @@
 #!/bin/bash 
 ./entrypoint_p1.sh -c
 ./entrypoint_p2.sh -c
+rm -r alignment/
+rm *_plants.tar
 rm -r preprocessing_out/
 rm -r sequential_alignment_out/
 rm -r postprocessing_out/
@@ -18,13 +20,18 @@ rm -r heatmap_out/
 rm *.tif
 rm -r wq-pool*
 rm -f slurm-*
+rm individual_plants_out/
+rm transfromation.json
 rm main_workflow_phase1.json
 rm main_workflow_phase2.json
+rm main_workflow_phase3.json
 rm bundle_list.json
 rm raw_data_files.jx 
 rm raw_data_files.json
 rm dall.log
 rm main_workflow_phase1.json.*
 rm main_workflow_phase2.json.*
+rm main_workflow_phase3.json.*
+rm main_workflow_phase3.jx.*
 rm main_workflow_phase2.jx.*
 rm main_workflow_phase1.jx.*

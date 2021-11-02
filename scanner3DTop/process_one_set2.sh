@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HPC_PATH="/xdisk/cjfrost/egonzalez/season_10/PhytoOracle/scanner3DTop/"
+HPC_PATH="/xdisk/dukepauli/emmanuelgonzalez/testing/season_10/PhytoOracle/scanner3DTop/"
 SIMG_PATH=${HPC_PATH}
 PLANT_LOC_CLIP=${HPC_PATH}"season10_plant_detections_cleaned.csv"
 DATE="`echo ${RAW_DATA_PATH} | grep -Eo '[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}' | tail -1`"
@@ -32,7 +32,7 @@ HEATMAP=${HEATMAP_DIR}${UUID}"_corrected_downsampled_heatmap.png"
 ################
 #Post-processing#
 ################
-singularity run ${SIMG_PATH}3d_postprocessing.simg -i ${HPC_PATH}sequential_alignment_out/ -o postprocessing_out -f ${SUBDIR%/} -t ${HPC_PATH}transformation.json -p ${HPC_PATH}stereoTop_full_season_clustering.csv -s 10 -d ${DATE} -l ${HPC_PATH}gcp_season_10.txt
+singularity run ${SIMG_PATH}3d_postprocessing.simg -i ${HPC_PATH}alignment/ -o postprocessing_out -f ${SUBDIR%/} -t ${HPC_PATH}transfromation.json -p ${HPC_PATH}stereoTop_full_season_clustering.csv -s 10 -d ${DATE} -l ${HPC_PATH}gcp_season_10.txt
 
 ############
 #Plant crop#
