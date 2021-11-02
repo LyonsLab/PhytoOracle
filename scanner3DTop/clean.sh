@@ -1,7 +1,5 @@
 #!/bin/bash 
-./entrypoint_p1.sh -c
-./entrypoint_p2.sh -c
-rm -r alignment/
+#rm -r alignment/
 rm *_plants.tar
 rm -r preprocessing_out/
 rm -r sequential_alignment_out/
