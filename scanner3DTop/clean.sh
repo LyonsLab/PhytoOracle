@@ -1,5 +1,5 @@
 #!/bin/bash 
-#rm -r alignment/
+rm -r alignment/
 rm *_plants.tar
 rm -r preprocessing_out/
 rm -r sequential_alignment_out/
