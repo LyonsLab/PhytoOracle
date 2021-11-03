@@ -1,6 +1,6 @@
 {
   "define": {
-    "PLANT_OUT": "plantcrop/",
+    "PLANT_OUT": "individual_plants_out/",
   },
   "rules": [
 

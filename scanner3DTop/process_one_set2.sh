@@ -2,6 +2,7 @@
 
 HPC_PATH="/xdisk/dukepauli/emmanuelgonzalez/testing/season_10/PhytoOracle/scanner3DTop/"
 SIMG_PATH=${HPC_PATH}
+DATE="`echo ${RAW_DATA_PATH} | grep -Eo '[[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}' | tail -1`"
 PLANT_CROP="individual_plants_out/"
 
 ################
