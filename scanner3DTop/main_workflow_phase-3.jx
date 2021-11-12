@@ -1,0 +1,22 @@
+{
+  "define": {
+    "PLANT_OUT": "individual_plants_out/",
+  },
+  "rules": [
+
+    {
+      "command": "python3 process_bundle_updated.py -f process_one_set3.sh ${BUNDLE_JSON}",
+      "environment": {
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      },
+      "inputs": [
+        "process_bundle_updated.py",
+        "process_one_set3.sh",
+        "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      ],
+      "outputs":
+      [ PLANT_OUT + DATA_SET["PLANT_NAME"] + "_combined_pointclouds.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ PLANT_OUT + DATA_SET["PLANT_NAME"] + "_plant_reports.tar" for DATA_SET in BUNDLE["DATA_SETS"] ]
+     } for BUNDLE in BUNDLE_LIST,
+    ]
+}

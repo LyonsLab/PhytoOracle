@@ -1,0 +1,27 @@
+{
+  "define": {
+    "PREP_OUT": "preprocessing_out/",
+  },
+  "rules": [
+
+    {
+      "command": "python3 process_bundle.py ${BUNDLE_JSON}",
+      "environment": {
+        "BUNDLE_JSON": "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      },
+      "inputs": [
+        "process_bundle.py",
+        "process_one_set.sh",
+        "bundle/bundle_" + BUNDLE["ID"] + ".json"
+      ],
+      "outputs":
+      [ PREP_OUT + "east/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-east.ply" for DATA_SET in BUNDLE["DATA_SETS"] ] 
+      + [ PREP_OUT + "east_downsampled/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-east.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ PREP_OUT + "west/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-west.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ PREP_OUT + "west_downsampled/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-west.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ PREP_OUT + "merged/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-merged.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ PREP_OUT + "merged_downsampled/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "__Top-heading-merged.ply" for DATA_SET in BUNDLE["DATA_SETS"] ]
+      + [ PREP_OUT + "metadata/" + DATA_SET["SUBDIR"] + "/" + DATA_SET["UUID"] + "_updated-metadata.json" for DATA_SET in BUNDLE["DATA_SETS"] ] 
+     } for BUNDLE in BUNDLE_LIST,
+    ]
+}
