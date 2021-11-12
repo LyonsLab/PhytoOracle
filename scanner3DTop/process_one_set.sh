@@ -1,9 +1,9 @@
 #!/bin/bash
 
-HPC_PATH="/xdisk/ericlyons/data/emmanuelgonzalez/testing/PhytoOracle/scanner3DTop/"
+HPC_PATH="/xdisk/ericlyons/data/emmanuelgonzalez/testing/season_12/PhytoOracle/scanner3DTop/"
 SIMG_PATH=${HPC_PATH}
 
 ################
 #Pre-processing#
 ################
-singularity run ${SIMG_PATH}3d_preprocessing.simg -l ${SIMG_PATH}gcp_season_10.txt -o preprocessing_out -i ${HPC_PATH}${RAW_DATA_PATH}
+singularity run ${SIMG_PATH}3d_preprocessing.simg -l ${SIMG_PATH}season12_all_bucket_gcps.txt -o preprocessing_out -i ${HPC_PATH}${RAW_DATA_PATH}
